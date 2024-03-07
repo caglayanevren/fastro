@@ -1,0 +1,56 @@
+---
+import { Image } from "astro:assets";
+import Layout from "~layouts/Layout.astro";
+
+type Props = {
+    title: string;
+    description: string;
+    seoImage?: string;
+    category: string;
+    collection: string;
+    spot: string;
+    awarded?: boolean;
+    coverImage: ImageMetadata;
+    otherImages?: ImageMetadata[];
+};
+
+const {
+    title,
+    description,
+    seoImage,
+    category,
+    collection,
+    spot,
+    awarded = false,
+    coverImage,
+    otherImages,
+} = Astro.props;
+
+import AWARD_IMAGE from "../../public/AWARD_WINNER.png";
+import CoverImage from "~components/coverImage.astro";
+---
+
+<Layout title={title} description={description} seoImage={seoImage}>
+    <h6 class="font-light text-mavi text-sm uppercase"><a href={`/${collection}/`}>{category}</a></h6>
+    <h1 class="font-zilla text-5xl my-12">{title}</h1>
+
+    <CoverImage src={coverImage} alt={title} />
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 my-4 lg:my-8">
+        <div>
+            <h2 class="font-zilla text-5xl mt-0 mb-8">{spot}</h2>
+            {
+                awarded && (
+                    <a href="/oduller/">
+                        <Image src={AWARD_IMAGE} alt={title} class="w-1/3" />
+                    </a>
+                )
+            }
+        </div>
+        <div>
+            <slot />
+        </div>
+    </div>
+
+    {otherImages && otherImages.map((image) => <Image src={image} alt={title} class="w-full my-4" />)}
+</Layout>

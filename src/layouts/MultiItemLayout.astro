@@ -1,0 +1,27 @@
+---
+import Layout from "~layouts/Layout.astro";
+
+type Props = {
+    title: string;
+    description: string;
+    category: string;
+    collection: string;
+    spot?: string;
+    coverImage: ImageMetadata;
+};
+
+const { title, description, category, collection, spot, coverImage } = Astro.props;
+---
+
+<Layout title={title} description={description} seoImage={coverImage.src}>
+    <p class="font-light text-mavi text-sm uppercase"><a href={`/${collection}/`}>{category}</a></p>
+    <h1 class="font-zilla text-5xl my-12">{title}</h1>
+    {
+        spot && (
+            <h2 class="font-zilla text-4xl mt-0 mb-0 pt-3 pb-16 w-full lg:w-10/12">
+                <Fragment set:html={spot} />
+            </h2>
+        )
+    }
+    <slot />
+</Layout>

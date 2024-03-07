@@ -10,7 +10,8 @@ module.exports = {
       options: {
         parser: 'astro',
         tabWidth: 4,
-        useTabs: true
+        useTabs: true,
+        singleQuote: false
       }
     }
   ]

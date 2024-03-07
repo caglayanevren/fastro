@@ -1,29 +1,36 @@
 {
-  "name": "finarkurumsal-official-website",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro check && astro build",
-    "preview": "astro preview",
-    "astro": "astro",
-    "lint": "prettier --write  \"**/*.{js,jsx,ts,tsx,md,mdx,astro}\" && eslint --fix \"src/**/*.{js,ts,jsx,tsx,astro}\""
-  },
-  "dependencies": {
-    "@astrojs/check": "^0.5.5",
-    "@astrojs/tailwind": "^5.1.0",
-    "astro": "^4.4.1",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5.3.3"
-  },
-  "devDependencies": {
-    "@typescript-eslint/parser": "^7.0.2",
-    "eslint": "^8.56.0",
-    "eslint-plugin-astro": "^0.31.4",
-    "eslint-plugin-jsx-a11y": "^6.8.0",
-    "prettier": "^3.2.5",
-    "prettier-config-standard": "^7.0.0",
-    "prettier-plugin-astro": "^0.13.0"
-  }
+    "name": "finarkurumsal-official-website",
+    "type": "module",
+    "version": "0.0.1",
+    "scripts": {
+        "dev": "astro dev",
+        "start": "astro dev",
+        "build": "astro check && astro build",
+        "preview": "astro preview",
+        "astro": "astro",
+        "lint": "prettier --write  \"**/*.{js,jsx,ts,tsx,md,mdx,astro}\" && eslint --fix \"src/**/*.{js,ts,jsx,tsx,astro}\""
+    },
+    "dependencies": {
+        "@astrojs/check": "^0.5.5",
+        "@astrojs/mdx": "^2.1.1",
+        "@astrojs/tailwind": "^5.1.0",
+        "@fontsource-variable/open-sans": "^5.0.25",
+        "@fontsource/zilla-slab": "^5.0.8",
+        "astro": "^4.4.13",
+        "astro-analytics": "^2.7.0",
+        "astro-imagetools": "^0.9.0",
+        "tailwindcss": "^3.4.1",
+        "typescript": "^5.3.3"
+    },
+    "devDependencies": {
+        "@tailwindcss/typography": "^0.5.10",
+        "@types/node": "^20.11.20",
+        "@typescript-eslint/parser": "^7.0.2",
+        "eslint": "^8.56.0",
+        "eslint-plugin-astro": "^0.31.4",
+        "eslint-plugin-jsx-a11y": "^6.8.0",
+        "prettier": "^3.2.5",
+        "prettier-config-standard": "^7.0.0",
+        "prettier-plugin-astro": "^0.13.0"
+    }
 }

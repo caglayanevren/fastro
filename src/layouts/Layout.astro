@@ -1,0 +1,34 @@
+---
+import "~/styles/main.css";
+
+import BaseHead from "~/components/base-head.astro";
+import Nav from "~/components/Nav.astro";
+import Footer from "~/components/Footer.astro";
+//import { manifest } from "astro:ssr-manifest";
+
+import { SITE_TITLE, SITE_DESCRIPTION, SEO_IMAGE } from "../config";
+// Props
+export interface Props {
+    title?: string;
+    description?: string;
+    seoImage?: string;
+}
+
+const { title = SITE_TITLE, description = SITE_DESCRIPTION, seoImage = SEO_IMAGE } = Astro.props as Props;
+---
+
+<!doctype html>
+<html lang="tr">
+    <head>
+        <BaseHead title={title} description={description} seoImage={seoImage} />
+    </head>
+    <body class="antialiased">
+        <Nav />
+        <main id="content" role="main">
+            <div class="container max-w-screen-xl px-4 pt-12">
+                <slot />
+            </div>
+        </main>
+        <Footer />
+    </body>
+</html>

@@ -1,0 +1,45 @@
+---
+import { Image } from "astro:assets";
+
+type Props = {
+    title: string;
+    spot?: string;
+    singleImage?: ImageMetadata;
+    sliderImages?: ImageMetadata[];
+    awarded: boolean;
+};
+
+const { title, spot, singleImage, sliderImages, awarded } = Astro.props;
+
+import AWARD_IMAGE from "../../public/AWARD_WINNER.png";
+---
+
+<h3 class="multiitemonetitle"><span>{title}</span></h3>
+
+{
+    singleImage ? (
+        <Image src={singleImage} alt={title} class="w-full my-4" />
+    ) : sliderImages ? (
+        sliderImages.map((image) => <Image src={image} alt={title} class="w-full my-4" />)
+    ) : (
+        "/404"
+    )
+}
+
+{
+    spot && (
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 my-4 lg:my-8">
+            <div>
+                <h2 class="font-zilla font-light text-5xl/tight mt-0 mb-8">{spot}</h2>
+                {awarded && (
+                    <a href="/oduller/">
+                        <Image src={AWARD_IMAGE} alt={title} class="w-1/3" />
+                    </a>
+                )}
+            </div>
+            <div>
+                <slot />
+            </div>
+        </div>
+    )
+}

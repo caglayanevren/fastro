@@ -1,0 +1,39 @@
+---
+import { getCollection } from "astro:content";
+import HoverItem from "~components/HoverItem.astro";
+import MoreInfo from "~components/MoreInfo.astro";
+import Layout from "~layouts/Layout.astro";
+
+const allFR = await getCollection("faaliyet-raporu");
+
+const TITLE = "Faaliyet Raporu";
+const DESCRIPTION = `Kurumsal raporlama alanında ${new Date().getFullYear() - new Date("1994").getFullYear()} yıllık bir deneyime sahibiz. Uzun süredir birlikte çalışan işinin ehli geniş kadromuzla 2021&nbsp;yılında BIST&nbsp;30’da 10, BIST&nbsp;50’de ise 13&nbsp;şirkete faaliyet raporu alanında hizmet verdik.`;
+const MOREINFO = `<p>Yüzlerce sayfaya sığmayan kurum faaliyetlerini bir çırpıda hedef kitlenize anlatacak çözümler yaratıyoruz.</p>
+    <p>Kurumlar saydamlaştıkça, raporlama yapılan konular da artıyor, gelişiyor. Biz iletişimciler artık daha zor bir problemle karşı karşıyayız: İçerik olarak bu kadar kapsamlı raporlarda, okurun ilgisini nasıl koruyacağız?</p>
+    <p>Yıllık raporlar, iş dünyasında yer alanların yanı sıra bu alanda uzman olmayan ve yeterli finans bilgisi bulunmayan kişilere de bilgi verecek biçimde, olabildiğince yalın bir dille kaleme alınmalıdır. Finar olarak bu sorunu, yaratıcılığımızı ateşleyen bir meydan okuma olarak görüyoruz.</p>
+    <p>Biliyoruz ki her raporda, hem şirketin yıllık performansı, gelecek potansiyeli ve sürdürülebilir büyümesiyle ilgili gerçekçi ve açık bir fotoğraf oluşturmalıyız, hem de bu fotoğrafın her pikseline hızlı, kolay ve anlaşılır kestirme yollar yaratmalıyız.</p>
+    <p>Raporun ana mesajını açık, yalın, kanıtlarla desteklenmiş, yaratıcı ve cesur bir şekilde ortaya koyabildiğimiz oranda kendimizi başarılı sayıyoruz.</p>
+    <p>İşimizi, raporun entelektüel inandırıcılığını artırmanın yanı sıra bu inancı pekiştirecek mesajları en etkili ve cesur şekilde okurla buluşturmak olarak görüyoruz.</p>`;
+
+const { title = TITLE, description = DESCRIPTION, moreinfotext = MOREINFO } = Astro.props;
+---
+
+<Layout title={title} description={description}>
+    <a href="/">HOME</a>
+    <h1 class="font-zilla text-5xl mb-[30px]">{title}</h1>
+    <h3 class="font-zilla text-4xl text-mavi mb-[36px]"><Fragment set:html={description} /></h3>
+    <MoreInfo text={moreinfotext} />
+    <div class="grid auto-rows-max grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 xl:gap-8">
+        {
+            allFR.map((fr) => (
+                <HoverItem
+                    slug={fr.slug}
+                    title={fr.data.title}
+                    thumbnail={fr.data.thumbnail}
+                    thumbWidth={fr.data.thumbnail.width}
+                    thumbHeight={fr.data.thumbnail.height}
+                />
+            ))
+        }
+    </div>
+</Layout>
