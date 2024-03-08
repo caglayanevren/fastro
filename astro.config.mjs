@@ -6,6 +6,7 @@ import tailwindcssNesting from "tailwindcss/nesting";
 import { astroImageTools } from "astro-imagetools";
 //import astroImagePlugin from "astro-imagetools/plugin";
 import mdx from "@astrojs/mdx";
+import react from "@astrojs/react";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // https://astro.build/config
@@ -17,6 +18,7 @@ export default defineConfig({
             applyBaseStyles: false,
         }),
         astroImageTools,
+        react(),
     ],
     vite: {
         //plugins: [astroImagePlugin],

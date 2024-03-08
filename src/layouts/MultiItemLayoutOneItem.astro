@@ -1,5 +1,8 @@
 ---
 import { Image } from "astro:assets";
+//import EmblaCarousel from "~components/EmblaCarousel/EmblaCarousel";
+import Embla from "~components/EmblaCarousel/EmblaCarousel";
+import type { EmblaOptionsType } from "embla-carousel";
 
 type Props = {
     title: string;
@@ -12,6 +15,8 @@ type Props = {
 const { title, spot, singleImage, sliderImages, awarded } = Astro.props;
 
 import AWARD_IMAGE from "../../public/AWARD_WINNER.png";
+
+const OPTIONS: EmblaOptionsType = { dragFree: false, loop: true };
 ---
 
 <h3 class="multiitemonetitle"><span>{title}</span></h3>
@@ -20,7 +25,8 @@ import AWARD_IMAGE from "../../public/AWARD_WINNER.png";
     singleImage ? (
         <Image src={singleImage} alt={title} class="w-full my-4" />
     ) : sliderImages ? (
-        sliderImages.map((image) => <Image src={image} alt={title} class="w-full my-4" />)
+        // sliderImages.map((image) => <Image src={image} alt={title} class="w-full my-4" />)
+        <Embla slides={sliderImages} options={OPTIONS} client:load />
     ) : (
         "/404"
     )
