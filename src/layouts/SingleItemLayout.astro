@@ -27,14 +27,14 @@ const {
 } = Astro.props;
 
 import AWARD_IMAGE from "../../public/AWARD_WINNER.png";
-import CoverImage from "~components/coverImage.astro";
+import SingleItemCoverImage from "~components/SingleItemCoverImage.astro";
 ---
 
 <Layout title={title} description={description} seoImage={seoImage}>
     <h6 class="font-light text-mavi text-sm uppercase"><a href={`/${collection}/`}>{category}</a></h6>
     <h1 class="font-zilla text-5xl my-12">{title}</h1>
 
-    <CoverImage src={coverImage} alt={title} />
+    <SingleItemCoverImage src={coverImage} alt={title} />
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 my-4 lg:my-8">
         <div>
