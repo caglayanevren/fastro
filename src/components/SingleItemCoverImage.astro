@@ -10,4 +10,11 @@ type Props = {
 const { src, alt = "" } = Astro.props;
 ---
 
-<Image src={src} alt={alt} class="my-4 w-full" />
+<Image
+    loading="eager"
+    src={src}
+    alt={alt}
+    class="my-4 w-full"
+    widths={[640, 768, 1024, src.width]}
+    sizes={`(max-width: 640px) 608px, (max-width: 768px) 736px, (max-width: 1024px) 992px, (max-width: 1280px) 1248px, (min-width: 1280px) ${src.width}px`}
+/>
