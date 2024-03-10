@@ -63,10 +63,10 @@ export const EmblaCarousel: React.FC<PropType> = (props) => {
             </div>
 
             <div className="embla__buttons">
-                <button className="embla__button embla__button--prev" onClick={scrollPrev}>
+                <button aria-label="Önceki" className="embla__button embla__button--prev" onClick={scrollPrev}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="64px" height="20px" viewBox="0 0 64 20"><polygon points="9.1,0 10.6,1.5 3.4,9 64,9 64,11 3.4,11 10.7,18.5 9.1,20 0,10.7 0,9.3 " fill="#333" /></svg>
                 </button>
-                <button className="embla__button embla__button--next" onClick={scrollNext}>
+                <button aria-label="Sonraki" className="embla__button embla__button--next" onClick={scrollNext}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="64px" height="20px" viewBox="0 0 64 20"><polygon points="64,9.3 64,10.7 54.9,20 53.3,18.5 60.6,11 0,11 0,9 60.6,9 53.4,1.5 54.9,0" fill="#333" /></svg>
                 </button>
             </div>

@@ -2,7 +2,7 @@
 title: Erdemir 2022 Entegre Faaliyet Raporu
 spot: Cevheri değere dönüştürmek
 type: singleItem
-category: Faaliyet Raporu
+category: Entegre Faaliyet Raporu
 thumbnail: ./2022_ERDEMIR_EFR_0_Thumbnail.png
 awarded: false
 coverImage: "./2022_ERDEMIR_kapak_renkli.png"

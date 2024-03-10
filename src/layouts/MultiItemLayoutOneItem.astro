@@ -22,7 +22,7 @@ const OPTIONS: EmblaOptionsType = { dragFree: false, loop: true };
 
 {
     singleImage ? (
-        <Image src={singleImage} alt={title} class="w-full my-4" />
+        <Image loading="eager" src={singleImage} alt={title} class="w-full my-4" />
     ) : sliderImages ? (
         // sliderImages.map((image) => <Image src={image} alt={title} class="w-full my-4" />)
         <Embla slides={sliderImages} options={OPTIONS} client:load />

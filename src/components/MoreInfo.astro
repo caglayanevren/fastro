@@ -4,14 +4,12 @@ import chevDown from "/src/images/chevron-down-light.svg";
 const { text } = Astro.props;
 ---
 
-<h4 class="moreinfo mb-[20px]">
+<h3 class="moreinfo mb-[20px]">
     <span>{DAHA_FAZLA_BILGI}</span>
     <div class="absolute z-10 inline bg-[#fff] pl-[1.5rem] top-0 right-0 p-0 m-0">
         <img src={chevDown.src} width="16px" height="18px" alt="" />
     </div>
-</h4>
-<div
-    class="columns-1 md:columns-2 lg:columns-3 pb-6 mb-6 tracking-[.1px] prose prose-p:mb-6 prose-p:mt-0 prose-p:break-inside-avoid"
->
+</h3>
+<div class="columns-1 md:columns-2 lg:columns-3 pb-6 mb-6 tracking-[.1px] prose prose-p:break-inside-avoid">
     <Fragment set:html={text} />
 </div>
