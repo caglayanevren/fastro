@@ -68,19 +68,5 @@
             margin-top: -1px;
             background-color: #e1e8ed;
         }
-        p {
-            margin-bottom: 0.75rem;
-        }
-        /* &::before {
-            z-index: 0;
-            content: "\2304";
-            position: absolute;
-            top: 50%;
-            right: 0;
-            width: 30px;
-            height: 100%;
-            margin-top: -1px;
-            font-size: 36px;
-        } */
     }
 }

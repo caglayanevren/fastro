@@ -47,6 +47,6 @@ const { Content } = await entry.render();
             </Prose>
         </MultiItemLayout>
     ) : (
-        "/404"
+        (Astro.response.status = 404) && (Astro.response.statusText = "neither 'singleItem' nor 'multiItem'")
     )
 }
