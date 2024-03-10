@@ -1,9 +1,7 @@
 ---
 import { Image } from "astro:assets";
-//import EmblaCarousel from "~components/EmblaCarousel/EmblaCarousel";
 import Awardimage from "~components/Awardimage.astro";
-import Embla from "~components/EmblaCarousel/EmblaCarousel";
-import type { EmblaOptionsType } from "embla-carousel";
+import Swiper from "~components/swiper/swiper.astro";
 
 type Props = {
     title: string;
@@ -14,8 +12,6 @@ type Props = {
 };
 
 const { title, spot, singleImage, sliderImages, awarded } = Astro.props;
-
-const OPTIONS: EmblaOptionsType = { dragFree: false, loop: true };
 ---
 
 <h3 class="multiitemonetitle"><span>{title}</span></h3>
@@ -24,10 +20,10 @@ const OPTIONS: EmblaOptionsType = { dragFree: false, loop: true };
     singleImage ? (
         <Image loading="eager" src={singleImage} alt={title} class="w-full my-4" />
     ) : sliderImages ? (
-        // sliderImages.map((image) => <Image src={image} alt={title} class="w-full my-4" />)
-        <Embla slides={sliderImages} options={OPTIONS} client:load />
+        //sliderImages.map((image) => <Image src={image} alt={title} class="w-full my-4" />)
+        <Swiper title={title} swiperimages={sliderImages} />
     ) : (
-        "/404"
+        (Astro.response.status = 404) && (Astro.response.statusText = "neither 'singleImage' nor 'sliderImage'")
     )
 }
 
