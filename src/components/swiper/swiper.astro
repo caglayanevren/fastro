@@ -1,0 +1,88 @@
+---
+import { Image } from "astro:assets";
+
+type Props = {
+    swiperimages: ImageMetadata[];
+    title: string;
+};
+
+const { swiperimages, title } = Astro.props;
+---
+
+<div class="swiper mainswiper">
+    <div class="swiper-wrapper">
+        {
+            swiperimages.map((swiperimage, index) => (
+                <div class="swiper-slide">
+                    <Image src={swiperimage} class="my-0" loading="lazy" alt={`${title} - ${index + 1}`} />
+                    <div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
+                </div>
+            ))
+        }
+    </div>
+    <div class="swiper-pagination bottom-0"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+</div>
+<style>
+    .swiper {
+        --swiper-navigation-color: #333;
+        --swiper-navigation-size: 40px;
+        --swiper-navigation-sides-offset: 20px;
+        --swiper-pagination-bottom: 0px;
+        --swiper-pagination-color: #666;
+        --swiper-pagination-bullet-inactive-color: #fff;
+        --swiper-pagination-bullet-inactive-opacity: 1;
+        --swiper-pagination-bullet-width: 8px;
+        --swiper-pagination-bullet-height: 8px;
+    }
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-size: cover;
+        background-position: center;
+    }
+    .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .swiper-pagination {
+        display: flex;
+        padding: 12px 0px 12px 10px;
+        background-color: #444;
+    }
+    .swiper-pagination-bullet {
+        cursor: pointer;
+    }
+    .swiper-button-prev {
+        background-image: url(/swiper-prev.svg) !important;
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        background-position: center;
+        width: calc((var(--swiper-navigation-size) / 40) * 64) !important;
+    }
+
+    .swiper-button-next {
+        background-image: url(/swiper-next.svg) !important;
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        background-position: center;
+        width: calc((var(--swiper-navigation-size) / 40) * 64) !important;
+    }
+
+    .swiper-button-next::after {
+        display: none;
+    }
+
+    .swiper-button-prev::after {
+        display: none;
+    }
+</style>
+
+<script src="~libs/swiper.js"></script>
