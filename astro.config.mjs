@@ -10,7 +10,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // https://astro.build/config
 export default defineConfig({
-    //site: "https://www.finarkurumsal.com/",
+    site: "https://fastro.vercel.app/",
     integrations: [
         mdx(),
         tailwind({
