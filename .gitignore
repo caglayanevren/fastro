@@ -13,9 +13,15 @@ yarn-error.log*
 pnpm-debug.log*
 astro-debug.log*
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> swiper
+=======
+=======
+
+>>>>>>> 994d9fb (add log to gitignore)
+>>>>>>> 9f7b4c0 (add log to gitignore)
 
 # environment variables
 .env
