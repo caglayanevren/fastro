@@ -4,8 +4,10 @@ import chevDown from "/src/images/chevron-down-light.svg";
 const { text } = Astro.props;
 ---
 
-<h3 class="moreinfo mb-[20px]">
-    <span>{DAHA_FAZLA_BILGI}</span>
+<h3
+    class="text-base font-light mb-[20px] relative after:z-0 after:content-[''] after:top-2/4 after:left-0 after:w-full after:h-[1px] after:-mt-[1px] after:bg-[#e1e8ed] after:absolute"
+>
+    <span class="bg-white relative pr-[1.5rem] z-10">{DAHA_FAZLA_BILGI}</span>
     <div class="absolute z-10 inline bg-[#fff] pl-[1.5rem] top-0 right-0 p-0 m-0">
         <img src={chevDown.src} width="16px" height="18px" alt="" />
     </div>

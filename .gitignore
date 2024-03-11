@@ -12,7 +12,10 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 astro-debug.log*
+<<<<<<< HEAD
 
+=======
+>>>>>>> swiper
 
 # environment variables
 .env

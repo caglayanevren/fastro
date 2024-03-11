@@ -1,6 +1,5 @@
 ---
 import { getCollection } from "astro:content";
-import Prose from "~components/Prose.astro";
 import SingleItemLayout from "~layouts/SingleItemLayout.astro";
 import MultiItemLayout from "~layouts/MultiItemLayout.astro";
 
@@ -29,9 +28,7 @@ const { Content } = await entry.render();
             coverImage={entry.data.coverImage}
             otherImages={entry.data.otherImages}
         >
-            <Prose>
-                <Content />
-            </Prose>
+            <Content />
         </SingleItemLayout>
     ) : itemType == "multiItem" ? (
         <MultiItemLayout
@@ -42,11 +39,9 @@ const { Content } = await entry.render();
             category={entry.data.category}
             coverImage={entry.data.coverImage}
         >
-            <Prose>
-                <Content />
-            </Prose>
+            <Content />
         </MultiItemLayout>
     ) : (
-        "/404"
+        (Astro.response.status = 404) && (Astro.response.statusText = "neither 'singleItem' nor 'multiItem'")
     )
 }
