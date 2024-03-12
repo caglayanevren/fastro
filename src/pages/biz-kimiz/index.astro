@@ -1,0 +1,18 @@
+---
+import Layout from "~layouts/Layout.astro";
+import { Content, frontmatter } from "../../content/finar/biz-kimiz.md";
+import VimeoVideo from "../../components/VimeoVideo.astro";
+---
+
+<Layout title={frontmatter.title} seoImage={frontmatter.seoImage}>
+    <VimeoVideo id={frontmatter.videoID} />
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 my-4 lg:my-8">
+        <div class="lg:col-span-4">
+            <h2 class="font-zilla text-5xl mt-8 lg:mt-0 mb-8">{frontmatter.title}</h2>
+        </div>
+        <div class="lg:col-span-8 prose prose-p:mb-4 prose-p:mt-0 prose-h6:text-mavi prose-h6:mb-0 prose-h6:font-base">
+            <Content />
+        </div>
+    </div>
+</Layout>

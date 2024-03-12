@@ -1,0 +1,27 @@
+---
+title: Biz Kimiz?
+seoImage: /images/aile/FINARTopluOfis.jpg
+videoID: "151008947"
+---
+
+Türkiye'nin finansal iletişimine odaklanmış ilk reklam ajansı olarak temellerimiz, 1994 yılında Londra merkezli çok uluslu bir şirket olan Lloyd Northover Citigate ile yapılan ortaklık anlaşmasıyla atıldı. Finar Lloyd Northover Citigate (FLNC) adıyla ve yabancı ortağımızdan edindiğimiz know-how ile Türkiye'de o güne dek kurumların kendi bünyelerinde ya da reklam ajanslarıyla üretmeye çalıştığı yıllık raporları, temel faaliyet alanımız olarak belirleyerek yola çıktık. Başlangıçta müşterilerimize sadece anahtar teslim faaliyet raporu üretmek olan çalışmalarımıza kısa zaman içinde, kurum/marka kimliği, halka arz iletişimi ve diğer tüm markalama araçlarının üretimini de ekleyerek yetkinliklerimizi çeşitlendirdik.
+
+![alt](~images/aile/FINARTopluOfis.jpg)
+
+###### Dünyanın en iyi raporlama ajanslarından biriyiz.
+
+Halka açılmasının ardından Lloyd Northover Citigate ile 2000 yılında yollarımızı dostça ayırdık, bununla birlikte kuruluşumuzda büyük emekleri olan bu şirket ile iş birliği olanaklarını değerlendirmeyi sürdürdük. Kurumsal tarihimiz açısından büyük önem taşıyan bu gelişmenin ardından küresel ölçekte yatırımcı ilişkileri dünyasında yankı uyandıran çok sayıda faaliyet raporuna imza atarken, TAV Havalimanları 2010 Faaliyet Raporu ile "Dünyanın En İyi Faaliyet Raporu" ödülünü ilk kez Türkiye'ye kazandırdık. 2014 yılında ise ARC jürisi tarafından "Dünyanın En İyi Raporlama Ajansı" seçildik. 2019 yılında ARC Awards’ta dünyanın en iyi kurumsal tasarım ajansı ve müşterilerine en çok ödül kazandıran ajansı olarak Titanium Award ile ödüllendirildik. Aynı yıl, BNP Paribas Cardif 2018 Faaliyet Raporu ile “Türkiye’nin En İyisi” ve “Baskı/Üretim” kategorisinin en iyisi; Güneş Sigorta 2018 Faaliyet Raporu ile “Tasarım” kategorisinde dünyanın en iyi faaliyet raporu ödülüne layık görüldük.
+
+2021 yılında ARC Awards’ta ödüllü çalışmaların yarıştığı Grand Award kategorisinde, Halkbank için ürettiğimiz 2020 Faaliyet Raporu, “Türkiye’nin En İyisi” seçildi.
+
+###### FinarApp ile yatırımcı ilişkileri alanında Türkiye'de bir ilki gerçekleştirdik.
+
+Kuruluşumuzdan bu yana 360 derece hizmet yaklaşımını benimsemiş bir şirket olarak yatırımcı ilişkileri alanındaki dijital dönüşüme hızla uyum sağlayarak her türlü mobil iletişim teknolojisiyle uyumlu çok sayıda faaliyet raporu mikro sitesi, yatırımcı ilişkileri web sitesi ve mobil uygulamasını hayata geçirdik. Türkiye'de bir ilk olarak, halka açık şirketlerle yatırımcılar arasındaki iletişimi anlık hale getirmek için hizmete sunduğumuz iOS ve Android uyumlu FinarApp Yatırımcı İlişkileri Platformu'nun lansmanını 2016 yılı başında yaptık. FinarApp ile şirketler, herhangi bir kodlama yapmadan kolay ve hızlı bir şekilde kendi yatırımcı ilişkileri uygulamalarını üretip, Apple App Store ve Google Play'de yayınlayabiliyor ve yönetebiliyorlar. FinarApp ile üretilen ve yönetilmekte olan Anadolu Efes, Arçelik, Ford Otosan, İş Yatırım, Özak GYO ve Şişecam yatırımcı ilişkileri uygulamalarına ilgili mağazalardan ulaşabilirsiniz.
+
+###### Markalama ve marka kimliği oluşturma ana iş alanlarımızdan biridir.
+
+Finar olarak en iyi bildiğimiz işlerden biri de markalamadır. Gerek kurumsal gerekse tüketici markaları geliştirme konusunda bugüne kadar pek çok başarılı işe imza attık. 1997 yılında Alternatifbank'ı ABank'a dönüştürdük. Ata Yatırım'a, İngiliz ortağımız Citigate ile birlikte modern bir marka kimliği inşa ettik. Ata Grubu, hâlâ bu marka kimliğini kullanmaktadır. Kuruluşumuzdan itibaren Akiş GYO, ByLati, Gedik Yatırım, Hedef Grup, İGA, İnveo, İş Yatırım, Taya Grup, Torunlar GYO, Türkiye İş Bankası, VakıfBank, Vakıf Emeklilik, Türk Telekom, YTÜ ve YTÜ Yıldız Teknopark gibi birçok kurumsal marka kimliğini hayata geçirdik.
+
+###### Başarılı halka arz kampanyalarına imza attık.
+
+Özellikle raporlama alanındaki deneyimimiz, paydaşlara yönelik içerik üretme ve mesaj oluşturma yeteneğimiz sayesinde bugüne kadar birçok başarılı halka arz kampanyası gerçekleştirdik. 2004 yılında DESA, 2007 yılında İş Yatırım, 2011 yılında Akfen GYO, 2015 yılında Via GYO ve 2019 yılında Kontrolmatik halka arzlarından her biri kendi başına bir başarı hikâyesidir.

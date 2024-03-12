@@ -26,6 +26,9 @@ export default {
             fontWeight: {
                 zilla: "300",
             },
+            gridTemplateColumns: {
+                "3/6": "33.3% 66.6%",
+            },
             typography: {
                 DEFAULT: {
                     css: {

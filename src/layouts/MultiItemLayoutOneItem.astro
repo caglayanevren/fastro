@@ -45,7 +45,7 @@ const { title, spot, singleImage, sliderImages, awarded } = Astro.props;
                 <h2 class="font-zilla font-light text-5xl/tight mt-0 mb-8">{spot}</h2>
                 {awarded && <Awardimage alt={title} />}
             </div>
-            <div>
+            <div class="prose prose-p:mb-4">
                 <slot />
             </div>
         </div>

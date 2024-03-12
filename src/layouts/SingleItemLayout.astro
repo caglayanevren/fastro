@@ -43,7 +43,7 @@ import Awardimage from "~components/Awardimage.astro";
             <h2 class="font-zilla text-5xl mt-0 mb-8">{spot}</h2>
             {awarded && <Awardimage alt={title} />}
         </div>
-        <div>
+        <div class="prose prose-p:mb-4">
             <slot />
         </div>
     </div>
