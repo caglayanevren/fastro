@@ -23,11 +23,11 @@ export default defineConfig({
         optimizeDeps: {
             exclude: ["imagetools-core"],
         },
-        resolve: {
-            alias: {
-                "~": path.resolve(__dirname, "./src"),
-            },
-        },
+        //resolve: {
+        //    alias: {
+        //        "~": path.resolve(__dirname, "./src"),
+        //    },
+        //},
         css: {
             postcss: {
                 plugins: [tailwindcssNesting()],

@@ -5,6 +5,8 @@
         "strictNullChecks": true,
         "allowJs": true,
         "paths": {
+            "~images/*": ["src/images/*"],
+            "~content/*": ["src/content/*"],
             "~components/*": ["src/components/*"],
             "~layouts/*": ["src/layouts/*"],
             "~*": ["src/*"]

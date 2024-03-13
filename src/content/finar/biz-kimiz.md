@@ -2,6 +2,7 @@
 title: Biz Kimiz?
 seoImage: /images/aile/FINARTopluOfis.jpg
 videoID: "151008947"
+VideoTitle: "Finar: Bilanço okumayı bilen reklam ajansı"
 ---
 
 Türkiye'nin finansal iletişimine odaklanmış ilk reklam ajansı olarak temellerimiz, 1994 yılında Londra merkezli çok uluslu bir şirket olan Lloyd Northover Citigate ile yapılan ortaklık anlaşmasıyla atıldı. Finar Lloyd Northover Citigate (FLNC) adıyla ve yabancı ortağımızdan edindiğimiz know-how ile Türkiye'de o güne dek kurumların kendi bünyelerinde ya da reklam ajanslarıyla üretmeye çalıştığı yıllık raporları, temel faaliyet alanımız olarak belirleyerek yola çıktık. Başlangıçta müşterilerimize sadece anahtar teslim faaliyet raporu üretmek olan çalışmalarımıza kısa zaman içinde, kurum/marka kimliği, halka arz iletişimi ve diğer tüm markalama araçlarının üretimini de ekleyerek yetkinliklerimizi çeşitlendirdik.

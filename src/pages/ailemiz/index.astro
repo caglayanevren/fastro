@@ -1,0 +1,29 @@
+---
+import Layout from "~layouts/Layout.astro";
+import { Content, frontmatter } from "~content/finar/ailemiz.mdx";
+import ContentLayout2Column1248 from "~layouts/ContentLayout-2Column-12-4-8.astro";
+---
+
+<Layout title={frontmatter.title} seoImage={frontmatter.seoImage}>
+    <ContentLayout2Column1248 title={frontmatter.title} subtitle={frontmatter.subtitle}>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
+            {
+                /*
+                items &&
+                items.map((item: svgType) => (
+                    <FinarsalGosterge
+                    icon={item.icon}
+                    number={item.number}
+                    text={item.text}
+                    bgColor={item.bgColor}
+                    iconColor={item.iconColor}
+                    lineColor={item.lineColor}
+                            textColor={item.textColor}
+                            />
+                            ))
+                            */
+            }
+        </div>
+        <Content />
+    </ContentLayout2Column1248>
+</Layout>
