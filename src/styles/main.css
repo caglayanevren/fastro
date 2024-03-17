@@ -23,4 +23,29 @@
     strong {
         font-weight: 600;
     }
+    #ekip {
+        .ekipuyesi {
+            position: relative;
+            a {
+                .info {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    left: 0;
+                    top: 0;
+                    display: none;
+                    align-content: center;
+                    place-items: center;
+                    text-align: center;
+                }
+                &:hover,
+                &:focus {
+                    .info {
+                        display: grid;
+                        background-color: rgba(255, 255, 255, 0.85);
+                    }
+                }
+            }
+        }
+    }
 }

@@ -1,0 +1,26 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
+interface Props {
+    imagePath: string;
+    altText: string;
+    name: string;
+    unvan: string;
+}
+
+const { imagePath, altText, name, unvan } = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>("/src/content/finar/ailemiz/ekip/*.{jpeg,jpg,png}");
+if (!images[imagePath])
+    throw new Error(`"${imagePath}" does not exist in glob: "/src/content/finar/ailemiz/ekip/*.{jpeg,jpg,png}"`);
+---
+
+<div class="ekipuyesi">
+    <a>
+        <Image src={images[imagePath]()} alt={altText} />
+        <div class="info">
+            <strong class="uppercase">{name}</strong>
+            <span>{unvan}</span>
+        </div>
+    </a>
+</div>

@@ -18,6 +18,7 @@ export default defineConfig({
         }),
         astroImageTools,
     ],
+    markdown: { mode: "mdx" },
     vite: {
         //plugins: [astroImagePlugin],
         optimizeDeps: {

@@ -7,3 +7,9 @@ export type FinarsalGostergelerSVGType = {
     lineColor: string;
     textColor: string;
 };
+
+export type EkipUyesiType = {
+    ad: string;
+    unvan: string;
+    img: string;
+};
