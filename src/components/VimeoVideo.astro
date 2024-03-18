@@ -2,11 +2,12 @@
 type Props = {
     id: string;
     title: string;
+    classes: string;
 };
-const { id, title } = Astro.props;
+const { id, title, classes } = Astro.props;
 ---
 
-<div style="padding:56.25% 0 0 0;position:relative;">
+<div style="padding:56.25% 0 0 0;position:relative;" class={classes}>
     <iframe
         class="w-full aspect-video bg-black"
         src={`https://player.vimeo.com/video/${id}?badge=0&autopause=0&player_id=0&app_id=58479`}

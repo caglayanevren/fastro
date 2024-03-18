@@ -3,30 +3,28 @@ import type { ImageMetadata } from "astro";
 import Layout from "~layouts/Layout.astro";
 import ContentLayout2Column1248 from "~layouts/ContentLayout-2Column-12-4-8.astro";
 import { Content as AilemizContent, frontmatter as AilemizFrontmatter } from "~content/finar/ailemiz/index.md";
-import { Content as EkipContent, frontmatter as EkipFrontmatter } from "~content/finar/ailemiz/ekip.md";
 import SingleItemCoverImage from "~components/SingleItemCoverImage.astro";
 import EkipUye from "~components/EkipUye.astro";
 import type { EkipUyesiType } from "~types/types";
 
-const images = import.meta.glob<{ default: ImageMetadata }>("/src/content/finar/ailemiz/ekip/*.{jpeg,jpg,png}");
+const images = import.meta.glob<{ default: ImageMetadata }>("/src/content/finar/ailemiz/*.{jpeg,jpg,png}");
 const img = await images[AilemizFrontmatter.coverImage]();
 if (!images[AilemizFrontmatter.coverImage])
     throw new Error(
-        `"${AilemizFrontmatter.coverImage}" does not exist in glob: "/src/content/finar/ailemiz/ekip/*.{jpeg,jpg,png}"`
+        `"${AilemizFrontmatter.coverImage}" does not exist in glob: "/src/content/finar/ailemiz/*.{jpeg,jpg,png}"`
     );
 ---
 
 <Layout title={AilemizFrontmatter.title} seoImage={AilemizFrontmatter.seoImage}>
     <SingleItemCoverImage src={img.default} />
 
-    <ContentLayout2Column1248 title={AilemizFrontmatter.title} subtitle={AilemizFrontmatter.subtitle}>
+    <ContentLayout2Column1248 title={AilemizFrontmatter.spot} subtitle={AilemizFrontmatter.subtitle}>
         <AilemizContent />
     </ContentLayout2Column1248>
 
     <div id="ekip" class="grid grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-10">
-        <!-- <EkipContent /> -->
         {
-            EkipFrontmatter.ekip.map((uye: EkipUyesiType) => (
+            AilemizFrontmatter.ekip.map((uye: EkipUyesiType) => (
                 <EkipUye imagePath={uye.img} altText={uye.ad} name={uye.ad} unvan={uye.unvan} />
             ))
         }

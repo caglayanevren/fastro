@@ -31,9 +31,9 @@ import Awardimage from "~components/Awardimage.astro";
 ---
 
 <Layout title={title} description={description} seoImage={seoImage}>
-    <h6 class="font-light text-mavi text-sm uppercase">
+    <p class="font-light text-mavi text-sm uppercase">
         <a title={category} aria-label={category} href={`/${collection}/`}>{category}</a>
-    </h6>
+    </p>
     <h1 class="font-zilla text-5xl my-12">{title}</h1>
 
     <SingleItemCoverImage src={coverImage} alt={title} />

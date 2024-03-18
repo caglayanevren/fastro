@@ -11,7 +11,7 @@ export interface Props {
 const { title, description, seoImage } = Astro.props;
 //const url = Astro.url;
 
-const formattedTitle = title + " - finarkurumsal.com";
+const formattedTitle = title.toLocaleUpperCase("tr-TR") + " - finarkurumsal.com";
 ---
 
 {/* Global Metadata */}

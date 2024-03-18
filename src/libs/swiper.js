@@ -7,8 +7,16 @@ document.addEventListener("DOMContentLoaded", function () {
         spaceBetween: 0,
         loop: true,
         navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
+            enabled: false,
+        },
+        breakpoints: {
+            768: {
+                navigation: {
+                    enabled: true,
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            },
         },
         pagination: {
             el: ".swiper-pagination",

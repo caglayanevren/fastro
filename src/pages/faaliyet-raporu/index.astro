@@ -7,7 +7,7 @@ import Layout from "~layouts/Layout.astro";
 const allFR = await getCollection("faaliyet-raporu");
 
 const TITLE = "Faaliyet Raporu";
-const DESCRIPTION = `Kurumsal raporlama alanında ${new Date().getFullYear() - new Date("1994").getFullYear()} yıllık bir deneyime sahibiz. Uzun süredir birlikte çalışan işinin ehli geniş kadromuzla 2021&nbsp;yılında BIST&nbsp;30’da 10, BIST&nbsp;50’de ise 13&nbsp;şirkete faaliyet raporu alanında hizmet verdik.`;
+const DESCRIPTION = `Kurumsal raporlama alanında ${new Date().getFullYear() - new Date("1994").getFullYear()} yıllık bir deneyime sahibiz. Uzun süredir birlikte çalışan işinin ehli geniş kadromuzla 2021&nbsp;yılında BIST&nbsp;30’da 10, BIST&nbsp;50’de ise 13&nbsp;şirkete faaliyet raporu alanında hizmet&nbsp;verdik.`;
 const MOREINFO = `<p>Yüzlerce sayfaya sığmayan kurum faaliyetlerini bir çırpıda hedef kitlenize anlatacak çözümler yaratıyoruz.</p>
     <p>Kurumlar saydamlaştıkça, raporlama yapılan konular da artıyor, gelişiyor. Biz iletişimciler artık daha zor bir problemle karşı karşıyayız: İçerik olarak bu kadar kapsamlı raporlarda, okurun ilgisini nasıl koruyacağız?</p>
     <p>Yıllık raporlar, iş dünyasında yer alanların yanı sıra bu alanda uzman olmayan ve yeterli finans bilgisi bulunmayan kişilere de bilgi verecek biçimde, olabildiğince yalın bir dille kaleme alınmalıdır. Finar olarak bu sorunu, yaratıcılığımızı ateşleyen bir meydan okuma olarak görüyoruz.</p>
@@ -19,7 +19,6 @@ const { title = TITLE, description = DESCRIPTION, moreinfotext = MOREINFO } = As
 ---
 
 <Layout title={title} description={description}>
-    <a href="/">HOME</a>
     <h1 class="font-zilla text-5xl mb-[30px]">{title}</h1>
     <h2 class="font-zilla text-4xl text-mavi mb-[36px]"><Fragment set:html={description} /></h2>
     <MoreInfo text={moreinfotext} />

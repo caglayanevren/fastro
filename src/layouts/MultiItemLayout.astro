@@ -14,7 +14,9 @@ const { title, description, category, collection, spot, coverImage } = Astro.pro
 ---
 
 <Layout title={title} description={description} seoImage={coverImage.src}>
-    <p class="font-light text-mavi text-sm uppercase"><a href={`/${collection}/`}>{category}</a></p>
+    <p class="font-light text-mavi text-sm uppercase">
+        <a title={category} aria-label={category} href={`/${collection}/`}>{category}</a>
+    </p>
     <h1 class="font-zilla text-5xl my-12">{title}</h1>
     {
         spot && (
