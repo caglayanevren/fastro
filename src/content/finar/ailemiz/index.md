@@ -1,7 +1,7 @@
 ---
 title: Ailemiz
 spot: Hep daha iyisi için bir aradayız...
-coverImage: "/src/content/finar/ailemiz/FINARTopluOfis.jpg"
+coverImage: /src/images/FINARTopluOfis.jpg
 ekip:
     [
         { ad: Ali Faik Yılmaz, unvan: Grafik Tasarımcı, img: "/src/content/finar/ailemiz/ali_MG_5403_.jpg" },

@@ -12,12 +12,13 @@
         "lint": "prettier --write  \"**/*.{js,jsx,ts,tsx,md,mdx,astro}\" && eslint --fix \"src/**/*.{js,ts,jsx,tsx,astro}\""
     },
     "dependencies": {
-        "@astrojs/check": "^0.5.8",
+        "@astrojs/check": "^0.5.9",
         "@astrojs/mdx": "^2.2.0",
         "@astrojs/tailwind": "^5.1.0",
-        "@fontsource-variable/open-sans": "^5.0.27",
+        "@fontsource-variable/open-sans": "^5.0.28",
         "@fontsource/zilla-slab": "^5.0.12",
-        "astro": "^4.5.2",
+        "@vercel/og": "^0.6.2",
+        "astro": "^4.5.5",
         "astro-analytics": "^2.7.0",
         "astro-imagetools": "^0.9.0",
         "swiper": "^11.0.7",
@@ -26,7 +27,7 @@
     },
     "devDependencies": {
         "@tailwindcss/typography": "^0.5.10",
-        "@types/node": "^20.11.26",
+        "@types/node": "^20.11.28",
         "@typescript-eslint/parser": "^7.2.0",
         "eslint": "^8.57.0",
         "eslint-plugin-astro": "^0.31.4",

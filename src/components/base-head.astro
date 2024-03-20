@@ -12,6 +12,8 @@ const { title, description, seoImage } = Astro.props;
 //const url = Astro.url;
 
 const formattedTitle = title.toLocaleUpperCase("tr-TR") + " - finarkurumsal.com";
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const socialImageURL = new URL(seoImage, Astro.url);
 ---
 
 {/* Global Metadata */}
@@ -24,6 +26,7 @@ const formattedTitle = title.toLocaleUpperCase("tr-TR") + " - finarkurumsal.com"
 <title>{formattedTitle}</title>
 <meta name="title" content={formattedTitle} />
 <meta name="description" content={description} />
+<link rel="canonical" href={canonicalURL} />
 
 {/* Google Analytics */}
 {/* url.hostname === "finarkurumsal.com" && <GoogleAnalytics id="G-WV49SXX0P7" /> */}
@@ -33,14 +36,14 @@ const formattedTitle = title.toLocaleUpperCase("tr-TR") + " - finarkurumsal.com"
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(seoImage, Astro.url)} />
+<meta property="og:image" content={socialImageURL} />
 
 {/* Twitter */}
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(seoImage, Astro.url)} />
+<meta property="twitter:image" content={socialImageURL} />
 
 {/* Fonts */}
 <CustomStyles />

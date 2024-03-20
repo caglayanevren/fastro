@@ -7,12 +7,10 @@ import SingleItemCoverImage from "~components/SingleItemCoverImage.astro";
 import EkipUye from "~components/EkipUye.astro";
 import type { EkipUyesiType } from "~types/types";
 
-const images = import.meta.glob<{ default: ImageMetadata }>("/src/content/finar/ailemiz/*.{jpeg,jpg,png}");
+const images = import.meta.glob<{ default: ImageMetadata }>("/src/images/*.{jpeg,jpg,png}");
 const img = await images[AilemizFrontmatter.coverImage]();
 if (!images[AilemizFrontmatter.coverImage])
-    throw new Error(
-        `"${AilemizFrontmatter.coverImage}" does not exist in glob: "/src/content/finar/ailemiz/*.{jpeg,jpg,png}"`
-    );
+    throw new Error(`"${AilemizFrontmatter.coverImage}" does not exist in glob: "/src/images/*.{jpeg,jpg,png}"`);
 ---
 
 <Layout title={AilemizFrontmatter.title} seoImage={AilemizFrontmatter.seoImage}>

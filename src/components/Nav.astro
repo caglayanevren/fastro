@@ -1,7 +1,15 @@
 ---
-
+import logoSvg from "../../public/finar-logo.svg?raw";
+//const nav = [{}];
 ---
 
-<nav id="footer">
-    <div class="container"></div>
+<nav id="navigation">
+    <div class="container px-[15px] pb-[19px] pt-[48px]">
+        <div class="inner flex">
+            <div class="site-title flex-none w-[112px] h-[40px]">
+                <a href="/"><Fragment set:html={logoSvg} /></a>
+            </div>
+            <div class="site-menu grow"></div>
+        </div>
+    </div>
 </nav>

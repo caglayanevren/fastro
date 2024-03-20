@@ -39,7 +39,7 @@ export default {
                                 color: "#0056b3",
                             },
                         },
-                        maxWidth: "100%", // add required value here
+                        maxWidth: "100%",
                     },
                 },
             },
