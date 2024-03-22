@@ -1,6 +1,7 @@
 ---
 title: Ailemiz
 spot: Hep daha iyisi için bir aradayız...
+seoImage: /og/ailemiz-og.png
 coverImage: /src/images/FINARTopluOfis.jpg
 ekip:
     [
@@ -33,10 +34,12 @@ ekip:
 
 Farklı hayatlar, farklı okullar, farklı kültürler...
 
-Yolumuz Finar'da kesişti ve sizler için hepimiz deneyimlerimizi işlerimize yansıtıyoruz. Birlikte iyi işlerin altına imza atmak ortak hedefimiz.
+Yolumuz Finar'da kesişti ve sizler için hepimiz deneyimlerimizi işlerimize yansıtıyoruz.<br>Birlikte iyi işlerin altına imza atmak ortak hedefimiz.
 
 Finar'da oluşan ortak iş kültürüyle standart bir iş kalitesi oluşturduk.
 
 Nice çalışmayı birlikte finalize etmek dileğiyle...
+
+<br>
 
 ###### [AİLEMİZE KATILMAK İSTER MİSİNİZ?](/hr-form/)

@@ -1,6 +1,6 @@
 ---
 title: Finarsal Göstergeler
-seoImage: ~images/FINARTopluOfis.jpg
+seoImage: /og/finarsal-gostergeler-og.png
 subtitle: "1994-2021"
 svgitems:
     [
