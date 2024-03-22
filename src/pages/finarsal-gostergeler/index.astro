@@ -9,8 +9,6 @@ interface Props {
     items: svgType[];
 }
 let { items = frontmatter.svgitems } = Astro.props as Props;
-//console.log("ITEMS: ", items);
-//console.log("FRONTMATTER.SVGITEMS: ", frontmatter.svgitems[0]);
 ---
 
 <Layout title={frontmatter.title} seoImage={frontmatter.seoImage}>

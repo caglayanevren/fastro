@@ -5,42 +5,36 @@ import Layout from "~layouts/Layout.astro";
 type Props = {
     title: string;
     description: string;
-    seoImage?: string;
     category: string;
     collection: string;
     spot: string;
     awarded?: boolean;
     coverImage: ImageMetadata;
     otherImages?: ImageMetadata[];
+    slug: string;
 };
 
-const {
-    title,
-    description,
-    seoImage,
-    category,
-    collection,
-    spot,
-    awarded = false,
-    coverImage,
-    otherImages,
-} = Astro.props;
+const { title, description, category, collection, spot, awarded = false, coverImage, otherImages, slug } = Astro.props;
 
 import SingleItemCoverImage from "~components/SingleItemCoverImage.astro";
 import Awardimage from "~components/Awardimage.astro";
 ---
 
-<Layout title={title} description={description} seoImage={seoImage}>
-    <p class="font-light text-mavi text-sm uppercase">
+<Layout
+    title={title}
+    description={description}
+    seoImage={`${import.meta.env.SITE}${collection}/${slug}/${slug}-og.png`}
+>
+    <p class="text-sm font-light uppercase text-mavi">
         <a title={category} aria-label={category} href={`/${collection}/`}>{category}</a>
     </p>
-    <h1 class="font-zilla text-5xl my-12">{title}</h1>
+    <h1 class="my-12 font-zilla text-5xl">{title}</h1>
 
     <SingleItemCoverImage src={coverImage} alt={title} />
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 my-4 lg:my-8">
+    <div class="my-4 grid grid-cols-1 gap-4 lg:my-8 lg:grid-cols-2 lg:gap-8">
         <div>
-            <h2 class="font-zilla text-5xl mt-0 mb-8">{spot}</h2>
+            <h2 class="mb-8 mt-0 font-zilla text-5xl">{spot}</h2>
             {awarded && <Awardimage alt={title} />}
         </div>
         <div class="prose prose-p:mb-4">
@@ -54,7 +48,7 @@ import Awardimage from "~components/Awardimage.astro";
                 <Image
                     src={image}
                     alt={title}
-                    class="w-full my-4"
+                    class="my-4 w-full"
                     widths={[544, 736, 992, 1248]}
                     sizes={`(max-width: 575.98px) 100vw, (max-width: 767.98px) 544w, (max-width: 1023.98px) 736w, (max-width: 1279.98px) 992w, (min-width: 1280px) 1248w`}
                 />
