@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
 import type { ImageMetadata } from "astro";
 
 type Props = {
@@ -10,11 +10,12 @@ type Props = {
 const { src, alt = "" } = Astro.props;
 ---
 
-<Image
+<Picture
     loading="eager"
     src={src}
     alt={alt}
     class="mb-8 w-full"
     widths={[640, 768, 1024, src.width]}
+    formats={["webp", "jpg"]}
     sizes={`(max-width: 640px) 608px, (max-width: 768px) 736px, (max-width: 1024px) 992px, (max-width: 1280px) 1248px, (min-width: 1280px) ${src.width}px`}
 />
