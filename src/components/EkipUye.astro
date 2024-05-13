@@ -16,11 +16,16 @@ if (!images[imagePath])
 ---
 
 <div class="ekipuyesi">
-    <a>
-        <Image src={images[imagePath]()} alt={altText} />
+    <button>
+        <Image
+            src={images[imagePath]()}
+            alt={altText}
+            widths={[253, 349, 305, 344]}
+            sizes={`(max-width: 576px) calc((100vw - 2.5rem - 30px) / 2), (max-width: 768px) 253px, (max-width: 1024px) 349px, (max-width: 1140px) 305px, (min-width: 1140px) 344px`}
+        />
         <div class="info">
             <strong class="uppercase">{name}</strong>
             <span>{unvan}</span>
         </div>
-    </a>
+    </button>
 </div>
