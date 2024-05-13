@@ -1,0 +1,7 @@
+<svg id="entegrefaaliyetraporusvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 50">
+    <path d="M27.51,44.57c2.12-2.1,6.67-3.56,12-3.56,3.46-.09,6.89.65,10,2.16.62.38,1.44.17,1.81-.45.13-.22.2-.47.19-.73v-5.36M27.51,10.11v25.23M27.51,44.57c-2.12-2.1-6.68-3.56-12-3.56-3.46-.09-6.89.65-10,2.16-.63.37-1.45.16-1.82-.48-.12-.21-.19-.46-.18-.7V11.14c0-.72.28-1.42.8-1.92,2.35-2.27,6.47-3.78,11.18-3.78,2.03,0,4.06.3,6,.9M27.42,35.34V10.11" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" />
+    <circle cx="51.49" cy="17.69" r="12" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" />
+    <path d="M39.51,5.44c-5.3,0-9.86,1.91-12,4.67" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" />
+    <line x1="58.88" y1="27.08" x2="66.49" y2="34.69" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" />
+    <path d="M54.43,20.63l.84.85M47.7,13.91l.85.84M48.55,20.63l-.85.85M55.27,13.91l-.84.84M55.65,17.69h1.19M46.13,17.69h1.2M51.51,21.85v1.2M51.51,12.34v1.23M47.72,17.73c.02,2.09,1.73,3.78,3.82,3.76,2.09-.02,3.78-1.73,3.76-3.82-.02-2.08-1.71-3.76-3.79-3.76-2.09-.01-3.8,1.68-3.81,3.77,0,0,0,0,0,.01l.02.04Z" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" />
+</svg>
