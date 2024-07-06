@@ -12,19 +12,28 @@ export default {
                 md: "768px",
                 lg: "1024px",
                 xl: "1140px",
-                "2xl": "1140px",
             },
         },
         extend: {
             colors: {
                 mavi: "#00b3e3",
+                mavi2: "#007bff",
+                gok: "#14a4de",
+                yesil: "#57c138",
+                sari: "#ffbf00",
+                turuncu: "#ff8000",
+                red: "#db0000",
+                pembe: "#d100bf",
+                mor: "#8000ff",
+                gri: "#444",
+                siyah: "#333",
             },
             fontFamily: {
                 sans: ['"Open Sans"', ...defaultTheme.fontFamily.sans],
                 zilla: "'Zilla Slab', serif",
             },
             fontWeight: {
-                zilla: "300",
+                zilla: "400",
             },
             gridTemplateColumns: {
                 "3/6": "33.3% 66.6%",

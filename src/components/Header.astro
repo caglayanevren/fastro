@@ -1,0 +1,120 @@
+---
+import logoSvg from "../../public/finar-logo.svg?raw";
+import homeSvg from "../../public/home.svg?raw";
+import ToggleMenu from "~components/ToggleMenu.astro";
+import { getHomePermalink, trimSlash } from "~/utils/permalinks";
+
+interface Link {
+    text?: string;
+    href?: string;
+    ariaLabel?: string;
+    icon?: string;
+    homeicon?: boolean;
+}
+
+interface MenuLink extends Link {
+    links?: Array<MenuLink>;
+}
+
+export interface Props {
+    id?: string;
+    links?: Array<MenuLink>;
+    isSticky?: boolean;
+    isFullWidth?: boolean;
+    showToggleTheme?: boolean;
+    showRssFeed?: boolean;
+    position?: string;
+    isHome?: boolean;
+}
+
+const {
+    id = "header",
+    links = [],
+    isSticky = false,
+    isFullWidth = false,
+    position = "center",
+    isHome = false,
+} = Astro.props;
+
+const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
+---
+
+{/* md: to lg: */}
+<header
+    class:list={[
+        { home: isHome, sticky: isSticky, relative: !isSticky },
+        "top-0 z-40 mx-auto w-full flex-none border-b border-gray-50/0 transition-[opacity] ease-in-out",
+    ]}
+    {...isSticky ? { "data-aw-sticky-header": true } : {}}
+    {...id ? { id } : {}}
+>
+    <div
+        class:list={[
+            "text-default container relative mx-auto h-full w-full px-[15px] pb-5 pt-10 lg:flex lg:justify-between",
+            { "max-w-7xl": isFullWidth },
+        ]}
+    >
+        <div class:list={[{ "mr-auto rtl:ml-auto rtl:mr-0": position === "right" }, "flex justify-between"]}>
+            <a class="header-logo relative flex items-center" aria-label="Finar Logo" href={getHomePermalink()}>
+                <Fragment set:html={logoSvg} />
+            </a>
+            <div class="flex items-center lg:hidden">
+                <ToggleMenu home={isHome} />
+            </div>
+        </div>
+        <nav
+            class="text-default hidden w-full items-center overflow-y-auto overflow-x-hidden lg:mx-0 lg:flex lg:w-auto lg:overflow-x-auto lg:overflow-y-visible"
+            aria-label="Main navigation"
+        >
+            <ul
+                class="align-center container flex flex-col text-xl font-medium tracking-[0.01rem] lg:w-auto lg:w-full lg:flex-row lg:self-center lg:text-[0.9375rem]"
+            >
+                {
+                    links.map(({ text, href, links, homeicon }) => (
+                        <>
+                            <li class:list={[{ dropdown: links?.length }]}>
+                                {links?.length ? (
+                                    <>
+                                        <button
+                                            class:list={[
+                                                "flex items-end px-4 py-0 font-bold text-[var(--nav-primary-color)] lg:py-1 lg:font-normal",
+                                            ]}
+                                        >
+                                            <Fragment set:html={text} />
+                                        </button>
+                                        <ul class="dropdown-menu py-0 pl-4 font-medium lg:absolute lg:-ml-[110px] lg:min-w-[300px] lg:bg-gri lg:py-2 lg:pl-0">
+                                            {links.map(({ text: text2, href: href2 }) => (
+                                                <li>
+                                                    <a
+                                                        class:list={[
+                                                            "whitespace-no-wrap relative block px-3 py-2 leading-tight text-[var(--nav-primary-color)] hover:text-mavi lg:text-center lg:text-white",
+                                                            { "aw-link-active": href2 === currentPath + "/" },
+                                                        ]}
+                                                        href={href2}
+                                                    >
+                                                        {/* {console.log(href2, currentPath)} */}
+                                                        <Fragment set:html={text2} />
+                                                    </a>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </>
+                                ) : (
+                                    <a
+                                        class:list={[
+                                            "relative flex items-end px-4 py-0 font-bold text-[var(--nav-primary-color)] lg:py-1 lg:font-normal",
+                                            { "aw-link-active": href === currentPath },
+                                        ]}
+                                        href={href}
+                                    >
+                                        {homeicon ? <Fragment set:html={homeSvg} /> : text}
+                                    </a>
+                                )}
+                            </li>
+                        </>
+                    ))
+                }
+            </ul>
+        </nav>
+    </div>
+</header>
