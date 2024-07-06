@@ -20,7 +20,7 @@
         "@fontsource-variable/open-sans": "^5.0.29",
         "@fontsource/zilla-slab": "^5.0.13",
         "@vercel/og": "^0.6.2",
-        "astro": "^4.11.3",
+        "astro": "^4.11.5",
         "astro-analytics": "^2.7.0",
         "astro-imagetools": "^0.9.0",
         "js-yaml": "^4.1.0",
@@ -29,13 +29,13 @@
         "swiper": "^11.1.4",
         "tailwindcss": "^3.4.4",
         "trash-cli": "^5.0.0",
-        "typescript": "^5.5.2"
+        "typescript": "^5.5.3"
     },
     "devDependencies": {
         "@tailwindcss/typography": "^0.5.13",
-        "@types/node": "^20.14.9",
-        "@typescript-eslint/parser": "^7.14.1",
-        "eslint": "^8.56.0",
+        "@types/node": "^20.14.10",
+        "@typescript-eslint/parser": "^7.15.0",
+        "eslint": "^8.57.0",
         "eslint-plugin-astro": "^1.2.2",
         "eslint-plugin-jsx-a11y": "^6.9.0",
         "prettier": "^3.3.2",
