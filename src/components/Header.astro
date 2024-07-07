@@ -3,6 +3,7 @@ import logoSvg from "../../public/finar-logo.svg?raw";
 import homeSvg from "../../public/home.svg?raw";
 import ToggleMenu from "~components/ToggleMenu.astro";
 import { getHomePermalink, trimSlash } from "~/utils/permalinks";
+import slugify from "~/utils/slugify";
 
 interface Link {
     text?: string;
@@ -106,6 +107,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                                             { "aw-link-active": href === currentPath },
                                         ]}
                                         href={href}
+                                        aria-label={homeicon ? "home" : slugify(text)}
                                     >
                                         {homeicon ? <Fragment set:html={homeSvg} /> : text}
                                     </a>
