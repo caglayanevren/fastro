@@ -1,5 +1,6 @@
 ---
 import AnasayfaLayout from "~layouts/AnasayfaLayout.astro";
+import RedPop from "~components/RedPop.astro";
 
 import fr from "/src/images/anasayfa/svg/faaliyet-raporu.svg?raw";
 import efr from "/src/images/anasayfa/svg/entegre-faaliyet-raporu.svg?raw";
@@ -38,6 +39,7 @@ import ys from "/src/images/anasayfa/svg/yatirimci-sunumlari.svg?raw";
             <Fragment set:html={hark} />Halka<br />Arz
         </a>
     </section>
+    <RedPop />
 </AnasayfaLayout>
 
 <style is:global>
