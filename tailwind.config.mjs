@@ -27,6 +27,8 @@ export default {
                 mor: "#8000ff",
                 gri: "#444",
                 siyah: "#333",
+                footertext: "#b5c2ca",
+                footerback: "#f5f8fa",
             },
             fontFamily: {
                 sans: ['"Open Sans"', ...defaultTheme.fontFamily.sans],

@@ -24,9 +24,9 @@ const { title = SITE_TITLE, description = SITE_DESCRIPTION, seoImage = SEO_IMAGE
     <head>
         <BaseHead title={title} description={description} seoImage={seoImage} />
     </head>
-    <body class="antialiased">
+    <body class="antialiased flex flex-col">
         <Header {...headerData} isSticky />
-        <main id="content" role="main">
+        <main id="content" role="main" class="grow">
             <div class="container px-[15px] pt-[50px]">
                 <slot />
             </div>

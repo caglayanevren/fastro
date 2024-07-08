@@ -34,7 +34,8 @@
         font-family: "Zilla Slab", serif;
     } */
     body {
-        min-height: fit-content;
+        /* min-height: fit-content; */
+        min-height: 100vh;
     }
     .title {
         font-weight: 300;
