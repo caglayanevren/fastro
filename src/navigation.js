@@ -45,9 +45,7 @@ export const headerData = {
 				},
 				{
 					text: "TÜRKİYE SÜRDÜRÜLEBİLİRLİK<br class='hidden lg:block' /> RAPORLAMA STANDARTLARI (TSRS)",
-					href: getPermalink(
-						"/turkiye-surdurulebilirlik-raporlama-standartlari/",
-					),
+					href: getPermalink("/turkiye-surdurulebilirlik-raporlama-standartlari/"),
 				},
 				{
 					text: "SÜRDÜRÜLEBİLİRLİK DANIŞMANLIĞI",
@@ -59,9 +57,7 @@ export const headerData = {
 				},
 				{
 					text: "YATIRIMCI İLİŞKİLERİ MOBİL UYGULAMASI",
-					href: getPermalink(
-						"/yatirimci-iliskileri-mobil-uygulamasi/",
-					),
+					href: getPermalink("/yatirimci-iliskileri-mobil-uygulamasi/"),
 				},
 				{
 					text: "YATIRIMCI İLİŞKİLERİ WEB SİTESİ",

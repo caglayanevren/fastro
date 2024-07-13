@@ -14,11 +14,7 @@ export interface Props {
 	seoImage?: string;
 }
 
-const {
-	title = SITE_TITLE,
-	description = SITE_DESCRIPTION,
-	seoImage = SEO_IMAGE,
-} = Astro.props as Props;
+const { title = SITE_TITLE, description = SITE_DESCRIPTION, seoImage = SEO_IMAGE } = Astro.props as Props;
 ---
 
 <!doctype html>
@@ -28,15 +24,7 @@ const {
 	</head>
 	<body class="antialiased">
 		<Header {...headerData} isSticky isHome />
-		<video
-			src="/src/images/anasayfa/FINAR-v6.mp4"
-			poster="/FINAR-v6-poster.jpg"
-			autoplay
-			loop
-			playsinline
-			muted
-			class="fixed left-0 top-0 -z-50 h-full w-full object-cover brightness-[.05]"
-		></video>
+		<video src="/src/images/anasayfa/FINAR-v6.mp4" poster="/FINAR-v6-poster.jpg" autoplay loop playsinline muted class="fixed left-0 top-0 -z-50 h-full w-full object-cover brightness-[.05]"></video>
 		<main id="content" role="main">
 			<div class="container px-[15px] pt-[0px]">
 				<slot />

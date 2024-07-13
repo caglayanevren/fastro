@@ -5,33 +5,14 @@ export interface Props {
 	home?: boolean;
 }
 
-const {
-	label = "Toggle Menu",
-	class: className = "flex flex-col h-12 w-12 rounded justify-center items-center cursor-pointer group",
-	home = false,
-} = Astro.props;
+const { label = "Toggle Menu", class: className = "flex flex-col h-12 w-12 rounded justify-center items-center cursor-pointer group", home = false } = Astro.props;
 ---
 
 <button class={className} aria-label={label} data-aw-toggle-menu>
 	<span class="sr-only">{label}</span>
 	<slot>
-		<span
-			aria-hidden="true"
-			class:list={[
-				{ "bg-black": !home, "bg-white": home },
-				"ease my-[2.5px] h-0.5 w-6 transform rounded-full opacity-80 transition duration-200 group-[.expanded]:translate-y-[0.45rem] group-[.expanded]:rotate-45",
-			]}></span>
-		<span
-			aria-hidden="true"
-			class:list={[
-				{ "bg-black": !home, "bg-white": home },
-				"ease my-[2.5px] h-0.5 w-6 transform rounded-full opacity-80 transition duration-200 group-[.expanded]:opacity-0",
-			]}></span>
-		<span
-			aria-hidden="true"
-			class:list={[
-				{ "bg-black": !home, "bg-white": home },
-				"ease my-[2.5px] h-0.5 w-6 transform rounded-full opacity-80 transition duration-200 group-[.expanded]:-translate-y-[0.45rem] group-[.expanded]:-rotate-45",
-			]}></span>
+		<span aria-hidden="true" class:list={[{ "bg-black": !home, "bg-white": home }, "ease my-[2.5px] h-0.5 w-6 transform rounded-full opacity-80 transition duration-200 group-[.expanded]:translate-y-[0.45rem] group-[.expanded]:rotate-45"]}></span>
+		<span aria-hidden="true" class:list={[{ "bg-black": !home, "bg-white": home }, "ease my-[2.5px] h-0.5 w-6 transform rounded-full opacity-80 transition duration-200 group-[.expanded]:opacity-0"]}></span>
+		<span aria-hidden="true" class:list={[{ "bg-black": !home, "bg-white": home }, "ease my-[2.5px] h-0.5 w-6 transform rounded-full opacity-80 transition duration-200 group-[.expanded]:-translate-y-[0.45rem] group-[.expanded]:-rotate-45"]}></span>
 	</slot>
 </button>

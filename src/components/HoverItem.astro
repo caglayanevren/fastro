@@ -13,20 +13,10 @@ const { slug, title, thumbnail, thumbWidth, thumbHeight } = Astro.props;
 ---
 
 <div class="relative">
-	<Image
-		src={thumbnail}
-		alt={title}
-		width={thumbWidth}
-		height={thumbHeight}
-		class="absolute"
-	/>
+	<Image src={thumbnail} alt={title} width={thumbWidth} height={thumbHeight} class="absolute" />
 	<a href={`${slug}/`}>
-		<div
-			class="w-100 h-100 aspect-square items-center bg-white/65 p-[20px] opacity-0 backdrop-blur-lg transition-all hover:opacity-100 xl:p-[30px]"
-		>
-			<div
-				class="title relative pb-4 uppercase after:absolute after:bottom-0 after:left-0 after:block after:h-[2px] after:w-1/6 after:bg-mavi after:content-['']"
-			>
+		<div class="w-100 h-100 aspect-square items-center bg-white/65 p-[20px] opacity-0 backdrop-blur-lg transition-all hover:opacity-100 xl:p-[30px]">
+			<div class="title relative pb-4 uppercase after:absolute after:bottom-0 after:left-0 after:block after:h-[2px] after:w-1/6 after:bg-mavi after:content-['']">
 				{title}
 			</div>
 		</div>

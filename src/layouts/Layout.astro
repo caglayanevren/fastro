@@ -16,11 +16,7 @@ export interface Props {
 	seoImage?: string;
 }
 
-const {
-	title = SITE_TITLE,
-	description = SITE_DESCRIPTION,
-	seoImage = SEO_IMAGE,
-} = Astro.props as Props;
+const { title = SITE_TITLE, description = SITE_DESCRIPTION, seoImage = SEO_IMAGE } = Astro.props as Props;
 ---
 
 <!doctype html>

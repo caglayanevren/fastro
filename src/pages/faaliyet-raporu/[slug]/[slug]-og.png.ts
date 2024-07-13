@@ -13,26 +13,12 @@ export async function GET({ props }: Props) {
 	const { post } = props;
 
 	// using custom font files
-	const OpenSans = fs.readFileSync(
-		path.resolve("public/font/OpenSans-Regular.ttf"),
-	);
-	const Zilla300 = fs.readFileSync(
-		path.resolve("public/font/ZillaSlab-Light.ttf"),
-	);
-	const Zilla600 = fs.readFileSync(
-		path.resolve("public/font/ZillaSlab-Bold.ttf"),
-	);
+	const OpenSans = fs.readFileSync(path.resolve("public/font/OpenSans-Regular.ttf"));
+	const Zilla300 = fs.readFileSync(path.resolve("public/font/ZillaSlab-Light.ttf"));
+	const Zilla600 = fs.readFileSync(path.resolve("public/font/ZillaSlab-Bold.ttf"));
 
 	// post cover with Image is pretty tricky for dev and build phase
-	const postCover = fs.readFileSync(
-		process.env.NODE_ENV === "development"
-			? path.resolve(
-					post.data.thumbnail.src
-						.replace(/\?.*/, "")
-						.replace("/@fs", ""),
-				)
-			: path.resolve(post.data.thumbnail.src.replace("/", "dist/")),
-	);
+	const postCover = fs.readFileSync(process.env.NODE_ENV === "development" ? path.resolve(post.data.thumbnail.src.replace(/\?.*/, "").replace("/@fs", "")) : path.resolve(post.data.thumbnail.src.replace("/", "dist/")));
 
 	// Astro doesn't support tsx endpoints so usign React-element objects
 	const html = {
@@ -77,8 +63,7 @@ export async function GET({ props }: Props) {
 											props: {
 												style: {
 													fontSize: `${ogpngConfig.titleFontSize}`,
-													fontFamily:
-														"Zilla Slab Bold",
+													fontFamily: "Zilla Slab Bold",
 												},
 												children: post.data.title,
 											},
@@ -97,8 +82,7 @@ export async function GET({ props }: Props) {
 												tw: "text-4xl",
 												children: "Finar Kurumsal",
 												style: {
-													fontFamily:
-														"Zilla Slab Bold",
+													fontFamily: "Zilla Slab Bold",
 													color: ogpngConfig.finarColor,
 												},
 											},

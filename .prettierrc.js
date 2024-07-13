@@ -1,34 +1,26 @@
-/* /** @type {import("prettier").Config} */
-/* module.exports = {
-	printWidth: 120,
+/** @type {import("prettier").Config} */
+export default {
+	$schema: "http://json.schemastore.org/prettierrc",
+	plugins: ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
+	bracketSpacing: true,
+	bracketSameLine: true,
+	singleAttributePerLine: false,
+	printWidth: 500,
 	semi: true,
 	singleQuote: false,
 	jsxSingleQuote: false,
 	tabWidth: 4,
 	trailingComma: "es5",
 	useTabs: true,
-	plugins: [require.resolve("prettier-plugin-astro"), require.resolve("prettier-plugin-tailwindcss")],
 	overrides: [
 		{
 			files: "*.astro",
 			options: {
 				parser: "astro",
+				singleAttributePerLine: false,
 				singleQuote: false,
 				useTabs: true,
 				tabWidth: 4,
-			},
-		},
-	],
-}; */
-
-/** @type {import("prettier").Config} */
-export default {
-	plugins: ["prettier-plugin-astro"],
-	overrides: [
-		{
-			files: "*.astro",
-			options: {
-				parser: "astro",
 			},
 		},
 	],

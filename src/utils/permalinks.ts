@@ -27,5 +27,4 @@ export const getAsset = (path: string): string =>
 		.filter((el) => !!el)
 		.join("/");
 
-const definitivePermalink = (permalink: string): string =>
-	createPath(BASE_PATHNAME, permalink);
+const definitivePermalink = (permalink: string): string => createPath(BASE_PATHNAME, permalink);

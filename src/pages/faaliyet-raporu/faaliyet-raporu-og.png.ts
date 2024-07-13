@@ -7,15 +7,9 @@ const post = "Faaliyet Raporu";
 
 export async function GET() {
 	// using custom font files
-	const OpenSans = fs.readFileSync(
-		path.resolve("public/font/OpenSans-Regular.ttf"),
-	);
-	const Zilla300 = fs.readFileSync(
-		path.resolve("public/font/ZillaSlab-Light.ttf"),
-	);
-	const Zilla600 = fs.readFileSync(
-		path.resolve("public/font/ZillaSlab-Bold.ttf"),
-	);
+	const OpenSans = fs.readFileSync(path.resolve("public/font/OpenSans-Regular.ttf"));
+	const Zilla300 = fs.readFileSync(path.resolve("public/font/ZillaSlab-Light.ttf"));
+	const Zilla600 = fs.readFileSync(path.resolve("public/font/ZillaSlab-Bold.ttf"));
 
 	// Astro doesn't support tsx endpoints so usign React-element objects
 	const html = {
@@ -47,8 +41,7 @@ export async function GET() {
 												tw: "flex",
 												style: {
 													fontSize: "124px",
-													fontFamily:
-														"Zilla Slab Bold",
+													fontFamily: "Zilla Slab Bold",
 												},
 												children: post,
 											},
@@ -67,8 +60,7 @@ export async function GET() {
 												tw: "text-4xl",
 												children: "Finar Kurumsal",
 												style: {
-													fontFamily:
-														"Zilla Slab Bold",
+													fontFamily: "Zilla Slab Bold",
 													color: ogpngConfig.finarColor,
 												},
 											},

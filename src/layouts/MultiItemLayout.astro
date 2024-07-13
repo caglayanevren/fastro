@@ -13,15 +13,9 @@ type Props = {
 const { title, description, category, collection, spot, slug } = Astro.props;
 ---
 
-<Layout
-	title={title}
-	description={description}
-	seoImage={`${import.meta.env.SITE}${collection}/${slug}/${slug}-og.png`}
->
+<Layout title={title} description={description} seoImage={`${import.meta.env.SITE}${collection}/${slug}/${slug}-og.png`}>
 	<p class="text-sm font-light uppercase text-mavi">
-		<a title={category} aria-label={category} href={`/${collection}/`}
-			>{category}</a
-		>
+		<a title={category} aria-label={category} href={`/${collection}/`}>{category}</a>
 	</p>
 	<h1 class="my-12 font-zilla text-5xl">{title}</h1>
 	{

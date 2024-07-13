@@ -1,10 +1,7 @@
 ---
 import Layout from "~layouts/Layout.astro";
 import ContentLayout2Column1248 from "~layouts/ContentLayout-2Column-12-4-8.astro";
-import {
-	Content as AilemizContent,
-	frontmatter as AilemizFrontmatter,
-} from "~content/finar/ailemiz/index.md";
+import { Content as AilemizContent, frontmatter as AilemizFrontmatter } from "~content/finar/ailemiz/index.md";
 import SingleItemCoverImage from "~components/SingleItemCoverImage.astro";
 import EkipUye from "~components/EkipUye.astro";
 import type { EkipUyesiType } from "~/types/types";
@@ -26,26 +23,11 @@ const optimizedFINARTopluOfis = await getImage({
 <Layout title={AilemizFrontmatter.title} seoImage={AilemizFrontmatter.seoImage}>
 	<SingleItemCoverImage src={FINARTopluOfis} />
 
-	<ContentLayout2Column1248
-		title={AilemizFrontmatter.spot}
-		subtitle={AilemizFrontmatter.subtitle}
-	>
+	<ContentLayout2Column1248 title={AilemizFrontmatter.spot} subtitle={AilemizFrontmatter.subtitle}>
 		<AilemizContent />
 	</ContentLayout2Column1248>
 
-	<div
-		id="ekip"
-		class="mt-16 grid grid-cols-2 gap-x-10 gap-y-10 lg:grid-cols-3"
-	>
-		{
-			AilemizFrontmatter.ekip.map((uye: EkipUyesiType) => (
-				<EkipUye
-					imagePath={uye.img}
-					altText={uye.ad}
-					name={uye.ad}
-					unvan={uye.unvan}
-				/>
-			))
-		}
+	<div id="ekip" class="mt-16 grid grid-cols-2 gap-x-10 gap-y-10 lg:grid-cols-3">
+		{AilemizFrontmatter.ekip.map((uye: EkipUyesiType) => <EkipUye imagePath={uye.img} altText={uye.ad} name={uye.ad} unvan={uye.unvan} />)}
 	</div>
 </Layout>
