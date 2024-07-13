@@ -4,50 +4,53 @@ import Awardimage from "~components/Awardimage.astro";
 import Swiper from "~components/swiper/swiper.astro";
 
 type Props = {
-    oneItemTitle: string;
-    oneItemSubTitle?: string;
-    sliderImages: ImageMetadata[];
-    awarded: boolean;
+	oneItemTitle: string;
+	oneItemSubTitle?: string;
+	sliderImages: ImageMetadata[];
+	awarded: boolean;
 };
 
 const { oneItemTitle, oneItemSubTitle, sliderImages, awarded } = Astro.props;
 ---
 
 <h3
-    class="relative my-[20px] text-base font-light after:absolute after:left-0 after:top-2/4 after:z-0 after:-mt-[1px] after:h-[1px] after:w-full after:bg-[#e1e8ed] after:content-['']"
+	class="relative my-[20px] text-base font-light after:absolute after:left-0 after:top-2/4 after:z-0 after:-mt-[1px] after:h-[1px] after:w-full after:bg-[#e1e8ed] after:content-['']"
 >
-    <span class="relative z-10 bg-white pr-[1.5rem]">{oneItemTitle}</span>
+	<span class="relative z-10 bg-white pr-[1.5rem]">{oneItemTitle}</span>
 </h3>
 
 {
-    sliderImages.length == 1 ? (
-        <Image
-            loading="eager"
-            src={sliderImages[0]}
-            alt={oneItemTitle}
-            class="my-4 w-full"
-            widths={[544, 736, 992, 1248]}
-            sizes={`(max-width: 575.98px) 100vw, (max-width: 767.98px) 544w, (max-width: 1023.98px) 736w, (max-width: 1279.98px) 992w, (min-width: 1280px) 1248w`}
-        />
-    ) : sliderImages.length > 1 ? (
-        //sliderImages.map((image) => <Image src={image} alt={oneItemTitle} class="w-full my-4" />)
-        <Swiper oneItemTitle={oneItemTitle} swiperimages={sliderImages} />
-    ) : (
-        (Astro.response.status = 404) &&
-        (Astro.response.statusText = "neither 'singleImage' nor 'sliderImages', please check image imports")
-    )
+	sliderImages.length == 1 ? (
+		<Image
+			loading="eager"
+			src={sliderImages[0]}
+			alt={oneItemTitle}
+			class="my-4 w-full"
+			widths={[544, 736, 992, 1248]}
+			sizes={`(max-width: 575.98px) 100vw, (max-width: 767.98px) 544w, (max-width: 1023.98px) 736w, (max-width: 1279.98px) 992w, (min-width: 1280px) 1248w`}
+		/>
+	) : sliderImages.length > 1 ? (
+		//sliderImages.map((image) => <Image src={image} alt={oneItemTitle} class="w-full my-4" />)
+		<Swiper oneItemTitle={oneItemTitle} swiperimages={sliderImages} />
+	) : (
+		(Astro.response.status = 404) &&
+		(Astro.response.statusText =
+			"neither 'singleImage' nor 'sliderImages', please check image imports")
+	)
 }
 
 {
-    oneItemSubTitle && (
-        <div class="my-4 grid grid-cols-1 gap-4 lg:my-8 lg:grid-cols-2 lg:gap-8">
-            <div>
-                <h2 class="mb-8 mt-0 font-zilla text-5xl/tight font-light">{oneItemSubTitle}</h2>
-                {awarded && <Awardimage alt={oneItemSubTitle} />}
-            </div>
-            <div class="prose prose-p:mb-4">
-                <slot />
-            </div>
-        </div>
-    )
+	oneItemSubTitle && (
+		<div class="my-4 grid grid-cols-1 gap-4 lg:my-8 lg:grid-cols-2 lg:gap-8">
+			<div>
+				<h2 class="mb-8 mt-0 font-zilla text-5xl/tight font-light">
+					{oneItemSubTitle}
+				</h2>
+				{awarded && <Awardimage alt={oneItemSubTitle} />}
+			</div>
+			<div class="prose prose-p:mb-4">
+				<slot />
+			</div>
+		</div>
+	)
 }

@@ -11,32 +11,36 @@ import { headerData } from "~/navigation";
 import { SITE_TITLE, SITE_DESCRIPTION, SEO_IMAGE } from "../config";
 // Props
 export interface Props {
-    title?: string;
-    description?: string;
-    seoImage?: string;
+	title?: string;
+	description?: string;
+	seoImage?: string;
 }
 
-const { title = SITE_TITLE, description = SITE_DESCRIPTION, seoImage = SEO_IMAGE } = Astro.props as Props;
+const {
+	title = SITE_TITLE,
+	description = SITE_DESCRIPTION,
+	seoImage = SEO_IMAGE,
+} = Astro.props as Props;
 ---
 
 <!doctype html>
 <html lang="tr">
-    <head>
-        <BaseHead title={title} description={description} seoImage={seoImage} />
-    </head>
-    <body class="antialiased flex flex-col">
-        <Header {...headerData} isSticky />
-        <main id="content" role="main" class="grow">
-            <div class="container px-[15px] pt-[50px]">
-                <slot />
-            </div>
-        </main>
-        <Footer />
-        <Scripts />
-        <style is:global>
-            img {
-                content-visibility: auto;
-            }
-        </style>
-    </body>
+	<head>
+		<BaseHead title={title} description={description} seoImage={seoImage} />
+	</head>
+	<body class="flex flex-col antialiased">
+		<Header {...headerData} isSticky />
+		<main id="content" role="main" class="grow">
+			<div class="container px-[15px] pt-[50px]">
+				<slot />
+			</div>
+		</main>
+		<Footer />
+		<Scripts />
+		<style is:global>
+			img {
+				content-visibility: auto;
+			}
+		</style>
+	</body>
 </html>

@@ -1,17 +1,17 @@
 {
-    "extends": "astro/tsconfigs/strict",
-    "compilerOptions": {
-        "baseUrl": ".",
-        "strictNullChecks": true,
-        "allowJs": true,
-        "paths": {
-            "~images/*": ["src/images/*"],
-            "~content/*": ["src/content/*"],
-            "~components/*": ["src/components/*"],
-            "~layouts/*": ["src/layouts/*"],
-            "~*": ["src/*"]
-        },
-        "jsx": "react-jsx",
-        "jsxImportSource": "react"
-    }
+	"extends": "astro/tsconfigs/strict",
+	"compilerOptions": {
+		"baseUrl": ".",
+		"strictNullChecks": true,
+		"allowJs": true,
+		"paths": {
+			"~images/*": ["src/images/*"],
+			"~content/*": ["src/content/*"],
+			"~components/*": ["src/components/*"],
+			"~layouts/*": ["src/layouts/*"],
+			"~*": ["src/*"]
+		},
+		"jsx": "react-jsx",
+		"jsxImportSource": "react"
+	}
 }

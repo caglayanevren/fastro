@@ -9,43 +9,48 @@ import { headerData } from "~/navigation";
 import { SITE_TITLE, SITE_DESCRIPTION, SEO_IMAGE } from "../config";
 // Props
 export interface Props {
-    title?: string;
-    description?: string;
-    seoImage?: string;
+	title?: string;
+	description?: string;
+	seoImage?: string;
 }
 
-const { title = SITE_TITLE, description = SITE_DESCRIPTION, seoImage = SEO_IMAGE } = Astro.props as Props;
+const {
+	title = SITE_TITLE,
+	description = SITE_DESCRIPTION,
+	seoImage = SEO_IMAGE,
+} = Astro.props as Props;
 ---
 
 <!doctype html>
 <html lang="tr">
-    <head>
-        <BaseHead title={title} description={description} seoImage={seoImage} />
-    </head>
-    <body class="antialiased">
-        <Header {...headerData} isSticky isHome />
-        <video
-            src="/src/images/anasayfa/FINAR-v6.mp4"
-            poster="/FINAR-v6-poster.jpg"
-            autoplay
-            loop
-            playsinline
-            muted
-            class="fixed left-0 top-0 -z-50 h-full w-full object-cover brightness-[.05]"></video>
-        <main id="content" role="main">
-            <div class="container px-[15px] pt-[0px]">
-                <slot />
-            </div>
-        </main>
+	<head>
+		<BaseHead title={title} description={description} seoImage={seoImage} />
+	</head>
+	<body class="antialiased">
+		<Header {...headerData} isSticky isHome />
+		<video
+			src="/src/images/anasayfa/FINAR-v6.mp4"
+			poster="/FINAR-v6-poster.jpg"
+			autoplay
+			loop
+			playsinline
+			muted
+			class="fixed left-0 top-0 -z-50 h-full w-full object-cover brightness-[.05]"
+		></video>
+		<main id="content" role="main">
+			<div class="container px-[15px] pt-[0px]">
+				<slot />
+			</div>
+		</main>
 
-        <Scripts />
-        <style is:global>
-            html {
-                background-color: #000;
-            }
-            img {
-                content-visibility: auto;
-            }
-        </style>
-    </body>
+		<Scripts />
+		<style is:global>
+			html {
+				background-color: #000;
+			}
+			img {
+				content-visibility: auto;
+			}
+		</style>
+	</body>
 </html>

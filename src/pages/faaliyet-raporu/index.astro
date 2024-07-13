@@ -15,24 +15,36 @@ const MOREINFO = `<p>Yüzlerce sayfaya sığmayan kurum faaliyetlerini bir çır
     <p>Raporun ana mesajını açık, yalın, kanıtlarla desteklenmiş, yaratıcı ve cesur bir şekilde ortaya koyabildiğimiz oranda kendimizi başarılı sayıyoruz.</p>
     <p>İşimizi, raporun entelektüel inandırıcılığını artırmanın yanı sıra bu inancı pekiştirecek mesajları en etkili ve cesur şekilde okurla buluşturmak olarak görüyoruz.</p>`;
 
-const { title = TITLE, description = DESCRIPTION, moreinfotext = MOREINFO } = Astro.props;
+const {
+	title = TITLE,
+	description = DESCRIPTION,
+	moreinfotext = MOREINFO,
+} = Astro.props;
 ---
 
-<Layout title={title} description={description} seoImage="./faaliyet-raporu-og.png">
-    <h1 class="mb-[30px] font-zilla text-5xl">{title}</h1>
-    <h2 class="mb-[36px] font-zilla text-4xl text-mavi"><Fragment set:html={description} /></h2>
-    <MoreInfo text={moreinfotext} />
-    <div class="grid auto-rows-max grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4 xl:gap-8">
-        {
-            allFR.map((fr) => (
-                <HoverItem
-                    slug={fr.slug}
-                    title={fr.data.title}
-                    thumbnail={fr.data.thumbnail}
-                    thumbWidth={fr.data.thumbnail.width}
-                    thumbHeight={fr.data.thumbnail.height}
-                />
-            ))
-        }
-    </div>
+<Layout
+	title={title}
+	description={description}
+	seoImage="./faaliyet-raporu-og.png"
+>
+	<h1 class="mb-[30px] font-zilla text-5xl">{title}</h1>
+	<h2 class="mb-[36px] font-zilla text-4xl text-mavi">
+		<Fragment set:html={description} />
+	</h2>
+	<MoreInfo text={moreinfotext} />
+	<div
+		class="grid auto-rows-max grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4 xl:gap-8"
+	>
+		{
+			allFR.map((fr) => (
+				<HoverItem
+					slug={fr.slug}
+					title={fr.data.title}
+					thumbnail={fr.data.thumbnail}
+					thumbWidth={fr.data.thumbnail.width}
+					thumbHeight={fr.data.thumbnail.height}
+				/>
+			))
+		}
+	</div>
 </Layout>

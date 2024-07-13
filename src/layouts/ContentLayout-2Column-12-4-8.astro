@@ -1,19 +1,25 @@
 ---
 type Props = {
-    title: string;
-    subtitle?: string;
+	title: string;
+	subtitle?: string;
 };
 const { title, subtitle } = Astro.props;
 ---
 
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-4 mb-4 lg:mb-8">
-    <div class="lg:col-span-4">
-        <h2 class="font-zilla text-5xl mt-8 lg:mt-0 mb-8">{title}</h2>
-        {subtitle && <h3 class="font-zilla text-2xl mt-8 lg:mt-0 mb-8">{subtitle}</h3>}
-    </div>
-    <div
-        class="lg:col-span-8 prose prose-p:mb-4 prose-p:mt-0 prose-h6:text-mavi prose-h6:mb-0 prose-h6:font-base prose-h6:font-bold prose-a:no-underline"
-    >
-        <slot />
-    </div>
+<div class="mb-4 grid grid-cols-1 gap-4 lg:mb-8 lg:grid-cols-12">
+	<div class="lg:col-span-4">
+		<h2 class="mb-8 mt-8 font-zilla text-5xl lg:mt-0">{title}</h2>
+		{
+			subtitle && (
+				<h3 class="mb-8 mt-8 font-zilla text-2xl lg:mt-0">
+					{subtitle}
+				</h3>
+			)
+		}
+	</div>
+	<div
+		class="prose-h6:font-base prose prose-h6:mb-0 prose-h6:font-bold prose-h6:text-mavi prose-p:mb-4 prose-p:mt-0 prose-a:no-underline lg:col-span-8"
+	>
+		<slot />
+	</div>
 </div>

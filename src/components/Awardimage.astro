@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 
 type Props = {
-    alt: string;
+	alt: string;
 };
 
 const { alt } = Astro.props;
@@ -11,5 +11,5 @@ import AWARD_IMAGE from "~images/AWARD_WINNER.png";
 ---
 
 <a aria-label="Ödüller" title="Ödüller" href="/oduller/">
-    <Image src={AWARD_IMAGE} alt={alt} class="w-1/2 md:w-1/3" />
+	<Image src={AWARD_IMAGE} alt={alt} class="w-1/2 md:w-1/3" />
 </a>

@@ -13,47 +13,71 @@ import ys from "/src/images/anasayfa/svg/yatirimci-sunumlari.svg?raw";
 ---
 
 <AnasayfaLayout>
-    <section class="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
-        <a href="/faaliyet-raporu/" class="rounded-[4px] bg-mavi2 p-4 text-center font-bold text-white md:font-normal">
-            <Fragment set:html={fr} />Faaliyet<br />Raporu
-        </a>
-        <a href="/entegre-faaliyet-raporu/" class="rounded-[4px] bg-gok p-4 text-center font-bold text-white md:font-normal">
-            <Fragment set:html={efr} />Entegre<br />Faaliyet Raporu
-        </a>
-        <a href="/surdurulebilirlik-raporu/" class="rounded-[4px] bg-yesil p-4 text-center font-bold text-white md:font-normal">
-            <Fragment set:html={sr} />Sürdürülebilirlik<br />Raporu
-        </a>
-        <a href="/surdurulebilirlik-danismanligi/" class="rounded-[4px] bg-sari p-4 text-center font-bold text-white md:font-normal">
-            <Fragment set:html={sd} />Sürdürülebilirlik<br />Danışmanlığı
-        </a>
-        <a href="/yatirimci-sunumu/" class="rounded-[4px] bg-turuncu p-4 text-center font-bold text-white md:font-normal">
-            <Fragment set:html={ys} />Yatırımcı<br />Sunumu
-        </a>
-        <a href="/yatirimci-iliskileri-web-sitesi/" class="rounded-[4px] bg-red p-4 text-center font-bold text-white md:font-normal">
-            <Fragment set:html={yiws} />Yatırımcı İlişkileri<br />Web Sitesi
-        </a>
-        <a href="/kurumsal-kimlik/" class="rounded-[4px] bg-pembe p-4 text-center font-bold text-white md:font-normal">
-            <Fragment set:html={kk} />Kurumsal<br />Kimlik
-        </a>
-        <a href="/halka-arz/" class="rounded-[4px] bg-mor p-4 text-center font-bold text-white md:font-normal">
-            <Fragment set:html={hark} />Halka<br />Arz
-        </a>
-    </section>
-    <RedPop />
+	<section class="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
+		<a
+			href="/faaliyet-raporu/"
+			class="rounded-[4px] bg-mavi2 p-4 text-center font-bold text-white md:font-normal"
+		>
+			<Fragment set:html={fr} />Faaliyet<br />Raporu
+		</a>
+		<a
+			href="/entegre-faaliyet-raporu/"
+			class="rounded-[4px] bg-gok p-4 text-center font-bold text-white md:font-normal"
+		>
+			<Fragment set:html={efr} />Entegre<br />Faaliyet Raporu
+		</a>
+		<a
+			href="/surdurulebilirlik-raporu/"
+			class="rounded-[4px] bg-yesil p-4 text-center font-bold text-white md:font-normal"
+		>
+			<Fragment set:html={sr} />Sürdürülebilirlik<br />Raporu
+		</a>
+		<a
+			href="/surdurulebilirlik-danismanligi/"
+			class="rounded-[4px] bg-sari p-4 text-center font-bold text-white md:font-normal"
+		>
+			<Fragment set:html={sd} />Sürdürülebilirlik<br />Danışmanlığı
+		</a>
+		<a
+			href="/yatirimci-sunumu/"
+			class="rounded-[4px] bg-turuncu p-4 text-center font-bold text-white md:font-normal"
+		>
+			<Fragment set:html={ys} />Yatırımcı<br />Sunumu
+		</a>
+		<a
+			href="/yatirimci-iliskileri-web-sitesi/"
+			class="rounded-[4px] bg-red p-4 text-center font-bold text-white md:font-normal"
+		>
+			<Fragment set:html={yiws} />Yatırımcı İlişkileri<br />Web Sitesi
+		</a>
+		<a
+			href="/kurumsal-kimlik/"
+			class="rounded-[4px] bg-pembe p-4 text-center font-bold text-white md:font-normal"
+		>
+			<Fragment set:html={kk} />Kurumsal<br />Kimlik
+		</a>
+		<a
+			href="/halka-arz/"
+			class="rounded-[4px] bg-mor p-4 text-center font-bold text-white md:font-normal"
+		>
+			<Fragment set:html={hark} />Halka<br />Arz
+		</a>
+	</section>
+	<RedPop />
 </AnasayfaLayout>
 
 <style is:global>
-    #faaliyetraporusvg,
-    #entegrefaaliyetraporusvg,
-    #halkaarzreklamkampanyalarisvg,
-    #kurumsalkimliksvg,
-    #surdurulebilirlikdanismanligisvg,
-    #surdurulebilirlikraporusvg,
-    #yatirimciiliskileriwebsitesisvg,
-    #yatirimcisunumlarisvg {
-        width: auto;
-        height: 60px;
-        margin-inline: auto;
-        margin-bottom: 0.5rem;
-    }
+	#faaliyetraporusvg,
+	#entegrefaaliyetraporusvg,
+	#halkaarzreklamkampanyalarisvg,
+	#kurumsalkimliksvg,
+	#surdurulebilirlikdanismanligisvg,
+	#surdurulebilirlikraporusvg,
+	#yatirimciiliskileriwebsitesisvg,
+	#yatirimcisunumlarisvg {
+		width: auto;
+		height: 60px;
+		margin-inline: auto;
+		margin-bottom: 0.5rem;
+	}
 </style>
