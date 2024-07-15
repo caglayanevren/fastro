@@ -19,3 +19,5 @@ astro-debug.log*
 
 # macOS-specific files
 .DS_Store
+
+.vscode/sftp.json
