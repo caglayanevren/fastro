@@ -14,7 +14,7 @@
 		"lint": "prettier --write  \"**/*.{js,cjs,json,mjs,jsx,ts,tsx,md,mdx,astro}\" && eslint --fix \"src/**/*.{js,cjs,mjs,ts,jsx,tsx,astro}\""
 	},
 	"dependencies": {
-		"@astrojs/check": "^0.7.0",
+		"@astrojs/check": "^0.8.1",
 		"@astrojs/mdx": "^3.1.2",
 		"@astrojs/tailwind": "^5.1.0",
 		"@fontsource-variable/open-sans": "^5.0.29",
@@ -33,9 +33,9 @@
 	"devDependencies": {
 		"@tailwindcss/typography": "^0.5.13",
 		"@types/node": "^20.14.10",
-		"@typescript-eslint/parser": "^7.15.0",
+		"@typescript-eslint/parser": "^7.16.0",
 		"eslint": "^8.57.0",
-		"eslint-plugin-astro": "^1.2.2",
+		"eslint-plugin-astro": "^1.2.3",
 		"eslint-plugin-jsx-a11y": "^6.9.0",
 		"prettier": "^3.3.3",
 		"prettier-config-standard": "^7.0.0",
