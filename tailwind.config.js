@@ -16,7 +16,7 @@ export default {
 		},
 		extend: {
 			colors: {
-				mavi: "#00b3e3",
+				mavi: "#00b3e3" /*009fc9*/,
 				mavi2: "#007bff",
 				gok: "#14a4de",
 				yesil: "#57c138",
@@ -27,8 +27,8 @@ export default {
 				mor: "#8000ff",
 				gri: "#444",
 				siyah: "#333",
-				footertext: "#b5c2ca",
-				footerback: "#f5f8fa",
+				footertext: "#4c5255",
+				footerback: "#eef3f6",
 			},
 			fontFamily: {
 				sans: ['"Open Sans"', ...defaultTheme.fontFamily.sans],
