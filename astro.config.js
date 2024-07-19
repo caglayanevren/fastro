@@ -1,10 +1,9 @@
-//import path from "path";
-//import { fileURLToPath } from "url";
+/** @type {import("astro").AstroUserConfig} */
+
 import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import tailwindcssNesting from "tailwindcss/nesting";
 import mdx from "@astrojs/mdx";
-//const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // https://astro.build/config
 export default defineConfig({

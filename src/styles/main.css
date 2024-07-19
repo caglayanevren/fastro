@@ -126,10 +126,10 @@
 	#header.scroll {
 		box-shadow: 0 0.375rem 1.5rem 0 rgb(140 152 164 / 13%);
 	}
-	#header.scroll:not(.home) > div:first-child {
+	#header.scroll:not(.home) /* > div:first-child */ {
 		@apply bg-white/90 backdrop-blur-md;
 	}
-	#header.scroll.home > div:first-child {
+	#header.scroll.home /* > div:first-child */ {
 		@apply bg-black/90 backdrop-blur-sm;
 	}
 	#header.expanded nav {
@@ -175,6 +175,32 @@
 			transition-duration: 250ms;
 			/* transition-delay: 500ms; */
 			@apply translate-y-0;
+		}
+	}
+
+	#faaliyetraporusvg,
+	#entegrefaaliyetraporusvg,
+	#halkaarzreklamkampanyalarisvg,
+	#kurumsalkimliksvg,
+	#surdurulebilirlikdanismanligisvg,
+	#surdurulebilirlikraporusvg,
+	#yatirimciiliskileriwebsitesisvg,
+	#yatirimcisunumlarisvg {
+		width: auto;
+		height: 60px;
+		margin-inline: auto;
+		margin-bottom: 0.5rem;
+	}
+	@media screen and (max-width: 576px) {
+		#faaliyetraporusvg,
+		#entegrefaaliyetraporusvg,
+		#halkaarzreklamkampanyalarisvg,
+		#kurumsalkimliksvg,
+		#surdurulebilirlikdanismanligisvg,
+		#surdurulebilirlikraporusvg,
+		#yatirimciiliskileriwebsitesisvg,
+		#yatirimcisunumlarisvg {
+			height: 40px;
 		}
 	}
 

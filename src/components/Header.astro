@@ -62,11 +62,11 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 														class:list={[
 															"whitespace-no-wrap relative block px-3 py-2 leading-tight text-[var(--nav-primary-color)] hover:text-mavi lg:text-center lg:text-white",
 															{
-																"aw-link-active": href2 === currentPath + "/",
+																"aw-link-active": href2 === currentPath + (currentPath === "/" ? "" : "/"),
 															},
 														]}
 														href={href2}>
-														{/* {console.log(href2, currentPath)} */}
+														{/* {console.log(href2, currentPath + (currentPath === "/" ? "" : "/"))} */}
 														<Fragment set:html={text2} />
 													</a>
 												</li>
@@ -78,11 +78,12 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 										class:list={[
 											"relative flex items-end px-4 py-0 font-bold text-[var(--nav-primary-color)] lg:py-1 lg:font-normal",
 											{
-												"aw-link-active": href === currentPath,
+												"aw-link-active": href === currentPath + (currentPath === "/" ? "" : "/"),
 											},
 										]}
 										href={href}
 										aria-label={homeicon ? "home" : slugify(text)}>
+										{/* {console.log(href, currentPath + (currentPath === "/" ? "" : "/"))} */}
 										{homeicon ? <Fragment set:html={homeSvg} /> : text}
 									</a>
 								)}

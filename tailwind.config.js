@@ -26,6 +26,8 @@ export default {
 				pembe: "#d100bf",
 				mor: "#8000ff",
 				gri: "#444",
+				gri2: "#e1e8ed",
+				gri3: "#808080",
 				siyah: "#333",
 				footertext: "#4c5255",
 				footerback: "#eef3f6",
