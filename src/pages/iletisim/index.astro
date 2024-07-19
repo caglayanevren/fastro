@@ -1,0 +1,270 @@
+---
+import Layout from "~layouts/Layout.astro";
+const title = "İletişim";
+const seoImage = "/og/iletisim-og.png";
+---
+
+<Layout title={title} seoImage={seoImage}>
+	<div id="hero" class="map-section" slot="iletisim">
+		<div class="inner map-info">
+			<div class="container">
+				<h1 class="mb-6 font-zilla text-5xl">{title}</h1>
+				<p class="text-md font-medium text-white">Hayatın, temponun, başarının merkezindeyiz.<br /><a class="font-medium text-mavi" href="#gmap" id="open-map">Harita için tıklayın</a></p>
+			</div>
+		</div>
+		<div id="gmap" class="map"></div>
+		<a href="#gmap" id="close-map" class="text-white">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" style="width:15px;height:auto;">
+				<path fill="currentColor" d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path>
+			</svg>
+		</a>
+	</div>
+
+	<div class="mb-4 mt-12 grid grid-cols-1 gap-0 md:mb-8 md:grid-cols-12">
+		<div class="md:col-start-1 md:col-end-6 lg:col-end-5">
+			<div class="mb-16 flex flex-col">
+				<h5 class="mb-2 font-zilla text-2xl">Finar Kurumsal<br />İletişim Çözümleri Ltd. Şti.</h5>
+				<div class="my-8 w-[30px] border-2 border-solid border-mavi"></div>
+				<h6 class="mb-2 font-bold uppercase tracking-[1px]">ADRES</h6>
+				<p class="border-gri2 mb-[20px] border-b border-solid pb-[20px] text-sm">Seba Office Boulevard, D 21<br />Ayazağa Mahallesi Mimar Sinan Sokak No: 21<br /> Sarıyer İstanbul</p>
+				<h6 class="mb-2 font-bold uppercase tracking-[1px]">e-posta</h6>
+				<p class="border-gri2 mb-[20px] border-b border-solid pb-[20px] text-sm">finar@finarkurumsal.com</p>
+				<h6 class="mb-2 font-bold uppercase tracking-[1px]">Telefon</h6>
+				<p class="border-gri2 mb-[20px] border-b border-solid pb-[20px] text-sm">0212 269 37 20-21</p>
+				<h6 class="mb-2 font-bold uppercase tracking-[1px]">Faks</h6>
+				<p class="border-gri2 mb-[20px] border-b border-solid pb-[20px] text-sm">0212 269 37 50</p>
+				<h6 class="mb-2 hidden font-bold uppercase tracking-[1px] md:block">&nbsp;</h6>
+				<p class="border-gri2 mb-[20px] hidden border-b border-solid pb-[20px] text-sm md:block">&nbsp;</p>
+				<h6 class="mb-2 font-bold uppercase tracking-[1px]"><a href="/hr-form/">Bizimle Çalışmak ister misiniz?</a></h6>
+			</div>
+		</div>
+		<div class="md:col-start-7 md:col-end-13">
+			<div class="flex flex-col">
+				<h5 class="mb-2 font-zilla text-2xl">Bize Ulaşın</h5>
+				<div class="my-8 w-[30px] border-2 border-solid border-mavi"></div>
+				<!-- <form role="form" method="post" id="reused_form">
+					<div class="form-group">
+						<input type="text" class="form-control" id="name" name="name" required maxlength="50" placeholder="Ad Soyad" />
+					</div>
+					<div class="form-group">
+						<input type="email" class="form-control" id="email" name="email" required maxlength="50" placeholder="E-posta" />
+					</div>
+					<div class="form-group">
+						<textarea class="form-control" name="message" id="message" placeholder="Mesajınız" maxlength="6000" rows="7"></textarea>
+					</div>
+					<div class="row" style="margin-bottom:30px;">
+						<div class="col-sm-5">
+							<img src="/assets/iletisim-form/captcha.php" id="captcha_image" alt="" />&nbsp; &nbsp;<a id="captcha_reload" href="#" rel="nofollow">yenile</a>
+						</div>
+						<div class="col-sm-6">
+							<input type="text" class="form-control" required id="captcha" name="captcha" placeholder="Güvenlik kodunu giriniz" />
+						</div>
+					</div>
+					<button type="submit" class="btn btn-md btn-finar pull-left" id="btnContactUs">Gönder &rarr;</button>
+				</form>
+				<div id="success_message" style="width:100%; height:100%; display:none; ">
+					<h4>Eposta başarıyla gönderildi</h4>
+					<p><a href="https://www.finarkurumsal.com/iletisim/" rel="nofollow">Geri dön</a></p>
+				</div>
+				<div id="error_message" style="width:100%; height:100%; display:none; ">
+					<h3>Error</h3>
+					<p>Bir hata ile karşılaşıldı, lütfen tekrar göndermeyi deneyiniz.</p>
+				</div> -->
+			</div>
+		</div>
+	</div>
+</Layout>
+
+<style>
+	#hero {
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-color: #070707;
+	}
+	#iletisim #hero {
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-color: #070707;
+		color: #fff;
+	}
+	#hero {
+		color: #ccd6dd;
+		.inner {
+			padding: 5em 0;
+			background: url(../../images/Finar_Iletisim_Gorsel.png) center center no-repeat;
+			background-size: cover;
+		}
+		h1,
+		h2,
+		h3,
+		h4,
+		h5 {
+			color: #fff;
+		}
+		p:last-child {
+			margin-bottom: 0;
+		}
+	}
+	.map-section {
+		position: relative;
+		overflow: hidden;
+		.map-info {
+			position: relative;
+			z-index: 3;
+		}
+		.map {
+			position: absolute;
+			z-index: 1;
+			top: -3em;
+			left: 0;
+			width: 100%;
+			bottom: -3em;
+			background-color: #111 !important;
+			-webkit-transition:
+				top 0.3s ease-in-out,
+				bottom 0.3s ease-in-out;
+			transition:
+				top 0.3s ease-in-out,
+				bottom 0.3s ease-in-out;
+		}
+		#close-map {
+			position: absolute;
+			z-index: 2;
+			top: 15px;
+			right: 15px;
+			padding: 0.25em 0.75em;
+			font-size: 1.25em;
+			text-decoration: none;
+			background-color: #00b2e2;
+			color: #fff;
+			visibility: hidden;
+			opacity: 0;
+		}
+		&.open .map-info {
+			visibility: hidden;
+			opacity: 0;
+		}
+		.map-info {
+			visibility: visible;
+			opacity: 1;
+			-webkit-transition: all 0.3s ease-in-out;
+			transition: all 0.3s ease-in-out;
+		}
+		&.open {
+			#close-map {
+				visibility: visible;
+				opacity: 1;
+				-webkit-transition: all 0.3s ease-in-out;
+				transition: all 0.3s ease-in-out;
+			}
+			.inner {
+				margin-top: 6em;
+				margin-bottom: 6em;
+			}
+			.map {
+				top: 0;
+				bottom: 0;
+			}
+		}
+	}
+</style>
+<script is:inline>
+	((g) => {
+		var h,
+			a,
+			k,
+			p = "The Google Maps JavaScript API",
+			c = "google",
+			l = "importLibrary",
+			q = "__ib__",
+			m = document,
+			b = window;
+		b = b[c] || (b[c] = {});
+		var d = b.maps || (b.maps = {}),
+			r = new Set(),
+			e = new URLSearchParams(),
+			u = () =>
+				h ||
+				(h = new Promise(async (f, n) => {
+					await (a = m.createElement("script"));
+					e.set("libraries", [...r] + "");
+					for (k in g)
+						e.set(
+							k.replace(/[A-Z]/g, (t) => "_" + t[0].toLowerCase()),
+							g[k]
+						);
+					e.set("callback", c + ".maps." + q);
+					a.src = `https://maps.${c}apis.com/maps/api/js?` + e;
+					d[q] = f;
+					a.onerror = () => (h = n(Error(p + " could not load.")));
+					a.nonce = m.querySelector("script[nonce]")?.nonce || "";
+					m.head.append(a);
+				}));
+		d[l] ? console.warn(p + " only loads once. Ignoring:", g) : (d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)));
+	})({
+		key: "AIzaSyBlnXBdGl2vEEjHGbI_2rAVtnA_UuCSkQc",
+		v: "weekly",
+		libraries: "marker",
+	});
+	const map_name = "FINAR_gmap";
+	const fimage = document.createElement("img");
+	fimage.src = "/f.png";
+	const center = { lat: 41.109244, lng: 28.992572 };
+	let map, styledMapOptions, stylers1, stylers2, customMapType1, customMapType2;
+	async function initMap() {
+		const { Map } = await google.maps.importLibrary("maps");
+		const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+		map = new Map(document.getElementById("gmap"), {
+			zoom: 15,
+			center: center,
+			mapId: map_name,
+			mapTypeId: map_name,
+			disableDefaultUI: true, //true
+			scrollwheel: false,
+		});
+		const marker = new AdvancedMarkerElement({
+			map,
+			position: center,
+			content: fimage,
+		});
+		stylers1 = [
+			{
+				stylers: [
+					{ color: "#00B2E2" }, //none
+					{ visibility: "off" }, //none
+					//{ "saturation": -30 }, //-100
+					//{ "invert_lightness": false }, //true
+					//{ "lightness": -80 } //-80,
+				],
+			},
+		];
+		stylers2 = [
+			{
+				stylers: [
+					{ saturation: -50 }, //-100
+					{ invert_lightness: false }, //true
+					{ lightness: -10 }, //-30
+				],
+			},
+		];
+		styledMapOptions = {
+			map: map,
+			name: map_name + "_map",
+		};
+		customMapType1 = new google.maps.StyledMapType(stylers1, styledMapOptions);
+		customMapType2 = new google.maps.StyledMapType(stylers2, styledMapOptions);
+	}
+	initMap();
+	document.getElementById("open-map").addEventListener("click", function (e) {
+		e.preventDefault();
+		this.closest(".map-section").classList.add("open");
+		map.mapTypes.set(map_name, customMapType2);
+	});
+	document.getElementById("close-map").addEventListener("click", function (e) {
+		e.preventDefault();
+		this.closest(".map-section").classList.remove("open");
+		map.mapTypes.set(map_name, customMapType1);
+	});
+</script>

@@ -10,50 +10,164 @@ import sd from "/src/images/anasayfa/svg/surdurulebilirlik-danismanligi.svg?raw"
 import sr from "/src/images/anasayfa/svg/surdurulebilirlik-raporu.svg?raw";
 import yiws from "/src/images/anasayfa/svg/yatirimci-iliskileri-web-sitesi.svg?raw";
 import ys from "/src/images/anasayfa/svg/yatirimci-sunumlari.svg?raw";
+
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/autoplay";
+import "swiper/css/effect-fade";
 ---
 
 <AnasayfaLayout>
-	<section class="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
-		<a href="/faaliyet-raporu/" class="rounded-[4px] bg-mavi2 p-4 text-center font-bold text-white md:font-normal">
+	<RedPop />
+	<section class="grid grid-cols-2 gap-5 sm:gap-[30px] md:grid-cols-3 lg:grid-cols-4">
+		<a href="/faaliyet-raporu/" class="rounded-[4px] bg-mavi2 p-4 text-center text-sm font-bold leading-4 text-white sm:text-lg sm:leading-5 md:text-base md:font-normal md:leading-5 lg:text-lg lg:leading-5">
 			<Fragment set:html={fr} />Faaliyet<br />Raporu
 		</a>
-		<a href="/entegre-faaliyet-raporu/" class="rounded-[4px] bg-gok p-4 text-center font-bold text-white md:font-normal">
+		<a href="/entegre-faaliyet-raporu/" class="rounded-[4px] bg-gok p-4 text-center text-sm font-bold leading-4 text-white sm:text-lg sm:leading-5 md:text-base md:font-normal md:leading-5 lg:text-lg lg:leading-5">
 			<Fragment set:html={efr} />Entegre<br />Faaliyet Raporu
 		</a>
-		<a href="/surdurulebilirlik-raporu/" class="rounded-[4px] bg-yesil p-4 text-center font-bold text-white md:font-normal">
+		<a href="/surdurulebilirlik-raporu/" class="rounded-[4px] bg-yesil p-4 text-center text-sm font-bold leading-4 text-white sm:text-lg sm:leading-5 md:text-base md:font-normal md:leading-5 lg:text-lg lg:leading-5">
 			<Fragment set:html={sr} />Sürdürülebilirlik<br />Raporu
 		</a>
-		<a href="/surdurulebilirlik-danismanligi/" class="rounded-[4px] bg-sari p-4 text-center font-bold text-white md:font-normal">
+		<a href="/surdurulebilirlik-danismanligi/" class="rounded-[4px] bg-sari p-4 text-center text-sm font-bold leading-4 text-white sm:text-lg sm:leading-5 md:text-base md:font-normal md:leading-5 lg:text-lg lg:leading-5">
 			<Fragment set:html={sd} />Sürdürülebilirlik<br />Danışmanlığı
 		</a>
-		<a href="/yatirimci-sunumu/" class="rounded-[4px] bg-turuncu p-4 text-center font-bold text-white md:font-normal">
+		<a href="/yatirimci-sunumu/" class="rounded-[4px] bg-turuncu p-4 text-center text-sm font-bold leading-4 text-white sm:text-lg sm:leading-5 md:text-base md:font-normal md:leading-5 lg:text-lg lg:leading-5">
 			<Fragment set:html={ys} />Yatırımcı<br />Sunumu
 		</a>
-		<a href="/yatirimci-iliskileri-web-sitesi/" class="rounded-[4px] bg-red p-4 text-center font-bold text-white md:font-normal">
+		<a href="/yatirimci-iliskileri-web-sitesi/" class="rounded-[4px] bg-red p-4 text-center text-sm font-bold leading-4 text-white sm:text-lg sm:leading-5 md:text-base md:font-normal md:leading-5 lg:text-lg lg:leading-5">
 			<Fragment set:html={yiws} />Yatırımcı İlişkileri<br />Web Sitesi
 		</a>
-		<a href="/kurumsal-kimlik/" class="rounded-[4px] bg-pembe p-4 text-center font-bold text-white md:font-normal">
+		<a href="/kurumsal-kimlik/" class="rounded-[4px] bg-pembe p-4 text-center text-sm font-bold leading-4 text-white sm:text-lg sm:leading-5 md:text-base md:font-normal md:leading-5 lg:text-lg lg:leading-5">
 			<Fragment set:html={kk} />Kurumsal<br />Kimlik
 		</a>
-		<a href="/halka-arz/" class="rounded-[4px] bg-mor p-4 text-center font-bold text-white md:font-normal">
+		<a href="/halka-arz/" class="rounded-[4px] bg-mor p-4 text-center text-sm font-bold leading-4 text-white sm:text-lg sm:leading-5 md:text-base md:font-normal md:leading-5 lg:text-lg lg:leading-5">
 			<Fragment set:html={hark} />Halka<br />Arz
 		</a>
 	</section>
-	<RedPop />
+	<section class="grid grid-cols-1 gap-6 pb-10 pt-5 sm:pb-[60px] sm:pt-[30px] lg:grid-cols-2">
+		<div class="order-last flex flex-col lg:order-first lg:justify-between">
+			<a href="/bir-bakista-finar/" class="mt-8 flex items-center gap-2 text-white">
+				<img src="/play.svg" style="width:auto;height:30px;" alt="Bir Bakışta Finar" />
+				<p class="text-xl">Bir Bakışta Finar</p>
+			</a>
+			<div class="mt-8">
+				<div class="swiper haberswiper">
+					<div class="swiper-wrapper mb-4" data-cursor="swipe">
+						<div class="swiper-slide"><a class="font-normal text-white hover:text-mavi" href="/oduller/arc-2021/">ARC Awards'ta Toplam&nbsp;33&nbsp;Ödül&nbsp;&#8250;&#8250;</a></div>
+						<div class="swiper-slide"><a class="font-normal text-white hover:text-mavi" href="/oduller/lacp-2021/">LACP'de Toplam&nbsp;28&nbsp;Ödül&nbsp;&#8250;&#8250;</a></div>
+						<div class="swiper-slide"><a class="font-normal text-white hover:text-mavi" href="/oduller/toplam-24-odul/">Finar'a Toplam&nbsp;24&nbsp;Ödül&nbsp;&#8250;&#8250;</a></div>
+						<div class="swiper-slide"><a class="font-normal text-white hover:text-mavi" href="/oduller/dunyanin-en-iyi-kurumsal-tasarim-ajansi/">Dünyanın en iyi kurumsal tasarım&nbsp;ajansı&nbsp;seçildik!&nbsp;&#8250;&#8250;</a></div>
+						<div class="swiper-slide"><a class="font-normal text-white hover:text-mavi" href="/oduller/biz-altin-madenini-amerikada-bulduk/">"Raporların Oscarları” yine&nbsp;Finar’a!&nbsp;&#8250;&#8250;</a></div>
+						<div class="swiper-slide"><a class="font-normal text-white hover:text-mavi" href="/oduller/abdden-yine-buyuk-odullerle-donuyoruz/">Amerika’dan yine büyük&nbsp;ödüllerle&nbsp;döndük!&nbsp;&#8250;&#8250;</a></div>
+						<div class="swiper-slide"><a class="font-normal text-white hover:text-mavi" href="/oduller#2019Campaign">Yine, yeniden yılın&nbsp;ajansı&nbsp;olduk!&nbsp;&#8250;&#8250;</a></div>
+						<div class="swiper-slide"><a class="font-normal text-white hover:text-mavi" href="/biz-kimiz/">Bilanço okumayı bilen reklam&nbsp;ajansı&nbsp;&#8250;&#8250;</a></div>
+						<div class="swiper-slide"><a class="font-normal text-white hover:text-mavi" href="/yatirimci-iliskileri-mobil-uygulamasi/">FinarApp kullanan şirket sayısı altıya&nbsp;çıktı.&nbsp;&#8250;&#8250;</a></div>
+						<div class="swiper-slide"><a class="font-normal text-white hover:text-mavi" href="/vlog/yatirimci-iliskileri/profesyonellere-onemli-tavsiyeler/">Nursel İlgen'den yatırımcı ilişkileri profesyonellerine önemli&nbsp;tavsiyeler&nbsp;&#8250;&#8250;</a></div>
+						<div class="swiper-slide"><a class="font-normal text-white hover:text-mavi" href="/vlog/iyi-bir-faaliyet-raporu/kariyerimin-en-iyi-raporu-oldu/">"23 yıllık bankacılık kariyerimin en iyi raporu&nbsp;oldu."&nbsp;&#8250;&#8250;</a></div>
+						<div class="swiper-slide"><a class="font-normal text-white hover:text-mavi" href="/vlog/faaliyet-raporlarinin-onemi/sirketlerin-aynasi/">"Faaliyet raporları, şirketlerin&nbsp;aynasıdır."&nbsp;&#8250;&#8250;</a></div>
+					</div>
+					<div class="swiper-pagination"></div>
+				</div>
+			</div>
+		</div>
+		<div class="order-first lg:order-last">
+			<div class="swiper duyuruswiper">
+				<div class="swiper-wrapper" data-cursor="swipe">
+					<div class="swiper-slide">
+						<a href="/turkiye-surdurulebilirlik-raporlama-standartlari/" class="block h-full rounded-sm">
+							<div class="yesil-grad45 flex h-full w-full items-center justify-between rounded-sm">
+								<div class="tsrs-title grow-1 mr-n4 rounded-sm pl-3 text-[12px] text-white sm:text-base md:text-xl lg:text-base xl:text-lg">Türkiye Sürdürülebilirlik<br />Raporlama Standartları <br class="inline sm:hidden" />(TSRS) <br class="hidden sm:inline" />Hakkında <br class="inline sm:hidden" />Bilmeniz Gerekenler</div>
+								<img src="/tsrs-banner.png" loading="eager" alt="TSRS" class="shrink-1 h-full w-auto grow-0 rounded-sm" />
+							</div>
+						</a>
+					</div>
+					<div class="swiper-slide">
+						<a href="http://sifiryuz.finarkurumsal.com" target="_blank" class="block h-full rounded-sm">
+							<div class="flex h-full w-full items-center justify-between rounded-sm bg-white">
+								<img src="/Finar_Cumhuriyet_Kitapcigi_Banner_image.png" alt="Sıfırdan Yüz'e" class="shrink-1 mb-3 mt-5 w-[45%] grow-0 rounded-sm" />
+								<div class="grow-1 my-4 flex flex-col">
+									<svg id="finar100svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 88.67 29.13" class="mx-auto w-[50%]">
+										<path
+											d="M45.95,7.82c0-.91-.49-1.37-1.47-1.37h-.77c-.11,0-.21.1-.21.21v2.42c0,.1.1.21.21.21h1.68c.07,0,.14-.07.18-.14.21-.46.31-.91.39-1.33M49.7,14.9h-3.29c-.07,0-.14-.03-.18-.11l-1.61-3.22c-.1-.21-.32-.32-.53-.32h-.39c-.11,0-.21.1-.21.21v3.26c0,.11-.1.21-.21.21h-2.87c-.1,0-.21-.11-.21-.21V4.35c0-.1.1-.21.21-.21h4.45c2.87,0,4.31,1.12,4.31,3.33,0,.95-.53,2-1.61,3.08-.07.07-.07.18-.03.25l2.31,3.82c.07.1.04.21-.07.28h-.07ZM34.14,10.83c.1,0,.21-.07.21-.21v-.03l-.7-2.91c-.03-.11-.07-.28-.1-.53-.03-.14-.03-.28-.03-.42-.03.32-.07.63-.17.95l-.81,2.91c-.03.1.03.21.14.25h1.47ZM38.94,14.9h-3.4c-.1,0-.18-.07-.18-.14l-.49-1.86c-.03-.07-.1-.14-.17-.14h-2.56c-.07,0-.17.07-.17.14l-.6,1.86c-.03.07-.1.14-.17.14h-2.98c-.11,0-.21-.07-.21-.21v-.07l3.79-10.37c.03-.07.1-.14.18-.14h3.43c.07,0,.17.07.17.14l3.58,10.37c.03.1,0,.21-.1.25q-.07.03-.11.03M26.81,14.9h-2.66c-.07,0-.11-.03-.14-.07l-3.82-4.94c-.25-.25-.39-.56-.49-.91v5.75c0,.11-.1.21-.21.21h-2.49c-.11,0-.21-.07-.21-.18V4.35c0-.1.1-.21.21-.21h2.59c.07,0,.1.03.17.07l3.85,5.05c.25.28.42.63.53.98v-5.89c0-.1.1-.21.21-.21h2.49c.1,0,.21.1.21.21v10.37c-.03.11-.14.18-.24.18M15.21,14.9h-5.96c-.1,0-.18-.07-.21-.18v-1.72c0-.1.11-.21.21-.21h1.12c.1,0,.21-.1.21-.21v-6.03c0-.1-.11-.21-.21-.21h-1.05c-.11,0-.21-.1-.21-.21v-1.82c0-.1.1-.21.21-.21h5.89c.1,0,.21.1.21.21v1.82c0,.11-.11.21-.21.21h-1.16c-.1,0-.21.1-.21.21v6.06c0,.11.11.21.21.21h1.16c.1,0,.21.1.21.21v1.68c-.03.11-.11.18-.21.18M7.5,4.35v1.96c0,.1-.11.21-.21.21h-3.86c-.11,0-.21.11-.21.21v1.86c0,.1.11.21.21.21h3.29c.11,0,.21.11.21.21v2c0,.1-.11.21-.21.21h-3.26c-.11,0-.21.11-.21.21v3.29c0,.11-.11.21-.21.21H.21c-.11,0-.21-.11-.21-.21V4.35c0-.1.11-.21.21-.21h7.11c.11,0,.18.07.18.21t0,0M10.72,0h2.94c.11,0,.21.11.21.21v2.73c0,.11-.1.21-.21.21h-2.94c-.11,0-.21-.1-.21-.21V.21c.03-.1.1-.21.21-.21"
+											fill="#ed1c24"
+											stroke-width="0"></path>
+										<path
+											d="M75.5,10.87c.73,2.21,2.76,3.8,5.16,3.8,1.85,0,3.47-.94,4.46-2.38-1.15,2.34-3.51,3.96-6.25,3.96-1.97,0-3.74-.83-5.01-2.17.79-.92,1.35-2.03,1.64-3.21M85.46,8.46l-1.98.64,1.98.64v2.07l1.22-1.67,1.98.64h0s-1.22-1.67-1.22-1.67l1.22-1.67h0s-1.98.64-1.98.64l-1.22-1.68v2.07ZM58.57,1.94l-5.19,2.75,1.6,2.84,1.61-.84v11.21l4.19-3.22V4.04l-2.2-2.1ZM78.87,1.94c-3.2,0-5.88,2.2-6.72,5.19-.01.04-.02.09-.04.14-.04.15-.08.3-.11.46-.02.1-.03.2-.05.3-.02.11-.04.22-.05.34-.02.22-.04.44-.04.67,0,.02,0,.04,0,.08,0,2.02-1.6,3.65-3.57,3.65s-3.58-1.64-3.58-3.66,1.6-3.66,3.58-3.66c1.44,0,2.68.88,3.25,2.13.26-1.29.85-2.5,1.72-3.51-1.27-1.31-3.02-2.12-4.97-2.12-3.86,0-7,3.21-7,7.16s3.13,7.16,7,7.16c2.11,0,4-.96,5.28-2.48,0,0,.02-.02.02-.03.09-.11.17-.22.25-.33.03-.04.06-.09.09-.13.09-.12.17-.25.25-.38.01-.02.03-.04.04-.06.24-.41.45-.84.61-1.28.03-.07.05-.14.08-.21.03-.09.06-.19.09-.29.04-.15.08-.29.11-.44.01-.04.02-.09.03-.13.14-.7.02-1.4.1-2.1.34-2.75,2.62-4.88,5.4-4.88,1.84,0,3.47.94,4.46,2.38-1.15-2.34-3.51-3.96-6.25-3.96M85.46,8.46l-1.98.64,1.98.64v2.07l1.22-1.67,1.98.64h0s-1.22-1.67-1.22-1.67l1.22-1.67h0s-1.98.64-1.98.64l-1.22-1.68v2.07ZM78.87,1.94c-3.2,0-5.88,2.2-6.72,5.19-.01.04-.02.09-.04.14-.04.15-.08.3-.11.46-.02.1-.03.2-.05.3-.02.11-.04.22-.05.34-.02.22-.04.44-.04.67,0,.02,0,.04,0,.08,0,2.02-1.6,3.65-3.57,3.65s-3.58-1.64-3.58-3.66,1.6-3.66,3.58-3.66c1.44,0,2.68.88,3.25,2.13.26-1.29.85-2.5,1.72-3.51-1.27-1.31-3.02-2.12-4.97-2.12-3.86,0-7,3.21-7,7.16s3.13,7.16,7,7.16c2.11,0,4-.96,5.28-2.48,0,0,.02-.02.02-.03.09-.11.17-.22.25-.33.03-.04.06-.09.09-.13.09-.12.17-.25.25-.38.01-.02.03-.04.04-.06.24-.41.45-.84.61-1.28.03-.07.05-.14.08-.21.03-.09.06-.19.09-.29.04-.15.08-.29.11-.44.01-.04.02-.09.03-.13.06-.3.07-.6.07-.9,0-.18,0-.35,0-.53,0-.22,0-.44.03-.67.34-2.75,2.62-4.88,5.4-4.88,1.84,0,3.47.94,4.46,2.38-1.15-2.34-3.51-3.96-6.25-3.96M58.57,1.94l-5.19,2.75,1.6,2.84,1.61-.84v11.21l4.19-3.22V4.04l-2.2-2.1Z"
+											fill="#ed1c24"
+											stroke-width="0"></path>
+										<path
+											d="M77.63,23.84h-2.78v.68h.98v3.34h.81v-3.34h.99v-.68ZM73.51,25.47h-1.26v-.95h1.49v-.68h-2.3v4.01h2.3v-.67h-1.49v-1.06h1.26v-.65ZM68.22,23.84h-.88l1.08,2.56v1.45h.82v-1.45l1.08-2.56h-.88l-.6,1.8-.61-1.8ZM65.46,23.43c.07.07.17.11.3.11s.23-.03.3-.11c.07-.07.11-.16.11-.27s-.04-.21-.12-.28c-.08-.07-.18-.11-.29-.11s-.22.04-.29.11c-.08.07-.12.16-.12.28s.04.2.11.27M66.17,23.84h-.81v4.01h.81v-4.01ZM62.25,24.52h.47c.32,0,.47.2.47.6,0,.18-.04.32-.12.43-.08.11-.2.16-.36.16h-.46v-1.2ZM63.25,27.86h.87v-.04l-.7-1.64c.39-.21.58-.59.58-1.12,0-.39-.11-.69-.33-.9-.22-.21-.53-.32-.94-.32h-1.29v4.01h.81v-1.47h.4l.6,1.47ZM59.25,23.84v2.78c0,.22-.04.38-.11.48-.07.1-.2.14-.4.14s-.33-.05-.4-.15c-.07-.1-.11-.26-.11-.49v-2.76h-.82v2.76c0,.42.11.75.34.97.23.22.56.34.99.34s.75-.11.97-.33c.23-.22.34-.54.35-.96v-2.78h-.81ZM56.04,23.84h-.81v1.62h-1.2v-1.62h-.81v4.01h.81v-1.72h1.2v1.72h.81v-4.01ZM48.18,23.84v4.01h.81v-1.09l-.08-1.67.8,2.76h.55l.8-2.76-.08,1.67v1.09h.81v-4.01h-1.06l-.76,2.9-.76-2.9h-1.06ZM45.99,23.84v2.78c0,.22-.04.38-.11.48-.07.1-.2.14-.4.14s-.33-.05-.4-.15c-.07-.1-.11-.26-.11-.49v-2.76h-.82v2.76c0,.42.11.75.34.97.23.22.56.34.99.34s.75-.11.97-.33c.23-.22.34-.54.34-.96v-2.78h-.81ZM42.12,26.52c-.01.27-.06.46-.14.56-.08.1-.23.15-.44.15s-.37-.07-.46-.22c-.09-.15-.13-.42-.13-.82v-.76c0-.35.05-.6.14-.75.09-.15.24-.23.46-.23s.36.05.44.16c.08.11.12.3.13.58h.81c-.03-.46-.16-.81-.39-1.05-.23-.24-.56-.37-1-.37s-.79.15-1.04.45c-.25.3-.38.72-.38,1.27v.68c0,.55.12.98.36,1.28.24.3.59.45,1.04.45s.77-.12,1-.35c.24-.23.36-.58.38-1.04h-.81ZM36.93,23.84h-.81v2.63l-1.19-2.63h-.81v4.01h.81v-2.63l1.19,2.63h.81v-4.01ZM32.68,23.84h-.81v4.01h.81v-4.01ZM29.29,27.25c-.2,0-.35-.05-.44-.16s-.14-.27-.14-.5h-.81c0,.27.06.5.18.7.12.2.29.35.5.46.21.11.45.16.71.16.38,0,.68-.1.91-.29.22-.2.33-.47.33-.82,0-.32-.09-.58-.27-.79-.18-.21-.46-.38-.85-.52-.22-.1-.38-.19-.47-.28-.09-.09-.13-.19-.13-.3,0-.14.04-.25.12-.34.08-.08.19-.12.33-.12.15,0,.27.05.35.15.08.1.12.24.12.43h.81c0-.24-.05-.46-.16-.64-.1-.19-.25-.34-.44-.44-.19-.1-.41-.16-.66-.16-.37,0-.67.1-.91.31-.24.2-.36.48-.36.82,0,.28.09.52.26.73.18.21.47.38.87.54.22.09.37.18.46.26.08.08.12.21.12.37,0,.3-.14.45-.42.45M25.25,24.93l.38,1.43h-.75l.38-1.43ZM26.02,27.86h.86l-1.26-4.01h-.74l-1.25,4.01h.86l.22-.82h1.1l.22.82ZM21.04,27.84l-.07.39c.11,0,.19.03.24.06.05.03.07.08.07.15,0,.15-.07.23-.2.23l.02.46c.27,0,.48-.06.62-.18.14-.12.22-.28.22-.48,0-.13-.03-.24-.09-.32-.06-.08-.14-.13-.25-.16l.02-.16h-.58ZM21.35,27.25c-.2,0-.35-.05-.44-.16s-.14-.27-.14-.5h-.81c0,.27.06.5.18.7.12.2.29.35.5.46.21.11.45.16.71.16.38,0,.68-.1.91-.29.22-.2.33-.47.33-.82,0-.32-.09-.58-.27-.79-.18-.21-.46-.38-.85-.52-.22-.1-.38-.19-.47-.28-.09-.09-.13-.19-.13-.3,0-.14.04-.25.12-.34.08-.08.19-.12.33-.12.15,0,.27.05.35.15.08.1.12.24.12.43h.81c0-.24-.05-.46-.16-.64-.1-.19-.25-.34-.44-.44-.19-.1-.41-.16-.66-.16-.37,0-.67.1-.91.31s-.36.48-.36.82c0,.28.09.52.26.73.18.21.47.38.87.54.22.09.37.18.46.26.08.08.12.21.12.37,0,.3-.14.45-.42.45M17.31,24.93l.38,1.43h-.75l.37-1.43ZM18.08,27.86h.87l-1.26-4.01h-.74l-1.25,4.01h.86l.22-.82h1.1l.22.82ZM13.14,23.84h-.88l1.08,2.56v1.45h.82v-1.45l1.08-2.56h-.88l-.6,1.8-.61-1.8Z"
+											fill="#ed1c24"
+											stroke-width="0"></path>
+									</svg>
+									<div class="my-[0.5rem] text-center text-[10px] font-bold text-red sm:text-[12px] md:text-base lg:my-4 lg:text-[12px]">Cumhuriyetimizin ilk<br />Sürdürülebilirlik Raporu yayında!</div>
+									<div class="text-center text-[8px] text-mavi sm:text-[10px] md:text-[12px] lg:text-[10px]">Ülkemizi kendi alanında dünyada gururla temsil eden<br />bir ajans olarak, Cumhuriyetimizin 100. yaşına<br />gönulden bir armağan eser sunuyoruz.</div>
+								</div>
+							</div>
+						</a>
+					</div>
+					<div class="swiper-slide">
+						<a href="/musterilerimiz-konusuyor/" class="block h-full rounded-sm">
+							<div id="mfa" class="bg-gri3 flex h-full items-center justify-between rounded-sm p-8">
+								<div class="text-2xl font-medium text-white">Müşterilerimiz Finar’ı anlatıyor</div>
+								<div class="h-[50px] w-[50px]">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37.74 37.74" preserveAspectRatio="xMidYMin" xml:space="preserve">
+										<circle cx="18.87" cy="18.87" r="18.12" fill="none" stroke="#fff" stroke-width="1.5"></circle>
+										<path d="M21.05,14.26,26,18.87l-4.94,4.61m-9.3-4.62H26" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+									</svg>
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 </AnasayfaLayout>
-
-<style is:global>
-	#faaliyetraporusvg,
-	#entegrefaaliyetraporusvg,
-	#halkaarzreklamkampanyalarisvg,
-	#kurumsalkimliksvg,
-	#surdurulebilirlikdanismanligisvg,
-	#surdurulebilirlikraporusvg,
-	#yatirimciiliskileriwebsitesisvg,
-	#yatirimcisunumlarisvg {
-		width: auto;
-		height: 60px;
-		margin-inline: auto;
-		margin-bottom: 0.5rem;
+<style is:inline>
+	.swiper {
+		width: 100%;
+		height: 100%;
+	}
+	.swiper {
+		--swiper-navigation-color: #333;
+		--swiper-navigation-size: 40px;
+		--swiper-navigation-sides-offset: 20px;
+		--swiper-pagination-bottom: 0px;
+		--swiper-pagination-color: #869791;
+		--swiper-pagination-bullet-inactive-color: #ffffff00;
+		--swiper-pagination-bullet-inactive-opacity: 1;
+		--swiper-pagination-bullet-width: 10px;
+		--swiper-pagination-bullet-height: 10px;
+	}
+	.swiper.haberswiper .swiper-wrapper {
+		display: flex;
+		align-items: flex-end;
+		height: auto !important;
+	}
+	.swiper-pagination {
+		display: flex;
+		flex-direction: row;
+		gap: 0.5rem;
+	}
+	.swiper-pagination-bullet {
+		cursor: pointer;
+		border: 1px solid var(--swiper-pagination-color);
+	}
+	.swiper-pagination-bullet-active {
+		/* border: none; */
+	}
+	.swiper-slide {
+		height: 100% !important;
+	}
+	.tsrs-title {
+		font-weight: 800;
+		text-wrap: balance;
+	}
+	.yesil-grad45 {
+		background: rgb(41, 78, 45);
+		background: linear-gradient(45deg, rgba(41, 78, 45, 1) 0%, rgba(145, 186, 152, 1) 100%);
 	}
 </style>
+<script src="~libs/anasayfa-swipers.ts"></script>

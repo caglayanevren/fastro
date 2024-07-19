@@ -27,6 +27,7 @@ const { title = SITE_TITLE, description = SITE_DESCRIPTION, seoImage = SEO_IMAGE
 	<body class="flex flex-col antialiased">
 		<Header {...headerData} isSticky />
 		<main id="content" role="main" class="grow">
+			<slot name="iletisim" />
 			<div class="container px-[14px] pt-[50px]">
 				<slot />
 			</div>
