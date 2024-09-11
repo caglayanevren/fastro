@@ -1,0 +1,36 @@
+---
+import Layout from "~layouts/Layout.astro";
+import ArticleTitle from "~components/articleTitle.astro";
+import ReferansImage from "~components/referansImage.astro";
+import FirstSpace from "~components/firstSpace.astro";
+const referansImages = await Astro.glob("../../images/referanslar/*.png");
+const seoImage = "/og/referanslar-og.png";
+const title = "Referanslar";
+const spot = "1994’ten bu yana alanlarında çok özel konumda bulunan pek çok markanın gücüne güç katmaktan, farklı iletişim çalışmalarıyla yenilikçi iletişim kanalları oluşturmaktan dolayı mutluyuz.";
+---
+
+<Layout title={title} description={spot} seoImage={seoImage}>
+	<ArticleTitle title={title} spot={spot} />
+	<FirstSpace height={39} />
+	<div class="prose grid grid-cols-3 gap-4 prose-img:m-0 prose-img:p-0 md:grid-cols-4 md:gap-8 lg:grid-cols-6">
+		{
+			referansImages.map((image) => {
+				const src = new URL(image.default.src, Astro.url);
+				const cropsrc = src.pathname.split("/src/")[1].replace("%20", " ");
+				const regex = /\d+/g;
+				const alt = src.pathname.split("/").at(-1)?.match(regex);
+				if (cropsrc.includes("----------")) {
+					return;
+				}
+				if (alt === null || alt === undefined) {
+					return;
+				}
+				return <ReferansImage imagePath={`/src/${cropsrc}`} altText={`ReferansLogo${alt[0]}`} />;
+			})
+		}
+	</div>
+</Layout>
+
+<script is:inline>
+	console.log("filtered --------- on '/src/images/referanslar/*.png'");
+</script>
