@@ -68,6 +68,28 @@
 				ticking = true;
 			}
 		});
+
+		const collapses = document.querySelectorAll(".colapse");
+		collapses.forEach((collapse) => {
+			const colapseTitles = collapse.querySelectorAll(".colapse-title");
+			const colapseContents = collapse.querySelectorAll(".colapse-content");
+			colapseContents.forEach((colapseContent) => {
+				//console.log("🚀 ~ colapseContents.forEach ~ colapseContent:", colapseContent);
+				const colapseContentInside = colapseContent.querySelectorAll(".colapse-content-inside");
+				//console.log("🚀 colapseContentInside:", colapseContentInside);
+				colapseContentInside.forEach((inside) => {
+					const colapseContentInsideHeight = inside.clientHeight;
+					console.log("🚀 colapseContentInsideHeight:", colapseContentInsideHeight);
+					colapseContent.setAttribute("style", `--height:${colapseContentInsideHeight}px;`);
+				});
+				colapseTitles.forEach((colapseTitle) => {
+					colapseTitle.addEventListener("click", () => {
+						colapseTitle.classList.toggle("collapsed");
+						colapseContent.classList.toggle("open");
+					});
+				});
+			});
+		});
 	};
 	const onPageShow = function () {
 		document.documentElement.classList.add("motion-safe:scroll-smooth");

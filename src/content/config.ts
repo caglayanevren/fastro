@@ -30,7 +30,29 @@ const EFRCollection = defineCollection({
 		}),
 });
 
+const OdulCollection = defineCollection({
+	type: "content",
+	schema: ({ image }) =>
+		z.object({
+			title: z.string(),
+			spot: z.string().optional(),
+			category: z.string(),
+			coverImage: image().optional(),
+			year: z.string(),
+		}),
+});
+
+const ARCAwardsCollection = defineCollection({
+	type: "content",
+	schema: () =>
+		z.object({
+			title: z.string(),
+		}),
+});
+
 export const collections = {
 	"faaliyet-raporu": FRCollection,
 	"entegre-faaliyet-raporu": EFRCollection,
+	oduller: OdulCollection,
+	"arc-awards": ARCAwardsCollection,
 };

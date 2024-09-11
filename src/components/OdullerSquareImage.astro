@@ -1,0 +1,13 @@
+---
+import { Picture } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+type Props = {
+	src: ImageMetadata;
+	alt?: string;
+};
+
+const { src, alt = "" } = Astro.props;
+---
+
+<Picture loading="eager" src={src} alt={alt} class="mb-8 aspect-square w-full" widths={[258, 335, 348, 476, 540]} formats={["webp", "jpg"]} sizes={`(max-width: 639.98px) 540px, (max-width: 767.98px) 258px, (max-width: 1023.98px) 348px, (max-width: 1139.98px) 482px, (min-width: 1140px) 534px, (min-width: 1280px) 540px`} />

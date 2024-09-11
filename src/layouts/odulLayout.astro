@@ -1,0 +1,33 @@
+---
+import CollectionCategory from "~components/collectionCategory.astro";
+import CollectionTitle from "~components/collectionTitle.astro";
+import CollectionSpot from "~components/collectionSpot.astro";
+import SingleItemCoverImage from "~components/SingleItemCoverImage.astro";
+import TitleWithLine from "~components/TitleWithLine.astro";
+import Layout from "~layouts/Layout.astro";
+
+type Props = {
+	title: string;
+	spot?: string;
+	category: string;
+	collection: string;
+	coverImage?: ImageMetadata;
+	year: string;
+	slug: string;
+};
+
+const { title, spot, category, collection, coverImage, year, slug } = Astro.props;
+---
+
+<Layout title={title} seoImage={`${import.meta.env.SITE}${collection}/${slug}/${slug}-og.png`}>
+	<div class="w-4/5">
+		<CollectionCategory category={category} collection={collection} />
+		<CollectionTitle title={title} />
+		{spot && <CollectionSpot spot={spot} />}
+		<TitleWithLine title={year} />
+		{coverImage && <SingleItemCoverImage src={coverImage} alt={title} />}
+		<div class="prose prose-h1:font-zilla prose-h1:text-2xl prose-h1:text-mavi prose-h2:mb-0 prose-h2:mt-0 prose-h2:text-base prose-h2:text-mavi prose-p:mb-4 prose-li:my-0">
+			<slot />
+		</div>
+	</div>
+</Layout>

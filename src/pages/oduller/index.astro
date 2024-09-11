@@ -1,0 +1,263 @@
+---
+import TitleWithLine from "~components/TitleWithLine.astro";
+import Layout from "~layouts/Layout.astro";
+import chevDown from "~images/chevron-down-light.svg?raw";
+import arrowright from "/arrow-right.svg?raw";
+import SingleItemCoverImage from "~components/SingleItemCoverImage.astro";
+import OdullerSquareImage from "~components/OdullerSquareImage.astro";
+import HoverItem from "~components/HoverItem.astro";
+
+import arc2021 from "../../images/oduller/2021/ARC-ODUL.jpg";
+import odul2021 from "../../images/oduller/2021/Finar-Odul-Gorseli-2021.png";
+import odul2020 from "../../images/oduller/2020/FNR_ARC_odul_web.jpg";
+import kore2019 from "../../images/oduller/2019/FNR-MutluSonKORE.png";
+import arc2019 from "../../images/oduller/2019/Finar_2019_ARC_Odul_Linkedin.jpg";
+import arc2018 from "../../images/oduller/2018/Finar_2018_Odul_01.png";
+import arc2018_2 from "../../images/oduller/2018/Finar_2018_Odul_02.png";
+import arc2018_3 from "../../images/oduller/2018/Finar_2018_Odul_03.png";
+import lacpWinner2019 from "../../images/oduller/2019/FNR_LACP_Linkedin_post_uyg3.jpg";
+import agencyoftheyear from "../../images/oduller/2019/Finar_2019_Campaign.png";
+import odul2017 from "../../images/oduller/2014/odul_background.png";
+import arclogo from "../../images/oduller/2014/ARC_Logo.png";
+import finarKalite from "../../images/oduller/Finar_Kalitesi_Odulornek.png";
+import enIyiRapor from "../../images/oduller/Finar_Tav_Odul.png";
+import arcawards from "../../images/oduller/arc-awards.svg";
+import galaxyawards from "../../images/oduller/galaxy-awards.svg";
+import lacpvision from "../../images/oduller/lacp-vision.svg";
+import lacpspotlights from "../../images/oduller/lacp-spotlights.svg";
+import creativityawards from "../../images/oduller/creativity-awards.svg";
+
+const seoImage = "/og/oduller-og.png";
+const title = "Ödüller";
+type data = {
+	year: number;
+	icon: string;
+	open: boolean;
+	items: {
+		link?: string;
+		image: ImageMetadata;
+	}[];
+};
+const datas: data[] = [
+	{
+		year: 2021,
+		icon: chevDown,
+		open: true,
+		items: [
+			{
+				link: "arc-2021",
+				image: arc2021,
+			},
+			{
+				link: "lacp-2021",
+				image: odul2021,
+			},
+		],
+	},
+	{
+		year: 2020,
+		icon: chevDown,
+		open: false,
+		items: [
+			{
+				link: "toplam-24-odul",
+				image: odul2020,
+			},
+		],
+	},
+	{
+		year: 2019,
+		icon: chevDown,
+		open: false,
+		items: [
+			{
+				link: "dunyanin-en-iyi-kurumsal-tasarim-ajansi",
+				image: kore2019,
+			},
+			{
+				link: "biz-altin-madenini-amerikada-bulduk",
+				image: arc2019,
+			},
+			{
+				link: "abdden-yine-buyuk-odullerle-donuyoruz",
+				image: lacpWinner2019,
+			},
+			{
+				image: agencyoftheyear,
+			},
+		],
+	},
+];
+---
+
+<Layout title={title} seoImage={seoImage}>
+	{
+		datas.map((data) => {
+			return (
+				<div class="colapse">
+					<div class={`colapse-title ${data.open ? "" : "collapsed mt-[40px]"}`}>
+						<TitleWithLine title={data.year.toString()} icon={data.icon} />
+					</div>
+					<div class={`colapse-content ${data.open ? "open" : ""}`}>
+						<div class="colapse-content-inside">
+							{data.items.map((item) => {
+								return (
+									<div class="odul-photo">
+										{item.link ? (
+											<a href={`/oduller/${item.link}/`}>
+												<SingleItemCoverImage src={item.image} />
+												<div class="info">
+													<span class="absolute bottom-[30px] left-[30px] hidden h-[14px] w-[24px] text-mavi md:block">
+														<Fragment set:html={arrowright} />
+													</span>
+												</div>
+											</a>
+										) : (
+											<SingleItemCoverImage src={item.image} />
+										)}
+									</div>
+								);
+							})}
+						</div>
+					</div>
+				</div>
+			);
+		})
+	}
+	<div class="colapse">
+		<div class="colapse-title collapsed mt-[40px]"><TitleWithLine title="2018" icon={chevDown} /></div>
+		<div class="colapse-content">
+			<div class="colapse-content-inside">
+				<div class="odul-photo">
+					<a href="/oduller/arcden-buyuk-odulleri-yine-turkiyeye-getirdik/">
+						<SingleItemCoverImage src={arc2018} />
+						<div class="info text-[20px] sm:text-[30px] md:text-[40px] lg:text-[64px]">
+							<p class="big-title mb-[.5em] font-zilla leading-tight text-white"><strong>ARC'den</strong><br />büyük ödülleri<br />yine Türkiye'ye<br />getirdik.</p>
+							<span class="absolute bottom-[30px] left-[30px] hidden h-[14px] w-[24px] text-white md:block"><Fragment set:html={arrowright} /></span>
+						</div>
+					</a>
+				</div>
+				<div class="flex flex-col sm:flex-row sm:gap-8">
+					<div class="photo relative">
+						<a href="/oduller/yilin-kurumsal-iletisim-ajansi-olduk/">
+							<OdullerSquareImage src={arc2018_2} />
+							<span class="info backnone absolute left-0 top-0 p-8">
+								<h2 class="big-title text-center font-zilla text-[24px] leading-tight sm:text-[20px] md:text-[24px] lg:text-[48px]">Yılın kurumsal iletişim ajansı olduk!</h2>
+							</span>
+						</a>
+					</div>
+					<div class="photo relative">
+						<a href="/oduller/and-oscar-goes-to/">
+							<OdullerSquareImage src={arc2018_3} />
+							<span class="info backnone absolute left-0 top-0 p-8">
+								<h2 class="big-title text-center font-zilla text-[24px] leading-tight sm:text-[20px] md:text-[24px] lg:text-[48px]">... and the Oscar again goes to Finar!</h2>
+							</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="colapse">
+		<div class="colapse-title collapsed mt-[40px]"><TitleWithLine title="2014" icon={chevDown} /></div>
+		<div class="colapse-content">
+			<div class="colapse-content-inside">
+				<div class="odul-photo">
+					<a href="/oduller/dunyanin-en-iyisi/">
+						<SingleItemCoverImage src={odul2017} />
+						<div class="info text-[20px] sm:text-[30px] md:text-[40px] lg:text-[64px]">
+							<p class="big-title mb-[.5em] font-zilla leading-tight text-black"><strong>Finar</strong><br />ARC jurisi tarafından<br />dünyanın en iyi raporlama<br />ajansı seçildi.</p>
+							<img src={arclogo.src} class="h-auto w-[30px] md:w-[60px] lg:w-[100px]" alt="ARC Logo" />
+							<span class="absolute bottom-[30px] left-[30px] hidden h-[14px] w-[24px] text-black md:block"><Fragment set:html={arrowright} /></span>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="mt-8 flex flex-col sm:flex-row sm:justify-between sm:gap-8">
+		<div class="photo">
+			<TitleWithLine title="2012" />
+			<div class="relative">
+				<a href="/oduller/international-star-awards-for-quality/">
+					<OdullerSquareImage src={finarKalite} />
+					<span class="info backnone absolute left-0 top-0 p-8">
+						<h2 class="big-title font-zilla text-[24px] leading-tight sm:text-[20px] md:text-[24px] lg:text-[48px]">"Finar Kurumsal Kalitesi"ne <br />uluslararası <br />tescil!</h2>
+					</span>
+					<span class="absolute bottom-[30px] left-[30px] hidden h-[14px] w-[24px] text-black md:block"><Fragment set:html={arrowright} /></span>
+				</a>
+			</div>
+		</div>
+		<div class="photo">
+			<TitleWithLine title="2011" />
+			<div class="relative">
+				<a href="/oduller/dunyanin-en-iyi-faaliyet-raporunu-finar-tasarladi/">
+					<OdullerSquareImage src={enIyiRapor} />
+					<span class="info backnone absolute left-0 top-0 p-8">
+						<h2 class="big-title text-pretty font-zilla text-[24px] leading-tight sm:text-[20px] md:text-[24px] lg:text-[48px]">Dünyanın en iyi faaliyet raporunu Finar <br class="hidden sm:inline md:hidden lg:inline" />tasarladı.</h2>
+					</span>
+					<span class="absolute bottom-[30px] left-[30px] hidden h-[14px] w-[24px] text-black md:block"><Fragment set:html={arrowright} /></span>
+				</a>
+			</div>
+		</div>
+	</div>
+	<TitleWithLine />
+	<div id="awardInstitutions" class="grid grid-cols-1 gap-8 pt-[12px] sm:grid-cols-2 md:grid-cols-3">
+		<HoverItem slug="arc-awards" title="ARC Awards" thumbnail={arcawards} thumbWidth={548} thumbHeight={548} />
+		<HoverItem slug="galaxy-awards" title="Galaxy Awards" thumbnail={galaxyawards} thumbWidth={548} thumbHeight={548} />
+		<HoverItem slug="lacp-vision" title="LACP VIsIon Awards" thumbnail={lacpvision} thumbWidth={548} thumbHeight={548} />
+		<HoverItem slug="lacp-spotlights" title="LACP SpotlIght Awards" thumbnail={lacpspotlights} thumbWidth={548} thumbHeight={548} />
+		<HoverItem slug="creativity-awards" title="CreatIvIty Awards" thumbnail={creativityawards} thumbWidth={548} thumbHeight={548} />
+	</div>
+</Layout>
+<style>
+	.colapse {
+		.colapse-title {
+			cursor: pointer;
+		}
+		.colapse-content {
+			overflow: hidden;
+			max-height: 0;
+			transition: max-height 0.25s ease-out;
+			&.open {
+				max-height: var(--height);
+				transition: max-height 0.25s ease-in;
+			}
+		}
+	}
+	.odul-photo {
+		position: relative;
+		.info {
+			position: absolute;
+			top: 0;
+			padding: 0.5em;
+			width: 100%;
+			height: 100%;
+		}
+	}
+</style>
+<!-- <script is:inline>
+	/* document.addEventListener("DOMContentLoaded", function () {
+		const collapses = document.querySelectorAll(".colapse");
+		collapses.forEach((collapse) => {
+			const colapseTitles = collapse.querySelectorAll(".colapse-title");
+			const colapseContents = collapse.querySelectorAll(".colapse-content");
+			colapseContents.forEach((colapseContent) => {
+				//console.log("🚀 ~ colapseContents.forEach ~ colapseContent:", colapseContent);
+				const colapseContentInside = colapseContent.querySelectorAll(".colapse-content-inside");
+				//console.log("🚀 colapseContentInside:", colapseContentInside);
+				colapseContentInside.forEach((inside) => {
+					const colapseContentInsideHeight = inside.clientHeight;
+					console.log("🚀 colapseContentInsideHeight:", colapseContentInsideHeight);
+					colapseContent.setAttribute("style", `--height:${colapseContentInsideHeight}px;`);
+				});
+				colapseTitles.forEach((colapseTitle) => {
+					colapseTitle.addEventListener("click", () => {
+						colapseTitle.classList.toggle("collapsed");
+						colapseContent.classList.toggle("open");
+					});
+				});
+			});
+		});
+	}); */
+</script> -->

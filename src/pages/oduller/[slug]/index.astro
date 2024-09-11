@@ -1,0 +1,19 @@
+---
+import OdulLayout from "~layouts/odulLayout.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+	const allFR = await getCollection("oduller");
+	return allFR.map((entry) => ({
+		params: { slug: entry.slug },
+		props: { entry },
+	}));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<OdulLayout title={entry.data.title} spot={entry.data.spot} category={entry.data.category} collection={entry.collection} slug={entry.slug} coverImage={entry.data.coverImage} year={entry.data.year}>
+	<Content />
+</OdulLayout>
