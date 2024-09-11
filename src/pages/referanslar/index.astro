@@ -11,7 +11,7 @@ function refImagePathsFn(): string[] {
 	const rip = [];
 	for (let i = 0; i < 265; i++) {
 		const refImageNumber: string = i.toString().padStart(4, "0");
-		if (refImageNumber === "0004" || refImageNumber === "0125" || refImageNumber === "0176") {
+		if (refImageNumber === "0004" || refImageNumber === "0125" || refImageNumber === "0176" || refImageNumber === "0263" || refImageNumber === "0264") {
 			continue;
 		}
 		rip.push(`/src/images/referanslar/Finar_WEB_Referanslar_${refImageNumber}.png`);
@@ -27,7 +27,7 @@ const refImagePaths = refImagePathsFn();
 	<div class="prose grid grid-cols-3 gap-4 prose-img:m-0 prose-img:p-0 md:grid-cols-4 md:gap-8 lg:grid-cols-6">
 		{
 			refImagePaths.map((refImagePath: string) => {
-				return <ReferansImage imagePath={refImagePath} altText={`ReferansLogo`} />;
+				return <ReferansImage imagePath={refImagePath} altText={`ReferansLogo${refImagePath}`} />;
 			})
 		}
 	</div>
