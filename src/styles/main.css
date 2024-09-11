@@ -21,6 +21,24 @@
 }
 
 @layer base {
+	@media screen and (-webkit-min-device-pixel-ratio: 0) {
+		::-webkit-scrollbar {
+			width: 0.75em;
+			height: 0.75em;
+		}
+
+		::-webkit-scrollbar-track {
+			background-color: #f9f9f9;
+		}
+
+		::-webkit-scrollbar-thumb:vertical {
+			height: 5em;
+			background-color: #444;
+		}
+	}
+	:root {
+		--anasayfa-background-color: #000;
+	}
 	html {
 		font-weight: 300;
 		color: #333;
@@ -35,7 +53,7 @@
     } */
 	body {
 		/* min-height: fit-content; */
-		min-height: 100vh;
+		min-height: 100dvh;
 	}
 	.title {
 		font-weight: 300;

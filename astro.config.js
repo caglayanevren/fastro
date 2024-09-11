@@ -18,11 +18,6 @@ export default defineConfig({
 	],
 	markdown: { mode: "mdx" },
 	vite: {
-		//resolve: {
-		//    alias: {
-		//        "~": path.resolve(__dirname, "./src"),
-		//    },
-		//},
 		css: {
 			postcss: {
 				plugins: [tailwindcssNesting()],
