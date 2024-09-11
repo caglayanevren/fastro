@@ -1,21 +1,13 @@
 ---
 import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
-
 interface Props {
 	imagePath: string;
 	altText: string;
 }
-
 const { imagePath, altText } = Astro.props;
 const images = import.meta.glob<{ default: ImageMetadata }>("/src/images/referanslar/*.png");
 if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: "/src/images/referanslar/*.png"`);
 ---
 
 <Image src={images[imagePath]()} alt={altText} widths={[255]} />
-{
-	/*
-	<!-- {console.log("xxx:", images)} -->
-	<!-- sizes={`(max-width: 576px) calc((100vw - 2.5rem - 30px) / 2), (max-width: 768px) 253px, (max-width: 1024px) 349px, (max-width: 1140px) 305px, (min-width: 1140px) 344px`} -->
-*/
-}
