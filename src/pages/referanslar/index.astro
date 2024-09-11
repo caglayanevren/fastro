@@ -16,7 +16,7 @@ const spot = "1994’ten bu yana alanlarında çok özel konumda bulunan pek ço
 		{
 			referansImages.map((image) => {
 				const src = new URL(image.default.src, Astro.url);
-				const cropsrc = src.pathname.split("/src/")[1].replace("%20", " ");
+				const cropsrc = src.pathname.split("/src/")[1];
 				const regex = /\d+/g;
 				const alt = src.pathname.split("/").at(-1)?.match(regex);
 				if (cropsrc.includes("----------")) {
