@@ -1,0 +1,18 @@
+---
+type Props = {
+	title?: string;
+	icon?: string;
+};
+const { title, icon } = Astro.props;
+---
+
+<h3 class="relative mb-[20px] text-base font-light after:absolute after:left-0 after:top-2/4 after:z-0 after:-mt-[1px] after:h-[1px] after:w-full after:bg-[#e1e8ed] after:content-['']">
+	{title && <span class="relative z-10 bg-white pr-[1.5rem] tracking-[1px]">{title}</span>}
+	{
+		icon && (
+			<div class="absolute right-0 top-0 z-10 m-0 inline h-[18px] w-[56px] bg-[#fff] p-0 pl-[1.5rem] text-siyah">
+				<Fragment set:html={icon} />
+			</div>
+		)
+	}
+</h3>

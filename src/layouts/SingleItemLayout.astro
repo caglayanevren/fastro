@@ -18,13 +18,13 @@ const { title, description, category, collection, spot, awarded = false, coverIm
 
 import SingleItemCoverImage from "~components/SingleItemCoverImage.astro";
 import Awardimage from "~components/Awardimage.astro";
+import CollectionCategory from "~components/collectionCategory.astro";
+import CollectionTitle from "~components/collectionTitle.astro";
 ---
 
 <Layout title={title} description={description} seoImage={`${import.meta.env.SITE}${collection}/${slug}/${slug}-og.png`}>
-	<p class="text-sm font-light uppercase text-mavi">
-		<a title={category} aria-label={category} href={`/${collection}/`}>{category}</a>
-	</p>
-	<h1 class="my-12 font-zilla text-5xl">{title}</h1>
+	<CollectionCategory category={category} collection={collection} />
+	<CollectionTitle title={title} />
 
 	<SingleItemCoverImage src={coverImage} alt={title} />
 

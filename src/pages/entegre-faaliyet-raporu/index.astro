@@ -4,6 +4,7 @@ import HoverItem from "~components/HoverItem.astro";
 import MoreInfo from "~components/MoreInfo.astro";
 import Layout from "~layouts/Layout.astro";
 import { FinarExperienceYear } from "~config";
+import ArticleTitle from "~components/articleTitle.astro";
 
 const allFR = await getCollection("entegre-faaliyet-raporu");
 
@@ -27,10 +28,7 @@ const { title = TITLE, description = DESCRIPTION, moreinfotext = MOREINFO } = As
 ---
 
 <Layout title={title} description={description} seoImage="./entegre-faaliyet-raporu-og.png">
-	<h1 class="mb-[30px] font-zilla text-5xl">{title}</h1>
-	<h2 class="mb-[36px] font-zilla text-4xl text-mavi">
-		<Fragment set:html={description} />
-	</h2>
+	<ArticleTitle title={title} spot={description} />
 	<MoreInfo text={moreinfotext} />
 	<div class="grid auto-rows-max grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4 xl:gap-8">
 		{allFR.map((fr) => <HoverItem slug={fr.slug} title={fr.data.title} thumbnail={fr.data.thumbnail} thumbWidth={fr.data.thumbnail.width} thumbHeight={fr.data.thumbnail.height} />)}

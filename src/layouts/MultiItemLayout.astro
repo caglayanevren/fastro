@@ -1,4 +1,6 @@
 ---
+import CollectionCategory from "~components/collectionCategory.astro";
+import CollectionTitle from "~components/collectionTitle.astro";
 import Layout from "~layouts/Layout.astro";
 
 type Props = {
@@ -14,10 +16,8 @@ const { title, description, category, collection, spot, slug } = Astro.props;
 ---
 
 <Layout title={title} description={description} seoImage={`${import.meta.env.SITE}${collection}/${slug}/${slug}-og.png`}>
-	<p class="text-sm font-light uppercase text-mavi">
-		<a title={category} aria-label={category} href={`/${collection}/`}>{category}</a>
-	</p>
-	<h1 class="my-12 font-zilla text-5xl">{title}</h1>
+	<CollectionCategory category={category} collection={collection} />
+	<CollectionTitle title={title} />
 	{
 		spot && (
 			<h2 class="mb-0 mt-0 w-full pb-16 pt-3 font-zilla text-4xl lg:w-10/12">

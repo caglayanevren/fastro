@@ -1,0 +1,12 @@
+---
+type Props = {
+	category: string;
+	collection: string;
+};
+
+const { category, collection } = Astro.props;
+---
+
+<p class="text-[14.4px] font-light uppercase tracking-[1px] text-mavi">
+	<a title={category} aria-label={category} href={`/${collection}/`}>{category}</a>
+</p>

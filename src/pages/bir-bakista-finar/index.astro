@@ -2,10 +2,11 @@
 import ArticleTitle from "~components/articleTitle.astro";
 import Layout from "~layouts/Layout.astro";
 const title = "Bir Bakışta Finar";
+const subtitle = "Farklı alanlarda, farklı marifetlerimizle ortaya koyduğumuz işlerden 98 saniyelik bir showreel filmi...";
 ---
 
 <Layout title={title} seoImage="/og/finar-og.png">
-	<ArticleTitle title={title} subtitle="Farklı alanlarda, farklı marifetlerimizle ortaya koyduğumuz işlerden 98 saniyelik bir showreel filmi..." />
+	<ArticleTitle title={title} spot={subtitle} />
 	<div class="embed-responsive embed-responsive-16by9">
 		<video src="/bir-bakista-finar.mp4" loop playsinline controls class="embed-responsive-item"></video>
 	</div>

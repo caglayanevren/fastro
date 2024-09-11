@@ -1,6 +1,7 @@
 ---
 title: Ailemiz
 spot: Hep daha iyisi için bir aradayız...
+subtitle:
 seoImage: /og/ailemiz-og.png
 coverImage: /src/images/FINARTopluOfis.jpg
 ekip:

@@ -20,7 +20,7 @@ const { title = SITE_TITLE, description = SITE_DESCRIPTION, seoImage = SEO_IMAGE
 ---
 
 <!doctype html>
-<html lang="tr">
+<html lang="tr" class="scroll-smooth">
 	<head>
 		<BaseHead title={title} description={description} seoImage={seoImage} />
 	</head>
@@ -28,7 +28,7 @@ const { title = SITE_TITLE, description = SITE_DESCRIPTION, seoImage = SEO_IMAGE
 		<Header {...headerData} isSticky />
 		<main id="content" role="main" class="grow">
 			<slot name="iletisim" />
-			<div class="container px-[14px] pt-[50px]">
+			<div class="container px-[14px] pt-[14px]">
 				<slot />
 			</div>
 		</main>

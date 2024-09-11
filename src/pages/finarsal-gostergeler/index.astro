@@ -4,6 +4,7 @@ import { Content, frontmatter } from "~content/finar/finarsal-gostergeler.md";
 import ContentLayout2Column1248 from "~layouts/ContentLayout-2Column-12-4-8.astro";
 import FinarsalGosterge from "~layouts/finarsal-gostergeler-svg.astro";
 import type { FinarsalGostergelerSVGType as svgType } from "~/types/types";
+import FirstSpace from "~components/firstSpace.astro";
 
 interface Props {
 	items: svgType[];
@@ -12,6 +13,7 @@ let { items = frontmatter.svgitems } = Astro.props as Props;
 ---
 
 <Layout title={frontmatter.title} seoImage={frontmatter.seoImage}>
+	<FirstSpace height={64} />
 	<ContentLayout2Column1248 title={frontmatter.title} subtitle={frontmatter.subtitle}>
 		<div class="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-8">
 			{items && items.map((item: svgType) => <FinarsalGosterge icon={item.icon} number={item.number} text={item.text} bgColor={item.bgColor} iconColor={item.iconColor} lineColor={item.lineColor} textColor={item.textColor} />)}

@@ -1,0 +1,14 @@
+---
+type Props = {
+	height: number;
+};
+const { height = 0 } = Astro.props;
+---
+
+<style is:global define:vars={{ fsh: height + "px" }}>
+	.space {
+		height: var(--fsh);
+	}
+</style>
+
+<div class="space">&nbsp;</div>

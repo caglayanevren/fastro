@@ -52,9 +52,9 @@
 				</div>
 				<div class="flex items-center justify-center py-8">
 					<a href="http://sifiryuz.finarkurumsal.com" target="_blank">
-						<button type="button" id="raporagit" class="text-md mb-2 me-2 rounded-lg bg-white px-4 py-2 font-bold text-red hover:text-black">RAPORU İNCELE</button>
+						<button type="button" id="raporagit" class="text-md mb-2 me-2 rounded-lg bg-white px-4 py-2 font-medium text-red hover:text-black">RAPORU İNCELE</button>
 					</a>
-					<button id="anasayfayagit" type="button" id="raporagit" class="text-md mb-2 me-2 rounded-lg bg-white px-4 py-2 font-bold text-red hover:text-black">ANASAYFA'YA GİT</button>
+					<button id="anasayfayagit" type="button" id="raporagit" class="text-md mb-2 me-2 rounded-lg bg-white px-4 py-2 font-medium text-red hover:text-black">ANASAYFA'YA GİT</button>
 				</div>
 			</section>
 			<section class="flex"></section>
@@ -76,11 +76,9 @@
 </style>
 
 <script is:inline type="text/javascript">
-	(function () {
-		const goHomeButton = document.getElementById("anasayfayagit");
-		const pops = document.getElementById("pop");
-		goHomeButton.addEventListener("click", () => {
-			pops.classList.add("hidden");
-		});
-	})();
+	const goHomeButton = document.getElementById("anasayfayagit");
+	const pops = document.getElementById("pop");
+	goHomeButton.addEventListener("click", () => {
+		pops.classList.add("hidden");
+	});
 </script>
