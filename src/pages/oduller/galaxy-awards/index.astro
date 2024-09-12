@@ -1,0 +1,105 @@
+---
+import Layout from "~layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import CollectionCategory from "~components/collectionCategory.astro";
+import TitleWithLine from "~components/TitleWithLine.astro";
+import ArticleTitle from "~components/articleTitle.astro";
+
+const seoImage = "/og/galaxy-awards-og.png";
+const title = "Galaxy Awards";
+
+const allGalaxyAwards = await getCollection("galaxy-awards");
+---
+
+<Layout title={title} seoImage={seoImage}>
+	<CollectionCategory collection="oduller" category="ÖDÜLLER" />
+	<ArticleTitle title={title} spot="" />
+	<TitleWithLine title={title.toUpperCase()} />
+	<div class="flex" id="galaxyawards">
+		<ul class="flex flex-col-reverse justify-end">
+			{
+				allGalaxyAwards &&
+					allGalaxyAwards.map(function (allGalaxyAward) {
+						return (
+							<li>
+								<a id={`${allGalaxyAward.slug}`} href={`#${allGalaxyAward.slug}`} class="tablink block px-8 py-4 text-gri3">{`${allGalaxyAward.slug}`}</a>
+							</li>
+						);
+					})
+			}
+		</ul>
+		<div class="h-full overflow-hidden px-8 py-4">
+			{
+				allGalaxyAwards &&
+					allGalaxyAwards.map(async function (allGalaxyAward) {
+						const { Content } = await allGalaxyAward.render();
+						return (
+							<section id={`${allGalaxyAward.slug}-content`} class="tab-content hidden">
+								<div class="prose prose-h2:mb-0 prose-h2:mt-0 prose-h2:text-base prose-h2:text-mavi prose-p:mb-4 prose-li:my-0">
+									<Content />
+								</div>
+							</section>
+						);
+					})
+			}
+		</div>
+	</div>
+</Layout>
+<style>
+	#galaxyawards {
+		a.active {
+			position: relative;
+			&::after {
+				bottom: 50%;
+				width: 4px;
+				height: 12px;
+				margin-bottom: -6px;
+				content: "";
+				position: absolute;
+				left: 0;
+				background-color: #00b3e3;
+			}
+		}
+	}
+</style>
+<script is:inline>
+	document.addEventListener("DOMContentLoaded", () => {
+		const allLinks = document.querySelectorAll("a.tablink");
+		const allTabs = document.querySelectorAll(".tab-content");
+
+		const link2021 = document.getElementById("2019");
+		link2021.classList.remove("text-gri3");
+		link2021.classList.add("active");
+		link2021.classList.add("text-mavi");
+		link2021.classList.add("font-bold");
+		const section2021 = document.getElementById("2019-content");
+		section2021.classList.remove("hidden");
+
+		const switchTab = (linkId) => {
+			allTabs.forEach((tab) => {
+				tab.classList.toggle("hidden", tab.id !== `${linkId}-content`);
+			});
+		};
+
+		const handleTabClick = (event) => {
+			event.preventDefault();
+			const linkId = event.target.id;
+			allLinks.forEach((link) => {
+				const isCurrentLink = link.id === linkId;
+				link.classList.toggle("active", isCurrentLink);
+				link.classList.toggle("text-mavi", isCurrentLink);
+				link.classList.toggle("font-bold", isCurrentLink);
+				link.classList.toggle("text-gri3", !isCurrentLink);
+			});
+			switchTab(linkId);
+		};
+
+		allLinks.forEach((link) => {
+			link.addEventListener("click", handleTabClick);
+		});
+
+		const currentHash = window.location.hash;
+		const activeLink = currentHash ? document.querySelector(`a[href="${currentHash}"]`) : document.querySelector("a.tablink");
+		handleTabClick({ target: activeLink });
+	});
+</script>

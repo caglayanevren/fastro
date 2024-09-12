@@ -50,9 +50,27 @@ const ARCAwardsCollection = defineCollection({
 		}),
 });
 
+const GalaxyAwardsCollection = defineCollection({
+	type: "content",
+	schema: () =>
+		z.object({
+			title: z.string(),
+		}),
+});
+
+const LACPVisionCollection = defineCollection({
+	type: "content",
+	schema: () =>
+		z.object({
+			title: z.string(),
+		}),
+});
+
 export const collections = {
 	"faaliyet-raporu": FRCollection,
 	"entegre-faaliyet-raporu": EFRCollection,
 	oduller: OdulCollection,
 	"arc-awards": ARCAwardsCollection,
+	"galaxy-awards": GalaxyAwardsCollection,
+	"lacp-vision": LACPVisionCollection,
 };
