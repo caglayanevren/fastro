@@ -11,11 +11,15 @@ function refImagePathsFn(): string[] {
 	const rip = [];
 	for (let i = 0; i < 265; i++) {
 		const refImageNumber: string = i.toString().padStart(4, "0");
+		// remove logo:
 		if (refImageNumber === "0004" || refImageNumber === "0125" || refImageNumber === "0176" || refImageNumber === "0263" || refImageNumber === "0264") {
 			continue;
 		}
 		rip.push(`/src/images/referanslar/Finar_WEB_Referanslar_${refImageNumber}.png`);
 	}
+	// add logo:
+	//rip.push(`/src/images/referanslar/Finar_WEB_Referanslar_0200a.png`);
+	rip.sort();
 	return rip;
 }
 const refImagePaths = refImagePathsFn();
