@@ -28,6 +28,7 @@ export default {
 				gri: "#444",
 				gri2: "#e1e8ed",
 				gri3: "#808080",
+				gri4: "#f5f8fa",
 				siyah: "#333",
 				footertext: "#4c5255",
 				footerback: "#eef3f6",

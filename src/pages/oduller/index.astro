@@ -1,11 +1,13 @@
 ---
-import TitleWithLine from "~components/TitleWithLine.astro";
+import { Picture } from "astro:assets";
 import Layout from "~layouts/Layout.astro";
 import chevDown from "~images/chevron-down-light.svg?raw";
 import arrowright from "/arrow-right.svg?raw";
 import SingleItemCoverImage from "~components/SingleItemCoverImage.astro";
 import OdullerSquareImage from "~components/OdullerSquareImage.astro";
 import HoverItem from "~components/HoverItem.astro";
+import TitleWithLine from "~components/TitleWithLine.astro";
+import GetSingleCollectionEntry from "~components/getSingleCollectionEntry.astro";
 
 import arc2021 from "../../images/oduller/2021/ARC-ODUL.jpg";
 import odul2021 from "../../images/oduller/2021/Finar-Odul-Gorseli-2021.png";
@@ -128,7 +130,7 @@ const datas: data[] = [
 		<div class="colapse-title collapsed mt-[40px]"><TitleWithLine title="2018" icon={chevDown} /></div>
 		<div class="colapse-content">
 			<div class="colapse-content-inside">
-				<div class="odul-photo">
+				<div class="odul-photo grid grid-cols-1">
 					<a href="/oduller/arcden-buyuk-odulleri-yine-turkiyeye-getirdik/">
 						<SingleItemCoverImage src={arc2018} />
 						<div class="info text-[20px] sm:text-[30px] md:text-[40px] lg:text-[64px]">
@@ -137,7 +139,7 @@ const datas: data[] = [
 						</div>
 					</a>
 				</div>
-				<div class="flex flex-col sm:flex-row sm:gap-8">
+				<div class="grid grid-cols-1 sm:grid-cols-2 sm:justify-between sm:gap-8">
 					<div class="photo relative">
 						<a href="/oduller/yilin-kurumsal-iletisim-ajansi-olduk/">
 							<OdullerSquareImage src={arc2018_2} />
@@ -209,6 +211,19 @@ const datas: data[] = [
 		<HoverItem slug="lacp-spotlights" title="LACP SpotlIght Awards" thumbnail={lacpspotlights} thumbWidth={548} thumbHeight={548} />
 		<HoverItem slug="creativity-awards" title="CreatIvIty Awards" thumbnail={creativityawards} thumbWidth={548} thumbHeight={548} />
 	</div>
+	<div class="mt-8 bg-gri4 pb-8" id="odul2021">
+		<div class="grid grid-cols-1">
+			<h1 class="px-4 py-4 font-zilla text-3xl sm:px-8 sm:py-8 sm:text-5xl md:px-16 md:py-16">2021 yılı ödüllerimiz</h1>
+		</div>
+		<Picture loading="lazy" src={arc2021} alt="35. ARC Ödülleri" class="mb-8 w-full" widths={[640, 768, 1024, arc2021.width]} formats={["webp", "jpg"]} sizes={`(max-width: 640px) 608px, (max-width: 768px) 736px, (max-width: 1024px) 992px, (max-width: 1280px) 1248px, (min-width: 1280px) ${arc2021.width}px`} />
+		<div class="prose px-4 py-4 prose-h1:font-zilla prose-h1:text-2xl prose-h1:text-mavi prose-h2:mb-0 prose-h2:mt-0 prose-h2:text-base prose-h2:text-mavi prose-p:mb-4 prose-li:my-0 sm:px-8 sm:py-8 md:px-16 md:py-16">
+			<GetSingleCollectionEntry collection="oduller" entrySlug="arc-2021" />
+		</div>
+		<Picture loading="lazy" src={odul2021} alt="FİNAR büyük ödülleri Türkiye'ye getirmeye devam ediyor" class="my-8 w-full" widths={[640, 768, 1024, odul2021.width]} formats={["webp", "jpg"]} sizes={`(max-width: 640px) 608px, (max-width: 768px) 736px, (max-width: 1024px) 992px, (max-width: 1280px) 1248px, (min-width: 1280px) ${odul2021.width}px`} />
+		<div class="prose px-4 py-4 prose-h1:font-zilla prose-h1:text-2xl prose-h1:text-mavi prose-h2:mb-0 prose-h2:mt-0 prose-h2:text-base prose-h2:text-mavi prose-p:mb-4 prose-li:my-0 sm:px-8 sm:py-8 md:px-16 md:py-16">
+			<GetSingleCollectionEntry collection="oduller" entrySlug="lacp-2021" />
+		</div>
+	</div>
 </Layout>
 <style>
 	.colapse {
@@ -232,12 +247,12 @@ const datas: data[] = [
 			top: 0;
 			padding: 0.5em;
 			width: 100%;
-			height: 100%;
+			height: calc(100% - 0.5em);
 		}
 	}
 </style>
-<!-- <script is:inline>
-	/* document.addEventListener("DOMContentLoaded", function () {
+<script is:inline>
+	document.addEventListener("DOMContentLoaded", function () {
 		const collapses = document.querySelectorAll(".colapse");
 		collapses.forEach((collapse) => {
 			const colapseTitles = collapse.querySelectorAll(".colapse-title");
@@ -248,7 +263,7 @@ const datas: data[] = [
 				//console.log("🚀 colapseContentInside:", colapseContentInside);
 				colapseContentInside.forEach((inside) => {
 					const colapseContentInsideHeight = inside.clientHeight;
-					console.log("🚀 colapseContentInsideHeight:", colapseContentInsideHeight);
+					//console.log("🚀 colapseContentInsideHeight:", colapseContentInsideHeight);
 					colapseContent.setAttribute("style", `--height:${colapseContentInsideHeight}px;`);
 				});
 				colapseTitles.forEach((colapseTitle) => {
@@ -259,5 +274,5 @@ const datas: data[] = [
 				});
 			});
 		});
-	}); */
-</script> -->
+	});
+</script>
