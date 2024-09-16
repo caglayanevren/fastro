@@ -33,6 +33,6 @@ export default defineConfig({
 	},
 
 	adapter: nodejs({
-		mode: "middleware",
+		mode: "standalone",
 	}),
 });
