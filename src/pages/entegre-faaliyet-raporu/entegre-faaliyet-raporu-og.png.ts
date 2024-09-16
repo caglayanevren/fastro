@@ -83,7 +83,7 @@ export async function GET() {
 		},
 	};
 
-	return new ImageResponse(html, {
+	return new ImageResponse(html as React.ReactElement, {
 		width: ogpngConfig.width,
 		height: ogpngConfig.height,
 		fonts: [
