@@ -1,5 +1,5 @@
 ---
-import { Picture } from "astro:assets";
+import { Picture, Image } from "astro:assets";
 import Layout from "~layouts/Layout.astro";
 import chevDown from "~images/chevron-down-light.svg?raw";
 import arrowright from "/arrow-right.svg?raw";
@@ -38,6 +38,8 @@ type data = {
 	items: {
 		link?: string;
 		image: ImageMetadata;
+		loading?: "eager" | "lazy" | null | undefined;
+		alt: string;
 	}[];
 };
 const datas: data[] = [
@@ -49,10 +51,13 @@ const datas: data[] = [
 			{
 				link: "arc-2021",
 				image: arc2021,
+				alt: "35. ARC Ödülleri",
 			},
 			{
 				link: "lacp-2021",
 				image: odul2021,
+				alt: "Finar büyük ödülleri Türkiye'ye getirmeye devam ediyor!",
+				loading: "lazy",
 			},
 		],
 	},
@@ -64,6 +69,8 @@ const datas: data[] = [
 			{
 				link: "toplam-24-odul",
 				image: odul2020,
+				alt: "ABD'den yine büyük ödüllerler dönüyoruz.",
+				loading: "lazy",
 			},
 		],
 	},
@@ -75,17 +82,25 @@ const datas: data[] = [
 			{
 				link: "dunyanin-en-iyi-kurumsal-tasarim-ajansi",
 				image: kore2019,
+				alt: "Mutlu sezon finali",
+				loading: "lazy",
 			},
 			{
 				link: "biz-altin-madenini-amerikada-bulduk",
 				image: arc2019,
+				alt: "Biz altın madenini Amerika'da bulduk",
+				loading: "lazy",
 			},
 			{
 				link: "abdden-yine-buyuk-odullerle-donuyoruz",
 				image: lacpWinner2019,
+				alt: "Uluslararası başarılarımıza yenilerini ekledik.",
+				loading: "lazy",
 			},
 			{
 				image: agencyoftheyear,
+				alt: "Yine, yeniden yılın ajansıyız!",
+				loading: "lazy",
 			},
 		],
 	},
@@ -106,8 +121,8 @@ const datas: data[] = [
 								return (
 									<div class="odul-photo">
 										{item.link ? (
-											<a href={`/oduller/${item.link}/`}>
-												<SingleItemCoverImage src={item.image} />
+											<a href={`/oduller/${item.link}/`} aria-label={item.alt}>
+												<SingleItemCoverImage src={item.image} alt={item.alt} loading={item.loading} />
 												<div class="info">
 													<span class="absolute bottom-[30px] left-[30px] hidden h-[14px] w-[24px] text-mavi md:block">
 														<Fragment set:html={arrowright} />
@@ -115,7 +130,7 @@ const datas: data[] = [
 												</div>
 											</a>
 										) : (
-											<SingleItemCoverImage src={item.image} />
+											<SingleItemCoverImage src={item.image} alt={item.alt} loading={item.loading} />
 										)}
 									</div>
 								);
@@ -132,8 +147,8 @@ const datas: data[] = [
 			<div class="colapse-content-inside">
 				<div class="odul-photo grid grid-cols-1">
 					<a href="/oduller/arcden-buyuk-odulleri-yine-turkiyeye-getirdik/">
-						<SingleItemCoverImage src={arc2018} />
-						<div class="info text-[20px] sm:text-[30px] md:text-[40px] lg:text-[64px]">
+						<SingleItemCoverImage src={arc2018} loading="lazy" alt="ARC'den büyük ödülleri yine Türkiye'ye getirdik." />
+						<div class="absolute top-0 h-[calc(100%-0.5em)] w-full p-[.5em] text-[20px] sm:text-[30px] md:text-[40px] lg:text-[64px]">
 							<p class="big-title mb-[.5em] font-zilla leading-tight text-white"><strong>ARC'den</strong><br />büyük ödülleri<br />yine Türkiye'ye<br />getirdik.</p>
 							<span class="absolute bottom-[30px] left-[30px] hidden h-[14px] w-[24px] text-white md:block"><Fragment set:html={arrowright} /></span>
 						</div>
@@ -142,7 +157,7 @@ const datas: data[] = [
 				<div class="grid grid-cols-1 sm:grid-cols-2 sm:justify-between sm:gap-8">
 					<div class="photo relative">
 						<a href="/oduller/yilin-kurumsal-iletisim-ajansi-olduk/">
-							<OdullerSquareImage src={arc2018_2} />
+							<OdullerSquareImage src={arc2018_2} loading="lazy" alt="Yılın kurumsal iletişim ajansı olduk!" />
 							<span class="info backnone absolute left-0 top-0 p-8">
 								<h2 class="big-title text-center font-zilla text-[24px] leading-tight sm:text-[20px] md:text-[24px] lg:text-[48px]">Yılın kurumsal iletişim ajansı olduk!</h2>
 							</span>
@@ -150,7 +165,7 @@ const datas: data[] = [
 					</div>
 					<div class="photo relative">
 						<a href="/oduller/and-oscar-goes-to/">
-							<OdullerSquareImage src={arc2018_3} />
+							<OdullerSquareImage src={arc2018_3} loading="lazy" alt="... and the Oscar again goes to Finar!" />
 							<span class="info backnone absolute left-0 top-0 p-8">
 								<h2 class="big-title text-center font-zilla text-[24px] leading-tight sm:text-[20px] md:text-[24px] lg:text-[48px]">... and the Oscar again goes to Finar!</h2>
 							</span>
@@ -166,10 +181,10 @@ const datas: data[] = [
 			<div class="colapse-content-inside">
 				<div class="odul-photo">
 					<a href="/oduller/dunyanin-en-iyisi/">
-						<SingleItemCoverImage src={odul2017} />
+						<SingleItemCoverImage src={odul2017} alt='Finar, "Dünyanın en iyi faaliyet raporu ajansı" seçildi.' loading="lazy" />
 						<div class="info text-[20px] sm:text-[30px] md:text-[40px] lg:text-[64px]">
 							<p class="big-title mb-[.5em] font-zilla leading-tight text-black"><strong>Finar</strong><br />ARC jurisi tarafından<br />dünyanın en iyi raporlama<br />ajansı seçildi.</p>
-							<img src={arclogo.src} class="h-auto w-[30px] md:w-[60px] lg:w-[100px]" alt="ARC Logo" />
+							<Image class="h-auto w-[30px] md:w-[60px] lg:w-[100px]" src={arclogo} alt="ARC Logo" />
 							<span class="absolute bottom-[30px] left-[30px] hidden h-[14px] w-[24px] text-black md:block"><Fragment set:html={arrowright} /></span>
 						</div>
 					</a>
@@ -182,7 +197,7 @@ const datas: data[] = [
 			<TitleWithLine title="2012" />
 			<div class="relative">
 				<a href="/oduller/international-star-awards-for-quality/">
-					<OdullerSquareImage src={finarKalite} />
+					<OdullerSquareImage src={finarKalite} loading="lazy" />
 					<span class="info backnone absolute left-0 top-0 p-8">
 						<h2 class="big-title font-zilla text-[24px] leading-tight sm:text-[20px] md:text-[24px] lg:text-[48px]">"Finar Kurumsal Kalitesi"ne <br />uluslararası <br />tescil!</h2>
 					</span>
@@ -194,7 +209,7 @@ const datas: data[] = [
 			<TitleWithLine title="2011" />
 			<div class="relative">
 				<a href="/oduller/dunyanin-en-iyi-faaliyet-raporunu-finar-tasarladi/">
-					<OdullerSquareImage src={enIyiRapor} />
+					<OdullerSquareImage src={enIyiRapor} loading="lazy" />
 					<span class="info backnone absolute left-0 top-0 p-8">
 						<h2 class="big-title text-pretty font-zilla text-[24px] leading-tight sm:text-[20px] md:text-[24px] lg:text-[48px]">Dünyanın en iyi faaliyet raporunu Finar <br class="hidden sm:inline md:hidden lg:inline" />tasarladı.</h2>
 					</span>
@@ -247,7 +262,8 @@ const datas: data[] = [
 			top: 0;
 			padding: 0.5em;
 			width: 100%;
-			height: calc(100% - 0.5em);
+			height: 100%;
+			/* height: calc(100% - 0.5em); */
 		}
 	}
 </style>
