@@ -4,11 +4,14 @@
 		"baseUrl": ".",
 		"strictNullChecks": true,
 		"allowJs": true,
+		"module": "ESNext",
 		"paths": {
 			"~images/*": ["src/images/*"],
 			"~content/*": ["src/content/*"],
 			"~components/*": ["src/components/*"],
 			"~layouts/*": ["src/layouts/*"],
+			"~server/*": ["src/server/*"],
+			"~utils/*": ["src/utils/*"],
 			"~*": ["src/*"]
 		},
 		"jsx": "react-jsx",

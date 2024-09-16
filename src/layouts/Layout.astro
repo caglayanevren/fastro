@@ -23,6 +23,7 @@ const { title = SITE_TITLE, description = SITE_DESCRIPTION, seoImage = SEO_IMAGE
 <html lang="tr" class="scroll-smooth">
 	<head>
 		<BaseHead title={title} description={description} seoImage={seoImage} />
+		<slot name="hrformssr" />
 	</head>
 	<body class="flex flex-col antialiased">
 		<Header {...headerData} isSticky />

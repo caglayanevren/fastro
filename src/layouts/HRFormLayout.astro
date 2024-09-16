@@ -1,0 +1,16 @@
+---
+import UploadThingSSR from "~/components/uploadthing-ssr.astro";
+import Layout from "~layouts/Layout.astro";
+
+type Props = {
+	title: string;
+};
+
+const { title } = Astro.props;
+const seoImage = "/og/iletisim-og.png";
+---
+
+<Layout title={title} seoImage={seoImage}>
+	<UploadThingSSR slot="hrformssr" />
+	<slot />
+</Layout>

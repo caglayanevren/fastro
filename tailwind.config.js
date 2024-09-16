@@ -1,8 +1,9 @@
 /** @type {import("tailwindcss").Config} */
 
 import defaultTheme from "tailwindcss/defaultTheme";
+import { withUt } from "uploadthing/tw";
 
-export default {
+export default withUt({
 	content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
 	theme: {
 		container: {
@@ -60,4 +61,4 @@ export default {
 		},
 	},
 	plugins: [require("@tailwindcss/typography")],
-};
+});

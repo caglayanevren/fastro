@@ -1,14 +1,17 @@
 ---
-import Layout from "~layouts/Layout.astro";
+import HRForm from "~components/hr-form";
+import HRFormLayout from "~layouts/HRFormLayout.astro";
 ---
 
-<Layout title="Bizimle çalışmak ister misiniz?" seoImage="/og/hr-form-og.png">
+<HRFormLayout title="Bizimle çalışmak ister misiniz?">
 	<div class="mb-4 grid grid-cols-1 gap-4 lg:mb-8 lg:grid-cols-12">
 		<div class="lg:col-start-1 lg:col-end-7">
 			<h1 class="mb-[27px] font-zilla text-4xl">Bizimle çalışmak ister misiniz?</h1>
 			<p class="mb-[24px]">İş kültürümüze, çalışmalarımıza, anılarımıza çok şey katacağına inanan deneyimli-deneyimsiz herkese kapımız açık.</p>
 			<p>İster yarı zamanlı, ister tam zamanlı bizimle çalışmak isterseniz, aşağıdaki formu doldurmanızı ve CV'nizi forma eklemenizi rica ederiz. İlginiz için şimdiden teşekkür ederiz.</p>
 		</div>
-		<div class="lg:col-start-8 lg:col-end-13"></div>
+		<div class="lg:col-start-8 lg:col-end-13">
+			<HRForm client:load />
+		</div>
 	</div>
-</Layout>
+</HRFormLayout>
