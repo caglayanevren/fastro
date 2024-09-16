@@ -65,7 +65,8 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 																"aw-link-active": href2 === currentPath + (currentPath === "/" ? "" : "/"),
 															},
 														]}
-														href={href2}>
+														href={href2}
+														aria-label={text2}>
 														{/* {console.log(href2, currentPath + (currentPath === "/" ? "" : "/"))} */}
 														<Fragment set:html={text2} />
 													</a>
