@@ -4,7 +4,7 @@
 	"version": "0.0.1",
 	"scripts": {
 		"allclear": "trash .astro dist node_modules",
-		"clean": "trash .astro",
+		"clean": "trash .astro dist",
 		"dev": "astro dev",
 		"start": "astro dev",
 		"build": "astro check > astro-debug.log 2>&1 && astro build",
