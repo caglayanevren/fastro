@@ -1,6 +1,7 @@
 ---
 import AnasayfaLayout from "~layouts/AnasayfaLayout.astro";
 import RedPop from "~components/RedPop.astro";
+import { Image } from "astro:assets";
 
 import fr from "/src/images/anasayfa/svg/faaliyet-raporu.svg?raw";
 import efr from "/src/images/anasayfa/svg/entegre-faaliyet-raporu.svg?raw";
@@ -10,6 +11,8 @@ import sd from "/src/images/anasayfa/svg/surdurulebilirlik-danismanligi.svg?raw"
 import sr from "/src/images/anasayfa/svg/surdurulebilirlik-raporu.svg?raw";
 import yiws from "/src/images/anasayfa/svg/yatirimci-iliskileri-web-sitesi.svg?raw";
 import ys from "/src/images/anasayfa/svg/yatirimci-sunumlari.svg?raw";
+
+import bannerkitapcik from "/src/images/anasayfa/Finar_Cumhuriyet_Kitapcigi_Banner_image.png";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -85,7 +88,7 @@ import "swiper/css/effect-fade";
 					<div class="swiper-slide">
 						<a href="http://sifiryuz.finarkurumsal.com" target="_blank" class="block h-full rounded-sm">
 							<div class="flex h-full w-full items-center justify-between rounded-sm bg-white">
-								<img src="/Finar_Cumhuriyet_Kitapcigi_Banner_image.png" alt="Sıfırdan Yüz'e" class="shrink-1 mb-3 mt-5 w-[45%] grow-0 rounded-sm" />
+								<Image src={bannerkitapcik} alt="Sıfırdan Yüz'e" loading="eager" class="shrink-1 mb-3 mt-5 w-[45%] grow-0 rounded-sm" />
 								<div class="grow-1 my-4 flex flex-col">
 									<svg id="finar100svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 88.67 29.13" class="mx-auto w-[50%]">
 										<path
