@@ -34,7 +34,7 @@ export const uploadRouter = {
 			//^?
 		})
 		.onUploadComplete((data) => {
-			//console.log("upload completed", data);
+			console.log("upload completed", data);
 
 			// Return some data which will be available in `onClientUploadComplete`
 			return {}; //{ bar: "baz" as const };
