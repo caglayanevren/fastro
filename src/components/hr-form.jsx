@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
-import "@uploadthing/react/styles.css";
+//import "@uploadthing/react/styles.css";
 import { UploadDropzone } from "~/utils/uploadthing";
 import { FaFilePdf } from "react-icons/fa";
 
@@ -110,12 +110,12 @@ export default function HRForm() {
 						<label className="mb-2 block text-sm font-normal uppercase tracking-[1px] text-gray-700" htmlFor="name">
 							Ad Soyad
 						</label>
-						<input className="block w-full appearance-none rounded border border-gray-200 bg-gray-100 px-4 py-3 leading-tight text-gray-700 focus:bg-white focus:outline-none" id="name" type="text" value={name} onChange={handleNameChange} />
+						<input className="block w-full appearance-none rounded border border-gray-200 bg-gray-100 px-4 py-3 leading-tight text-gray-700 focus:bg-white focus:outline-none" autoComplete="off" id="name" type="text" value={name} onChange={handleNameChange} />
 						{nameErrorMessage && <div className="mb-4 block text-sm text-red">{nameErrorMessage}</div>}
 						<label className="mb-2 mt-4 block text-sm font-normal uppercase tracking-[1px] text-gray-700" htmlFor="email">
 							E-posta
 						</label>
-						<input className="block w-full appearance-none rounded border border-gray-200 bg-gray-100 px-4 py-3 leading-tight text-gray-700 focus:bg-white focus:outline-none" id="email" type="email" value={email} onChange={handleEmailChange} />
+						<input className="block w-full appearance-none rounded border border-gray-200 bg-gray-100 px-4 py-3 leading-tight text-gray-700 focus:bg-white focus:outline-none" autoComplete="off" id="email" type="email" value={email} onChange={handleEmailChange} />
 						{emailErrorMessage && <div className="mb-4 block text-sm text-red">{emailErrorMessage}</div>}
 						<div className="mb-6 h-0">&nbsp;</div>
 						{pdfPath ? (
