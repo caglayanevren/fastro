@@ -5,14 +5,13 @@ import tailwind from "@astrojs/tailwind";
 import tailwindcssNesting from "tailwindcss/nesting";
 import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
-import nodejs from "@astrojs/node";
+import vercel from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
 export default defineConfig({
 	site: "https://fastro.vercel.app/",
 	base: "/",
-	//trailingSlash: "always",
-	output: "hybrid",
+	output: "server",
 
 	integrations: [
 		react(),
@@ -32,7 +31,5 @@ export default defineConfig({
 		},
 	},
 
-	adapter: nodejs({
-		mode: "middleware",
-	}),
+	adapter: vercel(),
 });
