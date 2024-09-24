@@ -5,8 +5,8 @@ declare module "lodash.merge";
 
 interface ImportMetaEnv {
 	readonly UPLOADTHING_TOKEN: string;
-	readonly HR_SLACK_WEBHOOK_URL: string;
-	readonly CONTACT_SLACK_WEBHOOK_URL: string;
+	readonly PUBLIC_HR_SLACK_WEBHOOK_URL: string;
+	readonly PUBLIC_CONTACT_SLACK_WEBHOOK_URL: string;
 }
 
 interface ImportMeta {
