@@ -50,7 +50,7 @@ export default function HRForm() {
 
 	async function handleSubmit(e) {
 		e.preventDefault();
-		const webhookUrl = "https://hooks.slack.com/services/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";
+		const webhookUrl = "https://hooks.slack.com/services/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";
 
 		const nameError = validateName(name);
 		const emailError = validateEmail(email);
