@@ -50,7 +50,7 @@ export default function HRForm() {
 
 	async function handleSubmit(e) {
 		e.preventDefault();
-		const webhookUrl = "https://hooks.slack.com/services/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";
+		const webhookUrl = "https://hooks.slack.com/services/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";
 
 		const nameError = validateName(name);
 		const emailError = validateEmail(email);
@@ -63,13 +63,13 @@ export default function HRForm() {
 		}
 
 		const data = {
-			channel: "#hr-form-submissions",
-			username: `${name}`,
-			type: "mrkdwn",
-			pretext: "_ https://www.finarkurumsal.com/hr-form/ - *Bizimle çalışmak ister misiniz?* formundan gelen mesaj:_",
+			//channel: "#hr-form-submissions",
+			//username: `${name}`,
+			mrkdwn: true,
+			//pretext: "_ https://www.finarkurumsal.com/hr-form/ - *Bizimle çalışmak ister misiniz?* formundan gelen mesaj:_",
 			text: `*${name}:* ${email}\n<${pdfPath}|Yüklenen PDF>`,
-			color: "#00b3e3",
-			icon_emoji: ":mailbox_with_mail:",
+			//color: "#00b3e3",
+			//icon_emoji: ":mailbox_with_mail:",
 		};
 
 		if (!nameError) {
