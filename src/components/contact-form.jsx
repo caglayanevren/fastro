@@ -43,7 +43,7 @@ export default function ContactForm() {
 
 	async function handleSubmit(e) {
 		e.preventDefault();
-		const webhookUrl = "https://hooks.slack.com/services/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";
+		const webhookUrl = "https://hooks.slack.com/services/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";
 
 		const nameError = validateName(name);
 		const emailError = validateEmail(email);
@@ -56,13 +56,13 @@ export default function ContactForm() {
 		}
 
 		const data = {
-			channel: "#contact-form-submissions",
-			username: `${name}`,
-			type: "mrkdwn",
-			pretext: "_ https://www.finarkurumsal.com/iletisim/ - *Bize Ulaşın* formundan gelen mesaj:_",
+			//channel: "#contact-form-submissions",
+			//username: `${name}`,
+			mrkdwn: true,
+			//pretext: "_ https://www.finarkurumsal.com/iletisim/ - *Bize Ulaşın* formundan gelen mesaj:_",
 			text: `*${name}:* ${email}\n${message}`,
-			color: "#00b3e3",
-			icon_emoji: ":mailbox_with_mail:",
+			//color: "#00b3e3",
+			//icon_emoji: ":mailbox_with_mail:",
 		};
 
 		if (!nameError) {
