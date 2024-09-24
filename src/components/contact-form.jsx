@@ -43,7 +43,8 @@ export default function ContactForm() {
 
 	async function handleSubmit(e) {
 		e.preventDefault();
-		const webhookUrl = "https://hooks.slack.com/services/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";
+
+		const webhookUrl = import.meta.env.PUBLIC_CONTACT_SLACK_WEBHOOK_URL;
 
 		const nameError = validateName(name);
 		const emailError = validateEmail(email);

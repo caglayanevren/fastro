@@ -6,6 +6,8 @@ import "react-toastify/dist/ReactToastify.min.css";
 import { UploadDropzone } from "~/utils/uploadthing";
 import { FaFilePdf } from "react-icons/fa";
 
+export const whu = import.meta.env.HR_SLACK_WEBHOOK_URL;
+
 export default function HRForm() {
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
@@ -50,7 +52,8 @@ export default function HRForm() {
 
 	async function handleSubmit(e) {
 		e.preventDefault();
-		const webhookUrl = "https://hooks.slack.com/services/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";
+
+		const webhookUrl = import.meta.env.PUBLIC_HR_SLACK_WEBHOOK_URL;
 
 		const nameError = validateName(name);
 		const emailError = validateEmail(email);
