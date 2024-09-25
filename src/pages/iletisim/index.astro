@@ -1,6 +1,6 @@
 ---
-import ContactForm from "~components/contact-form";
 import Layout from "~layouts/Layout.astro";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 const title = "İletişim";
 const seoImage = "/og/iletisim-og.png";
 ---
@@ -40,16 +40,45 @@ const seoImage = "/og/iletisim-og.png";
 			</div>
 		</div>
 		<div class="md:col-start-7 md:col-end-13">
-			<div class="flex flex-col">
+			<div class="relative flex flex-col">
 				<h5 class="mb-2 font-zilla text-2xl">Bize Ulaşın</h5>
 				<div class="my-8 w-[30px] border-2 border-solid border-mavi"></div>
-				<ContactForm client:load />
+				<div class="loading absolute left-0 top-0 flex h-full w-full items-center justify-center text-mavi" id="loading"><AiOutlineLoading3Quarters className="icon-spin" /></div>
+				<iframe src="https://fastro-hr-form.vercel.app/iletisim/form" class="h-[550px] w-full"></iframe>
 			</div>
 		</div>
 	</div>
 </Layout>
 
 <style>
+	.icon-spin {
+		font-size: 6rem;
+		-webkit-animation: icon-spin 1s infinite linear;
+		animation: icon-spin 1s infinite linear;
+	}
+
+	@-webkit-keyframes icon-spin {
+		0% {
+			-webkit-transform: rotate(0deg);
+			transform: rotate(0deg);
+		}
+		100% {
+			-webkit-transform: rotate(359deg);
+			transform: rotate(359deg);
+		}
+	}
+
+	@keyframes icon-spin {
+		0% {
+			-webkit-transform: rotate(0deg);
+			transform: rotate(0deg);
+		}
+		100% {
+			-webkit-transform: rotate(359deg);
+			transform: rotate(359deg);
+		}
+	}
+
 	#hero {
 		background-position: center center;
 		background-repeat: no-repeat;
@@ -244,4 +273,7 @@ const seoImage = "/og/iletisim-og.png";
 		this.closest(".map-section").classList.remove("open");
 		map.mapTypes.set(map_name, customMapType1);
 	});
+	const iframe = document.querySelector("iframe");
+	const loading = document.querySelector("#loading.loading");
+	iframe.onload = () => (loading.style.display = "none");
 </script>
