@@ -19,7 +19,7 @@ ekip:
 		{ ad: Bilge Yaren Orgun, unvan: Sürdürülebilirlik Uzmanı, img: "/src/content/finar/ailemiz/Bilge-Yaren-Orgun.jpg" },
         { ad: Can Özkan, unvan: Editör, img: "/src/content/finar/ailemiz/can_ozkan.jpg" },
 		{ ad: Ceren Kalefetoğlu, unvan: Sürdürülebilirlik Uzmanı, img: "/src/content/finar/ailemiz/Ceren_Kalefetoglu.jpg" },
-		{ ad: Çağla Karataş, unvan: Junior Grafik Tasarımcı, img: "/src/content/finar/ailemiz/placeholder.jpg" },
+		{ ad: Çağla Karataş, unvan: Junior Grafik Tasarımcı, img: "/src/content/finar/ailemiz/cagla_karatas.jpg" },
         # { ad: Dilek Şahin, unvan: Stajyer, img: "/src/content/finar/ailemiz/dilek_sahin.jpg" },
         # { ad: Efe Esa, unvan: Grafik Tasarımcı, img: "/src/content/finar/ailemiz/efe_esa.jpg" },
 		{ ad: Emre Tekin, unvan: Grafik Tasarımcı, img: "/src/content/finar/ailemiz/emre_tekin.jpg" },
