@@ -1,999 +1,1515 @@
 ---
 import MKLayout from "~layouts/musterilerimiz-konusuyor-layout.astro";
 import ArticleTitle from "~components/articleTitle.astro";
-import slugify from "~utils/slugify";
+import { Image } from "astro:assets";
+
+import mkdata_atbank_img from "~images/musterilerimiz-konusuyor/atbank.jpg";
+import mkdata_atbank_img2 from "~images/musterilerimiz-konusuyor/atbank.png";
+import mkdata_aksaenerji_img from "~images/musterilerimiz-konusuyor/aksaenerji.jpg";
+import mkdata_aksaenerji_img2 from "~images/musterilerimiz-konusuyor/aksaenerji.png";
+import mkdata_aksadogalgaz_img from "~images/musterilerimiz-konusuyor/aksadogalgaz.jpg";
+import mkdata_aksadogalgaz_img2 from "~images/musterilerimiz-konusuyor/aksadogalgaz.png";
+import mkdata_anadoluefes_img from "~images/musterilerimiz-konusuyor/anadolu-efes-app.png";
+import mkdata_anadoluefes_img2 from "~images/musterilerimiz-konusuyor/anadolu-efes.png";
+import mkdata_bim_img from "~images/musterilerimiz-konusuyor/bim.jpg";
+import mkdata_bim_img2 from "~images/musterilerimiz-konusuyor/bim.png";
+import mkdata_bnpparibascardif_img from "~images/musterilerimiz-konusuyor/bnp.jpg";
+import mkdata_bnpparibascardif_img2 from "~images/musterilerimiz-konusuyor/bnp.png";
+import mkdata_calikholding_img from "~images/musterilerimiz-konusuyor/calikholding.jpg";
+import mkdata_calikholding_img2 from "~images/musterilerimiz-konusuyor/calikholding.png";
+import mkdata_dengekimya_img from "~images/musterilerimiz-konusuyor/dengekimya-logo.png";
+import mkdata_dengekimya_img2 from "~images/musterilerimiz-konusuyor/dengekimya.png";
+import mkdata_denizbank_img from "~images/musterilerimiz-konusuyor/denizbank.jpg";
+import mkdata_denizbank_img2 from "~images/musterilerimiz-konusuyor/denizbank.png";
+import mkdata_fibabanka_img from "~images/musterilerimiz-konusuyor/fibabanka.jpg";
+import mkdata_fibabanka_img2 from "~images/musterilerimiz-konusuyor/fibabanka.png";
+import mkdata_garantifaktoring_img from "~images/musterilerimiz-konusuyor/garantifaktoring.jpg";
+import mkdata_garantifaktoring_img2 from "~images/musterilerimiz-konusuyor/garantifaktoring.png";
+import mkdata_gyh_img from "~images/musterilerimiz-konusuyor/gyh.jpg";
+import mkdata_gyh_img2 from "~images/musterilerimiz-konusuyor/gyh.png";
+import mkdata_gunessigorta_img from "~images/musterilerimiz-konusuyor/gunessigorta.jpg";
+import mkdata_gunessigorta_img2 from "~images/musterilerimiz-konusuyor/gunessigorta.png";
+import mkdata_halkemeklilik_img from "~images/musterilerimiz-konusuyor/halkemeklilik.jpg";
+import mkdata_halkemeklilik_img2 from "~images/musterilerimiz-konusuyor/halkemeklilik.png";
+import mkdata_halkyatirim_img from "~images/musterilerimiz-konusuyor/halkyatirim.jpg";
+import mkdata_halkyatirim_img2 from "~images/musterilerimiz-konusuyor/halkyatirim.png";
+import mkdata_ihlasholding_img from "~images/musterilerimiz-konusuyor/ihlasholding.jpg";
+import mkdata_ihlasholding_img2 from "~images/musterilerimiz-konusuyor/ihlasholding.png";
+import mkdata_isyatirim_img from "~images/musterilerimiz-konusuyor/isyatirim-app.png";
+import mkdata_isyatirim_img2 from "~images/musterilerimiz-konusuyor/isyatirim.png";
+import mkdata_kocholding_img from "~images/musterilerimiz-konusuyor/koc-app.png";
+import mkdata_kocholding_img2 from "~images/musterilerimiz-konusuyor/koc.png";
+import mkdata_kuveytturk_img from "~images/musterilerimiz-konusuyor/kuveytturk.jpg";
+import mkdata_kuveytturk_img2 from "~images/musterilerimiz-konusuyor/kuveytturk.png";
+import mkdata_mlpcare_img from "~images/musterilerimiz-konusuyor/mlp.jpg";
+import mkdata_mlpcare_img2 from "~images/musterilerimiz-konusuyor/mlp.png";
+import mkdata_pashabank_img from "~images/musterilerimiz-konusuyor/pashabank.jpg";
+import mkdata_pashabank_img2 from "~images/musterilerimiz-konusuyor/pashabank.png";
+import mkdata_polsan_img from "~images/musterilerimiz-konusuyor/polsan.jpg";
+import mkdata_polsan_img2 from "~images/musterilerimiz-konusuyor/polsan.png";
+import mkdata_sinpasgyo_img from "~images/musterilerimiz-konusuyor/sinpas-kapak.png";
+import mkdata_sinpasgyo_img2 from "~images/musterilerimiz-konusuyor/sinpas.png";
+import mkdata_sisecam_img from "~images/musterilerimiz-konusuyor/sisecam.jpg";
+import mkdata_sisecam_img2 from "~images/musterilerimiz-konusuyor/sisecam.png";
+import mkdata_tav_img from "~images/musterilerimiz-konusuyor/tav.jpg";
+import mkdata_tav_img2 from "~images/musterilerimiz-konusuyor/tav.png";
+import mkdata_torunlargyo_img from "~images/musterilerimiz-konusuyor/torunlar.jpg";
+import mkdata_torunlargyo_img2 from "~images/musterilerimiz-konusuyor/torunlar.png";
+import mkdata_tosyaliholding_img from "~images/musterilerimiz-konusuyor/tosyali.jpg";
+import mkdata_tosyaliholding_img2 from "~images/musterilerimiz-konusuyor/tosyali.png";
+import mkdata_turcas_img from "~images/musterilerimiz-konusuyor/turcas.jpg";
+import mkdata_turcas_img2 from "~images/musterilerimiz-konusuyor/turcas.png";
+import mkdata_turkcell_img from "~images/musterilerimiz-konusuyor/turkcell.jpg";
+import mkdata_turkcell_img2 from "~images/musterilerimiz-konusuyor/turkcell.png";
+import mkdata_thy_img from "~images/musterilerimiz-konusuyor/thy.jpg";
+import mkdata_thy_img2 from "~images/musterilerimiz-konusuyor/thy.png";
+import mkdata_tegv_img from "~images/musterilerimiz-konusuyor/tegv.jpg";
+import mkdata_tegv_img2 from "~images/musterilerimiz-konusuyor/tegv.png";
+import mkdata_ulvikocailik_img from "~images/musterilerimiz-konusuyor/ulvikocailik-logo.png";
+import mkdata_ulvikocailik_img2 from "~images/musterilerimiz-konusuyor/ulvikocailik.png";
+import mkdata_unluco_img from "~images/musterilerimiz-konusuyor/unlu.jpg";
+import mkdata_unluco_img2 from "~images/musterilerimiz-konusuyor/unlu.png";
+import mkdata_vakifbank_img from "~images/musterilerimiz-konusuyor/vakifbank.jpg";
+import mkdata_vakifbank_img2 from "~images/musterilerimiz-konusuyor/vakifbank.png";
+import mkdata_yildizholding_img from "~images/musterilerimiz-konusuyor/yildizholding-logo.png";
+import mkdata_yildizholding_img2 from "~images/musterilerimiz-konusuyor/yildizholding.png";
+
+interface mkitem {
+	id: string;
+	title: string;
+	linkedInLink: string;
+	img: ImageMetadata;
+	img2: ImageMetadata;
+	quote: string;
+	quoteAuthor: string;
+	quoteAuthorTitle: string;
+	quoteAuthor2?: string;
+	quoteAuthorTitle2?: string;
+	quoteAuthor3?: string;
+	quoteAuthorTitle3?: string;
+	quoteAuthor4?: string;
+	quoteAuthorTitle4?: string;
+}
+
+const mkitems: mkitem[] = [
+	{
+		id: "atbank",
+		title: "A&T Bank",
+		linkedInLink: "http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/atbank",
+		img: mkdata_atbank_img,
+		img2: mkdata_atbank_img2,
+		quote: "A&T Bank olarak 25. kuruluş yıl dönümünüzü kutluyoruz. Başarılarla dolu bu yolculuğun önemli bir kısmında sizlere eşlik etmek ve başardıklarınızın bizatihi şahidi olmak ayrı bir mutluluk vesilesi bizler için. Önümüzdeki dönemde, iş ortaklarınıza sunduğunuz katma değerin daha da artacağına inanıyor ve nice ‘25 yıllar’ diliyoruz.",
+		quoteAuthor: "Melis Nazlı Ateştürk",
+		quoteAuthorTitle: "Kurumsal İletişim Müdürü",
+		quoteAuthor2: "Erdem Özenci",
+		quoteAuthorTitle2: "Planlama ve Kurumsal Performans Müdürü",
+	},
+	{
+		id: "aksaenerji",
+		title: "Aksa Enerji",
+		linkedInLink: "http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/aksaenerji",
+		img: mkdata_aksaenerji_img,
+		img2: mkdata_aksaenerji_img2,
+		quote: "İş birliğimizin ilk gününden itibaren Aksa Enerji’nin kimliğini ve değerlerini en iyi şekilde yansıtan; mükemmele ulaşmak için bizimle birlikte titizlikle ve sabırla çalışan Finar ekibi, hem Yatırımcı İlişkileri hem Kurumsal İletişim faaliyetlerimizde en değerli iş ortaklarımızdan biri oldu. Başarılarla dolu 25 yıllık bir deneyim ve daima kendini yenileyen, yaratıcı vizyonu ile sektörüne yön veren Finar, bizim için sadece bir iş ortağı değil; ekibimizin ayrılmaz bir parçası. Bizi en az bizim kadar iyi anlayan ve anlatan Finar ailesine değerli katkıları için teşekkür ediyor; başarılarla dolu nice yıllar diliyorum.",
+		quoteAuthor: "Özlem McCann",
+		quoteAuthorTitle: "Yatırımcı İlişkileri ve Kurumsal İletişim Direktörü",
+	},
+	{
+		id: "aksadogalgaz",
+		title: "Aksa Doğalgaz",
+		linkedInLink: "http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/aksadogalgaz",
+		img: mkdata_aksadogalgaz_img,
+		img2: mkdata_aksadogalgaz_img2,
+		quote: "Sadece bilanço okumayı bilen değil, bilançolardan son derece özgün ve yaratıcı anlatımlar üretebilen özel bir ajans Finar. Bu yetkinlikle ürettikleri işlerin başarılı olduğu kadar, zihinde hoş bir tat bırakan keyifli bir tarihi de var. Başarı çıtasını 25 yıl boyunca hep daha yukarıya taşımak, özgünlüğünü korumak hayli zor bir iş. 25 yıllık bu haklı başarınızı kutluyor, gördüğümüz her işte keyifle gülümseyip içten bir takdirle takip edeceğimiz daha nice tasarımlar, nice başarılı 25 yıllar dilerim.",
+		quoteAuthor: "Özgür Özkan",
+		quoteAuthorTitle: "Pazarlama ve Kurumsal İletişim Müdürü",
+	},
+	{
+		id: "anadoluefes",
+		title: "Anadolu Efes",
+		linkedInLink: "http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/anadoluefes",
+		img: mkdata_anadoluefes_img,
+		img2: mkdata_anadoluefes_img2,
+		quote: "Yaratıcı tasarımlarını, yenilikçi fikirlerini, gündemi takip eden uygulamalarını ve iş yapış kalitesini ürün mükemmelliğine yansıtan bir ekibin kuruluşunun 25. yıl dönümünü en içten dileklerimle kutlarım. 25 senelik tecrübenizin güçlü ekibinizle önümüzdeki dönemde de yeni başarı ve ödüllere dönüşmesini diliyorum.",
+		quoteAuthor: "Aslı Kılıç Demirel",
+		quoteAuthorTitle: "Yatırımcı İlişkileri Müdürü",
+	},
+	{
+		id: "bim",
+		title: "BIM",
+		linkedInLink: "http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/bim",
+		img: mkdata_bim_img,
+		img2: mkdata_bim_img2,
+		quote: "Bildiğin işin en iyisini yap anlayışı ile yola çıkarak sektörün en önemli oyuncularından biri olmayı başardığına inandığımız, 14 yıldır birlikte çalıştığımız Finar, iş ortaklarının beklentilerini karşılama, değerlerini yansıtması ve süreçlerindeki sadeliği ile iş modelimizle adeta bütünleşmiştir. Her üretilen yeni projede, artı değer üreterek, bizlerin ve böylece kendisinin başarı grafiğini sürekli artırmıştır.<br /><br />Deneyim ve üretkenliklerini nice çeyrek asırlara devam ettirmeleri dileklerimle, kuruluş yıl dönümünü içtenlikle kutlarım.",
+		quoteAuthor: "Serkan Savaş",
+		quoteAuthorTitle: "Raporlama ve Yatırımcı İlişkileri Direktörü",
+	},
+	{
+		id: "bnpparibascardif",
+		title: "BNP Paribas Cardif",
+		linkedInLink: "http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/bnpparibascardif",
+		img: mkdata_bnpparibascardif_img,
+		img2: mkdata_bnpparibascardif_img2,
+		quote: "Finar ile üç yıl üst üste birbirinden farklı konseptlerde faaliyet raporu çalışmaları yürüttük; her birinde benimsediğimiz özenli ve yaratıcı yaklaşım ile tüm paydaşlarımıza çok başarılı raporlar sunduk. Hazırladığımız raporlarla uluslararası yarışmalarda ödüller kazanmayı başaran değerli iş ortağımız Finar’a itibar yönetimimize katkılarından dolayı çok teşekkür ederiz.",
+		quoteAuthor: "Tuğba Çamlıcantürk",
+		quoteAuthorTitle: "İletişim ve İnovasyon Müdürü",
+	},
+	{
+		id: "calikholding",
+		title: "Çalık Holding",
+		linkedInLink: "http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/calikholding",
+		img: mkdata_calikholding_img,
+		img2: mkdata_calikholding_img2,
+		quote: "Değerli Finar Ekibi, bugüne kadar birlikte gerçekleştirdiğimiz çalışmalardaki çözüm odaklı yaklaşımınız, yenilikçi bakış açınız ve alanınızdaki derin tecrübeniz için çok teşekkür ederiz. Sizlerle çalışmak her zaman hem verimli hem de keyifliydi. Eminim önümüzdeki dönemde de sektörünüzü farklı bir platforma taşıyacak yeniliklerin öncüsü olacaksınız. Nice 25 yıllara…",
+		quoteAuthor: "Özlem Yalçın",
+		quoteAuthorTitle: "Kurumsal İletişim Direktörü",
+	},
+	{
+		id: "dengekimya",
+		title: "Denge Kimya",
+		linkedInLink: "http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/dengekimya",
+		img: mkdata_dengekimya_img,
+		img2: mkdata_dengekimya_img2,
+		quote: "Denge Kimya olarak Finar ile çalışmaya başlamak bizim için sadece kurumsal markamızın geleceğini emin ellere bırakmak değil, aynı zamanda ekip olarak ömür boyu sürecek değerli dostluklar edinmemiz demek oldu. Sizinle çalışmak bizim için çok büyük bir keyif, birlikte güzel işlere imza atmak dileği ile 25. yılınız kutlu olsun.",
+		quoteAuthor: "Halil Aksoy",
+		quoteAuthorTitle: "Kurucu ve CEO",
+	},
+	{
+		id: "denizbank",
+		title: "Denizbank",
+		linkedInLink: "http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/denizbank",
+		img: mkdata_denizbank_img,
+		img2: mkdata_denizbank_img2,
+		quote: "Yükselen başarı grafiği ve iş ortaklarına sağlanan artan katma değer ile 25 yılı geride bırakmak büyük gurur. Faaliyete geçtiğimiz ilk günden bu yana kurumsal kültürümüzü en az bizim kadar özümseyen bir ekip ile ilerlemek bizler için çok önemli. Çeyrek asırlık geçmişinizden aldığınız güçle, müşterileriniz için değerli çalışmalara imza atmaya devam etmenizi temenni ediyor, kuruluş yıl dönümünüzü kutluyorum.",
+		quoteAuthor: "Yeliz Koraşlı Özdemir",
+		quoteAuthorTitle: "Yatırımcı İlişkileri ve Finansal İletişim Bölüm Müdürü",
+	},
+	{
+		id: "fibabanka",
+		title: "Fibabanka",
+		linkedInLink: "http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/fibabanka",
+		img: mkdata_fibabanka_img,
+		img2: mkdata_fibabanka_img2,
+		quote: "On yılı aşkın süredir birlikte birçok başarıya imza atıp, sektöründe öncü ve fark yaratan projelerle birbirinden değerli ödüllere layık görüldüğümüz değerli iş ortağımız Finar Ailesi’nin 25. kuruluş yıl dönümünü en içten dileklerimle kutluyorum. Daha nice başarıların gurur ve mutluluğunu paylaşmak dileğiyle…",
+		quoteAuthor: "Deniz Güney",
+		quoteAuthorTitle: "Pazarlama İletişimi, Müşteri Deneyimi ve Dijital Bankacılık Direktörü",
+	},
+	{
+		id: "garantifaktoring",
+		title: "Garanti Faktoring",
+		linkedInLink: "http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/garantifaktoring",
+		img: mkdata_garantifaktoring_img,
+		img2: mkdata_garantifaktoring_img2,
+		quote: "Finar, çalışmalarımıza başladığımız ilk yıldan itibaren; işimizi ve faaliyetlerimizi detaylı inceleyip, anlayarak, paydaşlarımıza vereceğimiz mesajları en şeffaf, net ve göze hoş gelen bir görsellik içinde sunmayı başardı. 25 yıla varan uzun yolculuklarında, kendilerini sürekli yenileyerek, müşterilerine sundukları hizmetin kalitesini de sürekli artıran iş modelleri nedeniyle tüm Finar ekibini tebrik ediyor, başarılarının büyüyerek sürmesini diliyorum.",
+		quoteAuthor: "Mert Ercan",
+		quoteAuthorTitle: "Genel Müdür Yardımcısı",
+	},
+	{
+		id: "gyh",
+		title: "Global Yatırım Holding",
+		linkedInLink: "http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/gyh",
+		img: mkdata_gyh_img,
+		img2: mkdata_gyh_img2,
+		quote: "Her zaman yaratıcı... Her zaman dinamik… Her zaman yenilikçi... Her zaman sıra dışı... birlikte uzun yıllara dayanan çalışmalarımız ışığında Finar’ı birkaç kelimeyle özetlemek gerekse sanırım en iyi böyle anlatırdım. <br /><br />Başta Sn. Baki Kara olmak üzere tüm Finar ailesini yürekten tebrik ediyor; yaydıkları pozitif enerji, gösterdikleri anlayış, samimiyet ve iş birliği için teşekkürlerimi sunuyorum. Yepyeni başarılarla dolu nice 25 yıllara!..",
+		quoteAuthor: "Aslı Su Ata",
+		quoteAuthorTitle: "Yatırımcı İlişkileri Direktörü",
+	},
+	{
+		id: "gunessigorta",
+		title: "Güneş Sigorta",
+		linkedInLink: "http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/gunessigorta",
+		img: mkdata_gunessigorta_img,
+		img2: mkdata_gunessigorta_img2,
+		quote: "İş ortakları için daima kreatif ve yenilikçi çözümler üreten, her geçen yıl değişen, gelişen Finar’ın 25. yılını kutlarız. Çeyrek asır boyunca fark yaratmayı kendine şiar edinmiş Finar’a ve Finar ekibine markamıza kattığı değer için ayrıca teşekkürlerimizi sunarız. Önümüzdeki çeyrek asırlarda da başarınızın katlanarak artmasını ve sıra dışı içerik ve tasarımlarla markalar için değer yaratmayı sürdürmenizi temenni ederiz. Nice 25 yıllara.",
+		quoteAuthor: "Fulden Pehlivan",
+		quoteAuthorTitle: "Bütçe Planlama ve Yatırımcı İlişkileri Müdürü",
+		quoteAuthor2: "Selda Çamlıbel",
+		quoteAuthorTitle2: "Kurumsal İletişim Müdürü",
+	},
+	{
+		id: "halkemeklilik",
+		title: "Halk Emeklilik",
+		linkedInLink: "http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/halkemeklilik",
+		img: mkdata_halkemeklilik_img,
+		img2: mkdata_halkemeklilik_img2,
+		quote: "Kurumsal kültürümüz, vizyon ve misyonumuz çerçevesinde ailemizden biri gibi değerlerimizi işleyen, bizi bizim kadar anlayan bir ekip ile 25 yılı doldurmuş olmanın sevinci içerisindeyiz. Sahip olduğumuz bu iş ortaklığında amatör ruhla ama her zaman profesyonel disiplinle en iyisi için çalıştık. Çalışırken çok eğlendik, işimizi bittiğinde ve ortaya çıkan ürün takdir edildiğinde ise gururlandık. Biz çalıştık faaliyetlerimizi anlatmayı Finar’a bıraktık. Çok da iyi yaptık. Eylemlerimizin devam edeceği güzel yıllarımız olacağına inanıyor, yıl dönümünüzü tüm içtenliğimle kutluyorum.",
+		quoteAuthor: "Sibel Sağlam",
+		quoteAuthorTitle: "Genel Müdür Yardımcısı-Pazarlama",
+	},
+	{
+		id: "halkyatirim",
+		title: "Halk Yatırım",
+		linkedInLink: "http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/halkyatirim",
+		img: mkdata_halkyatirim_img,
+		img2: mkdata_halkyatirim_img2,
+		quote: "25 senelik geçmişinizden ödün vermeden yenilikçi tasarımlarla sektöre öncü oldunuz. Daha nice başarılara imza atmanızı diler 25. yılınızı en içten dileklerimizle kutlarız.",
+		quoteAuthor: "Burak Aydın",
+		quoteAuthorTitle: "Kurumsal İletişim <br />(Yönetici)",
+		quoteAuthor2: "Ayla Gençay",
+		quoteAuthorTitle2: "Müdür",
+		quoteAuthor3: "Pınar Delen",
+		quoteAuthorTitle3: "Servis Yetkilisi",
+	},
+	{
+		id: "ihlasholding",
+		linkedInLink: "http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/ihlasholding",
+		title: "İhlas Holding",
+		img: mkdata_ihlasholding_img,
+		img2: mkdata_ihlasholding_img2,
+		quote: "Finar ile ilk çalışmaya 1999 Yılı Faaliyet Raporumuz ile başlamıştık, son yıllarda ise tüm Grup şirketlerimizin dahil olduğu güzel bir konsept yakaladık, bütün çalışmalarda bizi en mutlu eden, Finar’ın bizleri çok iyi anlayıp, raporda da bunları anlatabilmesi. Zaten Faaliyet Raporu da bunun için çıkartılmıyor mu :) Çok teşekkürler Finar, nice 25 yıllara.",
+		quoteAuthor: "Orhan Tanışman",
+		quoteAuthorTitle: "Genel Müdür Yardımcısı - <br />Bütçe, Raporlama ve Yatırımcı İlişkileri",
+	},
+	{
+		id: "isyatirim",
+		linkedInLink: "http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/isyatirim",
+		title: "İş Yatırım",
+		img: mkdata_isyatirim_img,
+		img2: mkdata_isyatirim_img2,
+		quote: "Özellikle halka açık şirketler için önemli bir önceliğe sahip olan ve sürdürülebilirliğin hayati unsurlarından olan finansal iletişim stratejisinin belirlenmesinde şirketin faaliyetlerini, finansal durumunu, misyon-vizyon ve değerleri ile hedeflerini sadece iyi anlayan değil, aynı zamanda benimseyen bir akıl ortağı ile çalışmak önemli bir konfordur. Kuruluş yıllarımızdan bu yana iletişimin her alanında bize bu konforu sağlayan Finar’a nice 25 yıllar diliyorum.",
+		quoteAuthor: "Ozan Altan",
+		quoteAuthorTitle: "Yatırımcı İlişkileri Müdürü",
+	},
+	{
+		id: "kocholding",
+		linkedInLink: "http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/kocholding",
+		title: "Koç Holding",
+		img: mkdata_kocholding_img,
+		img2: mkdata_kocholding_img2,
+		quote: "Finar yatırımcı ilişkileri alanındaki dünya standartlarını her zaman ülkemize taşıyan isim oldu. Globalleşme ve dijitalleşme çağında Finar tarafından geliştirilen IR App sayesinde, şirketlerimiz, 7/24 paydaşlarına en hızlı ve güncel bilgileri ulaştırma imkanı bulurken; teknolojik çözümler sunma açısından da sadece ülkemizde değil dünyada rol model olma şansını elde ediyorlar.",
+		quoteAuthor: "Funda Güngör Akpınar",
+		quoteAuthorTitle: "Koç Holding Yatırımcı İlişkileri Eski Koordinatörü",
+	},
+	{
+		id: "kuveytturk",
+		linkedInLink: "http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/kuveytturk",
+		title: "Kuveyt Türk",
+		img: mkdata_kuveytturk_img,
+		img2: mkdata_kuveytturk_img2,
+		quote: "Kurumsal raporlama alanında çeyrek asırlık tecrübe, faaliyetlerin birçok ödülle taçlandırılması, iş ortaklarına farklı bakış açısı ile etkili çözümler sunulması, teknolojinin en iyi şekilde kullanılması, geçmişten bugüne yükselen başarı grafiği bir firma için büyük bir başarı ve gurur kaynağı. Birlikte çalışmaya başladığımız süre boyunca, Bankamız kurumsal kültürünü özümsemiş, Bankamızı tanıyan, işin ehli geniş bir kadro ile çalışmak ve faaliyetlerimizi yürütmek bizler için mutluluk verici. Başarılı hizmetlerinizin devamı diler, 25. kuruluş yıl dönümünüzü kutlarız. Nice 25 yıllara temennisiyle.",
+		quoteAuthor: "Tufan Karamuk",
+		quoteAuthorTitle: "Yatırımcı İlişkileri Müdürü",
+		quoteAuthor2: "Hatice Tuğba Altan",
+		quoteAuthorTitle2: "Kıdemli Yatırımcı İlişkileri Yönetmeni",
+	},
+	{
+		id: "mlpcare",
+		linkedInLink: "http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/mlpcare",
+		title: "MLP Care",
+		img: mkdata_mlpcare_img,
+		img2: mkdata_mlpcare_img2,
+		quote: "Halka arz oluşumuzun ikinci yılını doldururken bu yolculukta en büyük destekçilerimizden Finar’ın kuruluşunun 25. yıl dönümünü büyük bir mutlulukla kutluyorum. Günün ötesini hedefleyen inovatif yaklaşımı ve sürdürülebilir iş anlayışı ile sektöre ve paydaşlarına verimli bir ortam sunan Finar’ın, ulusal ve uluslararası ölçekte nice başarılar elde edeceğine yürekten inanıyorum.",
+		quoteAuthor: "Deniz Can Yücel",
+		quoteAuthorTitle: "Strateji ve Yatırımcı İlişkileri Direktörü",
+	},
+	{
+		id: "pashabank",
+		linkedInLink: "http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/pashabank",
+		title: "Pashabank",
+		img: mkdata_pashabank_img,
+		img2: mkdata_pashabank_img2,
+		quote: "Sahip olunan deneyimin ve iş ortaklığı yapılan kurumlara olan katma değerli iş yaklaşımının çeyrek yüzyıldır düşmeyen bir başarı grafiği ile taçlandırılmış olması çok gurur verici. Beraber yola çıktığımız her projede göstermiş olduğunuz profesyonellik ve samimiyet için teşekkür ediyor, bizi başarıya götüren projelerin mimarı olan tüm ekip arkadaşlarımıza yeni projelerde yeni başarılar diliyorum.",
+		quoteAuthor: "Özlem Telatar",
+		quoteAuthorTitle: "Kurumsal İletişim Müdürü",
+	},
+	{
+		id: "polsan",
+		linkedInLink: "http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/polsan",
+		title: "Polsan",
+		img: mkdata_polsan_img,
+		img2: mkdata_polsan_img2,
+		quote: "Ağırbaşlı ama dinamik, ciddi ama güler yüzlü olmak isteyen bir kurumu bir faaliyet raporunda anlatmak hiç kolay değil. Yönettiğim kurumun hassasiyet ve özelliklerini kısa sürede anlayıp buna göre bir içerik ve görsel tasarım hazırlamak, ancak 25 yıldan süzülüp gelen bir deneyim ve titizlikle mümkün olabilirdi. Finar bunu başardığı için 25 yıldır var ve eminim var olmaya devam edecek.",
+		quoteAuthor: "Mustafa Selçuk",
+		quoteAuthorTitle: "Genel Müdür",
+	},
+	{
+		id: "sinpasgyo",
+		linkedInLink: "http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/sinpasgyo",
+		title: "Sinpaş GYO",
+		img: mkdata_sinpasgyo_img,
+		img2: mkdata_sinpasgyo_img2,
+		quote: "İş birliğimiz faaliyet raporuyla başlasa da, Sinpaş Tarihçe kitabıyla tanıdık Finar’ı. Bahçesindeki zeytin ağacının metafor olarak kurumsal kimliğine yansıdığını düşünüyorum. Finar benim gözümde dalıyla, meyvesiyle, yağıyla, kültürüyle, sembolüyle, metaforuyla büyümeye devam eden/edecek bir zeytin ağacı… Çalışmalardaki detaycılığı sayesinde kendi kurumsal tarihimizi bize anlattığı(tırdığı), özenli, titiz çalışma prensibi için Baki Bey başta olmak üzere tüm ekibe şükranlarımı sunarım.",
+		quoteAuthor: "Lale Çakmak",
+		quoteAuthorTitle: "Kurumsal İletişim Müdürü",
+	},
+	{
+		id: "sisecam",
+		linkedInLink: "http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/sisecam",
+		title: "Şişecam",
+		img: mkdata_sisecam_img,
+		img2: mkdata_sisecam_img2,
+		quote: "Çeyrek asırlık deneyimini ve uzmanlığını sürekli gelişim odağıyla güncel teknolojilerle de harmanlayan Finar, global hedef ve konumlandırmamızı bizler kadar içselleştirebilmesiyle fark yaratan ve ödüllerle taçlandırdığımız başarılı işlere birlikte imza attığımız değerli bir iş ortağı. Finar’ı 25 yıllık bu gurur tablosu vesilesi ile kutluyor, nice başarılı yıllar temenni ediyorum.",
+		quoteAuthor: "Hale Elif Ergün",
+		quoteAuthorTitle: "Kurumsal İletişim Direktörü",
+	},
+	{
+		id: "tav",
+		linkedInLink: "http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/tav",
+		title: "TAV Havalimanları",
+		img: mkdata_tav_img,
+		img2: mkdata_tav_img2,
+		quote: "Profesyonellikten ödün vermeyen, dinamik bir ekiple her yıl yeni bir yaratıcı proje üzerinde çalışmaktan mutluluk duyuyoruz. İletişim sektöründe 25 yıl boyunca çıtayı sürekli yukarı taşıyarak tercih edilen bir iş ortağı haline gelmek önemli bir başarı. Finansal iletişim alanında her zaman yaratıcı işler çıkaran, çeyrek asır boyunca sürekli kendini yenileyerek her zaman güncel kalan Finar’a başarı dolu nice seneler diliyoruz.",
+		quoteAuthor: "Bengi Vargül Şen",
+		quoteAuthorTitle: "Kurumsal İletişim Direktörü",
+		quoteAuthor2: "Besim Meriç",
+		quoteAuthorTitle2: "Yatırımcı İlişkileri Müdürü",
+		quoteAuthor3: "Erhan Üstündağ",
+		quoteAuthorTitle3: "Kurumsal İletişim Koordinatörü",
+		quoteAuthor4: "Alper Topçu",
+		quoteAuthorTitle4: "Kurumsal İletişim Müdürü",
+	},
+	{
+		id: "torunlargyo",
+		linkedInLink: "http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/torunlargyo",
+		title: "Torunlar GYO",
+		img: mkdata_torunlargyo_img,
+		img2: mkdata_torunlargyo_img2,
+		quote: "Yükselen başarı grafiği ve iş ortaklarına sağlanan artan katma değer ile 25 yılı geride bırakmak büyük gurur. Faaliyete geçtiğimiz ilk günden bu yana kurumsal kültürümüzü en az bizim kadar özümseyen bir ekip ile ilerlemek bizler için çok önemli. Çeyrek asırlık geçmişinizden aldığınız güçle, müşterileriniz için değerli çalışmalara imza atmaya devam etmenizi temenni ediyor, kuruluş yıl dönümünüzü kutluyorum.",
+		quoteAuthor: "Zeynep Torun",
+		quoteAuthorTitle: "İcra Komitesi Üyesi<br />Kurumsal İletişim ve Pazarlama",
+		quoteAuthor2: "Ayşin Kaymaz Türkman",
+		quoteAuthorTitle2: "Kurumsal İletişim Direktörü",
+	},
+	{
+		id: "tosyaliholding",
+		linkedInLink: "http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/tosyaliholding",
+		title: "Tosyalı Holding",
+		img: mkdata_tosyaliholding_img,
+		img2: mkdata_tosyaliholding_img2,
+		quote: "Sevgili Finar, <br /><br />Siz ve çalışmaktan keyif aldığımız ekibinizle iş birliğimizin ikinci yılını bitirirken kreatif, içten ve hızlı işlere imza attığınıza tanık olduk. Grubumuzu iyi anlamanız ve yaratıcı fikirlerinizle bizi doğru yönlendirmeniz neticesinde birlikte çok güzel işler başardığımıza inanıyoruz. Bu birlikteliğin uzun yıllar sürmesi dileğiyle… <br /><br />25. yılınız kutlu olsun!",
+		quoteAuthor: "Şafak Ayışığı",
+		quoteAuthorTitle: "CFO",
+		quoteAuthor2: "Burçin Ejderoğlu",
+		quoteAuthorTitle2: "Strateji ve İş Geliştirme Şefi",
+	},
+	{
+		id: "turcas",
+		linkedInLink: "http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/turcas",
+		title: "Turcas",
+		img: mkdata_turcas_img,
+		img2: mkdata_turcas_img2,
+		quote: "Nihai tüketicilerle temasını daha ziyade iştiraklerimiz üzerinden kurgulayan bir enerji odaklı yatırım holdingi olmamızdan dolayı, Faaliyet Raporu’nu paydaşlarımıza aktaracağımız mesajların ana mecrası olarak kurguluyoruz. Bu da bizi hem içerik hem de tasarım açısından her yıl yenilikçi çözümler bulmaya teşvik ediyor. Finar ekibi, bir yandan bu yenilikçilik talebimizi her yıl özgün bir fikir ile beslerken, diğer yandan tüm raporları birbiri ardına tutarlı bir şekilde bağlayan bir üst şirket imgesi yaratmayı başarıyor.",
+		quoteAuthor: "Altan Kolbay",
+		quoteAuthorTitle: "Kurumsal İletişim ve Kamu İlişkileri Müdürü",
+	},
+	{
+		id: "turkcell",
+		linkedInLink: "http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/turkcell",
+		title: "Turkcell",
+		img: mkdata_turkcell_img,
+		img2: mkdata_turkcell_img2,
+		quote: "Finansal iletişim alanındaki bütünsel bakış açınızı, katma değer yaratan, çözüm odaklı yaklaşımınızı takdir ediyoruz. Tecrübeniz, bilgi birikiminiz ve kesintisiz desteğiniz ile başarılı projelere imza atmaya devam ediyoruz. Bununla birlikte daha iyi bir gelecek için üstün dijital hizmetler vizyonunu benimseyen bir grup olarak, başarılı dijital uygulamalarınızı da beğeni ile takip ediyoruz. Turkcell ailesi olarak, önemli bir iş ortağımız olan ajansınızın 25. kuruluş yıl dönümünü en içten dileklerimizle kutluyor, başarılarınızın devamını diliyoruz.",
+		quoteAuthor: "Murat Ali Aslanhan",
+		quoteAuthorTitle: "Yatırımcı İlişkileri Müdürü",
+		quoteAuthor2: "Nihan Erdoğan",
+		quoteAuthorTitle2: "Yatırımcı İlişkileri Kıdemli Uzmanı",
+	},
+	{
+		id: "thy",
+		linkedInLink: "http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/thy",
+		title: "Türk Hava Yolları",
+		img: mkdata_thy_img,
+		img2: mkdata_thy_img2,
+		quote: "Sürdürülebilir verimlilikle çalışabiliyor olmak üründe başarıyı sağlıyor. Biz Finar ile bunu başardık. 2018 Yıllık Faaliyet Raporumuzda da olduğu gibi. 5 Ödül ile taçlandırılmak Finar’ın ekibimizle süreklilik arz eden planlı bir şekilde çalışmayı başarmasının ürünüdür.",
+		quoteAuthor: "Levent Konukcu",
+		quoteAuthorTitle: "Yatırım Yönetimi Başkanı<br />Uçak Mühendisi",
+		quoteAuthor2: "Esra Keleş",
+		quoteAuthorTitle2: "Bilgi Analiz ve Raporlama Uzmanı",
+		quoteAuthor3: "Elif Yetim",
+		quoteAuthorTitle3: "Bilgi Analiz ve Raporlama Müdürü",
+	},
+	{
+		id: "tegv",
+		linkedInLink: "http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/tegv",
+		title: "Türkiye Eğitim Gönüllüleri Vakfı",
+		img: mkdata_tegv_img,
+		img2: mkdata_tegv_img2,
+		quote: "Vakfımızın ilk Entegre Faaliyet Raporunu, titizlikle, samimiyetle ve gönüllü olarak hazırlayan Finar ailesine yürekten teşekkürler! Finar fark yaratan katkı ve tasarımlarıyla, çocuklarımızda yarattığımız gelişimi etkili yöntemlerle sunarak, çalışmalarımızı çok daha iyi ifade edebilmemize yardımcı oldu; paydaşlarımızdan olumlu geri bildirimler almamızı sağladı ve bizi iki değerli ödülle buluşturdu. Alanında dünyanın en iyi ajansı ile çalışmaktan dolayı gurur duyuyor, nice başarılı yıllar diliyoruz.",
+		quoteAuthor: "Sait Tosyalı",
+		quoteAuthorTitle: "Genel Müdür",
+		quoteAuthor2: "G. İpek Uralcan",
+		quoteAuthorTitle2: "Geliştirme Müdürü",
+		quoteAuthor3: "Özlem Şirin",
+		quoteAuthorTitle3: "Kurumsal İletişim Uzmanı",
+		quoteAuthor4: "Dicle Kaymaz",
+		quoteAuthorTitle4: "Planlama Uzmanı",
+	},
+	{
+		id: "ulvikocailik",
+		linkedInLink: "http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/ulvikocailik",
+		title: "Ulvi Kocailik",
+		img: mkdata_ulvikocailik_img,
+		img2: mkdata_ulvikocailik_img2,
+		quote: "Sizi dinleyen, doğru anlayan, ilk sunumda hedefe çok yaklaşan, ahenkle ve keyifle çalışacağınız, verilen sürede işi teslim alacağınız, içinize sinecek ve sonuçtan memnun kalacağınız profesyonel bir ajans.",
+		quoteAuthor: "Ulvi Kocailik",
+		quoteAuthorTitle: "Broker - Eğitmen - Yazar <br />Ticari Mülkler",
+	},
+	{
+		id: "unluco",
+		linkedInLink: "http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/unluco",
+		title: "ÜNLÜ & Co.",
+		img: mkdata_unluco_img,
+		img2: mkdata_unluco_img2,
+		quote: "ÜNLÜ & Co olarak Faaliyet Raporumuzun kurum ruhumuzu yansıtmasına önem gösteriyoruz. Finar, bizi anlayarak geliştirdiği yaratıcı ve özgün konseptleri ile kurum kültürümüzü ve değerlerimizi Faaliyet Raporu’na çok başarılı bir şekilde yansıttı. Raporlarımızın layık görüldüğü birçok ödül de bizi gururlandırdı. Faaliyet raporlarımızda Finar ile çalışmaktan mutluluk duyuyoruz. Tüm ekibe teşekkür ederiz.",
+		quoteAuthor: "Şebnem Kalyoncuoğlu Ünlü",
+		quoteAuthorTitle: "Yönetim Kurulu Üyesi",
+	},
+	{
+		id: "vakifbank",
+		linkedInLink: "http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/vakifbank",
+		title: "VakıfBank",
+		img: mkdata_vakifbank_img,
+		img2: mkdata_vakifbank_img2,
+		quote: "VakıfBank olarak Finar ile uzun yıllardır gerçekleştirdiğimiz verimli iş birliği sayesinde, itibarımızı en iyi şekilde yansıtan kurumsal raporlara imza atıyoruz. Ödüllerle taçlandırılan bu değerli çalışmalarda yanımızdaki güç olan Finar ailesine başarılarla dolu daha nice 25 yıllar diliyorum.",
+		quoteAuthor: "Arzu Kaymanlı Örsel",
+		quoteAuthorTitle: "Kurumsal İletişim Direktörü",
+	},
+	{
+		id: "yildizholding",
+		linkedInLink: "http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/yildizholding",
+		title: "Yıldız Holding",
+		img: mkdata_yildizholding_img,
+		img2: mkdata_yildizholding_img2,
+		quote: "Finar’ı, Yatırımcı İlişkileri iletişimi açısından sundukları kaliteli hizmetlerle, her zaman güvenle çalıştığımız iş ortağımız olarak görüyoruz. Uluslararası alandaki başarıları ve kazanmış oldukları ödüllerle kalitesini ispatlayan ve 25. yılını kutlamanın haklı gururunu yaşayan Finar gibi bir şirketle çalışmaktan son derece memnunuz.",
+		quoteAuthor: "Emre Ertürk",
+		quoteAuthorTitle: "Yıldız Holding Yatırımcı İlişkileri Direktörü",
+	},
+];
+
+/* DİKKAT */
+/* Linkedin paylaşımları için musterilerimizkonusuyor klasörünün public_html altında olması lazım. Klasörde og images ve body kısmı boş, sadece meta data içeren html'ler var */
 ---
 
 <MKLayout title="Müşterilerimiz Finar’ı anlatıyor.">
 	<div class="container px-[14px]">
 		<ArticleTitle title="Müşterilerimiz Finar’ı anlatıyor." spot="28 yıldır müşterilerimiz için en iyisini üretmeye çalışıyoruz. Ürettiğimiz projeler, 380’nin üzerinde uluslararası ödüle layık görüldü. Üç kez “Dünyanın En İyi Kurumsal Tasarım Ajansı” seçildik. Ama bunların hiç biri, müşterilerimizden aldığımız “Elinize sağlık, çok güzel bir iş oldu” mesajından daha değerli olmadı bizim için." />
 	</div>
+	{
+		mkitems.map((mkitem) => {
+			return (
+				<section class="quotation">
+					<div class="container px-[14px]">
+						<div class="absolute -mt-16">
+							<a href={mkitem.linkedInLink} target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);" title="LinkedIn'de paylaş">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
+									<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+								</svg>
+							</a>
+						</div>
 
-	<section class="quotation">
-		<div class="container px-[14px]">
-			<div class="absolute pt-2">
-				<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/atbank" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
-						<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
-					</svg>
-				</a>
-			</div>
+						<div id={mkitem.id} class="anchor_tags flex flex-col items-center gap-8 lg:flex-row">
+							<div class="text-content order-3 md:order-1 md:mx-auto md:w-8/12 lg:w-4/12">
+								<h5 class="my-2 text-white">
+									"<Fragment set:html={mkitem.quote} />"
+								</h5>
+								<h5 class="bold m-0 mt-4 text-white">
+									<Fragment set:html={mkitem.quoteAuthor} />
+								</h5>
+								<h5 class="mb-3 text-white sm:mb-0">
+									<Fragment set:html={mkitem.quoteAuthorTitle} />
+								</h5>
+								{mkitem.quoteAuthor2 && (
+									<h5 class="bold m-0 mt-4 text-white">
+										<Fragment set:html={mkitem.quoteAuthor2} />
+									</h5>
+								)}
+								{mkitem.quoteAuthorTitle2 && (
+									<h5 class="mb-3 text-white sm:mb-0">
+										<Fragment set:html={mkitem.quoteAuthorTitle2} />
+									</h5>
+								)}
+								{mkitem.quoteAuthor3 && (
+									<h5 class="bold m-0 mt-4 text-white">
+										<Fragment set:html={mkitem.quoteAuthor3} />
+									</h5>
+								)}
+								{mkitem.quoteAuthorTitle3 && (
+									<h5 class="mb-3 text-white sm:mb-0">
+										<Fragment set:html={mkitem.quoteAuthorTitle3} />
+									</h5>
+								)}
+								{mkitem.quoteAuthor4 && (
+									<h5 class="bold m-0 mt-4 text-white">
+										<Fragment set:html={mkitem.quoteAuthor4} />
+									</h5>
+								)}
+								{mkitem.quoteAuthorTitle4 && (
+									<h5 class="mb-3 text-white sm:mb-0">
+										<Fragment set:html={mkitem.quoteAuthorTitle4} />
+									</h5>
+								)}
+							</div>
+							<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
+								<div class="divrow">
+									<div class="div1">
+										<Image src={mkitem.img} alt={mkitem.title} />
+									</div>
+									<div class="div2">
+										<Image src={mkitem.img2} alt={mkitem.quoteAuthor} />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			);
+		})
+	}
 
-			<div id="atbank" class="anchor_tags flex items-center gap-8">
-				<div class="text-content order-3 md:order-1 md:mx-auto md:w-8/12 lg:w-4/12">
-					<h5 class="my-2 text-white">"A&T Bank olarak 25. kuruluş yıl dönümünüzü kutluyoruz. Başarılarla dolu bu yolculuğun önemli bir kısmında sizlere eşlik etmek ve başardıklarınızın bizatihi şahidi olmak ayrı bir mutluluk vesilesi bizler için. Önümüzdeki dönemde, iş ortaklarınıza sunduğunuz katma değerin daha da artacağına inanıyor ve nice ‘25 yıllar’ diliyoruz."</h5>
-					<h5 class="bold m-0 mt-4 text-white">Melis Nazlı Ateştürk</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Kurumsal İletişim Müdürü</h5>
-					<h5 class="bold m-0 mt-4 text-white">Erdem Özenci</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Planlama ve Kurumsal Performans Müdürü</h5>
-				</div>
-				<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
-					<div class="divrow">
-						<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/atbank.jpg" alt="A&T Bank" /></div>
-						<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/atbank.png" alt="Erdem Özenci" /></div>
+	{
+		/*
+			<section class="quotation">
+				<div class="container px-[14px]">
+					<div class="absolute pt-2">
+						<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/atbank" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
+								<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
+							</svg>
+						</a>
+					</div>
+
+					<div id="atbank" class="anchor_tags flex items-center gap-8">
+						<div class="text-content order-3 md:order-1 md:mx-auto md:w-8/12 lg:w-4/12">
+							<h5 class="my-2 text-white">"A&T Bank olarak 25. kuruluş yıl dönümünüzü kutluyoruz. Başarılarla dolu bu yolculuğun önemli bir kısmında sizlere eşlik etmek ve başardıklarınızın bizatihi şahidi olmak ayrı bir mutluluk vesilesi bizler için. Önümüzdeki dönemde, iş ortaklarınıza sunduğunuz katma değerin daha da artacağına inanıyor ve nice ‘25 yıllar’ diliyoruz."</h5>
+							<h5 class="bold m-0 mt-4 text-white">Melis Nazlı Ateştürk</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Kurumsal İletişim Müdürü</h5>
+							<h5 class="bold m-0 mt-4 text-white">Erdem Özenci</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Planlama ve Kurumsal Performans Müdürü</h5>
+						</div>
+						<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
+							<div class="divrow">
+								<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/atbank.jpg" alt="A&T Bank" /></div>
+								<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/atbank.png" alt="Erdem Özenci" /></div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</section>
+			</section>
+			<section class="quotation">
+				<div class="container px-[14px]">
+					<div class="absolute pt-2">
+						<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/aksaenerji" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
+								<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
+							</svg>
+						</a>
+					</div>
 
-	<section class="quotation">
-		<div class="container px-[14px]">
-			<div class="absolute pt-2">
-				<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/aksaenerji" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
-						<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
-					</svg>
-				</a>
-			</div>
-
-			<div id="aksaenerji" class="anchor_tags flex items-center gap-8">
-				<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
-					<h5 class="my-2 text-white">
-						"İş birliğimizin ilk gününden itibaren Aksa Enerji’nin kimliğini ve değerlerini en iyi şekilde yansıtan; mükemmele ulaşmak için bizimle birlikte titizlikle ve sabırla çalışan Finar ekibi, hem Yatırımcı İlişkileri hem Kurumsal İletişim faaliyetlerimizde en değerli iş ortaklarımızdan biri oldu. Başarılarla dolu 25 yıllık bir deneyim ve daima kendini yenileyen, yaratıcı vizyonu ile sektörüne yön veren Finar, bizim için sadece bir iş ortağı değil; ekibimizin ayrılmaz bir
-						parçası. Bizi en az bizim kadar iyi anlayan ve anlatan Finar ailesine değerli katkıları için teşekkür ediyor; başarılarla dolu nice yıllar diliyorum."
-					</h5>
-					<h5 class="bold m-0 mt-4 text-white">Özlem McCann</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Yatırımcı İlişkileri ve Kurumsal İletişim Direktörü</h5>
-				</div>
-				<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
-					<div class="divrow">
-						<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/aksaenerji.jpg" alt="Aksa Enerji" /></div>
-						<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/aksaenerji.png" alt="Özlem McCann" /></div>
+					<div id="aksaenerji" class="anchor_tags flex items-center gap-8">
+						<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
+							<h5 class="my-2 text-white">
+								"İş birliğimizin ilk gününden itibaren Aksa Enerji’nin kimliğini ve değerlerini en iyi şekilde yansıtan; mükemmele ulaşmak için bizimle birlikte titizlikle ve sabırla çalışan Finar ekibi, hem Yatırımcı İlişkileri hem Kurumsal İletişim faaliyetlerimizde en değerli iş ortaklarımızdan biri oldu. Başarılarla dolu 25 yıllık bir deneyim ve daima kendini yenileyen, yaratıcı vizyonu ile sektörüne yön veren Finar, bizim için sadece bir iş ortağı değil; ekibimizin ayrılmaz bir
+								parçası. Bizi en az bizim kadar iyi anlayan ve anlatan Finar ailesine değerli katkıları için teşekkür ediyor; başarılarla dolu nice yıllar diliyorum."
+							</h5>
+							<h5 class="bold m-0 mt-4 text-white">Özlem McCann</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Yatırımcı İlişkileri ve Kurumsal İletişim Direktörü</h5>
+						</div>
+						<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
+							<div class="divrow">
+								<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/aksaenerji.jpg" alt="Aksa Enerji" /></div>
+								<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/aksaenerji.png" alt="Özlem McCann" /></div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</section>
+			</section>
+			<section class="quotation">
+				<div class="container px-[14px]">
+					<div class="absolute pt-2">
+						<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/aksadogalgaz" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
+								<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
+							</svg>
+						</a>
+					</div>
 
-	<section class="quotation">
-		<div class="container px-[14px]">
-			<div class="absolute pt-2">
-				<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/aksadogalgaz" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
-						<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
-					</svg>
-				</a>
-			</div>
-
-			<div id="aksadogalgaz" class="anchor_tags flex items-center gap-8">
-				<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
-					<h5 class="my-2 text-white">
-						"Sadece bilanço okumayı bilen değil, bilançolardan son derece özgün ve yaratıcı anlatımlar üretebilen özel bir ajans Finar. Bu yetkinlikle ürettikleri işlerin başarılı olduğu kadar, zihinde hoş bir tat bırakan keyifli bir tarihi de var. Başarı çıtasını 25 yıl boyunca hep daha yukarıya taşımak, özgünlüğünü korumak hayli zor bir iş. 25 yıllık bu haklı başarınızı kutluyor, gördüğümüz her işte keyifle gülümseyip içten bir takdirle takip edeceğimiz daha nice tasarımlar, nice
-						başarılı 25 yıllar dilerim."
-					</h5>
-					<h5 class="bold m-0 mt-4 text-white">Özgür Özkan</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Pazarlama ve Kurumsal İletişim Müdürü</h5>
-				</div>
-				<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
-					<div class="divrow">
-						<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/aksadogalgaz.jpg" alt="Aksa Doğalgaz" /></div>
-						<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/aksadogalgaz.png" alt="Özgür Özkan" /></div>
+					<div id="aksadogalgaz" class="anchor_tags flex items-center gap-8">
+						<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
+							<h5 class="my-2 text-white">
+								"Sadece bilanço okumayı bilen değil, bilançolardan son derece özgün ve yaratıcı anlatımlar üretebilen özel bir ajans Finar. Bu yetkinlikle ürettikleri işlerin başarılı olduğu kadar, zihinde hoş bir tat bırakan keyifli bir tarihi de var. Başarı çıtasını 25 yıl boyunca hep daha yukarıya taşımak, özgünlüğünü korumak hayli zor bir iş. 25 yıllık bu haklı başarınızı kutluyor, gördüğümüz her işte keyifle gülümseyip içten bir takdirle takip edeceğimiz daha nice tasarımlar, nice
+								başarılı 25 yıllar dilerim."
+							</h5>
+							<h5 class="bold m-0 mt-4 text-white">Özgür Özkan</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Pazarlama ve Kurumsal İletişim Müdürü</h5>
+						</div>
+						<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
+							<div class="divrow">
+								<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/aksadogalgaz.jpg" alt="Aksa Doğalgaz" /></div>
+								<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/aksadogalgaz.png" alt="Özgür Özkan" /></div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</section>
+			</section>
+			<section class="quotation">
+				<div class="container px-[14px]">
+					<div class="absolute pt-2">
+						<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/anadoluefes" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
+								<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
+							</svg>
+						</a>
+					</div>
 
-	<section class="quotation">
-		<div class="container px-[14px]">
-			<div class="absolute pt-2">
-				<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/anadoluefes" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
-						<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
-					</svg>
-				</a>
-			</div>
-
-			<div id="anadoluefes" class="anchor_tags flex items-center gap-8">
-				<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
-					<h5 class="my-2 text-white">"Yaratıcı tasarımlarını, yenilikçi fikirlerini, gündemi takip eden uygulamalarını ve iş yapış kalitesini ürün mükemmelliğine yansıtan bir ekibin kuruluşunun 25. yıl dönümünü en içten dileklerimle kutlarım. 25 senelik tecrübenizin güçlü ekibinizle önümüzdeki dönemde de yeni başarı ve ödüllere dönüşmesini diliyorum."</h5>
-					<h5 class="bold m-0 mt-4 text-white">Aslı Kılıç Demirel</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Yatırımcı İlişkileri Müdürü</h5>
-				</div>
-				<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
-					<div class="divrow">
-						<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/anadolu-efes-app.png" alt="Anadolu Efes" /></div>
-						<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/anadolu-efes.png" alt="Aslı Kılıç Demirel" /></div>
+					<div id="anadoluefes" class="anchor_tags flex items-center gap-8">
+						<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
+							<h5 class="my-2 text-white">"Yaratıcı tasarımlarını, yenilikçi fikirlerini, gündemi takip eden uygulamalarını ve iş yapış kalitesini ürün mükemmelliğine yansıtan bir ekibin kuruluşunun 25. yıl dönümünü en içten dileklerimle kutlarım. 25 senelik tecrübenizin güçlü ekibinizle önümüzdeki dönemde de yeni başarı ve ödüllere dönüşmesini diliyorum."</h5>
+							<h5 class="bold m-0 mt-4 text-white">Aslı Kılıç Demirel</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Yatırımcı İlişkileri Müdürü</h5>
+						</div>
+						<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
+							<div class="divrow">
+								<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/anadolu-efes-app.png" alt="Anadolu Efes" /></div>
+								<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/anadolu-efes.png" alt="Aslı Kılıç Demirel" /></div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</section>
+			</section>
+			<section class="quotation">
+				<div class="container px-[14px]">
+					<div class="absolute pt-2">
+						<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/bim" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
+								<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
+							</svg>
+						</a>
+					</div>
 
-	<section class="quotation">
-		<div class="container px-[14px]">
-			<div class="absolute pt-2">
-				<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/bim" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
-						<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
-					</svg>
-				</a>
-			</div>
-
-			<div id="bim" class="anchor_tags flex items-center gap-8">
-				<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
-					<h5 class="my-2 text-white">
-						"Bildiğin işin en iyisini yap anlayışı ile yola çıkarak sektörün en önemli oyuncularından biri olmayı başardığına inandığımız, 14 yıldır birlikte çalıştığımız Finar, iş ortaklarının beklentilerini karşılama, değerlerini yansıtması ve süreçlerindeki sadeliği ile iş modelimizle adeta bütünleşmiştir. Her üretilen yeni projede, artı değer üreterek, bizlerin ve böylece kendisinin başarı grafiğini sürekli artırmıştır.<br /><br />
-						Deneyim ve üretkenliklerini nice çeyrek asırlara devam ettirmeleri dileklerimle, kuruluş yıl dönümünü içtenlikle kutlarım."
-					</h5>
-					<h5 class="bold m-0 mt-4 text-white">Serkan Savaş</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Raporlama ve Yatırımcı İlişkileri Direktörü</h5>
-				</div>
-				<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
-					<div class="divrow">
-						<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/bim.jpg" alt="BİM" /></div>
-						<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/bim.png" alt="Serkan Savaş" /></div>
+					<div id="bim" class="anchor_tags flex items-center gap-8">
+						<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
+							<h5 class="my-2 text-white">
+								"Bildiğin işin en iyisini yap anlayışı ile yola çıkarak sektörün en önemli oyuncularından biri olmayı başardığına inandığımız, 14 yıldır birlikte çalıştığımız Finar, iş ortaklarının beklentilerini karşılama, değerlerini yansıtması ve süreçlerindeki sadeliği ile iş modelimizle adeta bütünleşmiştir. Her üretilen yeni projede, artı değer üreterek, bizlerin ve böylece kendisinin başarı grafiğini sürekli artırmıştır.<br /><br />
+								Deneyim ve üretkenliklerini nice çeyrek asırlara devam ettirmeleri dileklerimle, kuruluş yıl dönümünü içtenlikle kutlarım."
+							</h5>
+							<h5 class="bold m-0 mt-4 text-white">Serkan Savaş</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Raporlama ve Yatırımcı İlişkileri Direktörü</h5>
+						</div>
+						<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
+							<div class="divrow">
+								<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/bim.jpg" alt="BİM" /></div>
+								<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/bim.png" alt="Serkan Savaş" /></div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</section>
+			</section>
+			<section class="quotation">
+				<div class="container px-[14px]">
+					<div class="absolute pt-2">
+						<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/bnpparibascardif" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
+								<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
+							</svg>
+						</a>
+					</div>
 
-	<section class="quotation">
-		<div class="container px-[14px]">
-			<div class="absolute pt-2">
-				<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/bnpparibascardif" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
-						<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
-					</svg>
-				</a>
-			</div>
-
-			<div id="bnpparibascardif" class="anchor_tags flex items-center gap-8">
-				<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
-					<h5 class="my-2 text-white">"Finar ile üç yıl üst üste birbirinden farklı konseptlerde faaliyet raporu çalışmaları yürüttük; her birinde benimsediğimiz özenli ve yaratıcı yaklaşım ile tüm paydaşlarımıza çok başarılı raporlar sunduk. Hazırladığımız raporlarla uluslararası yarışmalarda ödüller kazanmayı başaran değerli iş ortağımız Finar’a itibar yönetimimize katkılarından dolayı çok teşekkür ederiz."</h5>
-					<h5 class="bold m-0 mt-4 text-white">Tuğba Çamlıcantürk</h5>
-					<h5 class="mb-3 text-white sm:mb-0">İletişim ve İnovasyon Müdürü</h5>
-				</div>
-				<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
-					<div class="divrow">
-						<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/bnp.jpg" alt="BNP PARIBAS CARDIF" /></div>
-						<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/bnp.png" alt="Tuğba Çamlıcantürk" /></div>
+					<div id="bnpparibascardif" class="anchor_tags flex items-center gap-8">
+						<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
+							<h5 class="my-2 text-white">"Finar ile üç yıl üst üste birbirinden farklı konseptlerde faaliyet raporu çalışmaları yürüttük; her birinde benimsediğimiz özenli ve yaratıcı yaklaşım ile tüm paydaşlarımıza çok başarılı raporlar sunduk. Hazırladığımız raporlarla uluslararası yarışmalarda ödüller kazanmayı başaran değerli iş ortağımız Finar’a itibar yönetimimize katkılarından dolayı çok teşekkür ederiz."</h5>
+							<h5 class="bold m-0 mt-4 text-white">Tuğba Çamlıcantürk</h5>
+							<h5 class="mb-3 text-white sm:mb-0">İletişim ve İnovasyon Müdürü</h5>
+						</div>
+						<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
+							<div class="divrow">
+								<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/bnp.jpg" alt="BNP PARIBAS CARDIF" /></div>
+								<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/bnp.png" alt="Tuğba Çamlıcantürk" /></div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</section>
+			</section>
+			<section class="quotation">
+				<div class="container px-[14px]">
+					<div class="absolute pt-2">
+						<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/calikholding" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
+								<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
+							</svg>
+						</a>
+					</div>
 
-	<section class="quotation">
-		<div class="container px-[14px]">
-			<div class="absolute pt-2">
-				<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/calikholding" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
-						<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
-					</svg>
-				</a>
-			</div>
-
-			<div id="calikholding" class="anchor_tags flex items-center gap-8">
-				<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
-					<h5 class="my-2 text-white">"Değerli Finar Ekibi, bugüne kadar birlikte gerçekleştirdiğimiz çalışmalardaki çözüm odaklı yaklaşımınız, yenilikçi bakış açınız ve alanınızdaki derin tecrübeniz için çok teşekkür ederiz. Sizlerle çalışmak her zaman hem verimli hem de keyifliydi. Eminim önümüzdeki dönemde de sektörünüzü farklı bir platforma taşıyacak yeniliklerin öncüsü olacaksınız. Nice 25 yıllara…"</h5>
-					<h5 class="bold m-0 mt-4 text-white">Özlem Yalçın</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Kurumsal İletişim Direktörü</h5>
-				</div>
-				<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
-					<div class="divrow">
-						<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/calikholding.jpg" alt="Çalık Holding" /></div>
-						<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/calikholding.png" alt="Özlem Yalçın" /></div>
+					<div id="calikholding" class="anchor_tags flex items-center gap-8">
+						<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
+							<h5 class="my-2 text-white">"Değerli Finar Ekibi, bugüne kadar birlikte gerçekleştirdiğimiz çalışmalardaki çözüm odaklı yaklaşımınız, yenilikçi bakış açınız ve alanınızdaki derin tecrübeniz için çok teşekkür ederiz. Sizlerle çalışmak her zaman hem verimli hem de keyifliydi. Eminim önümüzdeki dönemde de sektörünüzü farklı bir platforma taşıyacak yeniliklerin öncüsü olacaksınız. Nice 25 yıllara…"</h5>
+							<h5 class="bold m-0 mt-4 text-white">Özlem Yalçın</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Kurumsal İletişim Direktörü</h5>
+						</div>
+						<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
+							<div class="divrow">
+								<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/calikholding.jpg" alt="Çalık Holding" /></div>
+								<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/calikholding.png" alt="Özlem Yalçın" /></div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</section>
+			</section>
+			<section class="quotation">
+				<div class="container px-[14px]">
+					<div class="absolute pt-2">
+						<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/dengekimya" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
+								<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
+							</svg>
+						</a>
+					</div>
 
-	<section class="quotation">
-		<div class="container px-[14px]">
-			<div class="absolute pt-2">
-				<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/dengekimya" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
-						<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
-					</svg>
-				</a>
-			</div>
-
-			<div id="dengekimya" class="anchor_tags flex items-center gap-8">
-				<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
-					<h5 class="my-2 text-white">"Denge Kimya olarak Finar ile çalışmaya başlamak bizim için sadece kurumsal markamızın geleceğini emin ellere bırakmak değil, aynı zamanda ekip olarak ömür boyu sürecek değerli dostluklar edinmemiz demek oldu. Sizinle çalışmak bizim için çok büyük bir keyif, birlikte güzel işlere imza atmak dileği ile 25. yılınız kutlu olsun."</h5>
-					<h5 class="bold m-0 mt-4 text-white">Halil Aksoy</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Kurucu ve CEO</h5>
-				</div>
-				<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
-					<div class="divrow">
-						<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/dengekimya-logo.png" alt="Denge Kimya" /></div>
-						<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/dengekimya.png" alt="Halil Aksoy" /></div>
+					<div id="dengekimya" class="anchor_tags flex items-center gap-8">
+						<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
+							<h5 class="my-2 text-white">"Denge Kimya olarak Finar ile çalışmaya başlamak bizim için sadece kurumsal markamızın geleceğini emin ellere bırakmak değil, aynı zamanda ekip olarak ömür boyu sürecek değerli dostluklar edinmemiz demek oldu. Sizinle çalışmak bizim için çok büyük bir keyif, birlikte güzel işlere imza atmak dileği ile 25. yılınız kutlu olsun."</h5>
+							<h5 class="bold m-0 mt-4 text-white">Halil Aksoy</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Kurucu ve CEO</h5>
+						</div>
+						<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
+							<div class="divrow">
+								<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/dengekimya-logo.png" alt="Denge Kimya" /></div>
+								<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/dengekimya.png" alt="Halil Aksoy" /></div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</section>
+			</section>
+			<section class="quotation">
+				<div class="container px-[14px]">
+					<div class="absolute pt-2">
+						<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/denizbank" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
+								<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
+							</svg>
+						</a>
+					</div>
 
-	<section class="quotation">
-		<div class="container px-[14px]">
-			<div class="absolute pt-2">
-				<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/denizbank" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
-						<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
-					</svg>
-				</a>
-			</div>
-
-			<div id="denizbank" class="anchor_tags flex items-center gap-8">
-				<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
-					<h5 class="my-2 text-white">"Yükselen başarı grafiği ve iş ortaklarına sağlanan artan katma değer ile 25 yılı geride bırakmak büyük gurur. Faaliyete geçtiğimiz ilk günden bu yana kurumsal kültürümüzü en az bizim kadar özümseyen bir ekip ile ilerlemek bizler için çok önemli. Çeyrek asırlık geçmişinizden aldığınız güçle, müşterileriniz için değerli çalışmalara imza atmaya devam etmenizi temenni ediyor, kuruluş yıl dönümünüzü kutluyorum."</h5>
-					<h5 class="bold m-0 mt-4 text-white">Yeliz Koraşlı Özdemir</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Yatırımcı İlişkileri ve Finansal İletişim Bölüm Müdürü</h5>
-				</div>
-				<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
-					<div class="divrow">
-						<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/denizbank.jpg" alt="Denizbank" /></div>
-						<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/denizbank.png" alt="Yeliz Koraşlı Özdemir" /></div>
+					<div id="denizbank" class="anchor_tags flex items-center gap-8">
+						<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
+							<h5 class="my-2 text-white">"Yükselen başarı grafiği ve iş ortaklarına sağlanan artan katma değer ile 25 yılı geride bırakmak büyük gurur. Faaliyete geçtiğimiz ilk günden bu yana kurumsal kültürümüzü en az bizim kadar özümseyen bir ekip ile ilerlemek bizler için çok önemli. Çeyrek asırlık geçmişinizden aldığınız güçle, müşterileriniz için değerli çalışmalara imza atmaya devam etmenizi temenni ediyor, kuruluş yıl dönümünüzü kutluyorum."</h5>
+							<h5 class="bold m-0 mt-4 text-white">Yeliz Koraşlı Özdemir</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Yatırımcı İlişkileri ve Finansal İletişim Bölüm Müdürü</h5>
+						</div>
+						<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
+							<div class="divrow">
+								<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/denizbank.jpg" alt="Denizbank" /></div>
+								<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/denizbank.png" alt="Yeliz Koraşlı Özdemir" /></div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</section>
+			</section>
+			<section class="quotation">
+				<div class="container px-[14px]">
+					<div class="absolute pt-2">
+						<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/fibabanka" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
+								<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
+							</svg>
+						</a>
+					</div>
 
-	<section class="quotation">
-		<div class="container px-[14px]">
-			<div class="absolute pt-2">
-				<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/fibabanka" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
-						<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
-					</svg>
-				</a>
-			</div>
-
-			<div id="fibabanka" class="anchor_tags flex items-center gap-8">
-				<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
-					<h5 class="my-2 text-white">"On yılı aşkın süredir birlikte birçok başarıya imza atıp, sektöründe öncü ve fark yaratan projelerle birbirinden değerli ödüllere layık görüldüğümüz değerli iş ortağımız Finar Ailesi’nin 25. kuruluş yıl dönümünü en içten dileklerimle kutluyorum. Daha nice başarıların gurur ve mutluluğunu paylaşmak dileğiyle…"</h5>
-					<h5 class="bold m-0 mt-4 text-white">Deniz Güney</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Pazarlama İletişimi, Müşteri Deneyimi ve Dijital Bankacılık Direktörü</h5>
-				</div>
-				<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
-					<div class="divrow">
-						<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/fibabanka.jpg" alt="Fibabanka" /></div>
-						<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/fibabanka.png" alt="Deniz Güney" /></div>
+					<div id="fibabanka" class="anchor_tags flex items-center gap-8">
+						<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
+							<h5 class="my-2 text-white">"On yılı aşkın süredir birlikte birçok başarıya imza atıp, sektöründe öncü ve fark yaratan projelerle birbirinden değerli ödüllere layık görüldüğümüz değerli iş ortağımız Finar Ailesi’nin 25. kuruluş yıl dönümünü en içten dileklerimle kutluyorum. Daha nice başarıların gurur ve mutluluğunu paylaşmak dileğiyle…"</h5>
+							<h5 class="bold m-0 mt-4 text-white">Deniz Güney</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Pazarlama İletişimi, Müşteri Deneyimi ve Dijital Bankacılık Direktörü</h5>
+						</div>
+						<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
+							<div class="divrow">
+								<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/fibabanka.jpg" alt="Fibabanka" /></div>
+								<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/fibabanka.png" alt="Deniz Güney" /></div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</section>
+			</section>
+			<section class="quotation">
+				<div class="container px-[14px]">
+					<div class="absolute pt-2">
+						<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/garantifaktoring" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
+								<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
+							</svg>
+						</a>
+					</div>
 
-	<section class="quotation">
-		<div class="container px-[14px]">
-			<div class="absolute pt-2">
-				<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/garantifaktoring" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
-						<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
-					</svg>
-				</a>
-			</div>
-
-			<div id="garantifaktoring" class="anchor_tags flex items-center gap-8">
-				<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
-					<h5 class="my-2 text-white">
-						"Finar, çalışmalarımıza başladığımız ilk yıldan itibaren; işimizi ve faaliyetlerimizi detaylı inceleyip, anlayarak, paydaşlarımıza vereceğimiz mesajları en şeffaf, net ve göze hoş gelen bir görsellik içinde sunmayı başardı. 25 yıla varan uzun yolculuklarında, kendilerini sürekli yenileyerek, müşterilerine sundukları hizmetin kalitesini de sürekli artıran iş modelleri nedeniyle tüm Finar ekibini tebrik ediyor, başarılarının büyüyerek sürmesini diliyorum."
-					</h5>
-					<h5 class="bold m-0 mt-4 text-white">Mert Ercan</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Genel Müdür Yardımcısı</h5>
-				</div>
-				<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
-					<div class="divrow">
-						<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/garantifaktoring.jpg" alt="Garanti Faktoring" /></div>
-						<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/garantifaktoring.png" alt="Mert Ercan" /></div>
+					<div id="garantifaktoring" class="anchor_tags flex items-center gap-8">
+						<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
+							<h5 class="my-2 text-white">
+								"Finar, çalışmalarımıza başladığımız ilk yıldan itibaren; işimizi ve faaliyetlerimizi detaylı inceleyip, anlayarak, paydaşlarımıza vereceğimiz mesajları en şeffaf, net ve göze hoş gelen bir görsellik içinde sunmayı başardı. 25 yıla varan uzun yolculuklarında, kendilerini sürekli yenileyerek, müşterilerine sundukları hizmetin kalitesini de sürekli artıran iş modelleri nedeniyle tüm Finar ekibini tebrik ediyor, başarılarının büyüyerek sürmesini diliyorum."
+							</h5>
+							<h5 class="bold m-0 mt-4 text-white">Mert Ercan</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Genel Müdür Yardımcısı</h5>
+						</div>
+						<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
+							<div class="divrow">
+								<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/garantifaktoring.jpg" alt="Garanti Faktoring" /></div>
+								<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/garantifaktoring.png" alt="Mert Ercan" /></div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</section>
+			</section>
+			<section class="quotation">
+				<div class="container px-[14px]">
+					<div class="absolute pt-2">
+						<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/gyh" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
+								<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
+							</svg>
+						</a>
+					</div>
 
-	<section class="quotation">
-		<div class="container px-[14px]">
-			<div class="absolute pt-2">
-				<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/gyh" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
-						<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
-					</svg>
-				</a>
-			</div>
-
-			<div id="gyh" class="anchor_tags flex items-center gap-8">
-				<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
-					<h5 class="my-2 text-white">
-						"Her zaman yaratıcı... Her zaman dinamik… Her zaman yenilikçi... Her zaman sıra dışı... birlikte uzun yıllara dayanan çalışmalarımız ışığında Finar’ı birkaç kelimeyle özetlemek gerekse sanırım en iyi böyle anlatırdım. <br />
-						<br />
-						Başta Sn. Baki Kara olmak üzere tüm Finar ailesini yürekten tebrik ediyor; yaydıkları pozitif enerji, gösterdikleri anlayış, samimiyet ve iş birliği için teşekkürlerimi sunuyorum. Yepyeni başarılarla dolu nice 25 yıllara!.."
-					</h5>
-					<h5 class="bold m-0 mt-4 text-white">Aslı Su Ata</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Yatırımcı İlişkileri Direktörü</h5>
-				</div>
-				<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
-					<div class="divrow">
-						<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/gyh.jpg" alt="Global Yatırım Holding" /></div>
-						<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/gyh.png" alt="Aslı Su Ata" /></div>
+					<div id="gyh" class="anchor_tags flex items-center gap-8">
+						<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
+							<h5 class="my-2 text-white">
+								"Her zaman yaratıcı... Her zaman dinamik… Her zaman yenilikçi... Her zaman sıra dışı... birlikte uzun yıllara dayanan çalışmalarımız ışığında Finar’ı birkaç kelimeyle özetlemek gerekse sanırım en iyi böyle anlatırdım. <br />
+								<br />
+								Başta Sn. Baki Kara olmak üzere tüm Finar ailesini yürekten tebrik ediyor; yaydıkları pozitif enerji, gösterdikleri anlayış, samimiyet ve iş birliği için teşekkürlerimi sunuyorum. Yepyeni başarılarla dolu nice 25 yıllara!.."
+							</h5>
+							<h5 class="bold m-0 mt-4 text-white">Aslı Su Ata</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Yatırımcı İlişkileri Direktörü</h5>
+						</div>
+						<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
+							<div class="divrow">
+								<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/gyh.jpg" alt="Global Yatırım Holding" /></div>
+								<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/gyh.png" alt="Aslı Su Ata" /></div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</section>
+			</section>
+			<section class="quotation">
+				<div class="container px-[14px]">
+					<div class="absolute pt-2">
+						<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/gunessigorta" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
+								<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
+							</svg>
+						</a>
+					</div>
 
-	<section class="quotation">
-		<div class="container px-[14px]">
-			<div class="absolute pt-2">
-				<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/gunessigorta" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
-						<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
-					</svg>
-				</a>
-			</div>
-
-			<div id="gunessigorta" class="anchor_tags flex items-center gap-8">
-				<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
-					<h5 class="my-2 text-white">"İş ortakları için daima kreatif ve yenilikçi çözümler üreten, her geçen yıl değişen, gelişen Finar’ın 25. yılını kutlarız. Çeyrek asır boyunca fark yaratmayı kendine şiar edinmiş Finar’a ve Finar ekibine markamıza kattığı değer için ayrıca teşekkürlerimizi sunarız. Önümüzdeki çeyrek asırlarda da başarınızın katlanarak artmasını ve sıra dışı içerik ve tasarımlarla markalar için değer yaratmayı sürdürmenizi temenni ederiz. Nice 25 yıllara."</h5>
-					<h5 class="bold m-0 mt-4 text-white">Fulden Pehlivan</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Bütçe Planlama ve Yatırımcı İlişkileri Müdürü</h5>
-					<h5 class="bold m-0 mt-4 text-white">Selda Çamlıbel</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Kurumsal İletişim Müdürü</h5>
-				</div>
-				<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
-					<div class="divrow">
-						<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/gunessigorta.jpg" alt="Güneş Sigorta" /></div>
-						<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/gunessigorta.png" alt="Fulden Pehlivan & Selda Çamlıbel" /></div>
+					<div id="gunessigorta" class="anchor_tags flex items-center gap-8">
+						<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
+							<h5 class="my-2 text-white">"İş ortakları için daima kreatif ve yenilikçi çözümler üreten, her geçen yıl değişen, gelişen Finar’ın 25. yılını kutlarız. Çeyrek asır boyunca fark yaratmayı kendine şiar edinmiş Finar’a ve Finar ekibine markamıza kattığı değer için ayrıca teşekkürlerimizi sunarız. Önümüzdeki çeyrek asırlarda da başarınızın katlanarak artmasını ve sıra dışı içerik ve tasarımlarla markalar için değer yaratmayı sürdürmenizi temenni ederiz. Nice 25 yıllara."</h5>
+							<h5 class="bold m-0 mt-4 text-white">Fulden Pehlivan</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Bütçe Planlama ve Yatırımcı İlişkileri Müdürü</h5>
+							<h5 class="bold m-0 mt-4 text-white">Selda Çamlıbel</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Kurumsal İletişim Müdürü</h5>
+						</div>
+						<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
+							<div class="divrow">
+								<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/gunessigorta.jpg" alt="Güneş Sigorta" /></div>
+								<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/gunessigorta.png" alt="Fulden Pehlivan & Selda Çamlıbel" /></div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</section>
+			</section>
+			<section class="quotation">
+				<div class="container px-[14px]">
+					<div class="absolute pt-2">
+						<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/halkemeklilik" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
+								<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
+							</svg>
+						</a>
+					</div>
 
-	<section class="quotation">
-		<div class="container px-[14px]">
-			<div class="absolute pt-2">
-				<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/halkemeklilik" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
-						<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
-					</svg>
-				</a>
-			</div>
-
-			<div id="halkemeklilik" class="anchor_tags flex items-center gap-8">
-				<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
-					<h5 class="my-2 text-white">
-						“Kurumsal kültürümüz, vizyon ve misyonumuz çerçevesinde ailemizden biri gibi değerlerimizi işleyen, bizi bizim kadar anlayan bir ekip ile 25 yılı doldurmuş olmanın sevinci içerisindeyiz. Sahip olduğumuz bu iş ortaklığında amatör ruhla ama her zaman profesyonel disiplinle en iyisi için çalıştık. Çalışırken çok eğlendik, işimizi bittiğinde ve ortaya çıkan ürün takdir edildiğinde ise gururlandık. Biz çalıştık faaliyetlerimizi anlatmayı Finar’a bıraktık. Çok da iyi yaptık.
-						Eylemlerimizin devam edeceği güzel yıllarımız olacağına inanıyor, yıl dönümünüzü tüm içtenliğimle kutluyorum.”
-					</h5>
-					<h5 class="bold m-0 mt-4 text-white">Sibel Sağlam</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Genel Müdür Yardımcısı-Pazarlama</h5>
-				</div>
-				<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
-					<div class="divrow">
-						<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/halkemeklilik.jpg" alt="Halk Emeklilik" /></div>
-						<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/halkemeklilik.png" alt="Sibel Sağlam" /></div>
+					<div id="halkemeklilik" class="anchor_tags flex items-center gap-8">
+						<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
+							<h5 class="my-2 text-white">
+								“Kurumsal kültürümüz, vizyon ve misyonumuz çerçevesinde ailemizden biri gibi değerlerimizi işleyen, bizi bizim kadar anlayan bir ekip ile 25 yılı doldurmuş olmanın sevinci içerisindeyiz. Sahip olduğumuz bu iş ortaklığında amatör ruhla ama her zaman profesyonel disiplinle en iyisi için çalıştık. Çalışırken çok eğlendik, işimizi bittiğinde ve ortaya çıkan ürün takdir edildiğinde ise gururlandık. Biz çalıştık faaliyetlerimizi anlatmayı Finar’a bıraktık. Çok da iyi yaptık.
+								Eylemlerimizin devam edeceği güzel yıllarımız olacağına inanıyor, yıl dönümünüzü tüm içtenliğimle kutluyorum.”
+							</h5>
+							<h5 class="bold m-0 mt-4 text-white">Sibel Sağlam</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Genel Müdür Yardımcısı-Pazarlama</h5>
+						</div>
+						<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
+							<div class="divrow">
+								<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/halkemeklilik.jpg" alt="Halk Emeklilik" /></div>
+								<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/halkemeklilik.png" alt="Sibel Sağlam" /></div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</section>
+			</section>
+			<section class="quotation">
+				<div class="container px-[14px]">
+					<div class="absolute pt-2">
+						<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/halkyatirim" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
+								<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
+							</svg>
+						</a>
+					</div>
 
-	<section class="quotation">
-		<div class="container px-[14px]">
-			<div class="absolute pt-2">
-				<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/halkyatirim" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
-						<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
-					</svg>
-				</a>
-			</div>
-
-			<div id="halkyatirim" class="anchor_tags flex items-center gap-8">
-				<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
-					<h5 class="my-2 text-white">"25 senelik geçmişinizden ödün vermeden yenilikçi tasarımlarla sektöre öncü oldunuz. Daha nice başarılara imza atmanızı diler 25. yılınızı en içten dileklerimizle kutlarız."</h5>
-					<h5 class="bold m-0 mt-4 text-white">Burak Aydın</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Kurumsal İletişim <br />(Yönetici)</h5>
-					<h5 class="bold m-0 mt-4 text-white">Ayla Gençay</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Müdür</h5>
-					<h5 class="bold m-0 mt-4 text-white">Pınar Delen</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Servis Yetkilisi</h5>
-				</div>
-				<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
-					<div class="divrow">
-						<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/halkyatirim.jpg" alt="Halk Yatırım" /></div>
-						<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/halkyatirim.png" alt="Burak Aydın" /></div>
+					<div id="halkyatirim" class="anchor_tags flex items-center gap-8">
+						<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
+							<h5 class="my-2 text-white">"25 senelik geçmişinizden ödün vermeden yenilikçi tasarımlarla sektöre öncü oldunuz. Daha nice başarılara imza atmanızı diler 25. yılınızı en içten dileklerimizle kutlarız."</h5>
+							<h5 class="bold m-0 mt-4 text-white">Burak Aydın</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Kurumsal İletişim <br />(Yönetici)</h5>
+							<h5 class="bold m-0 mt-4 text-white">Ayla Gençay</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Müdür</h5>
+							<h5 class="bold m-0 mt-4 text-white">Pınar Delen</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Servis Yetkilisi</h5>
+						</div>
+						<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
+							<div class="divrow">
+								<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/halkyatirim.jpg" alt="Halk Yatırım" /></div>
+								<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/halkyatirim.png" alt="Burak Aydın" /></div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</section>
+			</section>
+			<section class="quotation">
+				<div class="container px-[14px]">
+					<div class="absolute pt-2">
+						<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/ihlasholding" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
+								<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
+							</svg>
+						</a>
+					</div>
 
-	<section class="quotation">
-		<div class="container px-[14px]">
-			<div class="absolute pt-2">
-				<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/ihlasholding" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
-						<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
-					</svg>
-				</a>
-			</div>
-
-			<div id="ihlasholding" class="anchor_tags flex items-center gap-8">
-				<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
-					<h5 class="my-2 text-white">"Finar ile ilk çalışmaya 1999 Yılı Faaliyet Raporumuz ile başlamıştık, son yıllarda ise tüm Grup şirketlerimizin dahil olduğu güzel bir konsept yakaladık, bütün çalışmalarda bizi en mutlu eden, Finar’ın bizleri çok iyi anlayıp, raporda da bunları anlatabilmesi. Zaten Faaliyet Raporu da bunun için çıkartılmıyor mu :) Çok teşekkürler Finar, nice 25 yıllara."</h5>
-					<h5 class="bold m-0 mt-4 text-white">Orhan Tanışman</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Genel Müdür Yardımcısı - <br />Bütçe, Raporlama ve Yatırımcı İlişkileri</h5>
-				</div>
-				<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
-					<div class="divrow">
-						<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/ihlasholding.jpg" alt="İhlas Holding" /></div>
-						<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/ihlasholding.png" alt="Orhan Tanışman" /></div>
+					<div id="ihlasholding" class="anchor_tags flex items-center gap-8">
+						<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
+							<h5 class="my-2 text-white">"Finar ile ilk çalışmaya 1999 Yılı Faaliyet Raporumuz ile başlamıştık, son yıllarda ise tüm Grup şirketlerimizin dahil olduğu güzel bir konsept yakaladık, bütün çalışmalarda bizi en mutlu eden, Finar’ın bizleri çok iyi anlayıp, raporda da bunları anlatabilmesi. Zaten Faaliyet Raporu da bunun için çıkartılmıyor mu :) Çok teşekkürler Finar, nice 25 yıllara."</h5>
+							<h5 class="bold m-0 mt-4 text-white">Orhan Tanışman</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Genel Müdür Yardımcısı - <br />Bütçe, Raporlama ve Yatırımcı İlişkileri</h5>
+						</div>
+						<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
+							<div class="divrow">
+								<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/ihlasholding.jpg" alt="İhlas Holding" /></div>
+								<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/ihlasholding.png" alt="Orhan Tanışman" /></div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</section>
+			</section>
+			<section class="quotation">
+				<div class="container px-[14px]">
+					<div class="absolute pt-2">
+						<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/isyatirim" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
+								<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
+							</svg>
+						</a>
+					</div>
 
-	<section class="quotation">
-		<div class="container px-[14px]">
-			<div class="absolute pt-2">
-				<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/isyatirim" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
-						<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
-					</svg>
-				</a>
-			</div>
-
-			<div id="isyatirim" class="anchor_tags flex items-center gap-8">
-				<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
-					<h5 class="my-2 text-white">
-						"Özellikle halka açık şirketler için önemli bir önceliğe sahip olan ve sürdürülebilirliğin hayati unsurlarından olan finansal iletişim stratejisinin belirlenmesinde şirketin faaliyetlerini, finansal durumunu, misyon-vizyon ve değerleri ile hedeflerini sadece iyi anlayan değil, aynı zamanda benimseyen bir akıl ortağı ile çalışmak önemli bir konfordur. Kuruluş yıllarımızdan bu yana iletişimin her alanında bize bu konforu sağlayan Finar’a nice 25 yıllar diliyorum."
-					</h5>
-					<h5 class="bold m-0 mt-4 text-white">Ozan Altan</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Yatırımcı İlişkileri Müdürü</h5>
-				</div>
-				<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
-					<div class="divrow">
-						<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/isyatirim-app.png" alt="İş Yatırım" /></div>
-						<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/isyatirim.png" alt="Ozan Altan" /></div>
+					<div id="isyatirim" class="anchor_tags flex items-center gap-8">
+						<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
+							<h5 class="my-2 text-white">
+								"Özellikle halka açık şirketler için önemli bir önceliğe sahip olan ve sürdürülebilirliğin hayati unsurlarından olan finansal iletişim stratejisinin belirlenmesinde şirketin faaliyetlerini, finansal durumunu, misyon-vizyon ve değerleri ile hedeflerini sadece iyi anlayan değil, aynı zamanda benimseyen bir akıl ortağı ile çalışmak önemli bir konfordur. Kuruluş yıllarımızdan bu yana iletişimin her alanında bize bu konforu sağlayan Finar’a nice 25 yıllar diliyorum."
+							</h5>
+							<h5 class="bold m-0 mt-4 text-white">Ozan Altan</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Yatırımcı İlişkileri Müdürü</h5>
+						</div>
+						<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
+							<div class="divrow">
+								<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/isyatirim-app.png" alt="İş Yatırım" /></div>
+								<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/isyatirim.png" alt="Ozan Altan" /></div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</section>
+			</section>
+			<section class="quotation">
+				<div class="container px-[14px]">
+					<div class="absolute pt-2">
+						<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/kocholding" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
+								<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
+							</svg>
+						</a>
+					</div>
 
-	<section class="quotation">
-		<div class="container px-[14px]">
-			<div class="absolute pt-2">
-				<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/kocholding" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
-						<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
-					</svg>
-				</a>
-			</div>
-
-			<div id="kocholding" class="anchor_tags flex items-center gap-8">
-				<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
-					<h5 class="my-2 text-white">"Finar yatırımcı ilişkileri alanındaki dünya standartlarını her zaman ülkemize taşıyan isim oldu. Globalleşme ve dijitalleşme çağında Finar tarafından geliştirilen IR App sayesinde, şirketlerimiz, 7/24 paydaşlarına en hızlı ve güncel bilgileri ulaştırma imkanı bulurken; teknolojik çözümler sunma açısından da sadece ülkemizde değil dünyada rol model olma şansını elde ediyorlar."</h5>
-					<h5 class="bold m-0 mt-4 text-white">Funda Güngör Akpınar</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Koç Holding Yatırımcı İlişkileri Eski Koordinatörü</h5>
-				</div>
-				<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
-					<div class="divrow">
-						<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/koc-app.png" alt="Koç Holding" /></div>
-						<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/koc.png" alt="Funda Güngör Akpınar" /></div>
+					<div id="kocholding" class="anchor_tags flex items-center gap-8">
+						<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
+							<h5 class="my-2 text-white">"Finar yatırımcı ilişkileri alanındaki dünya standartlarını her zaman ülkemize taşıyan isim oldu. Globalleşme ve dijitalleşme çağında Finar tarafından geliştirilen IR App sayesinde, şirketlerimiz, 7/24 paydaşlarına en hızlı ve güncel bilgileri ulaştırma imkanı bulurken; teknolojik çözümler sunma açısından da sadece ülkemizde değil dünyada rol model olma şansını elde ediyorlar."</h5>
+							<h5 class="bold m-0 mt-4 text-white">Funda Güngör Akpınar</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Koç Holding Yatırımcı İlişkileri Eski Koordinatörü</h5>
+						</div>
+						<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
+							<div class="divrow">
+								<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/koc-app.png" alt="Koç Holding" /></div>
+								<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/koc.png" alt="Funda Güngör Akpınar" /></div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</section>
+			</section>
+			<section class="quotation">
+				<div class="container px-[14px]">
+					<div class="absolute pt-2">
+						<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/kuveytturk" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
+								<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
+							</svg>
+						</a>
+					</div>
 
-	<section class="quotation">
-		<div class="container px-[14px]">
-			<div class="absolute pt-2">
-				<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/kuveytturk" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
-						<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
-					</svg>
-				</a>
-			</div>
-
-			<div id="kuveytturk" class="anchor_tags flex items-center gap-8">
-				<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
-					<h5 class="my-2 text-white">
-						"Kurumsal raporlama alanında çeyrek asırlık tecrübe, faaliyetlerin birçok ödülle taçlandırılması, iş ortaklarına farklı bakış açısı ile etkili çözümler sunulması, teknolojinin en iyi şekilde kullanılması, geçmişten bugüne yükselen başarı grafiği bir firma için büyük bir başarı ve gurur kaynağı. Birlikte çalışmaya başladığımız süre boyunca, Bankamız kurumsal kültürünü özümsemiş, Bankamızı tanıyan, işin ehli geniş bir kadro ile çalışmak ve faaliyetlerimizi yürütmek bizler
-						için mutluluk verici. Başarılı hizmetlerinizin devamı diler, 25. kuruluş yıl dönümünüzü kutlarız. Nice 25 yıllara temennisiyle."
-					</h5>
-					<h5 class="bold m-0 mt-4 text-white">Tufan Karamuk</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Yatırımcı İlişkileri Müdürü</h5>
-					<h5 class="bold m-0 mt-4 text-white">Hatice Tuğba Altan</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Kıdemli Yatırımcı İlişkileri Yönetmeni</h5>
-				</div>
-				<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
-					<div class="divrow">
-						<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/kuveytturk.jpg" alt="Kuveyt Türk" /></div>
-						<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/kuveytturk.png" alt="Tufan Karamuk" /></div>
+					<div id="kuveytturk" class="anchor_tags flex items-center gap-8">
+						<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
+							<h5 class="my-2 text-white">
+								"Kurumsal raporlama alanında çeyrek asırlık tecrübe, faaliyetlerin birçok ödülle taçlandırılması, iş ortaklarına farklı bakış açısı ile etkili çözümler sunulması, teknolojinin en iyi şekilde kullanılması, geçmişten bugüne yükselen başarı grafiği bir firma için büyük bir başarı ve gurur kaynağı. Birlikte çalışmaya başladığımız süre boyunca, Bankamız kurumsal kültürünü özümsemiş, Bankamızı tanıyan, işin ehli geniş bir kadro ile çalışmak ve faaliyetlerimizi yürütmek bizler
+								için mutluluk verici. Başarılı hizmetlerinizin devamı diler, 25. kuruluş yıl dönümünüzü kutlarız. Nice 25 yıllara temennisiyle."
+							</h5>
+							<h5 class="bold m-0 mt-4 text-white">Tufan Karamuk</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Yatırımcı İlişkileri Müdürü</h5>
+							<h5 class="bold m-0 mt-4 text-white">Hatice Tuğba Altan</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Kıdemli Yatırımcı İlişkileri Yönetmeni</h5>
+						</div>
+						<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
+							<div class="divrow">
+								<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/kuveytturk.jpg" alt="Kuveyt Türk" /></div>
+								<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/kuveytturk.png" alt="Tufan Karamuk" /></div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</section>
+			</section>
+			<section class="quotation">
+				<div class="container px-[14px]">
+					<div class="absolute pt-2">
+						<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/mlpcare" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
+								<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
+							</svg>
+						</a>
+					</div>
 
-	<section class="quotation">
-		<div class="container px-[14px]">
-			<div class="absolute pt-2">
-				<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/mlpcare" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
-						<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
-					</svg>
-				</a>
-			</div>
-
-			<div id="mlpcare" class="anchor_tags flex items-center gap-8">
-				<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
-					<h5 class="my-2 text-white">"Halka arz oluşumuzun ikinci yılını doldururken bu yolculukta en büyük destekçilerimizden Finar’ın kuruluşunun 25. yıl dönümünü büyük bir mutlulukla kutluyorum. Günün ötesini hedefleyen inovatif yaklaşımı ve sürdürülebilir iş anlayışı ile sektöre ve paydaşlarına verimli bir ortam sunan Finar’ın, ulusal ve uluslararası ölçekte nice başarılar elde edeceğine yürekten inanıyorum."</h5>
-					<h5 class="bold m-0 mt-4 text-white">Deniz Can Yücel</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Strateji ve Yatırımcı İlişkileri Direktörü</h5>
-				</div>
-				<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
-					<div class="divrow">
-						<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/mlp.jpg" alt="MLP Care" /></div>
-						<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/mlp.png" alt="Deniz Can Yücel" /></div>
+					<div id="mlpcare" class="anchor_tags flex items-center gap-8">
+						<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
+							<h5 class="my-2 text-white">"Halka arz oluşumuzun ikinci yılını doldururken bu yolculukta en büyük destekçilerimizden Finar’ın kuruluşunun 25. yıl dönümünü büyük bir mutlulukla kutluyorum. Günün ötesini hedefleyen inovatif yaklaşımı ve sürdürülebilir iş anlayışı ile sektöre ve paydaşlarına verimli bir ortam sunan Finar’ın, ulusal ve uluslararası ölçekte nice başarılar elde edeceğine yürekten inanıyorum."</h5>
+							<h5 class="bold m-0 mt-4 text-white">Deniz Can Yücel</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Strateji ve Yatırımcı İlişkileri Direktörü</h5>
+						</div>
+						<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
+							<div class="divrow">
+								<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/mlp.jpg" alt="MLP Care" /></div>
+								<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/mlp.png" alt="Deniz Can Yücel" /></div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</section>
+			</section>
+			<section class="quotation">
+				<div class="container px-[14px]">
+					<div class="absolute pt-2">
+						<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/pashabank" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
+								<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
+							</svg>
+						</a>
+					</div>
 
-	<section class="quotation">
-		<div class="container px-[14px]">
-			<div class="absolute pt-2">
-				<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/pashabank" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
-						<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
-					</svg>
-				</a>
-			</div>
-
-			<div id="pashabank" class="anchor_tags flex items-center gap-8">
-				<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
-					<h5 class="my-2 text-white">"Sahip olunan deneyimin ve iş ortaklığı yapılan kurumlara olan katma değerli iş yaklaşımının çeyrek yüzyıldır düşmeyen bir başarı grafiği ile taçlandırılmış olması çok gurur verici. Beraber yola çıktığımız her projede göstermiş olduğunuz profesyonellik ve samimiyet için teşekkür ediyor, bizi başarıya götüren projelerin mimarı olan tüm ekip arkadaşlarımıza yeni projelerde yeni başarılar diliyorum."</h5>
-					<h5 class="bold m-0 mt-4 text-white">Özlem Telatar</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Kurumsal İletişim Müdürü</h5>
-				</div>
-				<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
-					<div class="divrow">
-						<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/pashabank.jpg" alt="Pashabank" /></div>
-						<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/pashabank.png" alt="Özlem Telatar" /></div>
+					<div id="pashabank" class="anchor_tags flex items-center gap-8">
+						<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
+							<h5 class="my-2 text-white">"Sahip olunan deneyimin ve iş ortaklığı yapılan kurumlara olan katma değerli iş yaklaşımının çeyrek yüzyıldır düşmeyen bir başarı grafiği ile taçlandırılmış olması çok gurur verici. Beraber yola çıktığımız her projede göstermiş olduğunuz profesyonellik ve samimiyet için teşekkür ediyor, bizi başarıya götüren projelerin mimarı olan tüm ekip arkadaşlarımıza yeni projelerde yeni başarılar diliyorum."</h5>
+							<h5 class="bold m-0 mt-4 text-white">Özlem Telatar</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Kurumsal İletişim Müdürü</h5>
+						</div>
+						<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
+							<div class="divrow">
+								<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/pashabank.jpg" alt="Pashabank" /></div>
+								<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/pashabank.png" alt="Özlem Telatar" /></div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</section>
+			</section>
+			<section class="quotation">
+				<div class="container px-[14px]">
+					<div class="absolute pt-2">
+						<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/polsan" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
+								<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
+							</svg>
+						</a>
+					</div>
 
-	<section class="quotation">
-		<div class="container px-[14px]">
-			<div class="absolute pt-2">
-				<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/polsan" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
-						<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
-					</svg>
-				</a>
-			</div>
-
-			<div id="polsan" class="anchor_tags flex items-center gap-8">
-				<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
-					<h5 class="my-2 text-white">"Ağırbaşlı ama dinamik, ciddi ama güler yüzlü olmak isteyen bir kurumu bir faaliyet raporunda anlatmak hiç kolay değil. Yönettiğim kurumun hassasiyet ve özelliklerini kısa sürede anlayıp buna göre bir içerik ve görsel tasarım hazırlamak, ancak 25 yıldan süzülüp gelen bir deneyim ve titizlikle mümkün olabilirdi. Finar bunu başardığı için 25 yıldır var ve eminim var olmaya devam edecek."</h5>
-					<h5 class="bold m-0 mt-4 text-white">Mustafa Selçuk</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Genel Müdür</h5>
-				</div>
-				<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
-					<div class="divrow">
-						<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/polsan.jpg" alt="Polsan" /></div>
-						<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/polsan.png" alt="Mustafa Selçuk" /></div>
+					<div id="polsan" class="anchor_tags flex items-center gap-8">
+						<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
+							<h5 class="my-2 text-white">"Ağırbaşlı ama dinamik, ciddi ama güler yüzlü olmak isteyen bir kurumu bir faaliyet raporunda anlatmak hiç kolay değil. Yönettiğim kurumun hassasiyet ve özelliklerini kısa sürede anlayıp buna göre bir içerik ve görsel tasarım hazırlamak, ancak 25 yıldan süzülüp gelen bir deneyim ve titizlikle mümkün olabilirdi. Finar bunu başardığı için 25 yıldır var ve eminim var olmaya devam edecek."</h5>
+							<h5 class="bold m-0 mt-4 text-white">Mustafa Selçuk</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Genel Müdür</h5>
+						</div>
+						<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
+							<div class="divrow">
+								<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/polsan.jpg" alt="Polsan" /></div>
+								<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/polsan.png" alt="Mustafa Selçuk" /></div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</section>
+			</section>
+			<section class="quotation" style="padding-top: 2rem;">
+				<div class="container">
+					<div class="position-absolute pt-2">
+						<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/sinpasgyo" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
+								<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
+							</svg>
+						</a>
+					</div>
 
-	<section class="quotation" style="padding-top: 2rem;">
-		<div class="container">
-			<div class="position-absolute pt-2">
-				<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/sinpasgyo" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
-						<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
-					</svg>
-				</a>
-			</div>
-
-			<div id="sinpasgyo" class="anchor_tags flex items-center gap-8" style="margin-top: -2rem;padding-top:2rem;">
-				<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
-					<h5 class="my-2 text-white">
-						"İş birliğimiz faaliyet raporuyla başlasa da, Sinpaş Tarihçe kitabıyla tanıdık Finar’ı. Bahçesindeki zeytin ağacının metafor olarak kurumsal kimliğine yansıdığını düşünüyorum. Finar benim gözümde dalıyla, meyvesiyle, yağıyla, kültürüyle, sembolüyle, metaforuyla büyümeye devam eden/edecek bir zeytin ağacı… Çalışmalardaki detaycılığı sayesinde kendi kurumsal tarihimizi bize anlattığı(tırdığı), özenli, titiz çalışma prensibi için Baki Bey başta olmak üzere tüm ekibe
-						şükranlarımı sunarım."
-					</h5>
-					<h5 class="bold m-0 mt-4 text-white">Lale Çakmak</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Kurumsal İletişim Müdürü</h5>
-				</div>
-				<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
-					<div class="divrow">
-						<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/sinpas-kapak.png" alt="Sinpaş GYO" /></div>
-						<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/sinpas.png" alt="Lale Çakmak" /></div>
+					<div id="sinpasgyo" class="anchor_tags flex items-center gap-8" style="margin-top: -2rem;padding-top:2rem;">
+						<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
+							<h5 class="my-2 text-white">
+								"İş birliğimiz faaliyet raporuyla başlasa da, Sinpaş Tarihçe kitabıyla tanıdık Finar’ı. Bahçesindeki zeytin ağacının metafor olarak kurumsal kimliğine yansıdığını düşünüyorum. Finar benim gözümde dalıyla, meyvesiyle, yağıyla, kültürüyle, sembolüyle, metaforuyla büyümeye devam eden/edecek bir zeytin ağacı… Çalışmalardaki detaycılığı sayesinde kendi kurumsal tarihimizi bize anlattığı(tırdığı), özenli, titiz çalışma prensibi için Baki Bey başta olmak üzere tüm ekibe
+								şükranlarımı sunarım."
+							</h5>
+							<h5 class="bold m-0 mt-4 text-white">Lale Çakmak</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Kurumsal İletişim Müdürü</h5>
+						</div>
+						<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
+							<div class="divrow">
+								<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/sinpas-kapak.png" alt="Sinpaş GYO" /></div>
+								<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/sinpas.png" alt="Lale Çakmak" /></div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</section>
+			</section>
+			<section class="quotation">
+				<div class="container px-[14px]">
+					<div class="absolute pt-2">
+						<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/sisecam" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
+								<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
+							</svg>
+						</a>
+					</div>
 
-	<section class="quotation">
-		<div class="container px-[14px]">
-			<div class="absolute pt-2">
-				<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/sisecam" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
-						<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
-					</svg>
-				</a>
-			</div>
-
-			<div id="sisecam" class="anchor_tags flex items-center gap-8">
-				<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
-					<h5 class="my-2 text-white">"Çeyrek asırlık deneyimini ve uzmanlığını sürekli gelişim odağıyla güncel teknolojilerle de harmanlayan Finar, global hedef ve konumlandırmamızı bizler kadar içselleştirebilmesiyle fark yaratan ve ödüllerle taçlandırdığımız başarılı işlere birlikte imza attığımız değerli bir iş ortağı. Finar’ı 25 yıllık bu gurur tablosu vesilesi ile kutluyor, nice başarılı yıllar temenni ediyorum."</h5>
-					<h5 class="bold m-0 mt-4 text-white">Hale Elif Ergün</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Kurumsal İletişim Direktörü</h5>
-				</div>
-				<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
-					<div class="divrow">
-						<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/sisecam.jpg" alt="Şişecam" /></div>
-						<div class="div2"><img class="left lazyload" src="/src/images/musterilerimiz-konusuyor/sisecam.png" alt="Hale Elif Ergün" /></div>
+					<div id="sisecam" class="anchor_tags flex items-center gap-8">
+						<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
+							<h5 class="my-2 text-white">"Çeyrek asırlık deneyimini ve uzmanlığını sürekli gelişim odağıyla güncel teknolojilerle de harmanlayan Finar, global hedef ve konumlandırmamızı bizler kadar içselleştirebilmesiyle fark yaratan ve ödüllerle taçlandırdığımız başarılı işlere birlikte imza attığımız değerli bir iş ortağı. Finar’ı 25 yıllık bu gurur tablosu vesilesi ile kutluyor, nice başarılı yıllar temenni ediyorum."</h5>
+							<h5 class="bold m-0 mt-4 text-white">Hale Elif Ergün</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Kurumsal İletişim Direktörü</h5>
+						</div>
+						<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
+							<div class="divrow">
+								<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/sisecam.jpg" alt="Şişecam" /></div>
+								<div class="div2"><img class="left lazyload" src="/src/images/musterilerimiz-konusuyor/sisecam.png" alt="Hale Elif Ergün" /></div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</section>
+			</section>
+			<section class="quotation">
+				<div class="container px-[14px]">
+					<div class="absolute pt-2">
+						<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/tav" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
+								<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
+							</svg>
+						</a>
+					</div>
 
-	<section class="quotation">
-		<div class="container px-[14px]">
-			<div class="absolute pt-2">
-				<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/tav" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
-						<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
-					</svg>
-				</a>
-			</div>
-
-			<div id="tav" class="anchor_tags flex items-center gap-8">
-				<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
-					<h5 class="my-2 text-white">"Profesyonellikten ödün vermeyen, dinamik bir ekiple her yıl yeni bir yaratıcı proje üzerinde çalışmaktan mutluluk duyuyoruz. İletişim sektöründe 25 yıl boyunca çıtayı sürekli yukarı taşıyarak tercih edilen bir iş ortağı haline gelmek önemli bir başarı. Finansal iletişim alanında her zaman yaratıcı işler çıkaran, çeyrek asır boyunca sürekli kendini yenileyerek her zaman güncel kalan Finar’a başarı dolu nice seneler diliyoruz."</h5>
-					<h5 class="bold m-0 mt-4 text-white">Bengi Vargül Şen</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Kurumsal İletişim Direktörü</h5>
-					<h5 class="bold m-0 mt-4 text-white">Besim Meriç</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Yatırımcı İlişkileri Müdürü</h5>
-					<h5 class="bold m-0 mt-4 text-white">Erhan Üstündağ</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Kurumsal İletişim Koordinatörü</h5>
-					<h5 class="bold m-0 mt-4 text-white">Alper Topçu</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Kurumsal İletişim Müdürü</h5>
-				</div>
-				<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
-					<div class="divrow">
-						<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/tav.jpg" alt="TAV Havalimanları" /></div>
-						<div class="div2"><img class="left lazyload" src="/src/images/musterilerimiz-konusuyor/tav.png" alt="Bengi Vargül Şen" /></div>
+					<div id="tav" class="anchor_tags flex items-center gap-8">
+						<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
+							<h5 class="my-2 text-white">"Profesyonellikten ödün vermeyen, dinamik bir ekiple her yıl yeni bir yaratıcı proje üzerinde çalışmaktan mutluluk duyuyoruz. İletişim sektöründe 25 yıl boyunca çıtayı sürekli yukarı taşıyarak tercih edilen bir iş ortağı haline gelmek önemli bir başarı. Finansal iletişim alanında her zaman yaratıcı işler çıkaran, çeyrek asır boyunca sürekli kendini yenileyerek her zaman güncel kalan Finar’a başarı dolu nice seneler diliyoruz."</h5>
+							<h5 class="bold m-0 mt-4 text-white">Bengi Vargül Şen</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Kurumsal İletişim Direktörü</h5>
+							<h5 class="bold m-0 mt-4 text-white">Besim Meriç</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Yatırımcı İlişkileri Müdürü</h5>
+							<h5 class="bold m-0 mt-4 text-white">Erhan Üstündağ</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Kurumsal İletişim Koordinatörü</h5>
+							<h5 class="bold m-0 mt-4 text-white">Alper Topçu</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Kurumsal İletişim Müdürü</h5>
+						</div>
+						<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
+							<div class="divrow">
+								<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/tav.jpg" alt="TAV Havalimanları" /></div>
+								<div class="div2"><img class="left lazyload" src="/src/images/musterilerimiz-konusuyor/tav.png" alt="Bengi Vargül Şen" /></div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</section>
+			</section>
+			<section class="quotation">
+				<div class="container px-[14px]">
+					<div class="absolute pt-2">
+						<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/torunlargyo" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
+								<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
+							</svg>
+						</a>
+					</div>
 
-	<section class="quotation">
-		<div class="container px-[14px]">
-			<div class="absolute pt-2">
-				<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/torunlargyo" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
-						<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
-					</svg>
-				</a>
-			</div>
-
-			<div id="torunlargyo" class="anchor_tags flex items-center gap-8">
-				<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
-					<h5 class="my-2 text-white">"Yükselen başarı grafiği ve iş ortaklarına sağlanan artan katma değer ile 25 yılı geride bırakmak büyük gurur. Faaliyete geçtiğimiz ilk günden bu yana kurumsal kültürümüzü en az bizim kadar özümseyen bir ekip ile ilerlemek bizler için çok önemli. Çeyrek asırlık geçmişinizden aldığınız güçle, müşterileriniz için değerli çalışmalara imza atmaya devam etmenizi temenni ediyor, kuruluş yıl dönümünüzü kutluyorum."</h5>
-					<h5 class="bold m-0 mt-4 text-white">Zeynep Torun</h5>
-					<h5 class="mb-3 text-white sm:mb-0">İcra Komitesi Üyesi<br />Kurumsal İletişim ve Pazarlama</h5>
-					<h5 class="bold m-0 mt-4 text-white">Ayşin Kaymaz Türkman</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Kurumsal İletişim Direktörü</h5>
-				</div>
-				<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
-					<div class="divrow">
-						<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/torunlar.jpg" alt="Torunlar GYO" /></div>
-						<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/torunlar.png" alt="Zeynep Torun & Ayşin Kaymaz Türkman" /></div>
+					<div id="torunlargyo" class="anchor_tags flex items-center gap-8">
+						<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
+							<h5 class="my-2 text-white">"Yükselen başarı grafiği ve iş ortaklarına sağlanan artan katma değer ile 25 yılı geride bırakmak büyük gurur. Faaliyete geçtiğimiz ilk günden bu yana kurumsal kültürümüzü en az bizim kadar özümseyen bir ekip ile ilerlemek bizler için çok önemli. Çeyrek asırlık geçmişinizden aldığınız güçle, müşterileriniz için değerli çalışmalara imza atmaya devam etmenizi temenni ediyor, kuruluş yıl dönümünüzü kutluyorum."</h5>
+							<h5 class="bold m-0 mt-4 text-white">Zeynep Torun</h5>
+							<h5 class="mb-3 text-white sm:mb-0">İcra Komitesi Üyesi<br />Kurumsal İletişim ve Pazarlama</h5>
+							<h5 class="bold m-0 mt-4 text-white">Ayşin Kaymaz Türkman</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Kurumsal İletişim Direktörü</h5>
+						</div>
+						<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
+							<div class="divrow">
+								<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/torunlar.jpg" alt="Torunlar GYO" /></div>
+								<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/torunlar.png" alt="Zeynep Torun & Ayşin Kaymaz Türkman" /></div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</section>
+			</section>
+			<section class="quotation">
+				<div class="container px-[14px]">
+					<div class="absolute pt-2">
+						<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/tosyaliholding" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
+								<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
+							</svg>
+						</a>
+					</div>
 
-	<section class="quotation">
-		<div class="container px-[14px]">
-			<div class="absolute pt-2">
-				<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/tosyaliholding" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
-						<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
-					</svg>
-				</a>
-			</div>
-
-			<div id="tosyaliholding" class="anchor_tags flex items-center gap-8">
-				<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
-					<h5 class="my-2 text-white">
-						"Sevgili Finar, <br />
-						<br />
-						Siz ve çalışmaktan keyif aldığımız ekibinizle iş birliğimizin ikinci yılını bitirirken kreatif, içten ve hızlı işlere imza attığınıza tanık olduk. Grubumuzu iyi anlamanız ve yaratıcı fikirlerinizle bizi doğru yönlendirmeniz neticesinde birlikte çok güzel işler başardığımıza inanıyoruz. Bu birlikteliğin uzun yıllar sürmesi dileğiyle… <br />
-						<br />
-						25. yılınız kutlu olsun!"
-					</h5>
-					<h5 class="bold m-0 mt-4 text-white">Şafak Ayışığı</h5>
-					<h5 class="mb-3 text-white sm:mb-0">CFO</h5>
-					<h5 class="bold m-0 mt-4 text-white">Burçin Ejderoğlu</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Strateji ve İş Geliştirme Şefi</h5>
-				</div>
-				<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
-					<div class="divrow">
-						<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/tosyali.jpg" alt="Tosyalı Holding" /></div>
-						<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/tosyali.png" alt="Şafak Ayışığı & Burçin Ejderoğlu" /></div>
+					<div id="tosyaliholding" class="anchor_tags flex items-center gap-8">
+						<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
+							<h5 class="my-2 text-white">
+								"Sevgili Finar, <br />
+								<br />
+								Siz ve çalışmaktan keyif aldığımız ekibinizle iş birliğimizin ikinci yılını bitirirken kreatif, içten ve hızlı işlere imza attığınıza tanık olduk. Grubumuzu iyi anlamanız ve yaratıcı fikirlerinizle bizi doğru yönlendirmeniz neticesinde birlikte çok güzel işler başardığımıza inanıyoruz. Bu birlikteliğin uzun yıllar sürmesi dileğiyle… <br />
+								<br />
+								25. yılınız kutlu olsun!"
+							</h5>
+							<h5 class="bold m-0 mt-4 text-white">Şafak Ayışığı</h5>
+							<h5 class="mb-3 text-white sm:mb-0">CFO</h5>
+							<h5 class="bold m-0 mt-4 text-white">Burçin Ejderoğlu</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Strateji ve İş Geliştirme Şefi</h5>
+						</div>
+						<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
+							<div class="divrow">
+								<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/tosyali.jpg" alt="Tosyalı Holding" /></div>
+								<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/tosyali.png" alt="Şafak Ayışığı & Burçin Ejderoğlu" /></div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</section>
+			</section>
+			<section class="quotation">
+				<div class="container px-[14px]">
+					<div class="absolute pt-2">
+						<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/turcas" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
+								<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
+							</svg>
+						</a>
+					</div>
 
-	<section class="quotation">
-		<div class="container px-[14px]">
-			<div class="absolute pt-2">
-				<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/turcas" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
-						<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
-					</svg>
-				</a>
-			</div>
-
-			<div id="turcas" class="anchor_tags flex items-center gap-8">
-				<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
-					<h5 class="my-2 text-white">
-						"Nihai tüketicilerle temasını daha ziyade iştiraklerimiz üzerinden kurgulayan bir enerji odaklı yatırım holdingi olmamızdan dolayı, Faaliyet Raporu’nu paydaşlarımıza aktaracağımız mesajların ana mecrası olarak kurguluyoruz. Bu da bizi hem içerik hem de tasarım açısından her yıl yenilikçi çözümler bulmaya teşvik ediyor. Finar ekibi, bir yandan bu yenilikçilik talebimizi her yıl özgün bir fikir ile beslerken, diğer yandan tüm raporları birbiri ardına tutarlı bir şekilde
-						bağlayan bir üst şirket imgesi yaratmayı başarıyor."
-					</h5>
-					<h5 class="bold m-0 mt-4 text-white">Altan Kolbay</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Kurumsal İletişim ve Kamu İlişkileri Müdürü</h5>
-				</div>
-				<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
-					<div class="divrow">
-						<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/turcas.jpg" alt="Turcas" /></div>
-						<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/turcas.png" alt="Altan Kolbay" /></div>
+					<div id="turcas" class="anchor_tags flex items-center gap-8">
+						<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
+							<h5 class="my-2 text-white">
+								"Nihai tüketicilerle temasını daha ziyade iştiraklerimiz üzerinden kurgulayan bir enerji odaklı yatırım holdingi olmamızdan dolayı, Faaliyet Raporu’nu paydaşlarımıza aktaracağımız mesajların ana mecrası olarak kurguluyoruz. Bu da bizi hem içerik hem de tasarım açısından her yıl yenilikçi çözümler bulmaya teşvik ediyor. Finar ekibi, bir yandan bu yenilikçilik talebimizi her yıl özgün bir fikir ile beslerken, diğer yandan tüm raporları birbiri ardına tutarlı bir şekilde
+								bağlayan bir üst şirket imgesi yaratmayı başarıyor."
+							</h5>
+							<h5 class="bold m-0 mt-4 text-white">Altan Kolbay</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Kurumsal İletişim ve Kamu İlişkileri Müdürü</h5>
+						</div>
+						<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
+							<div class="divrow">
+								<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/turcas.jpg" alt="Turcas" /></div>
+								<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/turcas.png" alt="Altan Kolbay" /></div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</section>
+			</section>
+			<section class="quotation">
+				<div class="container px-[14px]">
+					<div class="absolute pt-2">
+						<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/turkcell" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
+								<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
+							</svg>
+						</a>
+					</div>
 
-	<section class="quotation">
-		<div class="container px-[14px]">
-			<div class="absolute pt-2">
-				<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/turkcell" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
-						<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
-					</svg>
-				</a>
-			</div>
-
-			<div id="turkcell" class="anchor_tags flex items-center gap-8">
-				<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
-					<h5 class="my-2 text-white">
-						"Finansal iletişim alanındaki bütünsel bakış açınızı, katma değer yaratan, çözüm odaklı yaklaşımınızı takdir ediyoruz. Tecrübeniz, bilgi birikiminiz ve kesintisiz desteğiniz ile başarılı projelere imza atmaya devam ediyoruz. Bununla birlikte daha iyi bir gelecek için üstün dijital hizmetler vizyonunu benimseyen bir grup olarak, başarılı dijital uygulamalarınızı da beğeni ile takip ediyoruz. Turkcell ailesi olarak, önemli bir iş ortağımız olan ajansınızın 25. kuruluş yıl
-						dönümünü en içten dileklerimizle kutluyor, başarılarınızın devamını diliyoruz."
-					</h5>
-					<h5 class="bold m-0 mt-4 text-white">Murat Ali Aslanhan</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Yatırımcı İlişkileri Müdürü</h5>
-					<h5 class="bold m-0 mt-4 text-white">Nihan Erdoğan</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Yatırımcı İlişkileri Kıdemli Uzmanı</h5>
-				</div>
-				<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
-					<div class="divrow">
-						<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/turkcell.jpg" alt="Turkcell" /></div>
-						<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/turkcell.png" alt="Murat Ali Aslanhan & Nihan Erdoğan" /></div>
+					<div id="turkcell" class="anchor_tags flex items-center gap-8">
+						<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
+							<h5 class="my-2 text-white">
+								"Finansal iletişim alanındaki bütünsel bakış açınızı, katma değer yaratan, çözüm odaklı yaklaşımınızı takdir ediyoruz. Tecrübeniz, bilgi birikiminiz ve kesintisiz desteğiniz ile başarılı projelere imza atmaya devam ediyoruz. Bununla birlikte daha iyi bir gelecek için üstün dijital hizmetler vizyonunu benimseyen bir grup olarak, başarılı dijital uygulamalarınızı da beğeni ile takip ediyoruz. Turkcell ailesi olarak, önemli bir iş ortağımız olan ajansınızın 25. kuruluş yıl
+								dönümünü en içten dileklerimizle kutluyor, başarılarınızın devamını diliyoruz."
+							</h5>
+							<h5 class="bold m-0 mt-4 text-white">Murat Ali Aslanhan</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Yatırımcı İlişkileri Müdürü</h5>
+							<h5 class="bold m-0 mt-4 text-white">Nihan Erdoğan</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Yatırımcı İlişkileri Kıdemli Uzmanı</h5>
+						</div>
+						<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
+							<div class="divrow">
+								<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/turkcell.jpg" alt="Turkcell" /></div>
+								<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/turkcell.png" alt="Murat Ali Aslanhan & Nihan Erdoğan" /></div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</section>
+			</section>
+			<section class="quotation">
+				<div class="container px-[14px]">
+					<div class="absolute pt-2">
+						<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/thy" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
+								<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
+							</svg>
+						</a>
+					</div>
 
-	<section class="quotation">
-		<div class="container px-[14px]">
-			<div class="absolute pt-2">
-				<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/thy" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
-						<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
-					</svg>
-				</a>
-			</div>
-
-			<div id="thy" class="anchor_tags flex items-center gap-8">
-				<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
-					<h5 class="my-2 text-white">"Sürdürülebilir verimlilikle çalışabiliyor olmak üründe başarıyı sağlıyor. Biz Finar ile bunu başardık. 2018 Yıllık Faaliyet Raporumuzda da olduğu gibi. 5 Ödül ile taçlandırılmak Finar’ın ekibimizle süreklilik arz eden planlı bir şekilde çalışmayı başarmasının ürünüdür."</h5>
-					<h5 class="bold m-0 mt-4 text-white">Levent Konukcu</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Yatırım Yönetimi Başkanı<br />Uçak Mühendisi</h5>
-					<h5 class="bold m-0 mt-4 text-white">Esra Keleş</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Bilgi Analiz ve Raporlama Uzmanı</h5>
-					<h5 class="bold m-0 mt-4 text-white">Elif Yetim</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Bilgi Analiz ve Raporlama Müdürü</h5>
-				</div>
-				<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
-					<div class="divrow">
-						<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/thy.jpg" alt="Türk Hava Yolları" /></div>
-						<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/thy.png" alt="Levent Konukcu & Esra Keleş & Elif Yetim" /></div>
+					<div id="thy" class="anchor_tags flex items-center gap-8">
+						<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
+							<h5 class="my-2 text-white">"Sürdürülebilir verimlilikle çalışabiliyor olmak üründe başarıyı sağlıyor. Biz Finar ile bunu başardık. 2018 Yıllık Faaliyet Raporumuzda da olduğu gibi. 5 Ödül ile taçlandırılmak Finar’ın ekibimizle süreklilik arz eden planlı bir şekilde çalışmayı başarmasının ürünüdür."</h5>
+							<h5 class="bold m-0 mt-4 text-white">Levent Konukcu</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Yatırım Yönetimi Başkanı<br />Uçak Mühendisi</h5>
+							<h5 class="bold m-0 mt-4 text-white">Esra Keleş</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Bilgi Analiz ve Raporlama Uzmanı</h5>
+							<h5 class="bold m-0 mt-4 text-white">Elif Yetim</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Bilgi Analiz ve Raporlama Müdürü</h5>
+						</div>
+						<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
+							<div class="divrow">
+								<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/thy.jpg" alt="Türk Hava Yolları" /></div>
+								<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/thy.png" alt="Levent Konukcu & Esra Keleş & Elif Yetim" /></div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</section>
+			</section>
+			<section class="quotation">
+				<div class="container px-[14px]">
+					<div class="absolute pt-2">
+						<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/tegv" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
+								<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
+							</svg>
+						</a>
+					</div>
 
-	<section class="quotation">
-		<div class="container px-[14px]">
-			<div class="absolute pt-2">
-				<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/tegv" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
-						<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
-					</svg>
-				</a>
-			</div>
-
-			<div id="tegv" class="anchor_tags flex items-center gap-8">
-				<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
-					<h5 class="my-2 text-white">
-						"Vakfımızın ilk Entegre Faaliyet Raporunu, titizlikle, samimiyetle ve gönüllü olarak hazırlayan Finar ailesine yürekten teşekkürler! Finar fark yaratan katkı ve tasarımlarıyla, çocuklarımızda yarattığımız gelişimi etkili yöntemlerle sunarak, çalışmalarımızı çok daha iyi ifade edebilmemize yardımcı oldu; paydaşlarımızdan olumlu geri bildirimler almamızı sağladı ve bizi iki değerli ödülle buluşturdu. Alanında dünyanın en iyi ajansı ile çalışmaktan dolayı gurur duyuyor, nice
-						başarılı yıllar diliyoruz."
-					</h5>
-					<h5 class="bold m-0 mt-4 text-white">Sait Tosyalı</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Genel Müdür</h5>
-					<h5 class="bold m-0 mt-4 text-white">G. İpek Uralcan</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Geliştirme Müdürü</h5>
-					<h5 class="bold m-0 mt-4 text-white">Özlem Şirin</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Kurumsal İletişim Uzmanı</h5>
-					<h5 class="bold m-0 mt-4 text-white">Dicle Kaymaz</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Planlama Uzmanı</h5>
-				</div>
-				<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
-					<div class="divrow">
-						<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/tegv.jpg" alt="Türkiye Eğitim Gönüllüleri Vakfı" /></div>
-						<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/tegv.png" alt="Sait Tosyalı & G. İpek Uralcan & Özlem Şirin & Dicle Kaymaz" /></div>
+					<div id="tegv" class="anchor_tags flex items-center gap-8">
+						<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
+							<h5 class="my-2 text-white">
+								"Vakfımızın ilk Entegre Faaliyet Raporunu, titizlikle, samimiyetle ve gönüllü olarak hazırlayan Finar ailesine yürekten teşekkürler! Finar fark yaratan katkı ve tasarımlarıyla, çocuklarımızda yarattığımız gelişimi etkili yöntemlerle sunarak, çalışmalarımızı çok daha iyi ifade edebilmemize yardımcı oldu; paydaşlarımızdan olumlu geri bildirimler almamızı sağladı ve bizi iki değerli ödülle buluşturdu. Alanında dünyanın en iyi ajansı ile çalışmaktan dolayı gurur duyuyor, nice
+								başarılı yıllar diliyoruz."
+							</h5>
+							<h5 class="bold m-0 mt-4 text-white">Sait Tosyalı</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Genel Müdür</h5>
+							<h5 class="bold m-0 mt-4 text-white">G. İpek Uralcan</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Geliştirme Müdürü</h5>
+							<h5 class="bold m-0 mt-4 text-white">Özlem Şirin</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Kurumsal İletişim Uzmanı</h5>
+							<h5 class="bold m-0 mt-4 text-white">Dicle Kaymaz</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Planlama Uzmanı</h5>
+						</div>
+						<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
+							<div class="divrow">
+								<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/tegv.jpg" alt="Türkiye Eğitim Gönüllüleri Vakfı" /></div>
+								<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/tegv.png" alt="Sait Tosyalı & G. İpek Uralcan & Özlem Şirin & Dicle Kaymaz" /></div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</section>
+			</section>
+			<section class="quotation">
+				<div class="container px-[14px]">
+					<div class="absolute pt-2">
+						<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/ulvikocailik" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
+								<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
+							</svg>
+						</a>
+					</div>
 
-	<section class="quotation">
-		<div class="container px-[14px]">
-			<div class="absolute pt-2">
-				<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/ulvikocailik" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
-						<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
-					</svg>
-				</a>
-			</div>
-
-			<div id="ulvikocailik" class="anchor_tags flex items-center gap-8">
-				<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
-					<h5 class="my-2 text-white">"Sizi dinleyen, doğru anlayan, ilk sunumda hedefe çok yaklaşan, ahenkle ve keyifle çalışacağınız, verilen sürede işi teslim alacağınız, içinize sinecek ve sonuçtan memnun kalacağınız profesyonel bir ajans."</h5>
-					<h5 class="bold m-0 mt-4 text-white">Ulvi Kocailik</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Broker - Eğitmen - Yazar <br />Ticari Mülkler</h5>
-				</div>
-				<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
-					<div class="divrow">
-						<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/ulvikocailik-logo.png" alt="Ulvi Kocailik Logo" /></div>
-						<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/ulvikocailik.png" alt="Ulvi Kocailik" /></div>
+					<div id="ulvikocailik" class="anchor_tags flex items-center gap-8">
+						<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
+							<h5 class="my-2 text-white">"Sizi dinleyen, doğru anlayan, ilk sunumda hedefe çok yaklaşan, ahenkle ve keyifle çalışacağınız, verilen sürede işi teslim alacağınız, içinize sinecek ve sonuçtan memnun kalacağınız profesyonel bir ajans."</h5>
+							<h5 class="bold m-0 mt-4 text-white">Ulvi Kocailik</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Broker - Eğitmen - Yazar <br />Ticari Mülkler</h5>
+						</div>
+						<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
+							<div class="divrow">
+								<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/ulvikocailik-logo.png" alt="Ulvi Kocailik Logo" /></div>
+								<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/ulvikocailik.png" alt="Ulvi Kocailik" /></div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="quotation">
-		<div class="container px-[14px]">
-			<div class="absolute pt-2">
-				<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/unluco" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
-						<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
-					</svg>
-				</a>
-			</div>
-			<div id="unluco" class="anchor_tags flex items-center gap-8">
-				<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
-					<h5 class="my-2 text-white">"ÜNLÜ & Co olarak Faaliyet Raporumuzun kurum ruhumuzu yansıtmasına önem gösteriyoruz. Finar, bizi anlayarak geliştirdiği yaratıcı ve özgün konseptleri ile kurum kültürümüzü ve değerlerimizi Faaliyet Raporu’na çok başarılı bir şekilde yansıttı. Raporlarımızın layık görüldüğü birçok ödül de bizi gururlandırdı. Faaliyet raporlarımızda Finar ile çalışmaktan mutluluk duyuyoruz. Tüm ekibe teşekkür ederiz."</h5>
-					<h5 class="bold m-0 mt-4 text-white">Şebnem Kalyoncuoğlu Ünlü</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Yönetim Kurulu Üyesi</h5>
-				</div>
-				<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
-					<div class="divrow">
-						<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/unlu.jpg" alt="ÜNLÜ & Co." /></div>
-						<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/unlu.png" alt="Şebnem Kalyoncuoğlu Ünlü" /></div>
+			</section>
+			<section class="quotation">
+				<div class="container px-[14px]">
+					<div class="absolute pt-2">
+						<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/unluco" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
+								<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
+							</svg>
+						</a>
+					</div>
+					<div id="unluco" class="anchor_tags flex items-center gap-8">
+						<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
+							<h5 class="my-2 text-white">"ÜNLÜ & Co olarak Faaliyet Raporumuzun kurum ruhumuzu yansıtmasına önem gösteriyoruz. Finar, bizi anlayarak geliştirdiği yaratıcı ve özgün konseptleri ile kurum kültürümüzü ve değerlerimizi Faaliyet Raporu’na çok başarılı bir şekilde yansıttı. Raporlarımızın layık görüldüğü birçok ödül de bizi gururlandırdı. Faaliyet raporlarımızda Finar ile çalışmaktan mutluluk duyuyoruz. Tüm ekibe teşekkür ederiz."</h5>
+							<h5 class="bold m-0 mt-4 text-white">Şebnem Kalyoncuoğlu Ünlü</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Yönetim Kurulu Üyesi</h5>
+						</div>
+						<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
+							<div class="divrow">
+								<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/unlu.jpg" alt="ÜNLÜ & Co." /></div>
+								<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/unlu.png" alt="Şebnem Kalyoncuoğlu Ünlü" /></div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="quotation">
-		<div class="container px-[14px]">
-			<div class="absolute pt-2">
-				<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/vakifbank" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
-						<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
-					</svg>
-				</a>
-			</div>
-			<div id="vakifbank" class="anchor_tags flex items-center gap-8">
-				<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
-					<h5 class="my-2 text-white">"VakıfBank olarak Finar ile uzun yıllardır gerçekleştirdiğimiz verimli iş birliği sayesinde, itibarımızı en iyi şekilde yansıtan kurumsal raporlara imza atıyoruz. Ödüllerle taçlandırılan bu değerli çalışmalarda yanımızdaki güç olan Finar ailesine başarılarla dolu daha nice 25 yıllar diliyorum."</h5>
-					<h5 class="bold m-0 mt-4 text-white">Arzu Kaymanlı Örsel</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Kurumsal İletişim Direktörü</h5>
-				</div>
-				<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
-					<div class="divrow">
-						<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/vakifbank.jpg" alt="VakıfBank" /></div>
-						<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/vakifbank.png" alt="Arzu Kaymanlı Örsel" /></div>
+			</section>
+			<section class="quotation">
+				<div class="container px-[14px]">
+					<div class="absolute pt-2">
+						<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/vakifbank" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
+								<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
+							</svg>
+						</a>
+					</div>
+					<div id="vakifbank" class="anchor_tags flex items-center gap-8">
+						<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
+							<h5 class="my-2 text-white">"VakıfBank olarak Finar ile uzun yıllardır gerçekleştirdiğimiz verimli iş birliği sayesinde, itibarımızı en iyi şekilde yansıtan kurumsal raporlara imza atıyoruz. Ödüllerle taçlandırılan bu değerli çalışmalarda yanımızdaki güç olan Finar ailesine başarılarla dolu daha nice 25 yıllar diliyorum."</h5>
+							<h5 class="bold m-0 mt-4 text-white">Arzu Kaymanlı Örsel</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Kurumsal İletişim Direktörü</h5>
+						</div>
+						<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
+							<div class="divrow">
+								<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/vakifbank.jpg" alt="VakıfBank" /></div>
+								<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/vakifbank.png" alt="Arzu Kaymanlı Örsel" /></div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="quotation">
-		<div class="container px-[14px]">
-			<div class="absolute pt-4">
-				<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/yildizholding" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
-						<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
-					</svg>
-				</a>
-			</div>
-			<div id="yildizholding" class="anchor_tags flex items-center gap-8">
-				<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
-					<h5 class="my-2 text-white">"Finar’ı, Yatırımcı İlişkileri iletişimi açısından sundukları kaliteli hizmetlerle, her zaman güvenle çalıştığımız iş ortağımız olarak görüyoruz. Uluslararası alandaki başarıları ve kazanmış oldukları ödüllerle kalitesini ispatlayan ve 25. yılını kutlamanın haklı gururunu yaşayan Finar gibi bir şirketle çalışmaktan son derece memnunuz."</h5>
-					<h5 class="bold m-0 mt-4 text-white">Emre Ertürk</h5>
-					<h5 class="mb-3 text-white sm:mb-0">Yıldız Holding Yatırımcı İlişkileri Direktörü</h5>
-				</div>
-				<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
-					<div class="divrow">
-						<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/yildizholding-logo.png" alt="Yıldız Holding" /></div>
-						<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/yildizholding.png" alt="Emre Ertürk" /></div>
+			</section>
+			<section class="quotation">
+				<div class="container px-[14px]">
+					<div class="absolute pt-4">
+						<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.finarkurumsal.com/musterilerimizkonusuyor/yildizholding" target="_blank" style="outline: none;border:0;color:#FFFFFF;filter: opacity(0.1);">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px;height:auto;">
+								<path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
+							</svg>
+						</a>
+					</div>
+					<div id="yildizholding" class="anchor_tags flex items-center gap-8">
+						<div class="md:mxcol-lg-4 col-md-8 mx-md-auto text-content order-md-1 order-3 md:w-8/12 lg:w-4/12">
+							<h5 class="my-2 text-white">"Finar’ı, Yatırımcı İlişkileri iletişimi açısından sundukları kaliteli hizmetlerle, her zaman güvenle çalıştığımız iş ortağımız olarak görüyoruz. Uluslararası alandaki başarıları ve kazanmış oldukları ödüllerle kalitesini ispatlayan ve 25. yılını kutlamanın haklı gururunu yaşayan Finar gibi bir şirketle çalışmaktan son derece memnunuz."</h5>
+							<h5 class="bold m-0 mt-4 text-white">Emre Ertürk</h5>
+							<h5 class="mb-3 text-white sm:mb-0">Yıldız Holding Yatırımcı İlişkileri Direktörü</h5>
+						</div>
+						<div class="order-1 sm:w-full md:order-3 lg:w-8/12">
+							<div class="divrow">
+								<div class="div1"><img src="/src/images/musterilerimiz-konusuyor/yildizholding-logo.png" alt="Yıldız Holding" /></div>
+								<div class="div2"><img class="lazyload" src="/src/images/musterilerimiz-konusuyor/yildizholding.png" alt="Emre Ertürk" /></div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</section>
+			</section>
+		*/
+	}
 </MKLayout>
 
 <style>
 	section.quotation {
 		background: linear-gradient(0deg, rgba(117, 111, 111, 1) 0%, rgba(172, 169, 166, 1) 100%);
-		position: relative;
 		padding-top: 6rem;
 		padding-bottom: 6rem;
 		scroll-snap-align: start;
@@ -1003,7 +1519,17 @@ import slugify from "~utils/slugify";
 			.anchor_tags {
 				padding-top: 1rem;
 				scroll-margin-top: var(--header-height);
+				h5 {
+					font-size: 1.25rem;
+					font-family: "Zilla Slab", serif;
+					font-weight: 300;
+					line-height: 1.2em;
+					&.bold {
+						font-weight: 600;
+					}
+				}
 				.divrow {
+					position: relative;
 					.div2 {
 						position: absolute;
 						bottom: -16vw;
@@ -1012,20 +1538,19 @@ import slugify from "~utils/slugify";
 						display: flex;
 						justify-content: flex-end;
 						flex-direction: column;
-						@media (min-width: 768px) {
+						@media screen and (min-width: 768px) {
 							bottom: -90px;
 						}
 					}
 				}
-			}
-		}
-		h5 {
-			font-size: 1.25rem;
-			font-family: "Zilla Slab", serif;
-			font-weight: 300;
-			line-height: 1.2em;
-			&.bold {
-				font-weight: 600;
+				.text-content {
+					@media screen and (min-width: 576px) and (max-width: 767.98px) {
+						padding-top: 16vw;
+					}
+					@media screen and (max-width: 575.98px) {
+						padding-top: 9vw;
+					}
+				}
 			}
 		}
 	}
