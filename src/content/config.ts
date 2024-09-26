@@ -66,6 +66,22 @@ const LACPVisionCollection = defineCollection({
 		}),
 });
 
+const LACPSpotlightCollection = defineCollection({
+	type: "content",
+	schema: () =>
+		z.object({
+			title: z.string(),
+		}),
+});
+
+const CreativityAwardsCollection = defineCollection({
+	type: "content",
+	schema: () =>
+		z.object({
+			title: z.string(),
+		}),
+});
+
 export const collections = {
 	"faaliyet-raporu": FRCollection,
 	"entegre-faaliyet-raporu": EFRCollection,
@@ -73,4 +89,6 @@ export const collections = {
 	"arc-awards": ARCAwardsCollection,
 	"galaxy-awards": GalaxyAwardsCollection,
 	"lacp-vision": LACPVisionCollection,
+	"lacp-spotlight": LACPSpotlightCollection,
+	"creativity-awards": CreativityAwardsCollection,
 };
