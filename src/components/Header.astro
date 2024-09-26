@@ -62,12 +62,25 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 														class:list={[
 															"whitespace-no-wrap relative block px-3 py-2 leading-tight text-[var(--nav-primary-color)] hover:text-mavi lg:text-center lg:text-white",
 															{
-																"aw-link-active": href2 === currentPath + (currentPath === "/" ? "" : "/"),
+																"aw-link-active":
+																	currentPath === "/"
+																		? currentPath.includes(href2 ?? "")
+																		: currentPath
+																				.split("/")
+																				.join("")
+																				.includes(href2 === "/" ? href2 : (href2?.split("/").join("") ?? "")),
 															},
 														]}
 														href={href2}
 														aria-label={text2}>
-														{/* {console.log(href2, currentPath + (currentPath === "/" ? "" : "/"))} */}
+														{/* {console.log(
+															currentPath === "/"
+																? currentPath.includes(href ?? "")
+																: currentPath
+																		.split("/")
+																		.join("")
+																		.includes(href === "/" ? href : (href?.split("/").join("") ?? ""))
+														)} */}
 														<Fragment set:html={text2} />
 													</a>
 												</li>
@@ -79,12 +92,33 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 										class:list={[
 											"relative flex items-end px-[18px] py-0 font-bold text-[var(--nav-primary-color)] lg:py-1 lg:font-light",
 											{
-												"aw-link-active": href === currentPath + (currentPath === "/" ? "" : "/"),
+												"aw-link-active":
+													currentPath === "/"
+														? currentPath.includes(href ?? "")
+														: currentPath
+																.split("/")
+																.join("")
+																.includes(href === "/" ? href : (href?.split("/").join("") ?? "")),
 											},
 										]}
 										href={href}
 										aria-label={homeicon ? "home" : slugify(text)}>
-										{/* {console.log(href, currentPath + (currentPath === "/" ? "" : "/"))} */}
+										{/* {console.log(
+											currentPath === "/"
+												? currentPath.includes(href ?? "")
+												: currentPath
+														.split("/")
+														.join("")
+														.includes(href === "/" ? href : (href?.split("/").join("") ?? "")),
+											"-",
+											currentPath,
+											"-",
+											currentPath.split("/").join(""),
+											"-",
+											href,
+											"-",
+											href?.split("/").join("")
+										)} */}
 										{homeicon ? <Fragment set:html={homeSvg} /> : text}
 									</a>
 								)}
