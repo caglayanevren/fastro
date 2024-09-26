@@ -20,7 +20,7 @@ const { title, spot, category, collection, coverImage, year, slug } = Astro.prop
 ---
 
 <Layout title={title} seoImage={`${import.meta.env.SITE}${collection}/${slug}/${slug}-og.png`}>
-	<div class="w-4/5">
+	<div class="w-9/10">
 		<CollectionCategory category={category} collection={collection} />
 		<CollectionTitle title={title} />
 		{spot && <CollectionSpot spot={spot} />}

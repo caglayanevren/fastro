@@ -49,4 +49,7 @@ import { AiOutlineLoading3Quarters } from "react-icons/ai";
 	const iframe = document.querySelector("iframe");
 	const loading = document.querySelector("#loading.loading");
 	iframe.onload = () => (loading.style.display = "none");
+
+	// İLETİŞİM'e active link indicator'ı ekler.
+	document.querySelector("a[aria-label='iletisim']").classList.add("aw-link-active");
 </script>
