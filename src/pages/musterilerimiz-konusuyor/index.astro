@@ -74,6 +74,11 @@ import mkdata_vakifbank_img2 from "~images/musterilerimiz-konusuyor/vakifbank.pn
 import mkdata_yildizholding_img from "~images/musterilerimiz-konusuyor/yildizholding-logo.png";
 import mkdata_yildizholding_img2 from "~images/musterilerimiz-konusuyor/yildizholding.png";
 
+import { FinarExperienceYear } from "~config";
+
+const title = "Müşterilerimiz Finar’ı anlatıyor.";
+const spot = `${FinarExperienceYear} yıldır müşterilerimiz için en iyisini üretmeye çalışıyoruz. Ürettiğimiz projeler, 380’nin üzerinde uluslararası ödüle layık görüldü. Üç kez “Dünyanın En İyi Kurumsal Tasarım Ajansı” seçildik. Ama bunların hiç biri, müşterilerimizden aldığımız “Elinize sağlık, çok güzel bir iş oldu” mesajından daha değerli olmadı bizim için.`;
+
 interface mkitem {
 	id: string;
 	title: string;
@@ -482,7 +487,7 @@ const mkitems: mkitem[] = [
 
 <MKLayout title="Müşterilerimiz Finar’ı anlatıyor.">
 	<div class="container px-[14px]">
-		<ArticleTitle title="Müşterilerimiz Finar’ı anlatıyor." spot="28 yıldır müşterilerimiz için en iyisini üretmeye çalışıyoruz. Ürettiğimiz projeler, 380’nin üzerinde uluslararası ödüle layık görüldü. Üç kez “Dünyanın En İyi Kurumsal Tasarım Ajansı” seçildik. Ama bunların hiç biri, müşterilerimizden aldığımız “Elinize sağlık, çok güzel bir iş oldu” mesajından daha değerli olmadı bizim için." />
+		<ArticleTitle title={title} spot={spot} />
 	</div>
 	{
 		mkitems.map((mkitem) => {
