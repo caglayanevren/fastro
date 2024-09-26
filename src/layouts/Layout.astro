@@ -9,6 +9,7 @@ import Scripts from "~components/Scripts.astro";
 
 import { headerData } from "~/navigation";
 import { SITE_TITLE, SITE_DESCRIPTION, SEO_IMAGE } from "../config";
+import FirstSpace from "~components/firstSpace.astro";
 // Props
 export interface Props {
 	title?: string;
@@ -33,6 +34,7 @@ const { title = SITE_TITLE, description = SITE_DESCRIPTION, seoImage = SEO_IMAGE
 				<slot />
 			</div>
 		</main>
+		<FirstSpace height={80} />
 		<Footer />
 		<Scripts />
 		<style is:global>
