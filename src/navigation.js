@@ -94,7 +94,7 @@ export const headerData = {
 			links: [
 				{
 					text: "TEGV",
-					href: getPermalink("/faaliyet-raporu/tegv/"),
+					href: getPermalink("/entegre-faaliyet-raporu/tegv/"),
 				},
 				{
 					text: "KORUNCUK",
