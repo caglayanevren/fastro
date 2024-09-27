@@ -1562,6 +1562,8 @@ const mkitems: mkitem[] = [
 </style>
 
 <script is:inline>
+	document.querySelector("a[aria-label='BİZ KİMİZ?']").classList.add("aw-link-active");
+
 	let currentHash = "";
 	const updateHash = () => {
 		document.querySelectorAll(".anchor_tags").forEach((anchor) => {
