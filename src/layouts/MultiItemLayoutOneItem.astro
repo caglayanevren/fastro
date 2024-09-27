@@ -30,12 +30,12 @@ const { oneItemTitle, oneItemSubTitle, sliderImages, awarded } = Astro.props;
 
 {
 	oneItemSubTitle && (
-		<div class="my-4 grid grid-cols-1 gap-4 lg:my-8 lg:grid-cols-2 lg:gap-8">
-			<div>
+		<div class="my-4 grid grid-cols-1 gap-4 lg:my-8 lg:grid-cols-12 lg:gap-8">
+			<div class="lg:col-start-1 lg:col-end-5">
 				<h2 class="mb-8 mt-0 font-zilla text-5xl/tight font-light">{oneItemSubTitle}</h2>
 				{awarded && <Awardimage alt={oneItemSubTitle} />}
 			</div>
-			<div class="prose prose-p:mb-4">
+			<div class="prose prose-p:mb-4 lg:col-start-6 lg:col-end-13">
 				<slot />
 			</div>
 		</div>
