@@ -1,0 +1,40 @@
+---
+import { getCollection } from "astro:content";
+import type { ContentEntryMap } from "astro:content";
+
+interface Props {
+	collection: string;
+}
+
+const { collection } = Astro.props;
+
+if (collection == undefined) {
+	throw new Error("collection name is required");
+}
+
+const posts = await getCollection(collection as keyof ContentEntryMap);
+
+const currentPostIndex = posts.findIndex((post) => post.slug === Astro.params.slug);
+const previousPost = currentPostIndex + 1 === posts.length ? undefined : posts[currentPostIndex + 1];
+const nextPost = currentPostIndex === 0 ? undefined : posts[currentPostIndex - 1];
+
+/* TODO */
+/* Bu component daha sonra Single ve MultiItem Layout'lara eklenecek */
+---
+
+{
+	(previousPost || nextPost) && (
+		<nav>
+			{previousPost && (
+				<p>
+					Previous Post: <a href={`/${collection}/${previousPost.slug}/`}>{previousPost.data.title}</a>
+				</p>
+			)}
+			{nextPost && (
+				<p>
+					Next Post: <a href={`/${collection}/${nextPost.slug}/`}>{nextPost.data.title}</a>
+				</p>
+			)}
+		</nav>
+	)
+}
