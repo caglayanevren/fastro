@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import Awardimage from "~components/Awardimage.astro";
 import Swiper from "~components/swiper/swiper.astro";
+import TitleWithLine from "~components/TitleWithLine.astro";
 
 type Props = {
 	oneItemTitle: string;
@@ -13,9 +14,7 @@ type Props = {
 const { oneItemTitle, oneItemSubTitle, sliderImages, awarded } = Astro.props;
 ---
 
-<h3 class="relative my-[20px] text-base font-light after:absolute after:left-0 after:top-2/4 after:z-0 after:-mt-[1px] after:h-[1px] after:w-full after:bg-[#e1e8ed] after:content-['']">
-	<span class="relative z-10 bg-white pr-[1.5rem]">{oneItemTitle}</span>
-</h3>
+<TitleWithLine title={oneItemTitle} />
 
 {
 	sliderImages.length == 1 ? (
@@ -31,7 +30,7 @@ const { oneItemTitle, oneItemSubTitle, sliderImages, awarded } = Astro.props;
 {
 	oneItemSubTitle && (
 		<div class="my-4 grid grid-cols-1 gap-4 lg:my-8 lg:grid-cols-12 lg:gap-8">
-			<div class="lg:col-start-1 lg:col-end-5">
+			<div class="lg:col-start-1 lg:col-end-6">
 				<h2 class="mb-8 mt-0 font-zilla text-5xl/tight font-light">{oneItemSubTitle}</h2>
 				{awarded && <Awardimage alt={oneItemSubTitle} />}
 			</div>
