@@ -262,8 +262,6 @@ const seoImage = "/og/iletisim-og.png";
 	}
 	initMap();
 	document.getElementById("open-map").addEventListener("click", function (e) {
-		console.log("🚀 ~ initMap ~ marker:", marker);
-		console.log("🚀 ~ initMap ~ marker:", marker);
 		e.preventDefault();
 		this.closest(".map-section").classList.add("open");
 		map.mapTypes.set(map_name, customMapType2);
