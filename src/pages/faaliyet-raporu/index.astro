@@ -4,11 +4,12 @@ import ArticleTitle from "~components/articleTitle.astro";
 import HoverItem from "~components/HoverItem.astro";
 import MoreInfo from "~components/MoreInfo.astro";
 import Layout from "~layouts/Layout.astro";
+import { FinarExperienceYear } from "~config";
 
 const allFR = await getCollection("faaliyet-raporu");
 
 const TITLE = "Faaliyet Raporu";
-const DESCRIPTION = `Kurumsal raporlama alanında ${new Date().getFullYear() - new Date("1994").getFullYear()} yıllık bir deneyime sahibiz. Uzun süredir birlikte çalışan işinin ehli geniş kadromuzla 2021&nbsp;yılında BIST&nbsp;30’da 10, BIST&nbsp;50’de ise 13&nbsp;şirkete faaliyet raporu alanında hizmet&nbsp;verdik.`;
+const DESCRIPTION = `Kurumsal raporlama alanında ${FinarExperienceYear} yıllık bir deneyime sahibiz. Uzun süredir birlikte çalışan işinin ehli geniş kadromuzla 2021&nbsp;yılında BIST&nbsp;30’da 10, BIST&nbsp;50’de ise 13&nbsp;şirkete faaliyet raporu alanında hizmet&nbsp;verdik.`;
 const MOREINFO = `<p>Yüzlerce sayfaya sığmayan kurum faaliyetlerini bir çırpıda hedef kitlenize anlatacak çözümler yaratıyoruz.</p>
     <p>Kurumlar saydamlaştıkça, raporlama yapılan konular da artıyor, gelişiyor. Biz iletişimciler artık daha zor bir problemle karşı karşıyayız: İçerik olarak bu kadar kapsamlı raporlarda, okurun ilgisini nasıl koruyacağız?</p>
     <p>Yıllık raporlar, iş dünyasında yer alanların yanı sıra bu alanda uzman olmayan ve yeterli finans bilgisi bulunmayan kişilere de bilgi verecek biçimde, olabildiğince yalın bir dille kaleme alınmalıdır. Finar olarak bu sorunu, yaratıcılığımızı ateşleyen bir meydan okuma olarak görüyoruz.</p>
