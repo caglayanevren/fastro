@@ -1,0 +1,28 @@
+---
+import Layout from "~layouts/Layout.astro";
+import ArticleTitle from "~components/articleTitle.astro";
+//import TitleWithLine from "~components/TitleWithLine.astro";
+//import {DAHA_FAZLA_BILGI} from "~config";
+//import chevDown from "~images/chevron-down-light.svg?raw";
+import MoreInfo from "~components/MoreInfo.astro";
+
+const MOREINFO = `
+<div class="break-inside-avoid">
+<p class="text-mavi mb-0">Sürdürülebilir işletme nedir?</p>
+<p>Sürdürülebilir işletmeler, tüm paydaşları için kâr maksimizasyonu sağlarken topluma ve çevreye olan olumsuz etkileri minimize eder. Sürdürülebilirlik stratejisi eşliğinde yön verdikleri iş modelleri ile uzun vadeli değer yaratır.</p>
+</div>
+<div class="break-inside-avoid">
+<p class="text-mavi mb-0">Sürdürülebilirlik işletmeniz için neden önemli?</p>
+<p>Sürdürülebilirlik, kurumsal hayatın önemli bir parçası haline geldi. “Bugün” sürdürülebilirliğe yatırım yapan şirketler, geleceğin lider şirketleri olacak. Sürdürülebilirlik işletmenize; faaliyetlerinde daha verimli olma, topluma ve çevreye fayda sağlama ve tüm paydaş evreni için değer maksimizasyonu imkânı sağlıyor. Sürdürülebilirlik stratejisini doğru kurgulayan ve bunu iş ve üretim süreçlerine uygulayan şirketler, gelişmiş ülke pazarlarına daha kolay erişim sağlarken, uygun maliyetli ve uzun vadeli finansman olanaklarına da kavuşabiliyor.</p>
+</div>
+<div class="break-inside-avoid">
+<p class="text-mavi mb-0">Neden Finar?</p>
+<p>27 yıllık kurumsal iletişim tecrübemiz ışığında yürüttüğümüz sürdürülebilirlik danışmanlığı hizmetimizle, geleceğinizi birlikte dönüştürüyor ve sizlere sürdürülebilir bir bakış açısı kazandırıyoruz. Uçtan uca sürdürülebilirlik rehberliği ile işletmeniz için bir yol haritası çıkarıyor, sürdürülebilirlik yolculuğunuzu tasarlıyoruz. “Kazan-kazan” modeline dayanan sürdürülebilirlik yatırımları ile şirket imajınızı güçlendirip operasyonel verimliliğinizi artırırken, tüm paydaşlarınızla uzun vadeli bir değer ilişkisi kurmanıza yardımcı oluyoruz.</p>
+</div>
+`;
+---
+
+<Layout title="Sürdürülebilirlik Danışmanlığı">
+	<ArticleTitle title="Sürdürülebilirlik Danışmanlığı" spot="Birlikte geleceğinizi dönüştürüyoruz." />
+	<MoreInfo text={MOREINFO} />
+</Layout>

@@ -1,0 +1,70 @@
+---
+import Layout from "~layouts/Layout.astro";
+import ArticleTitle from "~components/articleTitle.astro";
+import { Image } from "astro:assets";
+
+import mobiluygulama from "~images/yatirimci-iliskileri/mobil-uygulama.png";
+import yatirimcisunumlari from "~images/yatirimci-iliskileri/yatirimci-sunumlari.png";
+import faaliyetraporu from "~images/yatirimci-iliskileri/faaliyet-raporu.png";
+import surdurulebilirlikraporu from "~images/yatirimci-iliskileri/surdurulebilirlik-raporu.png";
+
+const pagetitle = "Yatırımcı İlişkileri";
+const pagespot = "Finar olarak, 27 yıldır yatırımcı ilişkileri için içerikler üretiyor, tasarlıyor ve hayata geçiriyoruz. Faaliyet raporu, sürdürülebilirlik raporu, entegre rapor gibi kurumsal raporlama alanındaki anahtar teslim hizmetlerimizin yanı sıra, kolayca yapılıp yönetilebilen yatırımcı ilişkileri mobil uygulamaları, web siteleri ve yatırımcı sunumları da müşterilerimize sunduğumuz hizmetler arasında.";
+
+interface yatirimciIliskileriItem {
+	image: ImageMetadata;
+	title: string;
+	subtitle?: string;
+	text: string;
+}
+
+const yatirimciIliskileriItems: yatirimciIliskileriItem[] = [
+	{
+		image: mobiluygulama,
+		title: "Yatırımcı İlişkileri Mobil Uygulaması",
+		subtitle: "Tamamen sizin kontrolünüzde bir mobil uygulamanız olsun ister misiniz? Yanıtınız evet ise bizimle hemen temas kurun.",
+		text: "Finar’ın yatırımcı ilişkileri alanındaki 27 yıllık deneyimi ile %100 Türk mühendisler tarafından geliştirilen yazılımımız sayesinde, iki hafta içinde Yatırımcı İlişkileri Mobil Uygulamanızı yayına hazır hale getirebiliriz. “IT free” olarak tamamen sizin kontrolünüzde kalacak mobil uygulamanız ile, tüm içerikleri online yönetebilir, hissedarlarınız, yatırımcılarınız ve analistlerle her zaman ve her yerden daima temasta kalabilirsiniz.<br><br>Koç Holding, İş Yatırım, Anadolu Efes, Arçelik, Ford Otosan ve Albaraka yatırımcı ilişkileri bölümleri için geliştirdiğimiz mobil uygulamaları incelemek için lütfen <a href='/yatirimci-iliskileri-mobil-uygulamasi/' class='text-mavi'>buraya</a> tıklayınız.",
+	},
+	{
+		image: yatirimcisunumlari,
+		title: "Yatırımcı Sunumları",
+		text: "Çeyrek ya da yıl sonu sonuçları ne kadar iyi olursa olsun, bu sonuçları ve performansınızı iyi anlatamadığınızda, hedef kitlenizde beklediğiniz etkiyi yaratamıyorsunuz. Finar olarak, şirketinizi ve hikayenizi dinliyor, sunumlarınızı inceliyor ve bir “asansör konuşması” yaklaşımı ile sunumlarınızı yeniden ele alıyoruz. Daha kısa, çekici ve etkili hale getiriyoruz.<br><br>Daha fazla bilgi almak ve yaptığımız işleri görmek için <a href='/yatirimci-sunumlari/' class='text-mavi'>Yatırımcı Sunumları</a> sayfamızı ziyaret edebilirsiniz.",
+	},
+	{
+		image: faaliyetraporu,
+		title: "Faaliyet Raporu",
+		text: "Finar olarak, “Faaliyet raporu nedir”, “Bir faaliyet raporu nasıl hazırlanır”, “İyi bir faaliyet raporu nasıl olmalı” sorularına en iyi ve doğru yanıtları 24 yıldır vermeye çalışıyoruz. Türkiye’nin halka açık en büyük şirketleri için ürettiğimiz 2 bine yakın faaliyet raporu ise bunun en güzel kanıtıdır. Bu nedenle BIST 30’daki şirketlerin yarısı bizimle düzenli olarak çalışmaktadır.<br><br>Daha fazla bilgi almak ve yaptığımız işleri görmek için <a href='/faaliyet-raporu/' class='text-mavi'>faaliyet raporu</a> sayfamızı ziyaret edebilirsiniz.",
+	},
+	{
+		image: surdurulebilirlikraporu,
+		title: "Sürdürülebilirlik Raporu",
+		text: "Deneyimli kadromuzla, yatırımcılar için en önemli sorulardan biri olan, “Yarın da varlığınızı ve kârlılığınızı sürdürecek misiniz” sorusuna doğru ve güçlü yanıtlar veren sürdürülebilirlik raporları üretiyoruz. Bu hizmeti size, GRI (Küresel Raporlama Girişimi)’nin 4. nesil çerçevesine uygun olarak “temel” ya da “kapsamlı” düzeyde, sürdürülebilirlik danışmanlığı dahil olarak sunabiliriz.<br><br>Daha fazla bilgi almak ve yaptığımız işleri görmek için <a href='/surdurulebilirlik-raporu/' class='text-mavi'>sürdürülebilirlik raporu</a> sayfamızı ziyaret edebilirsiniz.",
+	},
+];
+---
+
+<Layout title={pagetitle}>
+	<ArticleTitle title={pagetitle} spot={pagespot} />
+	<div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
+		{
+			yatirimciIliskileriItems.map((yatirimciIliskileriItem) => {
+				return (
+					<div class="w-full">
+						<Image src={yatirimciIliskileriItem.image} class="mb-0" alt={yatirimciIliskileriItem.title} />
+						<p class="mt-6 font-zilla text-4xl">
+							<Fragment set:html={yatirimciIliskileriItem.title} />
+						</p>
+						{yatirimciIliskileriItem.subtitle && (
+							<p class="mt-6 text-xl font-bold">
+								<Fragment set:html={yatirimciIliskileriItem.subtitle} />
+							</p>
+						)}
+						<p class="mt-6 text-xl">
+							<Fragment set:html={yatirimciIliskileriItem.text} />
+						</p>
+					</div>
+				);
+			})
+		}
+	</div>
+</Layout>

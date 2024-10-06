@@ -6,10 +6,10 @@ import "swiper/css/pagination";
 
 type Props = {
 	swiperimages: ImageMetadata[];
-	oneItemTitle: string;
+	swiperImageAlt: string;
 };
 
-const { swiperimages, oneItemTitle } = Astro.props;
+const { swiperimages, swiperImageAlt } = Astro.props;
 ---
 
 <div class="swiper mainswiper">
@@ -17,7 +17,7 @@ const { swiperimages, oneItemTitle } = Astro.props;
 		{
 			swiperimages.map((swiperimage, index) => (
 				<div class="swiper-slide">
-					<Image src={swiperimage} class="my-0" loading="lazy" alt={`${oneItemTitle} - ${index + 1}`} widths={[544, 736, 992, 1248]} sizes={`(max-width: 575.98px) 100vw, (max-width: 767.98px) 544w, (max-width: 1023.98px) 736w, (max-width: 1279.98px) 992w, (min-width: 1280px) 1248w`} />
+					<Image src={swiperimage} class="my-0" loading="lazy" alt={`${swiperImageAlt} - ${index + 1}`} widths={[544, 736, 992, 1248]} sizes={`(max-width: 575.98px) 100vw, (max-width: 767.98px) 544w, (max-width: 1023.98px) 736w, (max-width: 1279.98px) 992w, (min-width: 1280px) 1248w`} />
 					<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 				</div>
 			))

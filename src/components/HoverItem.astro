@@ -2,13 +2,13 @@
 import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
 
-type Props = {
+interface Props {
 	slug: string;
 	title: string;
 	thumbnail: ImageMetadata;
 	thumbWidth: number;
 	thumbHeight: number;
-};
+}
 const { slug, title, thumbnail, thumbWidth, thumbHeight } = Astro.props;
 ---
 
@@ -17,7 +17,7 @@ const { slug, title, thumbnail, thumbWidth, thumbHeight } = Astro.props;
 	<a href={`${slug}/`}>
 		<div class="w-100 h-100 aspect-square items-center bg-white/65 p-[20px] opacity-0 backdrop-blur-lg transition-all hover:opacity-100 xl:p-[30px]">
 			<div class="title relative pb-4 uppercase after:absolute after:bottom-0 after:left-0 after:block after:h-[2px] after:w-1/6 after:bg-mavi after:content-['']">
-				{title}
+				<Fragment set:html={title} />
 			</div>
 		</div>
 	</a>

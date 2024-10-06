@@ -1,7 +1,8 @@
 ---
-import CollectionCategory from "~components/collectionCategory.astro";
-import CollectionTitle from "~components/collectionTitle.astro";
 import Layout from "~layouts/Layout.astro";
+import CollectionName from "~components/collectionName.astro";
+import CollectionItemTitle from "~components/collectionItemTitle.astro";
+import CollectionItemSpot from "~components/collectionItemSpot.astro";
 
 type Props = {
 	title: string;
@@ -16,14 +17,13 @@ const { title, description, category, collection, spot, slug } = Astro.props;
 ---
 
 <Layout title={title} description={description} seoImage={`${import.meta.env.SITE}${collection}/${slug}/${slug}-og.png`}>
-	<CollectionCategory category={category} collection={collection} />
-	<CollectionTitle title={title} />
-	{
-		spot && (
-			<h2 class="mb-0 mt-0 w-full pb-16 pt-3 font-zilla text-4xl lg:w-10/12">
-				<Fragment set:html={spot} />
-			</h2>
-		)
-	}
+	<CollectionName category={category} collection={collection} />
+	<CollectionItemTitle collectionItemTitle={title} />
+	{spot && <CollectionItemSpot collectionItemSpot={spot} />}
 	<slot />
 </Layout>
+{
+	/* <h2 class="mb-0 mt-0 w-full pb-16 pt-3 font-zilla text-4xl lg:w-10/12">
+		<Fragment set:html={spot} />
+	</h2> */
+}

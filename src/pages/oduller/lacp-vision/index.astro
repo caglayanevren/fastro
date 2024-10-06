@@ -1,7 +1,7 @@
 ---
 import Layout from "~layouts/Layout.astro";
 import { getCollection } from "astro:content";
-import CollectionCategory from "~components/collectionCategory.astro";
+import CollectionName from "~components/collectionName.astro";
 import TitleWithLine from "~components/TitleWithLine.astro";
 import ArticleTitle from "~components/articleTitle.astro";
 
@@ -12,7 +12,7 @@ const allLACPVisions = await getCollection("lacp-vision");
 ---
 
 <Layout title={title} seoImage={seoImage}>
-	<CollectionCategory collection="oduller" category="ÖDÜLLER" />
+	<CollectionName collection="oduller" category="ÖDÜLLER" />
 	<ArticleTitle title={title} spot="" />
 	<TitleWithLine title={title.toUpperCase()} />
 	<div class="flex" id="lacpvision">

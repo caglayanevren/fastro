@@ -4,11 +4,11 @@ import type { ImageMetadata } from "astro";
 
 type Props = {
 	src: ImageMetadata;
-	alt?: string;
+	coverImageAlt?: string;
 	loading?: "eager" | "lazy" | null | undefined;
 };
 
-const { src, alt = "", loading = "eager" } = Astro.props;
+const { src, coverImageAlt = "", loading = "eager" } = Astro.props;
 ---
 
-<Picture loading={loading} src={src} alt={alt} class="mb-8 w-full" widths={[640, 768, 1024, src.width]} formats={["webp", "jpg"]} sizes={`(max-width: 640px) 608px, (max-width: 768px) 736px, (max-width: 1024px) 992px, (max-width: 1280px) 1248px, (min-width: 1280px) ${src.width}px`} />
+<Picture loading={loading} src={src} alt={coverImageAlt} class="mb-8 w-full" widths={[640, 768, 1024, src.width]} formats={["webp", "jpg"]} sizes={`(max-width: 640px) 608px, (max-width: 768px) 736px, (max-width: 1024px) 992px, (max-width: 1280px) 1248px, (min-width: 1280px) ${src.width}px`} />

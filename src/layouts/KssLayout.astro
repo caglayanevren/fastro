@@ -1,0 +1,47 @@
+---
+import { Image } from "astro:assets";
+import Layout from "~layouts/Layout.astro";
+import Swiper from "~components/swiper/swiper.astro";
+
+type Props = {
+	title?: string;
+	subtitle?: string;
+	description: string;
+	category?: string;
+	collection: string;
+	spot: string;
+	awarded?: boolean;
+	coverImage?: ImageMetadata;
+	sliderImages?: ImageMetadata[];
+	otherImages?: ImageMetadata[];
+	slug: string;
+};
+
+const { title = "", subtitle, description, category, collection, spot, awarded = false, coverImage, otherImages, sliderImages, slug } = Astro.props;
+
+import SingleItemCoverImage from "~components/SingleItemCoverImage.astro";
+import Awardimage from "~components/Awardimage.astro";
+import CollectionName from "~components/collectionName.astro";
+import CollectionItemTitle from "~components/collectionItemTitle.astro";
+import TitleWithLine from "~components/TitleWithLine.astro";
+---
+
+<Layout title={title} description={description} seoImage={`${import.meta.env.SITE}${collection}/${slug}/${slug}-og.png`}>
+	{category && <CollectionName category={category} collection={collection} />}
+	{title === spot ? null : title && <CollectionItemTitle collectionItemTitle={title} />}
+	{subtitle && <TitleWithLine title={subtitle} />}
+
+	{coverImage ? <SingleItemCoverImage src={coverImage} coverImageAlt={title} /> : sliderImages && <Swiper swiperImageAlt={spot} swiperimages={sliderImages} />}
+
+	<div class="my-4 grid grid-cols-1 gap-4 lg:my-8 lg:grid-cols-12 lg:gap-8">
+		<div class="lg:col-start-1 lg:col-end-6">
+			<h2 class="mb-8 mt-0 font-zilla text-5xl/tight font-light"><Fragment set:html={spot} /></h2>
+			{awarded && <Awardimage alt={title} />}
+		</div>
+		<div class="prose prose-p:mb-4 lg:col-start-6 lg:col-end-13">
+			<slot />
+		</div>
+	</div>
+
+	{otherImages && otherImages.map((image) => <Image src={image} alt={title} class="my-4 w-full" widths={[544, 736, 992, 1248]} sizes={`(max-width: 575.98px) 100vw, (max-width: 767.98px) 544w, (max-width: 1023.98px) 736w, (max-width: 1279.98px) 992w, (min-width: 1280px) 1248w`} />)}
+</Layout>

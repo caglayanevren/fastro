@@ -6,7 +6,7 @@ category: Entegre Faaliyet Raporu
 thumbnail: ./2022_SEKERBANK_EFR_0_Thumbnail.png
 awarded: false
 coverImage: "./2022_SEKERBANK_kapak_renkli.png"
-otherImages: ["./2022_SEKERBANK_kapak.png", "./2022_SEKERBANK_1.png", "./2022_SEKERBANK_2.png", "./2022_SEKERBANK_3.png"]
+singleItemSpreadImages: ["./2022_SEKERBANK_kapak.png", "./2022_SEKERBANK_1.png", "./2022_SEKERBANK_2.png", "./2022_SEKERBANK_3.png"]
 ---
 
 Türkiye’nin dört bir yanında nesillerdir çiftçi, esnaf ve KOBİ müşterilerine destek veren Şekerbank, "Anadolu Bankacılığı" misyonunu "sürdürülebilir bankacılık" perspektifinde geliştirerek bu alanda Türk bankacılık sektöründe birçok ilke imza atıyor.

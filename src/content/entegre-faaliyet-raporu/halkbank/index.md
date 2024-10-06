@@ -6,7 +6,7 @@ category: Entegre Faaliyet Raporu
 thumbnail: ./2022_HALKBANK_EFR_0_Thumbnail.png
 awarded: false
 coverImage: "./2022_HALKBANK_kapak_renkli.png"
-otherImages: ["./2022_HALKBANK_kapak.png", "./2022_HALKBANK_1.png", "./2022_HALKBANK_2.png", "./2022_HALKBANK_3.png"]
+singleItemSpreadImages: ["./2022_HALKBANK_kapak.png", "./2022_HALKBANK_1.png", "./2022_HALKBANK_2.png", "./2022_HALKBANK_3.png"]
 ---
 
 Türkiye, tarih sahnesinde oldukça genç bir Cumhuriyetken 1. Dünya Savaşı, Kurtuluş Savaşı ve 1929 Dünya Ekonomik Buhranı gibi büyük tarihi mücadeleleri art arda göğüsledi. Özellikle 1929 Dünya Ekonomik Buhranı; ülkemizi mal darlığı, hayat pahalılığı ve yüksek faiz baskısı altında ağır ekonomik şartların yaşandığı bir ortama sürükledi. Bu zorlu dönemde;kalıcı bir ekonomik kalkınma, sosyal denge, toplumsal barışın korunması için uygun koşullarla esnaf, sanatkâr ve küçük meslek sahibine kaynak aktarmak, sermaye birikimini başlatmak amacıyla Mustafa Kemal Atatürk önderliğinde Türkiye Halk Bankası kuruldu, kurulduğu günden itibaren ‘halkın bankası’ oldu.

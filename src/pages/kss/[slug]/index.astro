@@ -1,0 +1,19 @@
+---
+import { getCollection } from "astro:content";
+import KssLayout from "~layouts/KssLayout.astro";
+
+export async function getStaticPaths() {
+	const allFR = await getCollection("kss");
+	return allFR.map((entry) => ({
+		params: { slug: entry.slug },
+		props: { entry },
+	}));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<KssLayout title={entry.data.title} subtitle={entry.data.subtitle} slug={entry.slug} description={entry.data.spot} collection={entry.collection} spot={entry.data.spot} category={entry.data.category} awarded={entry.data.awarded} coverImage={entry.data.coverImage} otherImages={entry.data.otherImages} sliderImages={entry.data.sliderImages}>
+	<Content />
+</KssLayout>

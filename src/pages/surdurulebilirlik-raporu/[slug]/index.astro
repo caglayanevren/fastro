@@ -1,0 +1,30 @@
+---
+import { getCollection } from "astro:content";
+import SingleItemLayout from "~layouts/SingleItemLayout.astro";
+import MultiItemLayout from "~layouts/MultiItemLayout.astro";
+
+export async function getStaticPaths() {
+	const allFR = await getCollection("surdurulebilirlik-raporu");
+	return allFR.map((entry) => ({
+		params: { slug: entry.slug },
+		props: { entry, itemType: entry.data.type },
+	}));
+}
+
+const { entry, itemType } = Astro.props;
+const { Content } = await entry.render();
+---
+
+{
+	itemType == "singleItem" ? (
+		<SingleItemLayout title={entry.data.title} slug={entry.slug} description={entry.data.spot} collection={entry.collection} spot={entry.data.spot} category={entry.data.category} awarded={entry.data.awarded} coverImage={entry.data.coverImage} singleItemSpreadImages={entry.data.singleItemSpreadImages}>
+			<Content />
+		</SingleItemLayout>
+	) : itemType == "multiItem" ? (
+		<MultiItemLayout title={entry.data.title} slug={entry.slug} description={entry.data.spot} collection={entry.collection} spot={entry.data.spot} category={entry.data.category}>
+			<Content />
+		</MultiItemLayout>
+	) : (
+		(Astro.response.status = 404) && (Astro.response.statusText = "neither 'singleItem' nor 'multiItem'")
+	)
+}

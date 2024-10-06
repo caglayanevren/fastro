@@ -122,7 +122,7 @@ const datas: data[] = [
 									<div class="odul-photo">
 										{item.link ? (
 											<a href={`/oduller/${item.link}/`} aria-label={item.alt}>
-												<SingleItemCoverImage src={item.image} alt={item.alt} loading={item.loading} />
+												<SingleItemCoverImage src={item.image} coverImageAlt={item.alt} loading={item.loading} />
 												<div class="info">
 													<span class="absolute bottom-[30px] left-[30px] hidden h-[14px] w-[24px] text-mavi md:block">
 														<Fragment set:html={arrowright} />
@@ -130,7 +130,7 @@ const datas: data[] = [
 												</div>
 											</a>
 										) : (
-											<SingleItemCoverImage src={item.image} alt={item.alt} loading={item.loading} />
+											<SingleItemCoverImage src={item.image} coverImageAlt={item.alt} loading={item.loading} />
 										)}
 									</div>
 								);
@@ -147,7 +147,7 @@ const datas: data[] = [
 			<div class="colapse-content-inside">
 				<div class="odul-photo grid grid-cols-1">
 					<a href="/oduller/arcden-buyuk-odulleri-yine-turkiyeye-getirdik/">
-						<SingleItemCoverImage src={arc2018} loading="lazy" alt="ARC'den büyük ödülleri yine Türkiye'ye getirdik." />
+						<SingleItemCoverImage src={arc2018} loading="lazy" coverImageAlt="ARC'den büyük ödülleri yine Türkiye'ye getirdik." />
 						<div class="absolute top-0 h-[calc(100%-0.5em)] w-full p-[.5em] text-[20px] sm:text-[30px] md:text-[40px] lg:text-[64px]">
 							<p class="big-title mb-[.5em] font-zilla leading-tight text-white"><strong>ARC'den</strong><br />büyük ödülleri<br />yine Türkiye'ye<br />getirdik.</p>
 							<span class="absolute bottom-[30px] left-[30px] hidden h-[14px] w-[24px] text-white md:block"><Fragment set:html={arrowright} /></span>
@@ -181,7 +181,7 @@ const datas: data[] = [
 			<div class="colapse-content-inside">
 				<div class="odul-photo">
 					<a href="/oduller/dunyanin-en-iyisi/">
-						<SingleItemCoverImage src={odul2017} alt='Finar, "Dünyanın en iyi faaliyet raporu ajansı" seçildi.' loading="lazy" />
+						<SingleItemCoverImage src={odul2017} coverImageAlt='Finar, "Dünyanın en iyi faaliyet raporu ajansı" seçildi.' loading="lazy" />
 						<div class="info text-[20px] sm:text-[30px] md:text-[40px] lg:text-[64px]">
 							<p class="big-title mb-[.5em] font-zilla leading-tight text-black"><strong>Finar</strong><br />ARC jurisi tarafından<br />dünyanın en iyi raporlama<br />ajansı seçildi.</p>
 							<Image class="h-auto w-[30px] md:w-[60px] lg:w-[100px]" src={arclogo} alt="ARC Logo" />

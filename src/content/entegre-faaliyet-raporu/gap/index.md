@@ -6,6 +6,7 @@ category: Entegre Faaliyet Raporu
 thumbnail: ./2020_GAP_ENT_0_Thumbnail.jpg
 awarded: false
 coverImage: "./2020_GAP_ENT.jpg"
+singleItemSpreadImages: []
 ---
 
 Çalık Grubu vizyonuyla hareket eden ve tekstil sektörünün farklı alanlarında, önemli adımlar atmaya devam eden Gap Pazarlama, zor bir yılı başarılarla geride bırakmıştı.

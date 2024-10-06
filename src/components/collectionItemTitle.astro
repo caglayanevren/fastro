@@ -1,0 +1,9 @@
+---
+type Props = {
+	collectionItemTitle: string;
+};
+
+const { collectionItemTitle } = Astro.props;
+---
+
+<h1 class="my-12 text-balance font-zilla text-5xl"><Fragment set:html={collectionItemTitle} /></h1>

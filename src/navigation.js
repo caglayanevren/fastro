@@ -106,7 +106,7 @@ export const headerData = {
 				},
 				{
 					text: "ADV",
-					href: getPermalink("/faaliyet-raporu/adv-bbog/"),
+					href: getPermalink("/kss/adv-bbog/"),
 				},
 				{
 					text: "DİLİNİZDEN UTANMAYIN",

@@ -6,7 +6,7 @@ category: Faaliyet Raporu
 thumbnail: ./2012_AKFEN_0_Thumbnail.jpg
 awarded: true
 coverImage: "./2012_AKFEN_0.jpg"
-otherImages: ["./2012_AKFEN_1.jpg", "./2012_AKFEN_2.jpg", "./2012_AKFEN_3.jpg"]
+singleItemSpreadImages: ["./2012_AKFEN_1.jpg", "./2012_AKFEN_2.jpg", "./2012_AKFEN_3.jpg"]
 ---
 
 2012 yılı, Akfen Holding için parlak bir yıl olmuş, faaliyet gösterilen hemen hemen her alanda önemli başarılar kazanılmıştı. Bu üstün performansı, bu başarıya yakışacak bir faaliyet raporuyla anlatmamız gerekiyordu.

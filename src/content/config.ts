@@ -11,6 +11,37 @@ const FRCollection = defineCollection({
 			thumbnail: image(),
 			awarded: z.boolean(),
 			coverImage: image(),
+			singleItemSpreadImages: z.array(image()).optional(),
+		}),
+});
+
+const SRDCollection = defineCollection({
+	type: "content",
+	schema: ({ image }) =>
+		z.object({
+			title: z.string(),
+			spot: z.string(),
+			type: z.enum(["multiItem", "singleItem", "onlyThumbnail"]),
+			category: z.string(),
+			thumbnail: image(),
+			awarded: z.boolean(),
+			coverImage: image(),
+			singleItemSpreadImages: z.array(image()).optional(),
+		}),
+});
+
+const KSSCollection = defineCollection({
+	type: "content",
+	schema: ({ image }) =>
+		z.object({
+			title: z.string(),
+			subtitle: z.string().optional(),
+			spot: z.string(),
+			category: z.string().optional(),
+			thumbnail: image(),
+			awarded: z.boolean(),
+			coverImage: image().optional(),
+			sliderImages: z.array(image()).optional(),
 			otherImages: z.array(image()).optional(),
 		}),
 });
@@ -26,7 +57,7 @@ const EFRCollection = defineCollection({
 			thumbnail: image(),
 			awarded: z.boolean(),
 			coverImage: image(),
-			otherImages: z.array(image()).optional(),
+			singleItemSpreadImages: z.array(image()).optional(),
 		}),
 });
 
@@ -85,6 +116,8 @@ const CreativityAwardsCollection = defineCollection({
 export const collections = {
 	"faaliyet-raporu": FRCollection,
 	"entegre-faaliyet-raporu": EFRCollection,
+	"surdurulebilirlik-raporu": SRDCollection,
+	kss: KSSCollection,
 	oduller: OdulCollection,
 	"arc-awards": ARCAwardsCollection,
 	"galaxy-awards": GalaxyAwardsCollection,

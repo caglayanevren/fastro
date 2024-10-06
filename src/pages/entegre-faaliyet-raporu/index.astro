@@ -6,7 +6,7 @@ import Layout from "~layouts/Layout.astro";
 import { FinarExperienceYear } from "~config";
 import ArticleTitle from "~components/articleTitle.astro";
 
-const allFR = await getCollection("entegre-faaliyet-raporu");
+const allEFR = await getCollection("entegre-faaliyet-raporu");
 
 const TITLE = "Entegre Faaliyet Raporu";
 const DESCRIPTION = `“Geleneksel kurumsal raporlamaya yatırımcı bakış açısı getiriyoruz.”`;
@@ -31,6 +31,6 @@ const { title = TITLE, description = DESCRIPTION, moreinfotext = MOREINFO } = As
 	<ArticleTitle title={title} spot={description} />
 	<MoreInfo text={moreinfotext} />
 	<div class="grid auto-rows-max grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4 xl:gap-8">
-		{allFR.map((fr) => <HoverItem slug={fr.slug} title={fr.data.title} thumbnail={fr.data.thumbnail} thumbWidth={fr.data.thumbnail.width} thumbHeight={fr.data.thumbnail.height} />)}
+		{allEFR.map((efr) => <HoverItem slug={efr.slug} title={efr.data.title} thumbnail={efr.data.thumbnail} thumbWidth={efr.data.thumbnail.width} thumbHeight={efr.data.thumbnail.height} />)}
 	</div>
 </Layout>

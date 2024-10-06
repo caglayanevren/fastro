@@ -21,7 +21,7 @@ const { oneItemTitle, oneItemSubTitle, sliderImages, awarded } = Astro.props;
 		<Image loading="eager" src={sliderImages[0]} alt={oneItemTitle} class="my-4 w-full" widths={[544, 736, 992, 1248]} sizes={`(max-width: 575.98px) 100vw, (max-width: 767.98px) 544w, (max-width: 1023.98px) 736w, (max-width: 1279.98px) 992w, (min-width: 1280px) 1248w`} />
 	) : sliderImages.length > 1 ? (
 		//sliderImages.map((image) => <Image src={image} alt={oneItemTitle} class="w-full my-4" />)
-		<Swiper oneItemTitle={oneItemTitle} swiperimages={sliderImages} />
+		<Swiper swiperImageAlt={oneItemTitle} swiperimages={sliderImages} />
 	) : (
 		(Astro.response.status = 404) && (Astro.response.statusText = "neither 'singleImage' nor 'sliderImages', please check image imports")
 	)

@@ -6,7 +6,7 @@ category: Entegre Faaliyet Raporu
 thumbnail: ./2022_TSKB_EFR_0_Thumbnail.png
 awarded: false
 coverImage: "./2022_TSKB_kapak_renkli.png"
-otherImages: ["./2022_TSKB_kapak.png", "./2022_TSKB_1.png", "./2022_TSKB_2.png", "./2022_TSKB_3.png"]
+singleItemSpreadImages: ["./2022_TSKB_kapak.png", "./2022_TSKB_1.png", "./2022_TSKB_2.png", "./2022_TSKB_3.png"]
 ---
 
 Sürdürülebilir bankacılık modeliyle iklim ve çevre dostu yatırımlara ve kapsayıcı ekonomik büyümeye katkıda bulunan Türkiye Sınai ve Kalkınma Bankası (TSKB), dokunduğu her alanda fark yaratmaya devam ediyor.

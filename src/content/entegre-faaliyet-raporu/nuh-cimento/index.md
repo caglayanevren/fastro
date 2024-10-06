@@ -6,6 +6,7 @@ category: Entegre Faaliyet Raporu
 thumbnail: ./2019_NUH_0_Thumbnail.jpg
 awarded: false
 coverImage: "./2019_NUH_ENT.jpg"
+singleItemSpreadImages: []
 ---
 
 Ülkemiz ekonomisine üretimi ve yarattığı farklı değerlerle büyük katkılar sağlayan Nuh Çimento, 2019 yılını da rekorlarla kapatmıştı.
