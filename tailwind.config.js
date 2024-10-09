@@ -40,6 +40,9 @@ export default {
 			fontWeight: {
 				zilla: "400",
 			},
+			fontSize: {
+				52: "52px",
+			},
 			gridTemplateColumns: {
 				"3/6": "33.3% 66.6%",
 			},
