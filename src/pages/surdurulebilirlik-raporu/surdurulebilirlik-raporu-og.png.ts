@@ -3,7 +3,7 @@ import path from "path";
 import { ogpngConfig } from "~/config";
 import { ImageResponse } from "@vercel/og";
 
-const post = "Faaliyet Raporu";
+const post = "Sürdürülebilirlik Raporu";
 
 export async function GET() {
 	// using custom font files
