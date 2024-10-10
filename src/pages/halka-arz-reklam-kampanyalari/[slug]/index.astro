@@ -1,0 +1,19 @@
+---
+import { getCollection } from "astro:content";
+import HalkaArzLayout from "~layouts/HalkaArzLayout.astro";
+
+export async function getStaticPaths() {
+	const allFR = await getCollection("halka-arz-reklam-kampanyalari");
+	return allFR.map((entry) => ({
+		params: { slug: entry.slug },
+		props: { entry, itemType: entry.data.type },
+	}));
+}
+
+const { entry, itemType } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<HalkaArzLayout title={entry.data.title} slug={entry.slug} description={entry.data.spot} collection={entry.collection} spot={entry.data.spot} category={entry.data.category} awarded={entry.data.awarded} coverImage={entry.data.coverImage} singleItemSpreadImages={entry.data.singleItemSpreadImages}>
+	<Content />
+</HalkaArzLayout>

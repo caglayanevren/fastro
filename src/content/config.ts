@@ -45,6 +45,21 @@ const SRDCollection = defineCollection({
 		}),
 });
 
+const HARKCollection = defineCollection({
+	type: "content",
+	schema: ({ image }) =>
+		z.object({
+			title: z.string(),
+			spot: z.string(),
+			type: z.enum(["multiItem", "singleItem", "onlyThumbnail"]),
+			category: z.string(),
+			thumbnail: image(),
+			awarded: z.boolean(),
+			coverImage: image(),
+			singleItemSpreadImages: z.array(image()).optional(),
+		}),
+});
+
 const KSSCollection = defineCollection({
 	type: "content",
 	schema: ({ image }) =>
@@ -133,6 +148,7 @@ export const collections = {
 	"online-faaliyet-raporu": OFRCollection,
 	"entegre-faaliyet-raporu": EFRCollection,
 	"surdurulebilirlik-raporu": SRDCollection,
+	"halka-arz-reklam-kampanyalari": HARKCollection,
 	kss: KSSCollection,
 	oduller: OdulCollection,
 	"arc-awards": ARCAwardsCollection,
