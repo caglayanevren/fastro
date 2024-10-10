@@ -4,12 +4,20 @@ import chevDown from "~images/chevron-down-light.svg?raw";
 import TitleWithLine from "./TitleWithLine.astro";
 interface Props {
 	column?: 2 | 3;
+	subtitle?: string;
 	text: string;
 }
-const { text, column = 3 } = Astro.props;
+const { column = 3, subtitle, text } = Astro.props;
 ---
 
 <TitleWithLine title={DAHA_FAZLA_BILGI} icon={chevDown} />
+{
+	subtitle && (
+		<h6 class="mb-4 font-bold uppercase tracking-[1px]">
+			<Fragment set:html={subtitle} />
+		</h6>
+	)
+}
 <div class:list={["prose mb-6 columns-1 pb-6 tracking-[.1px] prose-p:mt-0 prose-p:break-inside-avoid prose-ul:mt-0 md:columns-2", { "lg:columns-3": column === 3 }]}>
 	<Fragment set:html={text} />
 </div>

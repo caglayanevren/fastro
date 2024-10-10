@@ -1,0 +1,50 @@
+---
+import { getCollection } from "astro:content";
+import ArticleTitle from "~components/articleTitle.astro";
+import HoverItem from "~components/HoverItem.astro";
+import MoreInfo from "~components/MoreInfo.astro";
+import Layout from "~layouts/Layout.astro";
+
+const allFR = await getCollection("online-faaliyet-raporu");
+
+const TITLE = "Online Faaliyet Raporu";
+const SUBTITLE = "Neden faaliyet raporunuzun çevrimiçi bir mikro sitesi olmalı?";
+const DESCRIPTION = "Faaliyet raporunuz için, duyarlı tasarım yaklaşımı ile akıllı telefon, tablet ve bilgisayarlardan özgün okuma deneyimi sunan, kolay erişilir etkileyici mikro siteler inşa ediyoruz.";
+const MOREINFO = `
+<div class="break-inside-avoid">
+	<p class="text-mavi mb-0">Çünkü, yenilikçi ve trendi bir okuma deneyimi sunar.</p>
+	<p>Çevrimiçi faaliyet raporu okura, basılı rapor estetiğinde üç boyutlu bir okuma deneyimi sunuyor. Dilerseniz
+		bir metni okura hem okutabilir, hem dinletebilir, hem de izletebilirsiniz. Rapor okuruna, dokunmatik ekran
+		kullanımı ve interaktif gezinme seçenekleriyle benzersiz ve yepyeni bir okuma deneyimi sunarsınız.</p>
+</div>
+<div class="break-inside-avoid">
+	<p class="text-mavi mb-0">Çünkü, raporunuzu dünyanın her yerinden çok geniş bir kesime ulaştırır.</p>
+	<p>Cihaza duyarlı tasarlanmış çevrimiçi faaliyet raporunuzu, Android ve iOS işletim sistemi kullanan tüm mobil
+	cihazlar aracılığıyla erişilebilir hale getirerek yüksek değerdeki ve potansiyel yatırımcılar ile diğer tüm
+	paydaşlarınızın ilgisini çekebilir, onlara ulaşabilirsiniz.</p>
+</div>
+<div class="break-inside-avoid">
+	<p class="text-mavi mb-0">Çünkü, faaliyet raporunuzu, kurumsal web siteniz, yatırımcı ilişkileri web siteniz,
+	ürünleriniz ve çevrimiçi medyadaki tüm sosyal ağınızla kolayca entegre edebilirsiniz.</p>
+	<p>Çevrimiçi faaliyet raporunuzu, tüm diğer online kurumsal hizmet, ürün ve organizasyonunuzla entegre
+	edebilirsiniz. Facebook, Twitter, Linkedin gibi tüm sosyal ağlarla anlık interaktivite sağlanabilir,
+	kurumunuzla ilgili güncel haber ve duyuruları rapor okuruyla hızlı ve kolayca buluşturabilirsiniz.</p>
+</div>
+<div class="break-inside-avoid">
+	<p class="text-mavi mb-0">Çünkü, raporunuzla ilgilenenleri tanımanızı sağlar.</p>
+	<p>Raporun bir alt hizmeti olarak verilen "Analytics Service" ile içeriklerin okur hareketlerini izleyebilir,
+	hangi alanlarla daha çok ilgilendiği, dünyanın hangi bölgesinden daha çok okurunuz olduğu gibi temel bilgiler
+	hakkında rapor alabilirsiniz.</p>
+</div>
+`;
+
+const { title = TITLE, description = DESCRIPTION, moreinfotext = MOREINFO } = Astro.props;
+---
+
+<Layout title={title} description={description} seoImage="./online-faaliyet-raporu-og.png">
+	<ArticleTitle title={title} spot={description} />
+	<MoreInfo column={2} subtitle={SUBTITLE} text={moreinfotext} />
+	<div class="grid auto-rows-max grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4 xl:gap-8">
+		{allFR.map((fr) => <HoverItem slug={fr.slug} title={fr.data.title} thumbnail={fr.data.thumbnail} thumbWidth={fr.data.thumbnail.width} thumbHeight={fr.data.thumbnail.height} />)}
+	</div>
+</Layout>

@@ -9,16 +9,23 @@ type Props = {
 	oneItemSubTitle?: string;
 	sliderImages: ImageMetadata[];
 	awarded: boolean;
+	singleImageLink?: string;
 };
 
-const { oneItemTitle, oneItemSubTitle, sliderImages, awarded } = Astro.props;
+const { oneItemTitle, oneItemSubTitle, sliderImages, awarded, singleImageLink } = Astro.props;
 ---
 
 <TitleWithLine title={oneItemTitle} />
 
 {
 	sliderImages.length == 1 ? (
-		<Image loading="eager" src={sliderImages[0]} alt={oneItemTitle} class="my-4 w-full" widths={[544, 736, 992, 1248]} sizes={`(max-width: 575.98px) 100vw, (max-width: 767.98px) 544w, (max-width: 1023.98px) 736w, (max-width: 1279.98px) 992w, (min-width: 1280px) 1248w`} />
+		singleImageLink ? (
+			<a href={singleImageLink} aria-label={oneItemTitle} target="_blank">
+				<Image loading="eager" src={sliderImages[0]} alt={oneItemTitle} class="my-4 w-full" widths={[544, 736, 992, 1248]} sizes={`(max-width: 575.98px) 100vw, (max-width: 767.98px) 544w, (max-width: 1023.98px) 736w, (max-width: 1279.98px) 992w, (min-width: 1280px) 1248w`} />
+			</a>
+		) : (
+			<Image loading="eager" src={sliderImages[0]} alt={oneItemTitle} class="my-4 w-full" widths={[544, 736, 992, 1248]} sizes={`(max-width: 575.98px) 100vw, (max-width: 767.98px) 544w, (max-width: 1023.98px) 736w, (max-width: 1279.98px) 992w, (min-width: 1280px) 1248w`} />
+		)
 	) : sliderImages.length > 1 ? (
 		//sliderImages.map((image) => <Image src={image} alt={oneItemTitle} class="w-full my-4" />)
 		<Swiper swiperImageAlt={oneItemTitle} swiperimages={sliderImages} />

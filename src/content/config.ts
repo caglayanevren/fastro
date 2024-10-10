@@ -15,6 +15,21 @@ const FRCollection = defineCollection({
 		}),
 });
 
+const OFRCollection = defineCollection({
+	type: "content",
+	schema: ({ image }) =>
+		z.object({
+			title: z.string(),
+			spot: z.string(),
+			type: z.enum(["multiItem", "singleItem"]),
+			category: z.string(),
+			thumbnail: image(),
+			awarded: z.boolean(),
+			coverImage: image(),
+			singleItemSpreadImages: z.array(image()).optional(),
+		}),
+});
+
 const SRDCollection = defineCollection({
 	type: "content",
 	schema: ({ image }) =>
@@ -115,6 +130,7 @@ const CreativityAwardsCollection = defineCollection({
 
 export const collections = {
 	"faaliyet-raporu": FRCollection,
+	"online-faaliyet-raporu": OFRCollection,
 	"entegre-faaliyet-raporu": EFRCollection,
 	"surdurulebilirlik-raporu": SRDCollection,
 	kss: KSSCollection,
