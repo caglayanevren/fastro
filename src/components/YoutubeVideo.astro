@@ -1,0 +1,12 @@
+---
+type Props = {
+	id: string;
+	title: string;
+	classes: string;
+};
+const { id, title, classes } = Astro.props;
+---
+
+<div style="position:relative;" class={classes}>
+	<iframe class="aspect-video w-full bg-black" src=`https://www.youtube.com/embed/${id}` title={title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
