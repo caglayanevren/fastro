@@ -1,5 +1,5 @@
 ---
-title: ""
+title: ABD'den yine büyük ödüllerle dönüyoruz
 spot: ""
 category: Ödüller
 coverImage: ../../../images/oduller/2020/FNR_ARC_odul_web.jpg
