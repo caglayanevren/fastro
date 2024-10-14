@@ -10,7 +10,8 @@
 		"build": "astro check > astro-debug.log 2>&1 && astro build",
 		"check": "astro check > astro-debug.log 2>&1",
 		"lint": "prettier --write  \"**/*.{js,cjs,json,mjs,jsx,ts,tsx,md,mdx,astro}\" && eslint --fix \"src/**/*.{js,cjs,mjs,ts,jsx,tsx,astro}\"",
-		"preview": "astro preview"
+		"preview": "astro preview",
+		"test": "jest -c jest.config.cjs"
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.9.4",
@@ -25,9 +26,12 @@
 		"astro": "^4.16.2",
 		"astro-analytics": "^2.7.0",
 		"axios": "^1.7.7",
+		"jest": "^29.7.0",
+		"jest-puppeteer": "^10.1.2",
 		"js-yaml": "^4.1.0",
 		"limax": "^4.1.0",
 		"lodash.merge": "^4.6.2",
+		"puppeteer": "^23.5.3",
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1",
 		"react-toastify": "^10.0.6",
