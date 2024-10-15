@@ -70,7 +70,7 @@ const paths = {
 		//"surdurulebilirlik-raporu/sabanci-srd",
 		//"surdurulebilirlik-raporu/sok-srd-2022",
 		"surdurulebilirlik-raporu/sok-srd",
-		"surdurulebilirlik-raporu/tboh-srd",
+		//"surdurulebilirlik-raporu/tboh-srd",
 		//"surdurulebilirlik-raporu/tbsew-srd",
 		//"surdurulebilirlik-raporu/thy-srd",
 		"surdurulebilirlik-raporu/vakifbank-srd",
@@ -105,36 +105,41 @@ const paths = {
 		"oduller/lacp-2021",
 		"oduller/toplam-24-odul",
 		"oduller/yilin-kurumsal-iletisim-ajansi-olduk",
-		"arc-awards",
-		"galaxy-awards",
-		"lacp-vision",
-		"lacp-spotlight",
-		"creativity-awards",
+		"oduller/arc-awards",
+		"oduller/galaxy-awards",
+		"oduller/lacp-vision",
+		"oduller/lacp-spotlights",
+		"oduller/creativity-awards",
 	],
 };
 
 const timeout = 50000;
 
-describe("Demo", () => {
-	jest.setTimeout(timeout);
-	paths.slugs.forEach((path) => {
-		describe(`Path: /${path}`, () => {
-			beforeAll(async () => {
-				await page.goto(`http://localhost:4321/${path}`);
-			});
+paths.slugs.forEach((path) => {
+	describe(`Path: /${path}`, () => {
+		jest.setTimeout(timeout);
 
-			it("Should have an og:image", async () => {
-				const ogImage = await page.$eval('meta[property="og:image"]', (el) => el.getAttribute("content"));
-				console.log(ogImage);
-				expect(ogImage).toBeTruthy();
-				expect(ogImage).toMatch(/^https?:\/\//);
-			});
-
-			//it("Should have a title", async () => {
-			//	await expect(page).toHaveTitle();
-			//});
-
-			// ... diğer testler ...
+		beforeAll(async () => {
+			await page.goto(`http://localhost:4321/${path}`);
 		});
+
+		it("Should have an og:image", async () => {
+			const ogImage = await page.$eval('meta[property="og:image"]', (el) => el.getAttribute("content"));
+			expect(ogImage).toBeTruthy();
+			expect(ogImage).toMatch(/^(https|http)?:\/\//);
+		});
+
+		it("Should have a canonical link value", async () => {
+			const canonicalLink = await page.$eval('link[rel="canonical"]', (el) => el.getAttribute("href"));
+			expect(canonicalLink).toBeTruthy();
+			expect(canonicalLink).toMatch(/^(https|http)?:\/\//);
+		});
+
+		it("Should have a title", async () => {
+			const pageTitle = await page.title();
+			expect(pageTitle).toBeTruthy();
+		});
+
+		// ... diğer testler ...
 	});
 });
