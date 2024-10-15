@@ -97,9 +97,5 @@ const allLACPVisions = await getCollection("lacp-vision");
 		allLinks.forEach((link) => {
 			link.addEventListener("click", handleTabClick);
 		});
-
-		const currentHash = window.location.hash;
-		const activeLink = currentHash ? document.querySelector(`a[href="${currentHash}"]`) : document.querySelector("a.tablink");
-		handleTabClick({ target: activeLink });
 	});
 </script>

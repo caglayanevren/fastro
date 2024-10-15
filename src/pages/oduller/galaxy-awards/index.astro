@@ -97,9 +97,5 @@ const allGalaxyAwards = await getCollection("galaxy-awards");
 		allLinks.forEach((link) => {
 			link.addEventListener("click", handleTabClick);
 		});
-
-		const currentHash = window.location.hash;
-		const activeLink = currentHash ? document.querySelector(`a[href="${currentHash}"]`) : document.querySelector("a.tablink");
-		handleTabClick({ target: activeLink });
 	});
 </script>
