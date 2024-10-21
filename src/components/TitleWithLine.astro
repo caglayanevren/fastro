@@ -2,12 +2,19 @@
 type Props = {
 	title?: string;
 	icon?: string;
+	upper?: boolean;
 };
-const { title, icon } = Astro.props;
+const { title, icon, upper } = Astro.props;
 ---
 
 <h3 class="relative mb-[20px] text-base font-light after:absolute after:left-0 after:top-2/4 after:z-0 after:-mt-[1px] after:h-[1px] after:w-full after:bg-[#e1e8ed] after:content-['']">
-	{title && <span class="relative z-10 bg-white pr-[1.5rem] tracking-[1px]">{title}</span>}
+	{
+		title && (
+			<span class:list={[{ uppercase: upper }, "relative z-10 bg-white pr-[1.5rem] tracking-[1px]"]}>
+				<Fragment set:html={title} />
+			</span>
+		)
+	}
 	{!title && <span class="relative z-10 pr-[1.5rem] tracking-[1px]" />}
 	{
 		icon && (
