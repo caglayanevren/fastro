@@ -15,6 +15,35 @@ const FRCollection = defineCollection({
 		}),
 });
 
+const RCollection = defineCollection({
+	type: "content",
+	schema: ({ image }) =>
+		z.object({
+			title: z.string(),
+			spot: z.string(),
+			category: z.string(),
+			thumbnail: image(),
+			year: z.string().optional(),
+			coverImage: image().optional(),
+			singleItemSpreadImages: z.array(image()).optional(),
+		}),
+});
+
+const EFRCollection = defineCollection({
+	type: "content",
+	schema: ({ image }) =>
+		z.object({
+			title: z.string(),
+			spot: z.string(),
+			type: z.enum(["multiItem", "singleItem", "onlyThumbnail"]),
+			category: z.string(),
+			thumbnail: image(),
+			awarded: z.boolean(),
+			coverImage: image(),
+			singleItemSpreadImages: z.array(image()).optional(),
+		}),
+});
+
 const OFRCollection = defineCollection({
 	type: "content",
 	schema: ({ image }) =>
@@ -76,21 +105,6 @@ const KSSCollection = defineCollection({
 		}),
 });
 
-const EFRCollection = defineCollection({
-	type: "content",
-	schema: ({ image }) =>
-		z.object({
-			title: z.string(),
-			spot: z.string(),
-			type: z.enum(["multiItem", "singleItem"]),
-			category: z.string(),
-			thumbnail: image(),
-			awarded: z.boolean(),
-			coverImage: image(),
-			singleItemSpreadImages: z.array(image()).optional(),
-		}),
-});
-
 const OdulCollection = defineCollection({
 	type: "content",
 	schema: ({ image }) =>
@@ -148,6 +162,7 @@ export const collections = {
 	"online-faaliyet-raporu": OFRCollection,
 	"entegre-faaliyet-raporu": EFRCollection,
 	"surdurulebilirlik-raporu": SRDCollection,
+	reklam: RCollection,
 	"halka-arz-reklam-kampanyalari": HARKCollection,
 	kss: KSSCollection,
 	oduller: OdulCollection,

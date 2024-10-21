@@ -1,0 +1,53 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "~layouts/Layout.astro";
+import { Image } from "astro:assets";
+import SingleItemCoverImage from "~components/SingleItemCoverImage.astro";
+import TitleWithLine from "~components/TitleWithLine.astro";
+import CollectionName from "~components/collectionName.astro";
+import CollectionItemTitle from "~components/collectionItemTitle.astro";
+import Swiper from "~components/swiper/swiper.astro";
+import type { ImageMetadata } from "astro";
+
+export async function getStaticPaths() {
+	const allR = await getCollection("reklam");
+	return allR.map((entry) => ({
+		params: { slug: entry.slug },
+		props: { entry },
+	}));
+}
+
+const { entry } = Astro.props;
+const slug = entry.slug;
+const title = entry.data.title;
+const category = entry.data.category;
+const collection = entry.collection;
+const spot = entry.data.spot;
+const year = entry.data.year;
+const coverImage: ImageMetadata | undefined = entry.data.coverImage;
+const singleItemSpreadImages: ImageMetadata[] | undefined = entry.data.singleItemSpreadImages;
+const { Content } = await entry.render();
+---
+
+<Layout title={title} description={spot} seoImage={`${import.meta.env.SITE}${collection}/${slug}/${slug}-og.png`}>
+	{category && <CollectionName category={category} collection={collection} />}
+
+	{
+		year ? 	<CollectionItemTitle collectionItemTitle={title} />
+				<TitleWithLine title={year} />
+			 : 	<CollectionItemTitle collectionItemTitle={spot} />
+			 	<TitleWithLine title={title} upper />
+	}
+	{coverImage && <SingleItemCoverImage src={coverImage} coverImageAlt={title} />}
+
+	<div class="my-4 grid grid-cols-1 gap-4 lg:my-8 lg:grid-cols-12 lg:gap-8">
+		{year && <div class="lg:col-start-1 lg:col-end-6">
+			<h2 class="mb-8 mt-0 font-zilla text-5xl/tight font-light">{spot}</h2>
+		</div>}
+		<div class:list={["prose prose-p:mb-4 prose-h3:font-zilla prose-h3:text-2xl prose-h3:mb-8 prose-h3:mt-6",{"lg:col-start-6 lg:col-end-13": year},{"lg:col-start-1 lg:col-end-13": !year}]}>
+			<Content />
+		</div>
+	</div>
+
+	{singleItemSpreadImages && singleItemSpreadImages.map((image) => <Image src={image} alt={title} class="my-4 w-full" widths={[544, 736, 992, 1248]} sizes={`(max-width: 575.98px) 100vw, (max-width: 767.98px) 544w, (max-width: 1023.98px) 736w, (max-width: 1279.98px) 992w, (min-width: 1280px) 1248w`} />)}
+</Layout>

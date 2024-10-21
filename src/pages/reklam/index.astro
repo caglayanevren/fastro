@@ -1,0 +1,43 @@
+---
+import { getCollection } from "astro:content";
+import ArticleTitle from "~components/articleTitle.astro";
+import HoverItem from "~components/HoverItem.astro";
+import MoreInfo from "~components/MoreInfo.astro";
+import Layout from "~layouts/Layout.astro";
+import { FinarExperienceYear } from "~config";
+
+const allFR = await getCollection("reklam");
+
+const TITLE = "Reklam";
+const DESCRIPTION = `Az, çoktur yaklaşımıyla, güçlü ve benzersiz markalar inşa ediyoruz. “Terzi işi çözüm” yaklaşımıyla, markanızın kimliği ve karakteri üzerine tam oturacak, şık ve iddialı tanıtım çözümleri geliştiriyoruz.`;
+const MOREINFO = `
+<p>Markaların tercih edilmek için aslında tüketicilere anlatacağı çok şey var. Mecra çeşitlerinin artışı ve bu mecralardaki mesaj bombardımanı arasında bunu etkili şekilde yapmak gün geçtikçe zorlaşıyor. Finar olarak markaların tanıtım çalışmalarında ajans ve reklamveren iletişimini her şeyden önemli görüyoruz.</p>
+<p>Faaliyet raporu, kurumsal kimlik tasarımı ve halka arz kampanyaları konusunda uzmanlaşan bir ajans olarak, bu alanlarda oldukça özel ve başarılı çalışmalara imza attık. Bu çalışmalar sayesinde şirket veya holdingleri çok iyi tanıdık. Onlarla brief masalarında aynı dili konuştuk, hedef kitleleriyle de özel iletişim köprüleri kurduk. Bu birikim, brief’i doğru şekilde almak ve brief’i yönlendirmek konusunda bize önemli bir avantaj sağlıyor.</p>
+<p>Ustaca belirlenmiş doğru bir rota sayesinde doğru varış noktasına ulaşabileceğimizi biliyor, yaratıcı çalışmalar öncesi yaratıcı strateji üzerine yoğunlaşıyoruz.</p>
+<p>Entegre iletişim çözümlerimizle müşterimizin ihtiyaç ve beklentilerine yönelik çözümleri, her türlü mecra için üretebilecek kapasitedeyiz. Talebe ve bütçeye göre yaygın ya da odaklı çözümlerle, oldukça iddialı ve etkin tanıtım yolları geliştiriyoruz.</p>
+<p>Birlikte geliştirdiğimiz doğru mesajları, doğru zamanda, doğru hedefle, doğru yerde buluşturuyoruz.</p>
+<div class="break-inside-avoid"><p class="text-mavi mt-0 mb-0">Başlıca tanıtım çalışmalarımız:</p>
+<ul>
+	<li>Çok Mecralı Kampanya</li>
+	<li>Çizgi Üstü Reklam Hizmetleri</li>
+	<li>Çizgi Altı Reklam Hizmetleri</li>
+	<li>Dijital Mecralara Özel Kampanya</li>
+	<li>Viral Film</li>
+	<li>Web Sitesi ve Mikro Site Tasarımı/Uygulama</li>
+	<li>Kurumsal Tanıtım Filmi</li>
+	<li>Marka Stratejisi Oluşturma</li>
+	<li>Marka İsim Çalışması</li>
+</ul>
+</div>
+`;
+
+const { title = TITLE, description = DESCRIPTION, moreinfotext = MOREINFO } = Astro.props;
+---
+
+<Layout title={title} description={description} seoImage="./reklam-og.png">
+	<ArticleTitle title={title} spot={description} />
+	<MoreInfo text={moreinfotext} />
+	<div class="grid auto-rows-max grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4 xl:gap-8">
+		{allFR.map((fr) => <HoverItem slug={fr.slug} title={fr.data.title} thumbnail={fr.data.thumbnail} thumbWidth={fr.data.thumbnail.width} thumbHeight={fr.data.thumbnail.height} />)}
+	</div>
+</Layout>
