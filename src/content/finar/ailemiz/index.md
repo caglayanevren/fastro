@@ -33,7 +33,7 @@ ekip:
 		{ ad: Tuğçe Avcı, unvan: Junior Grafik Tasarımcı, img: "/src/content/finar/ailemiz/tugce_avci.jpg" },
         { ad: Umutcan Kara, unvan: Sürdürülebilirlik Direktörü, img: "/src/content/finar/ailemiz/umutcan_v2.jpg" },
 		{ ad: Yasemin Can Yatağan, unvan: Junior Grafik Tasarımcı, img: "/src/content/finar/ailemiz/Yasemin-Can-Yatagan.jpg" },
-		{ ad: Yaşarcan Osmanoğlu, unvan:Grafik Tasarımcı, img: "/src/content/finar/ailemiz/yasarcan_osmanoglu_2024.jpg" },
+		{ ad: Yaşarcan Osmanoğlu, unvan: Grafik Tasarımcı, img: "/src/content/finar/ailemiz/yasarcan_osmanoglu_2024.jpg" },
     ]
 ---
 

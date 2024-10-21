@@ -68,6 +68,10 @@
 					align-content: center;
 					place-items: center;
 					text-align: center;
+					font-size: 80%;
+					strong {
+						letter-spacing: 0.8px;
+					}
 				}
 				&:hover,
 				&:focus {
