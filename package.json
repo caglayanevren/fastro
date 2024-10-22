@@ -17,6 +17,7 @@
 		"@astrojs/check": "^0.9.4",
 		"@astrojs/mdx": "^3.1.8",
 		"@astrojs/react": "^3.6.2",
+		"@astrojs/sitemap": "^3.2.1",
 		"@astrojs/tailwind": "^5.1.2",
 		"@fontsource-variable/open-sans": "^5.1.0",
 		"@fontsource/zilla-slab": "^5.1.0",

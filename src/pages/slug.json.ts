@@ -30,7 +30,6 @@ export const GET: APIRoute = async () => {
 		"halka-arz-reklam-kampanyalari",
 		"hr-form",
 		"iletisim",
-		"kss/acil-ihtiyac-vakfi",
 		"musterilerimiz-konusuyor",
 		"oduller",
 		"online-faaliyet-raporu",
@@ -39,19 +38,21 @@ export const GET: APIRoute = async () => {
 		"surdurulebilirlik-raporu",
 		"turkiye-surdurulebilirlik-raporlama-standartlari",
 		"yatirimci-iliskileri",
-		"arc-awards",
-		"galaxy-awards",
-		"lacp-vision",
-		"lacp-spotlight",
-		"creativity-awards",
+		"oduller/arc-awards",
+		"oduller/galaxy-awards",
+		"oduller/lacp-vision",
+		"oduller/lacp-spotlight",
+		"oduller/creativity-awards",
 	];
 
 	// Tüm slug'ları birleştir
-	const allSlugs = allCollections.flatMap((collection) => collection.map((entry) => `${entry.collection}/${entry.slug}`));
+	const allCollectionSlugs = allCollections.flatMap((collection) => collection.map((entry) => `${entry.collection}/${entry.slug}`));
+
+	const allslugs = [...paths, ...allCollectionSlugs].sort();
 
 	return new Response(
 		JSON.stringify({
-			slugs: [...paths, ...allSlugs],
+			slugs: [...allslugs],
 		})
 	);
 };
