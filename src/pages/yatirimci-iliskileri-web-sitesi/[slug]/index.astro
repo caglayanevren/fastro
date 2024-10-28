@@ -1,0 +1,46 @@
+---
+import { getCollection } from "astro:content";
+import CollectionItemTitle from "~components/collectionItemTitle.astro";
+import CollectionName from "~components/collectionName.astro";
+import SingleItemCoverImage from "~components/SingleItemCoverImage.astro";
+import Layout from "~layouts/Layout.astro";
+
+import gPlaySvg from "~images/gPlay.svg?raw";
+import appStoreSvg from "~images/appStore.svg?raw";
+
+export async function getStaticPaths() {
+	const allFR = await getCollection("yatirimci-iliskileri-web-sitesi");
+	return allFR.map((entry) => ({
+		params: { slug: entry.slug },
+		props: { entry },
+	}));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+const title = entry.data.title;
+const description = entry.data.description;
+const collection = entry.collection;
+const slug = entry.slug;
+const category = entry.data.category;
+const coverImage = entry.data.coverImage;
+---
+
+<Layout title={title} description={description} seoImage={`${import.meta.env.SITE}${collection}/${slug}/${slug}-og.png`}>
+	{category && <CollectionName category={category} collection={collection} />}
+	<CollectionItemTitle collectionItemTitle={title} />
+
+	<SingleItemCoverImage src={coverImage} coverImageAlt={title} />
+
+	<div class="my-4 grid grid-cols-1 gap-4 lg:my-8 lg:gap-8">
+		<!-- <div class="flex flex-col gap-8 sm:flex-row lg:col-span-5"> -->
+		<!-- <a href={appStoreLink} target="_blank" aria-label={`${title} App Store Link`}><Fragment set:html={appStoreSvg} /></a> -->
+		<!-- <a href={gPlayLink} target="_blank" aria-label={`${title} Google Play Link`}><Fragment set:html={gPlaySvg} /></a> -->
+		<!-- </div> -->
+
+		<div class="prose prose-h3:mb-4 prose-h3:font-zilla prose-h3:text-2xl prose-h3:font-normal prose-p:mb-4 prose-p:mt-0 prose-a:no-underline">
+			<Content />
+		</div>
+	</div>
+</Layout>
