@@ -41,6 +41,19 @@ const YIWSCollection = defineCollection({
 		}),
 });
 
+const YSCollection = defineCollection({
+	type: "content",
+	schema: ({ image }) =>
+		z.object({
+			title: z.string(),
+			description: z.string(),
+			category: z.string(),
+			thumbnail: image(),
+			coverImage: image(),
+			singleItemSpreadImages: z.array(image()).optional(),
+		}),
+});
+
 const RCollection = defineCollection({
 	type: "content",
 	schema: ({ image }) =>
@@ -190,6 +203,7 @@ export const collections = {
 	"surdurulebilirlik-raporu": SRDCollection,
 	reklam: RCollection,
 	"yatirimci-iliskileri-mobil-uygulamasi": YIMUCollection,
+	"yatirimci-sunumlari": YSCollection,
 	"yatirimci-iliskileri-web-sitesi": YIWSCollection,
 	"halka-arz-reklam-kampanyalari": HARKCollection,
 	kss: KSSCollection,
