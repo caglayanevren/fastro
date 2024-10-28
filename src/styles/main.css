@@ -21,6 +21,11 @@
 }
 
 @layer base {
+	@media screen and (max-width: 639.98px) {
+		.text-52 {
+			font-size: 2.625rem !important;
+		}
+	}
 	@media screen and (-webkit-min-device-pixel-ratio: 0) {
 		::-webkit-scrollbar {
 			width: 0.75em;
@@ -50,6 +55,9 @@
 		font-weight: 300;
 		letter-spacing: 1px;
 		font-size: 1rem;
+		@media screen and (max-width: 576px) {
+			font-size: 0.7rem;
+		}
 	}
 	strong {
 		font-weight: 600;
@@ -136,14 +144,14 @@
 			}
 		}
 	}
-	#header.scroll {
+	/* #header.scroll {
 		box-shadow: 0 0.375rem 1.5rem 0 rgb(140 152 164 / 13%);
-	}
+	} */
 	#header.scroll:not(.home) /* > div:first-child */ {
-		@apply bg-white/90 backdrop-blur-md;
+		@apply bg-white backdrop-blur-md;
 	}
 	#header.scroll.home /* > div:first-child */ {
-		@apply bg-black/90 backdrop-blur-sm;
+		@apply bg-black backdrop-blur-sm;
 	}
 	#header.expanded nav {
 		position: fixed;
@@ -151,7 +159,12 @@
 		left: 0;
 		right: 0;
 		bottom: 70px !important;
+		/*
 		padding: 0 5px;
+		@media screen and (max-width: 1023.98px) {
+			width: calc(100% - 0.75em) !important;
+		}
+		*/
 	}
 
 	li.dropdown:has(> .dropdown-menu > li > .aw-link-active) {
