@@ -1,0 +1,43 @@
+---
+import Layout from "~layouts/Layout.astro";
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+import CollectionItemTitle from "~components/collectionItemTitle.astro";
+import CollectionName from "~components/collectionName.astro";
+import SingleItemCoverImage from "~components/SingleItemCoverImage.astro";
+import TitleWithLine from "~components/TitleWithLine.astro";
+
+export async function getStaticPaths() {
+	const allFR = await getCollection("kurumsal-kimlik");
+	return allFR.map((entry) => ({
+		params: { slug: entry.slug },
+		props: { entry },
+	}));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+const title = entry.data.title;
+const spot = entry.data.spot;
+const category = entry.data.category;
+const coverImage = entry.data.coverImage;
+const singleItemSpreadImages: ImageMetadata[] = entry.data.singleItemSpreadImages;
+const collection = entry.collection;
+const slug = entry.slug;
+---
+
+<Layout title={title} description={spot} seoImage={`${import.meta.env.SITE}${collection}/${slug}/${slug}-og.png`}>
+	{category && <CollectionName category={category} collection={collection} />}
+	<CollectionItemTitle collectionItemTitle={spot} />
+	<TitleWithLine title={title} upper={true} />
+	<SingleItemCoverImage src={coverImage} coverImageAlt={title} />
+
+	<div class="my-4 grid grid-cols-1 gap-4 lg:my-8 lg:gap-8">
+		<div class="prose prose-h3:mb-4 prose-h3:font-zilla prose-h3:text-2xl prose-h3:font-normal prose-p:mb-4 prose-p:mt-0 prose-a:no-underline">
+			<Content />
+		</div>
+	</div>
+
+	{singleItemSpreadImages && singleItemSpreadImages.map((image) => <Image src={image} alt={title} class="my-4 w-full" widths={[544, 736, 992, 1248]} sizes={`(max-width: 575.98px) 100vw, (max-width: 767.98px) 544w, (max-width: 1023.98px) 736w, (max-width: 1279.98px) 992w, (min-width: 1280px) 1248w`} />)}
+</Layout>

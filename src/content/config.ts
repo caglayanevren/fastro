@@ -54,6 +54,20 @@ const YSCollection = defineCollection({
 		}),
 });
 
+const KKCollection = defineCollection({
+	type: "content",
+	schema: ({ image }) =>
+		z.object({
+			sort: z.number(),
+			title: z.string(),
+			spot: z.string(),
+			category: z.string(),
+			thumbnail: image(),
+			coverImage: image(),
+			singleItemSpreadImages: z.array(image()),
+		}),
+});
+
 const RCollection = defineCollection({
 	type: "content",
 	schema: ({ image }) =>
@@ -204,6 +218,7 @@ export const collections = {
 	reklam: RCollection,
 	"yatirimci-iliskileri-mobil-uygulamasi": YIMUCollection,
 	"yatirimci-sunumlari": YSCollection,
+	"kurumsal-kimlik": KKCollection,
 	"yatirimci-iliskileri-web-sitesi": YIWSCollection,
 	"halka-arz-reklam-kampanyalari": HARKCollection,
 	kss: KSSCollection,
