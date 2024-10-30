@@ -87,7 +87,7 @@ export const headerData = {
 		},
 		{
 			text: "ÖDÜLLER",
-			href: "/oduller/",
+			href: getPermalink("/oduller/"),
 		},
 		{
 			text: "KSS",
@@ -124,19 +124,19 @@ export const headerData = {
 		},
 		{
 			text: "REFERANSLAR",
-			href: "/referanslar/",
+			href: getPermalink("/referanslar/"),
 		},
 		{
 			text: "V-LOG",
-			href: "/vlog/",
+			href: getPermalink("/vlog/"),
 		},
 		{
 			text: "İLETİŞİM",
-			href: "/iletisim/",
+			href: getPermalink("/iletisim/"),
 		},
 		{
 			text: "ARŞİV",
-			href: "/arsiv/",
+			href: getPermalink("/arsiv/"),
 		},
 	],
 };
