@@ -4,6 +4,7 @@ const FRCollection = defineCollection({
 	type: "content",
 	schema: ({ image }) =>
 		z.object({
+			sort: z.number(),
 			title: z.string(),
 			spot: z.string(),
 			type: z.enum(["multiItem", "singleItem"]),
