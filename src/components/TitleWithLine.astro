@@ -4,22 +4,23 @@ type Props = {
 	icon?: string;
 	upper?: boolean;
 	classes?: string;
+	trackingOnePx?: boolean;
 };
-const { title, icon, upper, classes } = Astro.props;
+const { title, icon, upper, classes, trackingOnePx = true } = Astro.props;
 ---
 
-<h3 class="relative mb-[20px] text-xs font-light after:absolute after:left-0 after:top-2/4 after:z-0 after:-mt-[1px] after:h-[1px] after:w-full after:bg-[#e1e8ed] after:content-[''] sm:text-base">
+<h3 class="relative mb-[20px] flex items-center justify-between text-xs font-light after:absolute after:left-0 after:top-2/4 after:z-0 after:-mt-[1px] after:h-[1px] after:w-full after:bg-[#e1e8ed] after:content-[''] sm:text-base">
 	{
 		title && (
-			<span class:list={[{ uppercase: upper }, classes, "relative z-10 bg-white pr-[1.5rem] tracking-[1px]"]}>
+			<span class:list={[{ uppercase: upper }, classes, "relative z-10 bg-white pr-[1.5rem]", { "tracking-[1px]": trackingOnePx }]}>
 				<Fragment set:html={title} />
 			</span>
 		)
 	}
-	{!title && <span class="relative z-10 pr-[1.5rem] tracking-[1px]" />}
+	{!title && <span class:list={["relative z-10 pr-[1.5rem]", { "tracking-[1px]": trackingOnePx }]} />}
 	{
 		icon && (
-			<div class="absolute right-0 top-0 z-10 m-0 inline h-[18px] w-[56px] bg-[#fff] p-0 pl-[1.5rem] text-siyah">
+			<div class="z-10 h-[18px] w-[56px] bg-[#fff] p-0 pl-[1.5rem] text-siyah">
 				<Fragment set:html={icon} />
 			</div>
 		)
