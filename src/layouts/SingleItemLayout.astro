@@ -18,9 +18,10 @@ type Props = {
 	singleItemsliderImages?: ImageMetadata[];
 	singleItemSpreadImages?: ImageMetadata[];
 	slug: string;
+	grand?: boolean;
 };
 
-const { title, description, category, collection, spot, awarded = false, coverImage, singleItemsliderImages, singleItemSpreadImages, slug } = Astro.props;
+const { title, description, category, collection, spot, awarded = false, coverImage, singleItemsliderImages, singleItemSpreadImages, slug, grand } = Astro.props;
 ---
 
 <Layout title={title} description={description} seoImage={`${import.meta.env.SITE}${collection}/${slug}/${slug}-og.png`}>
@@ -29,10 +30,10 @@ const { title, description, category, collection, spot, awarded = false, coverIm
 
 	{coverImage ? <SingleItemCoverImage src={coverImage} coverImageAlt={title} /> : singleItemsliderImages ? <Swiper swiperimages={singleItemsliderImages} swiperImageAlt={title} /> : null}
 
-	<div class="my-4 grid grid-cols-1 gap-4 lg:my-8 lg:grid-cols-12 lg:gap-8">
+	<div class="mb-8 mt-4 grid grid-cols-1 gap-4 lg:mb-16 lg:mt-8 lg:grid-cols-12 lg:gap-8">
 		<div class="lg:col-start-1 lg:col-end-6">
 			<h2 class="mb-8 mt-0 font-zilla text-5xl/tight font-light">{spot}</h2>
-			{awarded && <Awardimage alt={title} />}
+			{awarded && <Awardimage grand={grand} alt={title} />}
 		</div>
 		<div class="prose prose-p:mb-4 lg:col-start-6 lg:col-end-13">
 			<slot />
