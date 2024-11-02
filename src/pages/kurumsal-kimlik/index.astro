@@ -1,10 +1,11 @@
 ---
 import { getCollection } from "astro:content";
 import ArticleTitle from "~components/articleTitle.astro";
+import CollapseWithLine from "~components/CollapseWithLine.astro";
 import FirstSpace from "~components/firstSpace.astro";
 import HoverItem from "~components/HoverItem.astro";
 import MoreInfo from "~components/MoreInfo.astro";
-import TitleWithLine from "~components/TitleWithLine.astro";
+//import TitleWithLine from "~components/TitleWithLine.astro";
 import Layout from "~layouts/Layout.astro";
 
 const allKK = await getCollection("kurumsal-kimlik");
@@ -43,107 +44,107 @@ const { title = TITLE, description = DESCRIPTION, moreinfotext = MOREINFO } = As
 
 	<FirstSpace height={48} />
 
-	<TitleWithLine title='Reklamverenler ve Ajanslar için "Kurumsal Kimlik Oluşturma Rehberi"' classes="text-mavi font-zilla text-2xl" />
+	<CollapseWithLine withLineTitle='Reklamverenler ve Ajanslar için "Kurumsal Kimlik Oluşturma Rehberi"' withLineClasses="text-mavi font-zilla text-2xl" withLineTracking={false}>
+		<div class="altsection">
+			<p>Kurumsal kimlik oluşturmak için Finar'ın uzun yıllardır başarıyla uyguladığı bir&nbsp; modeli sizinle paylaşmak isteriz. Bu model ile Alternatifbank'ı Abank'a dönüştürdük... İş Yatırım ve Ata Yatırım'ın kurumsal kimliklerini yeniledik.</p>
+			<p>Son dönemde ise Gedik Yatırım, TSPB, İş Bankası Grubu, Torunlar GYO, VakıfBank gibi çok önemli kurumlar için de bu model ile güçlü ve sürdürülebilir kurumsal kimlik çalışmalarını&nbsp; hayata geçirdik.</p>
+			<h2 class="mb-5 font-zilla text-xl font-bold"><strong>Kurumsal kimlik nedir?</strong></h2>
+			<p>
+				En basit anlamda kurumsal kimlik, bir şirketin kendisini halka nasıl gösterdiği, halkın onu nasıl bildiğidir. Kurumsal kimlik, bir şirketin amaç ve felsefesi, şirket yönetimi ve çalışanlarının tavır ve davranışları, şirketin ulaşmak istediği kitleyle iletişim kurmak için kullandığı görsel ve sözel araçların toplamıdır. Bu sebeple, büyüklüğü, faaliyet alanı ve kapsamı ne olursa olsun her kuruluşun bir kimliği vardır. Sonuçta, kuruluşları birbirinden ayıran ve özellikli yapan şey
+				de onların kimlikleridir.
+			</p>
+			<p>En basit anlamıyla bir "kimlik" şu görsel unsurlardan oluşur:</p>
+			<ul>
+				<li>Kurumun amblemi ve/veya ismi (logotype)</li>
+				<li>ismi ve isimlendirme sistemi,</li>
+				<li>kurum renkleri,</li>
+				<li>tipografisi.</li>
+			</ul>
+			<p>Ancak... Gerçekte kurumsal kimlik müşteri ve şirketin karşılıklı etkileşimde bulunduğu her alanı kapsayacağı için tüm basılı malzemeler, faaliyet raporları, dosya kapakları, tabelalar, ofis tasarımı, reklam, promosyon malzemeleri, sunumlar ve internet siteleri de kimliği oluşturan unsurlardır.</p>
+			<p>Halkın, bir kuruluş ve onun marka değerleri ile ilgili algılamaları çok önemlidir. Eğer tutarlı ve etkin bir biçimde yönetilirse, bir şirketin kurum kimliği, onun temsil ettiği her şeyin bir yansıması olacaktır. Yani, <em>"biz kimiz, ne yapıyoruz ve gelecekte nerede olacağız"</em> gibi sorulara açıklık kazandıracaktır. İyi yönetilen bir kurum kimliği, aynı zamanda, çalışanlar arasında da güçlü bir bağlılık ve aidiyet duygusu da yaratacaktır.</p>
+			<p><strong>Etkin kurumsal kimlik yönetiminin önemi</strong></p>
+			<p>Kuruluşlar büyüdükçe ve genişledikçe, görsel iletişimin önemi de artacaktır. Bu artış, yeni pazarlama faaliyetleri, yeni ürün/hizmetlerin piyasaya sunumu, yeni coğrafi pazarlara açılım veya belki de sadece yerel müşterilerle daha güçlü bir iletişim kurma istemelerinin sonucunda olacaktır.</p>
+			<p>Şirketin faaliyet konuları arttıkça, değişik kitlelerle iletişim kurma zorunluluğu da büyüyecek ve şirketin imajının başkalaşması veya tutarsızlaşması riski ortaya çıkacaktır. Bu konuda belirgin bir kurum politikasının veya etkin bir kurum kimliği sisteminin olmaması, kuruluşun veya iştiraklerinin yanlış veya karmaşık bir imaj edinmesine neden olacaktır.</p>
+			<p>Kurumsal kimliğin her safhasındaki proaktif yönetim, şirketin imajını güçlendirecek, şirketin kişiliği, konumu ve kurumsal amaçlarını içerecek görsel unsurlarının kontrollü ve tutarlı olmasını sağlayacaktır.</p>
+			<p>Kurumsal kimlik programı iyi yönetildiği takdirde zaman içinde şirket amaç ve faaliyetlerinin iyi anlaşılmasına ve tanınmasına da yardımcı olacak ve kurumun her yönetim kademesi bu durumdan yarar sağlayacaktır.</p>
+			<p>Kurumsal kimliğin kötü yönetilmesi, şirketin gerçek ve alternatif maliyetlerini de olumsuz yönde etkileyecektir. Reklam kararlarının verilmesinde kurum kimliğinin yokluğu maliyeti artıracak bir unsurdur. Bu durum, pazarlama etkinliğini de azaltacak ve gereksiz harcamalara neden olacaktır.</p>
+			<p><strong>Kurumsal kimlik sadece amblem/logo değildir </strong></p>
+			<p>Kurumsal kimlik tartışması çoğu zaman sadece logo veya görsel araçlara odaklanmıştır.</p>
+			<p>Logo kurum kimliği yönetiminin hayati önem taşıyan bölümlerinden biridir ama kurum kimliği logo çalışmasından öte bir çalışmadır.</p>
+			<p>Kurumun kullandığı yazı karakteri, basılı malzemelerin tasarım, renk ve formatları, pazarlama iletişimi, reklamlar ve diğer tüm görsel unsurlar ve kurum lideri, güçlü bir kurum kimliği oluşturmada başat etkenlerdir. Logonun görünür olmadığı zamanlarda, kurumun mesajı öylesine açık ve güçlü olmalıdır ki, herhangi bir reklamda logo kullanılmasa dahi, o reklamın o kuruma ait olduğu anlaşılmalıdır.</p>
+			<p><strong>Bir kurumsal kimlik projesinin aşamaları</strong></p>
+			<p>Bu program çok aşamalı bir süreç olup, iki taraf (şirket ve ajans) arasında sıkı bir işbirliğini gerektirmektedir. Her aşamanın sonunda yapılan iş, gözden geçirilmesi amacıyla şirkete sunulmalı ve bir sonraki aşamaya geçmeden önce tasarımcı ajans tarafından mutlaka şirketin onayı alınmalıdır.</p>
+			<p>Bu aşama aşama ilerleyen yaklaşım, her bir aşamada bilgi paylaşımı ve doğru anlaşılmayı sağlayacak ve bir sonraki basamak için bir köprü vazifesi görecektir. Bu yaklaşım, şirketin faaliyetleri doğrultusunda uygulama öncesi gereksinimlerinin belirlenmesini sağlayacaktır.</p>
+			<p>
+				<em>1. Aşama:</em> Beyin fırtınası ve diğer görüşmelerle kurumun kimlik özelliklerinin belirlenmesi ve strateji geliştirme<br />
+				<em>2. Aşama:</em> Yaratıcı ögeler ve tasarım oluşturma<br />
+				<em>3. Aşama:</em> Uygulama ve kurum kimliği kılavuzun hazırlanması
+			</p>
+			<h6><strong class="uppercase">1. Aşama: Kurumun kimlik özelliklerinin belirlenmesi ve strateji geliştirme</strong></h6>
+			<p><strong><em>Amaç</em></strong></p>
+			<p class="!mb-2"><em>Kurum kimliği stratejisi geliştirmek için öncelikle şunları açıklığa kavuşturmak gerekir:</em></p>
+			<ul>
+				<li>Şirketin halihazırdaki durumu (organizasyon yapısı, ürünleri, hizmetleri, hitap ettiği pazarlar)</li>
+				<li>Şirketin algılanması (mevcut ve potensiyel müşterileri, ortakları, çalışanları, müşterileri, yurtiçindeki ve dışındaki rakipleri tarafından nasıl algılandığı)</li>
+				<li>Şirket'in gelecekteki hedefleri (iş stratejisi, gelecek planları ve vizyonu).</li>
+			</ul>
+			<p><strong><em>Bilgilerin değerlendirilmesi ve görsel denetim</em></strong></p>
+			<p>Şirket içinde ve dışında kullanılan belge, yazışma ve raporların gözden geçirilmesi.</p>
+			<p>Temsil amaçlı kullanılan ve kurumun mevcut kimliğinin nasıl uygulandığına örnek olacak basılı malzemeler incelenmeli. Bu malzemeler; basılı kırtasiye, formlar, broşürler, reklamlar ve diğer iletişim araçlarını kapsarmalı. Şirketin iş çevresi ve bağlı şirketleri de ayrıca ele alınmalıdır.</p>
+			<p><strong><em>Beyin fırtınası</em></strong></p>
+			<p>Operasyonel kimlik unsurlarının anlaşılması için şirketin üst yöneticileri, birim müdürleri ve çalışanları ile ayrı ayrı beyin fırtınası toplantıları bu aşamada düzenlenmelidir.</p>
+			<p><strong><em>Analiz ve strateji geliştirme</em></strong></p>
+			<p>Yukarıda sözünü ettiğim aşamaların değerlendirilmesi ve analizinden sonra ortaya çıkan kimlik unsurları tartışmaya açılmalıdır.</p>
+			<p>Bu aşamanın temel amacı kurum kişiliğinin yönetim tarafından onaylanması, kurumun piyasadaki yeri ve bulunduğu yer ile kişiliği arasındaki ilişkinin en iyi şekilde anlaşılmasının sağlanması olmalıdır. Ortaya çıkacak sonuç aynı zamanda yaratıcı süreç için de brif niteliğinde olacaktır. Şirket ve tasarımcı ajans&nbsp; bu aşamada kimliğin görselleştirilecek "değer önerisi" üzerinde fikir birliğine varmalıdır.</p>
+			<h6><strong class="uppercase">2. Aşama: Yaratıcı ögeler ve tasarım oluşturma</strong></h6>
+			<p><strong><em>Amaç</em></strong></p>
+			<p>Bu aşamada kurum kimliğinin yapısı oluşturulmalı ve yaratıcı konseptlerden kuruma en uygun olanı belirlenmeli,&nbsp; çalışmaya daha sonra bu doğrultuda devam edilmelidir.</p>
+			<p><strong><em>Yapılacak İşler</em></strong></p>
+			<p class="!mb-2">-<em>Yaratıcı Ögeler</em></p>
+			<p>Mevcut kurum kimliğinden tamamen farklı tasarımlar sunulmalı ve bu yaratıcı ögeler şunları kapsamalıdır:</p>
+			<ul>
+				<li>Yeni amblem/logo</li>
+				<li>Temel uygulamalar (Antetli kağıt, kartvizit, tabela vb.)</li>
+			</ul>
+			<p class="!mb-2">-<em>Tasarım Oluşturma</em></p>
+			<p>Kimliğe en uygun tasarım oluşturulmalıdır.</p>
+			<p class="!mb-2">-<em>Nihai tasarım uygulamasının aşağıdakiler üzerinde kuruma sunulması:</em></p>
+			<ul>
+				<li>Antetli kağıt</li>
+				<li>Kartvizit</li>
+				<li>Antetli zarf</li>
+				<li>Açıkhava ilan tasarımları</li>
+				<li>Araç giydirme</li>
+				<li>İç mekan yönlendirme tabelaları ve açık hava tabela tasarımları</li>
+				<li>Reklamlar (sadece kimlik unsurları)</li>
+				<li>Promosyon malzemeleri</li>
+			</ul>
+			<p>Yenilenmiş konseptin yönetim tarafından onaylanmasının ardından detaylı kurum kimliği sistemi hazırlanmasına başlanmalıdır.</p>
 
-	<div class="altsection">
-		<p>Kurumsal kimlik oluşturmak için Finar'ın uzun yıllardır başarıyla uyguladığı bir&nbsp; modeli sizinle paylaşmak isteriz. Bu model ile Alternatifbank'ı Abank'a dönüştürdük... İş Yatırım ve Ata Yatırım'ın kurumsal kimliklerini yeniledik.</p>
-		<p>Son dönemde ise Gedik Yatırım, TSPB, İş Bankası Grubu, Torunlar GYO, VakıfBank gibi çok önemli kurumlar için de bu model ile güçlü ve sürdürülebilir kurumsal kimlik çalışmalarını&nbsp; hayata geçirdik.</p>
-		<h2 class="mb-5 font-zilla text-xl font-bold"><strong>Kurumsal kimlik nedir?</strong></h2>
-		<p>
-			En basit anlamda kurumsal kimlik, bir şirketin kendisini halka nasıl gösterdiği, halkın onu nasıl bildiğidir. Kurumsal kimlik, bir şirketin amaç ve felsefesi, şirket yönetimi ve çalışanlarının tavır ve davranışları, şirketin ulaşmak istediği kitleyle iletişim kurmak için kullandığı görsel ve sözel araçların toplamıdır. Bu sebeple, büyüklüğü, faaliyet alanı ve kapsamı ne olursa olsun her kuruluşun bir kimliği vardır. Sonuçta, kuruluşları birbirinden ayıran ve özellikli yapan şey de
-			onların kimlikleridir.
-		</p>
-		<p>En basit anlamıyla bir "kimlik" şu görsel unsurlardan oluşur:</p>
-		<ul>
-			<li>Kurumun amblemi ve/veya ismi (logotype)</li>
-			<li>ismi ve isimlendirme sistemi,</li>
-			<li>kurum renkleri,</li>
-			<li>tipografisi.</li>
-		</ul>
-		<p>Ancak... Gerçekte kurumsal kimlik müşteri ve şirketin karşılıklı etkileşimde bulunduğu her alanı kapsayacağı için tüm basılı malzemeler, faaliyet raporları, dosya kapakları, tabelalar, ofis tasarımı, reklam, promosyon malzemeleri, sunumlar ve internet siteleri de kimliği oluşturan unsurlardır.</p>
-		<p>Halkın, bir kuruluş ve onun marka değerleri ile ilgili algılamaları çok önemlidir. Eğer tutarlı ve etkin bir biçimde yönetilirse, bir şirketin kurum kimliği, onun temsil ettiği her şeyin bir yansıması olacaktır. Yani, <em>"biz kimiz, ne yapıyoruz ve gelecekte nerede olacağız"</em> gibi sorulara açıklık kazandıracaktır. İyi yönetilen bir kurum kimliği, aynı zamanda, çalışanlar arasında da güçlü bir bağlılık ve aidiyet duygusu da yaratacaktır.</p>
-		<p><strong>Etkin kurumsal kimlik yönetiminin önemi</strong></p>
-		<p>Kuruluşlar büyüdükçe ve genişledikçe, görsel iletişimin önemi de artacaktır. Bu artış, yeni pazarlama faaliyetleri, yeni ürün/hizmetlerin piyasaya sunumu, yeni coğrafi pazarlara açılım veya belki de sadece yerel müşterilerle daha güçlü bir iletişim kurma istemelerinin sonucunda olacaktır.</p>
-		<p>Şirketin faaliyet konuları arttıkça, değişik kitlelerle iletişim kurma zorunluluğu da büyüyecek ve şirketin imajının başkalaşması veya tutarsızlaşması riski ortaya çıkacaktır. Bu konuda belirgin bir kurum politikasının veya etkin bir kurum kimliği sisteminin olmaması, kuruluşun veya iştiraklerinin yanlış veya karmaşık bir imaj edinmesine neden olacaktır.</p>
-		<p>Kurumsal kimliğin her safhasındaki proaktif yönetim, şirketin imajını güçlendirecek, şirketin kişiliği, konumu ve kurumsal amaçlarını içerecek görsel unsurlarının kontrollü ve tutarlı olmasını sağlayacaktır.</p>
-		<p>Kurumsal kimlik programı iyi yönetildiği takdirde zaman içinde şirket amaç ve faaliyetlerinin iyi anlaşılmasına ve tanınmasına da yardımcı olacak ve kurumun her yönetim kademesi bu durumdan yarar sağlayacaktır.</p>
-		<p>Kurumsal kimliğin kötü yönetilmesi, şirketin gerçek ve alternatif maliyetlerini de olumsuz yönde etkileyecektir. Reklam kararlarının verilmesinde kurum kimliğinin yokluğu maliyeti artıracak bir unsurdur. Bu durum, pazarlama etkinliğini de azaltacak ve gereksiz harcamalara neden olacaktır.</p>
-		<p><strong>Kurumsal kimlik sadece amblem/logo değildir </strong></p>
-		<p>Kurumsal kimlik tartışması çoğu zaman sadece logo veya görsel araçlara odaklanmıştır.</p>
-		<p>Logo kurum kimliği yönetiminin hayati önem taşıyan bölümlerinden biridir ama kurum kimliği logo çalışmasından öte bir çalışmadır.</p>
-		<p>Kurumun kullandığı yazı karakteri, basılı malzemelerin tasarım, renk ve formatları, pazarlama iletişimi, reklamlar ve diğer tüm görsel unsurlar ve kurum lideri, güçlü bir kurum kimliği oluşturmada başat etkenlerdir. Logonun görünür olmadığı zamanlarda, kurumun mesajı öylesine açık ve güçlü olmalıdır ki, herhangi bir reklamda logo kullanılmasa dahi, o reklamın o kuruma ait olduğu anlaşılmalıdır.</p>
-		<p><strong>Bir kurumsal kimlik projesinin aşamaları</strong></p>
-		<p>Bu program çok aşamalı bir süreç olup, iki taraf (şirket ve ajans) arasında sıkı bir işbirliğini gerektirmektedir. Her aşamanın sonunda yapılan iş, gözden geçirilmesi amacıyla şirkete sunulmalı ve bir sonraki aşamaya geçmeden önce tasarımcı ajans tarafından mutlaka şirketin onayı alınmalıdır.</p>
-		<p>Bu aşama aşama ilerleyen yaklaşım, her bir aşamada bilgi paylaşımı ve doğru anlaşılmayı sağlayacak ve bir sonraki basamak için bir köprü vazifesi görecektir. Bu yaklaşım, şirketin faaliyetleri doğrultusunda uygulama öncesi gereksinimlerinin belirlenmesini sağlayacaktır.</p>
-		<p>
-			<em>1. Aşama:</em> Beyin fırtınası ve diğer görüşmelerle kurumun kimlik özelliklerinin belirlenmesi ve strateji geliştirme<br />
-			<em>2. Aşama:</em> Yaratıcı ögeler ve tasarım oluşturma<br />
-			<em>3. Aşama:</em> Uygulama ve kurum kimliği kılavuzun hazırlanması
-		</p>
-		<h6><strong class="uppercase">1. Aşama: Kurumun kimlik özelliklerinin belirlenmesi ve strateji geliştirme</strong></h6>
-		<p><strong><em>Amaç</em></strong></p>
-		<p class="!mb-2"><em>Kurum kimliği stratejisi geliştirmek için öncelikle şunları açıklığa kavuşturmak gerekir:</em></p>
-		<ul>
-			<li>Şirketin halihazırdaki durumu (organizasyon yapısı, ürünleri, hizmetleri, hitap ettiği pazarlar)</li>
-			<li>Şirketin algılanması (mevcut ve potensiyel müşterileri, ortakları, çalışanları, müşterileri, yurtiçindeki ve dışındaki rakipleri tarafından nasıl algılandığı)</li>
-			<li>Şirket'in gelecekteki hedefleri (iş stratejisi, gelecek planları ve vizyonu).</li>
-		</ul>
-		<p><strong><em>Bilgilerin değerlendirilmesi ve görsel denetim</em></strong></p>
-		<p>Şirket içinde ve dışında kullanılan belge, yazışma ve raporların gözden geçirilmesi.</p>
-		<p>Temsil amaçlı kullanılan ve kurumun mevcut kimliğinin nasıl uygulandığına örnek olacak basılı malzemeler incelenmeli. Bu malzemeler; basılı kırtasiye, formlar, broşürler, reklamlar ve diğer iletişim araçlarını kapsarmalı. Şirketin iş çevresi ve bağlı şirketleri de ayrıca ele alınmalıdır.</p>
-		<p><strong><em>Beyin fırtınası</em></strong></p>
-		<p>Operasyonel kimlik unsurlarının anlaşılması için şirketin üst yöneticileri, birim müdürleri ve çalışanları ile ayrı ayrı beyin fırtınası toplantıları bu aşamada düzenlenmelidir.</p>
-		<p><strong><em>Analiz ve strateji geliştirme</em></strong></p>
-		<p>Yukarıda sözünü ettiğim aşamaların değerlendirilmesi ve analizinden sonra ortaya çıkan kimlik unsurları tartışmaya açılmalıdır.</p>
-		<p>Bu aşamanın temel amacı kurum kişiliğinin yönetim tarafından onaylanması, kurumun piyasadaki yeri ve bulunduğu yer ile kişiliği arasındaki ilişkinin en iyi şekilde anlaşılmasının sağlanması olmalıdır. Ortaya çıkacak sonuç aynı zamanda yaratıcı süreç için de brif niteliğinde olacaktır. Şirket ve tasarımcı ajans&nbsp; bu aşamada kimliğin görselleştirilecek "değer önerisi" üzerinde fikir birliğine varmalıdır.</p>
-		<h6><strong class="uppercase">2. Aşama: Yaratıcı ögeler ve tasarım oluşturma</strong></h6>
-		<p><strong><em>Amaç</em></strong></p>
-		<p>Bu aşamada kurum kimliğinin yapısı oluşturulmalı ve yaratıcı konseptlerden kuruma en uygun olanı belirlenmeli,&nbsp; çalışmaya daha sonra bu doğrultuda devam edilmelidir.</p>
-		<p><strong><em>Yapılacak İşler</em></strong></p>
-		<p class="!mb-2">-<em>Yaratıcı Ögeler</em></p>
-		<p>Mevcut kurum kimliğinden tamamen farklı tasarımlar sunulmalı ve bu yaratıcı ögeler şunları kapsamalıdır:</p>
-		<ul>
-			<li>Yeni amblem/logo</li>
-			<li>Temel uygulamalar (Antetli kağıt, kartvizit, tabela vb.)</li>
-		</ul>
-		<p class="!mb-2">-<em>Tasarım Oluşturma</em></p>
-		<p>Kimliğe en uygun tasarım oluşturulmalıdır.</p>
-		<p class="!mb-2">-<em>Nihai tasarım uygulamasının aşağıdakiler üzerinde kuruma sunulması:</em></p>
-		<ul>
-			<li>Antetli kağıt</li>
-			<li>Kartvizit</li>
-			<li>Antetli zarf</li>
-			<li>Açıkhava ilan tasarımları</li>
-			<li>Araç giydirme</li>
-			<li>İç mekan yönlendirme tabelaları ve açık hava tabela tasarımları</li>
-			<li>Reklamlar (sadece kimlik unsurları)</li>
-			<li>Promosyon malzemeleri</li>
-		</ul>
-		<p>Yenilenmiş konseptin yönetim tarafından onaylanmasının ardından detaylı kurum kimliği sistemi hazırlanmasına başlanmalıdır.</p>
-
-		<h6><strong class="uppercase">3. Aşama: Uygulama ve kurum kimliği kılavuzun hazırlanması</strong></h6>
-		<p><strong><em>Amaç</em></strong></p>
-		<p>Bu sürecin son aşamasında, kurumun onaylamış olduğu tasarım geliştirilmeli ve bir "Kurum Kimliği Rehberi" hazırlanmalıdır.</p>
-		<p><strong><em>Yapılacak İşler</em></strong></p>
-		<p class="!mb-2"><em>Kurum Kimliği Rehberi</em></p>
-		<p>Bu aşama, kimlik uygulama standartlarını ve ana hatlarını içeren bir rehber kitap hazırlanmasını içermektedir. Bu rehberin içerdiği uygulama prosedürleri doğrultusunda her türlü görsel malzemenin üretiminden şirket sorumlu olmalıdır.</p>
-		<p class="!mb-2"><em>Ortalama bir kurum kimliği rehberi şunları içermelidir:</em></p>
-		<ul>
-			<li>Kurum isminin kullanımı</li>
-			<li>Amblem/Logo</li>
-			<li>Kurum renkleri</li>
-			<li>Kurum yazı karakteri</li>
-			<li>Bağlı şirketler için logo kullanımı</li>
-			<li>Kırtasiye malzemeleri</li>
-			<li>Broşürler ve raporlar (kapak ve iç tasarım standartları)</li>
-			<li>Promosyon malzemeleri</li>
-			<li>İç ve dış mekan tabela tasarımı örnekleri</li>
-			<li>Promosyon ve reklam standartları&nbsp;&nbsp;</li>
-			<li>Kimliğin elektronik ortamda kullanımı</li>
-			<li>Araç giydirme</li>
-			<li>Üniformalar</li>
-		</ul>
-	</div>
+			<h6><strong class="uppercase">3. Aşama: Uygulama ve kurum kimliği kılavuzun hazırlanması</strong></h6>
+			<p><strong><em>Amaç</em></strong></p>
+			<p>Bu sürecin son aşamasında, kurumun onaylamış olduğu tasarım geliştirilmeli ve bir "Kurum Kimliği Rehberi" hazırlanmalıdır.</p>
+			<p><strong><em>Yapılacak İşler</em></strong></p>
+			<p class="!mb-2"><em>Kurum Kimliği Rehberi</em></p>
+			<p>Bu aşama, kimlik uygulama standartlarını ve ana hatlarını içeren bir rehber kitap hazırlanmasını içermektedir. Bu rehberin içerdiği uygulama prosedürleri doğrultusunda her türlü görsel malzemenin üretiminden şirket sorumlu olmalıdır.</p>
+			<p class="!mb-2"><em>Ortalama bir kurum kimliği rehberi şunları içermelidir:</em></p>
+			<ul>
+				<li>Kurum isminin kullanımı</li>
+				<li>Amblem/Logo</li>
+				<li>Kurum renkleri</li>
+				<li>Kurum yazı karakteri</li>
+				<li>Bağlı şirketler için logo kullanımı</li>
+				<li>Kırtasiye malzemeleri</li>
+				<li>Broşürler ve raporlar (kapak ve iç tasarım standartları)</li>
+				<li>Promosyon malzemeleri</li>
+				<li>İç ve dış mekan tabela tasarımı örnekleri</li>
+				<li>Promosyon ve reklam standartları&nbsp;&nbsp;</li>
+				<li>Kimliğin elektronik ortamda kullanımı</li>
+				<li>Araç giydirme</li>
+				<li>Üniformalar</li>
+			</ul>
+		</div>
+	</CollapseWithLine>
 </Layout>
 
 <style>

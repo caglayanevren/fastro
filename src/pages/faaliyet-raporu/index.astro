@@ -5,6 +5,10 @@ import HoverItem from "~components/HoverItem.astro";
 import MoreInfo from "~components/MoreInfo.astro";
 import Layout from "~layouts/Layout.astro";
 import { FinarExperienceYear } from "~config";
+//import TitleWithLine from "~components/TitleWithLine.astro";
+import FirstSpace from "~components/firstSpace.astro";
+//import chevDown from "~images/chevron-down-light.svg?raw";
+import CollapseWithLine from "~components/CollapseWithLine.astro";
 
 const allFR = await getCollection("faaliyet-raporu");
 
@@ -26,4 +30,91 @@ const { title = TITLE, description = DESCRIPTION, moreinfotext = MOREINFO } = As
 	<div class="grid auto-rows-max grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4 xl:gap-8">
 		{allFR.sort((a, b) => a.data.sort - b.data.sort).map((fr) => <HoverItem slug={fr.slug} title={fr.data.title} thumbnail={fr.data.thumbnail} thumbWidth={fr.data.thumbnail.width} thumbHeight={fr.data.thumbnail.height} />)}
 	</div>
+
+	<FirstSpace height={48} />
+
+	<CollapseWithLine withLineTitle="İyi bir faaliyet raporu nasıl olmalı?" withLineClasses="text-mavi font-zilla text-2xl">
+		<div class="altsection md:columns-2 lg:columns-3">
+			<p>
+				<strong>Özlü olmalı</strong><br />Lafı uzatmadan söylemeli. Uzun uzun yazdığımız metinleri sadece biz ve onlar (kurumlarda raporu hazırlayanlar) okuyor. Kimse doğru dürüst okumuyor. Bunun için okuru suçlayamayız. Hepimiz zamanla yarışıyoruz ve her geçen gün yapacağımız işler listesi kabarıyor. Çoğumuz, zamanın azlığından yakınıyoruz sürekli. Böyle bir ortamda, herhangi bir orta veya üst düzey yöneticinin raporunuza dakikalar ayırmasını beklemek hata olur. Bu nedenle raporumuz,
+				daha az yazı daha çok görsel anlatımlı olmalı.
+			</p>
+			<p><strong>Samimi olmalı</strong><br />Dengeli bir anlatıma sahip olmalı. Dürüst ve açık bir şekilde, şirketin başarıları, iyi yönleri ve yıl içinde karşılaştığı zorluklar ortaya konulmalı. Ortada bir başarısızlık varsa üstü örtülmemeli. Açıkca, nedenleri anlatılmalı. Okuru, kendimizden daha fazla önemsemeliyiz. Şuna emin olun, samimi misiniz değil misiniz hemen anlaşılır.</p>
+			<p><strong>Ambalajı çekici olmalı</strong><br />Nasıl bir süpermarket rafında, ambalajını beğenmediğimiz bir ürünü almıyorsak, elimiz ona gitmiyorsa, raporumuzun kapağı ya da kutusu yeterince çekici ve güzel olmazsa kimse yüzüne bile bakmayacaktır. Onca emek harcayarak ortaya çıkardığınız faaliyet raporunuz, uzaktan sessizce geçen bir gemi gibi, kimse farkına varmadan miyadını dolduracaktır.</p>
+			<p><strong>Bir hikayesi olmalı</strong><br />Hikayeler her zaman akılda kalır. Hikayeler her zaman çalışır. Eğer yıllık raporunuza herkesi ilgilendirebilecek bir hikaye ekleyebilirseniz, onu şirketinizin tüm unsurlarının sahipleneceği bir yıllık etkinliğe dönüştürmeyi başarabilirsiniz. Bir de bu hikayeyi raporun ana mesajına doğru entegre edebilirseniz, emin olun, okunurluk katsayısını epeyce artırırsınız.</p>
+			<p><strong>Yaratıcı ve cesur olmalı</strong><br />Raporun ana mesajını açık, yalın, kanıtlarla desteklenmiş, yaratıcı ve cesur bir şekilde ortaya koyabilirseniz okurun dikkatini çekebilirsiniz. Raporun entelektüel inandırıcılığını artırmanın yanı sıra bu inancı pekiştirecek mesajları da en etkili ve cesur şekilde okurla buluşturmak durumundasınız.</p>
+			<p>
+				<strong>Dağıtımı önemsenmeli</strong><br />Ajansınızla birlikte çok emek harcayıp, harika bir iş çıkardınız. Ortaya uluslararası standartlarda bir rapor çıktı. Onu şirketinizin tüm paydaşlarına (sadece yatırımcılar veya hissedarlar değil) dağıtmazsanız, nasıl farkında olacaklar rapordan? İnternetten girip bakabilirler diyebilirsiniz. O halde kendinize şu soruları sorun lütfen: Bir yıl içinde kaç raporu webten okuyorsunuz? Sizi önemseyip adınıza postayla gelen bir faaliyet
+				raporunu açıp, en azından şöyle bir karıştırıp, göz atmaz mısınız?
+			</p>
+			<p>Ayrıca şirketinizin muhtemel insan kaynağını yetiştiren üniversitelerin ilgili bölümlerine, toplumun kanaat önderlerine, sektörünüzle ilgili yazarlara, çizerlere, medya mensuplarına, ekonomi ve hayatın içinden yazan köşe yazarlarına, orta düzey yöneticilerinize, önemli tedarikçilerinize ve hatta rakiplerinize raporunuzun gönderilebilirsiniz. Onlarla başarılarınızı paylaşın. Paylaşın ki çoğalsınlar.</p>
+		</div>
+	</CollapseWithLine>
+	<CollapseWithLine withLineTitle="Daha okunur bir faaliyet raporu yapmanın 5 yolu" withLineClasses="text-mavi font-zilla text-2xl">
+		<div class="altsection md:columns-2 lg:columns-3">
+			<p><strong>1. Kapağı etkin kullanın</strong><br />Bir dergiye ya da bir gazeteye herkesin görmesini istediğiniz bir ilan vermek isteseniz ve bütçe sorununuz da olmasa, hangi alana verirdiniz? Muhtemelen dergi için kapak, gazete için de sürmanşet tercih edersiniz. Elinizde bu olanak varken kapağa sadece bir logo koyup, üstüne de faaliyet raporu yazmayın lütfen. Mümkünse çok çekici bir görsel ve başlıkla okurun ilgisini çekin ve o kapağı kaldırmasını sağlayın.</p>
+			<p><strong>2. İlk 5 sayfayı çok önemseyin</strong><br />Faaliyet raporu üzerine yapılan araştırmalar gösteriyor ki, okur en çok ilk sayfalara ilgi gösteriyor. Bu sayfalara şirketiniz hakkında kısa bir bilgi (biz kimiz, ne iş yapıyoruz, nerede çalışıyoruz sorularına yanıt veren) yılın operasyonel ve finansal sonuçları, en önemli gelişmeleri hakkında özet bilgiler koymanız ve bunu çarpıcı infografiklerle okurla buluşturmanız, raporunuzun okunurluğunu artıracaktır.</p>
+			<p><strong>3. Yönetici mesajlarını grafik ve infografiklerle destekleyin</strong><br />Faaliyet raporunun en çok okunan bölümlerinden biri de yönetici değerlendirmeleridir. Grafik tasarımında en özen gösterilecek sayfaların başında bu sayfalar gelmektedir. Bu sayfaların okunurluğunu artıracak başlık, spot, grafik ve infografik kullanımları, raporun ana mesajlarının okurla buluşmasına yüksek katkı sağlayacaktır.</p>
+			<p><strong>4. Rapor tasarımın bir ritmi olsun</strong><br />Tekdüze bir müzik parçasını dinlemek nasıl sıkıcıysa, aynı sayfalara sahip raporlar da çok sıkıcıdır. Sizi etkileyen bir müzik parçasındaki ritmin yükseliş ve alçalışı gibi, raporun tasarımına mutlaka, zaman zaman güçlü başlıklar, bütününde fotoğraf, diyagram ya da zemin rengi kullanılmış sayfalarla bir ritim katın. Bu ritim, okurun faaliyet raporuna ilgisini canlı tutacaktır.</p>
+			<p>
+				<strong>5. Okura, raporunuzla etkileşme olanağı tanıyın</strong><br />Uykuda olduğumuz zaman dışında hepimiz çevrim içi (online) bir hayat yaşıyoruz. Akıllı telefonlarımız, tabletlerimiz ve dizüstü bilgisayarlarımıza bağımlı bir hayatımız var. Neredeyse ihtiyacımız olan tüm bilgiye İnternet üzerinden ulaşıyoruz. Basılı faaliyet raporunuzu, kare kod, layar, zenginleştirilmiş içerik uygulamaları gibi araçlarla offline ile online arasında bir köprü haline getirebilirsiniz. Faaliyet
+				raporundaki bir içerik üzerinden internetteki başka bir içeriğe okuru yönlendirebilirsiniz.
+			</p>
+		</div>
+	</CollapseWithLine>
+	<CollapseWithLine withLineTitle="30 soruda faaliyet raporunuzu test edin" withLineClasses="text-mavi font-zilla text-2xl">
+		<div class="altsection md:columns-2 lg:columns-3">
+			<ol start="1" class="pl-0">
+				<li>Raporunuzun kapağında okurla gerçek bir iletişim kuracak bir tema kullandınız mı?</li>
+				<li>Başta ön kapak olmak üzere, kapak içi, arka kapak ve arka kapak içini verimli şekilde kullandınız mı?</li>
+				<li>Raporunuzu taşımak ve indirip bir çıktısını almak kolay mı?</li>
+				<li>Raporunuz, şirketinizin kurumsal kimliğini ve markalarını yansıtıyor mu?</li>
+				<li>Şirketinizin profilini ilk sayfada sundunuz mu?</li>
+				<li>Temel finansal, operasyonel ve hisse göstergeleriniz (fiyat, hisse başına kâr vs) kolayca ulaşılabilir olarak sundunuz mu?</li>
+				<li>Yıllık faaliyetlerinizi, şirketinizle ilgili önemli bilgileri ve ana ürünlerinizi özetlediniz mi?</li>
+				<li>Yönetim Kurulu Başkanınız/CEO'nuzun mesajları, grafiklerle desteklenmiş olarak sunuldu mu?</li>
+				<li>İş birimlerinizi ve coğrafi dağılımınızı özet bir şekilde gösterdiniz mi?</li>
+				<li>Anlatımınızı görsel öğelerle desteklediniz mi?</li>
+				<li>Rapor yılının başarıları bir önceki yılın faaliyetleriyle sayısal olarak kıyaslandı mı?</li>
+				<li>Bir sonraki dönem için stratejinizi açıkça belirttiniz mi? Hedeflerinizi koydunuz mu?</li>
+				<li>Operasyonlarınızı ve pazarın işleyişini anlattınız mı?</li>
+				<li>Sektördeki konumunuza, pazar payınıza, rakiplerinize ve istatistik değerlerinize değindiniz mi?</li>
+				<li>Raporunuz, faaliyetlerinizi ve sonuçlarını açık ve sade bir şekilde sundu mu?</li>
+				<li>Coğrafi dağılımınızı yeterince detaylı bir şekilde ele aldınız mı?</li>
+				<li>Finansal durum, likidite ve nakit akışı analizleri, dikkatlice ve net olarak sunuldu mu?</li>
+				<li>Geçmiş&nbsp; performansa, tarihsel rakamlara ve büyüme rakamlarına değinildi mi?</li>
+				<li>Risk yönetimine ve finansal kontrole ayrı bir bölüm ayrıldı mı?</li>
+				<li>Finansal beyanlar raporun ilk sayfalarında ve kolayca erişilir şekilde sunuldu mu?</li>
+				<li>Yönetim kurulu üyelerinin ve üst düzey yöneticilerin kısa biyografilerine yer verildi mi?</li>
+				<li>Kurumsal yönetim ilkeleri ve uygulamaları açıklandı mı?</li>
+				<li>Komitelerin görevleri, üyeleri, raporları ve komite toplantılarına katılım oranları rapora konuldu mu?</li>
+				<li>Çalışan sayısı, raporun ilk bölümlerinde verildi mi?</li>
+				<li>Sosyal sorumluluk/sürdürülebilirlik konularını içeren ayrı bir bölüm var mı?</li>
+				<li>Hissedarlar ayrı bir bölümde ele alındı mı? Yatırımcı ilişkileri için şirketin iletişim bilgileri verildi mi?</li>
+				<li>Ortaklık yapısı, sermaye kontrolü ve dağılımı gösterildi mi?</li>
+				<li>Hisse fiyatları belirtildi mi? Grafikle gösterilip belli bir zaman aralığı içerisinde karşılaştırması yapıldı mı?</li>
+				<li>Raporun internet üzerinden bölümler halinde indirilmesi (ve çıktısının alınması) sağlandı mı?</li>
+				<li>Okur için raporun tasarımında, içindekiler tablosu, yönlendirme, sekmeler ve seperatör gibi kolaylıklar sağlandı mı?</li>
+			</ol>
+		</div>
+	</CollapseWithLine>
 </Layout>
+
+<style>
+	.altsection {
+		p,
+		ul,
+		h6 {
+			margin-bottom: 1.5rem;
+			letter-spacing: 0.1px;
+		}
+		ul {
+			list-style: square;
+			margin-left: 2.4rem;
+		}
+		ol {
+			list-style-type: decimal;
+			margin-left: 1.2rem;
+		}
+	}
+</style>

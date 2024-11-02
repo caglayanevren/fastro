@@ -1,0 +1,69 @@
+---
+import TitleWithLine from "~components/TitleWithLine.astro";
+import chevDown from "~images/chevron-down-light.svg?raw";
+
+interface Props {
+	withLineTitle?: string;
+	withLineTracking?: boolean;
+	withLineIcon?: string;
+	withLineClasses?: string;
+	collapseOpen?: boolean;
+	collapseTitleClass?: string;
+}
+const { withLineTitle = "", withLineTracking = false, withLineIcon = chevDown, withLineClasses, collapseOpen = false, collapseTitleClass = "" } = Astro.props;
+---
+
+<div class="colapse">
+	<div class:list={["colapse-title", { collapsed: !collapseOpen }, collapseTitleClass]}>
+		<!-- mt-[40px] -->
+		<TitleWithLine title={withLineTitle} classes={withLineClasses} trackingOnePx={withLineTracking} icon={withLineIcon} />
+	</div>
+	<div class:list={["colapse-content", { open: collapseOpen }]}>
+		<div class="colapse-content-inside pb-6">
+			<slot />
+		</div>
+	</div>
+</div>
+
+<style>
+	.colapse {
+		.colapse-title {
+			cursor: pointer;
+		}
+		.colapse-content {
+			overflow: hidden;
+			max-height: 0;
+			transition: max-height 0.25s ease-out;
+			&.open {
+				max-height: var(--height);
+				transition: max-height 0.25s ease-in;
+			}
+		}
+	}
+</style>
+
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+		const collapses = document.querySelectorAll(".colapse");
+		collapses.forEach((collapse) => {
+			const colapseTitles = collapse.querySelectorAll(".colapse-title");
+			const colapseContents = collapse.querySelectorAll(".colapse-content");
+			colapseContents.forEach((colapseContent) => {
+				//console.log("🚀 ~ colapseContents.forEach ~ colapseContent:", colapseContent);
+				const colapseContentInside = colapseContent.querySelectorAll(".colapse-content-inside");
+				//console.log("🚀 colapseContentInside:", colapseContentInside);
+				colapseContentInside.forEach((inside) => {
+					const colapseContentInsideHeight = inside.clientHeight;
+					//console.log("🚀 colapseContentInsideHeight:", colapseContentInsideHeight);
+					colapseContent.setAttribute("style", `--height:${colapseContentInsideHeight}px;`);
+				});
+				colapseTitles.forEach((colapseTitle) => {
+					colapseTitle.addEventListener("click", () => {
+						colapseTitle.classList.toggle("collapsed");
+						colapseContent.classList.toggle("open");
+					});
+				});
+			});
+		});
+	});
+</script>

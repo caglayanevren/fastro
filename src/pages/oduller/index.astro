@@ -8,6 +8,7 @@ import OdullerSquareImage from "~components/OdullerSquareImage.astro";
 import HoverItem from "~components/HoverItem.astro";
 import TitleWithLine from "~components/TitleWithLine.astro";
 import GetSingleCollectionEntry from "~components/getSingleCollectionEntry.astro";
+import CollapseWithLine from "~components/CollapseWithLine.astro";
 
 import arc2021 from "../../images/oduller/2021/ARC-ODUL.jpg";
 import odul2021 from "../../images/oduller/2021/Finar-Odul-Gorseli-2021.png";
@@ -35,6 +36,7 @@ type data = {
 	year: number;
 	icon: string;
 	open: boolean;
+	collapseTitleClass?: string;
 	items: {
 		link?: string;
 		image: ImageMetadata;
@@ -47,6 +49,7 @@ const datas: data[] = [
 		year: 2021,
 		icon: chevDown,
 		open: true,
+		collapseTitleClass: "",
 		items: [
 			{
 				link: "arc-2021",
@@ -65,6 +68,7 @@ const datas: data[] = [
 		year: 2020,
 		icon: chevDown,
 		open: false,
+		collapseTitleClass: "mt-[20px]",
 		items: [
 			{
 				link: "toplam-24-odul",
@@ -78,6 +82,7 @@ const datas: data[] = [
 		year: 2019,
 		icon: chevDown,
 		open: false,
+		collapseTitleClass: "mt-[20px]",
 		items: [
 			{
 				link: "dunyanin-en-iyi-kurumsal-tasarim-ajansi",
@@ -111,88 +116,71 @@ const datas: data[] = [
 	{
 		datas.map((data) => {
 			return (
-				<div class="colapse">
-					<div class={`colapse-title ${data.open ? "" : "collapsed mt-[40px]"}`}>
-						<TitleWithLine title={data.year.toString()} icon={data.icon} />
-					</div>
-					<div class={`colapse-content ${data.open ? "open" : ""}`}>
-						<div class="colapse-content-inside">
-							{data.items.map((item) => {
-								return (
-									<div class="odul-photo">
-										{item.link ? (
-											<a href={`/oduller/${item.link}/`} aria-label={item.alt}>
-												<SingleItemCoverImage src={item.image} coverImageAlt={item.alt} loading={item.loading} />
-												<div class="info">
-													<span class="absolute bottom-[30px] left-[30px] hidden h-[14px] w-[24px] text-mavi md:block">
-														<Fragment set:html={arrowright} />
-													</span>
-												</div>
-											</a>
-										) : (
-											<SingleItemCoverImage src={item.image} coverImageAlt={item.alt} loading={item.loading} />
-										)}
-									</div>
-								);
-							})}
-						</div>
-					</div>
-				</div>
+				<CollapseWithLine withLineTitle={data.year.toString()} collapseOpen={data.open} collapseTitleClass={data.collapseTitleClass}>
+					{data.items.map((item) => {
+						return (
+							<div class="odul-photo">
+								{item.link ? (
+									<a href={`/oduller/${item.link}/`} aria-label={item.alt}>
+										<SingleItemCoverImage src={item.image} coverImageAlt={item.alt} loading={item.loading} />
+										<div class="info">
+											<span class="absolute bottom-[30px] left-[30px] hidden h-[14px] w-[24px] text-mavi md:block">
+												<Fragment set:html={arrowright} />
+											</span>
+										</div>
+									</a>
+								) : (
+									<SingleItemCoverImage src={item.image} coverImageAlt={item.alt} loading={item.loading} />
+								)}
+							</div>
+						);
+					})}
+				</CollapseWithLine>
 			);
 		})
 	}
-	<div class="colapse">
-		<div class="colapse-title collapsed mt-[40px]"><TitleWithLine title="2018" icon={chevDown} /></div>
-		<div class="colapse-content">
-			<div class="colapse-content-inside">
-				<div class="odul-photo grid grid-cols-1">
-					<a href="/oduller/arcden-buyuk-odulleri-yine-turkiyeye-getirdik/">
-						<SingleItemCoverImage src={arc2018} loading="lazy" coverImageAlt="ARC'den büyük ödülleri yine Türkiye'ye getirdik." />
-						<div class="absolute top-0 h-[calc(100%-0.5em)] w-full p-[.5em] text-[20px] sm:text-[30px] md:text-[40px] lg:text-[64px]">
-							<p class="big-title mb-[.5em] font-zilla leading-tight text-white"><strong>ARC'den</strong><br />büyük ödülleri<br />yine Türkiye'ye<br />getirdik.</p>
-							<span class="absolute bottom-[30px] left-[30px] hidden h-[14px] w-[24px] text-white md:block"><Fragment set:html={arrowright} /></span>
-						</div>
-					</a>
+	<CollapseWithLine withLineTitle="2018" withLineTracking={true} collapseTitleClass="mt-[20px]">
+		<div class="odul-photo grid grid-cols-1">
+			<a href="/oduller/arcden-buyuk-odulleri-yine-turkiyeye-getirdik/">
+				<SingleItemCoverImage src={arc2018} loading="lazy" coverImageAlt="ARC'den büyük ödülleri yine Türkiye'ye getirdik." />
+				<div class="absolute top-0 h-[calc(100%-0.5em)] w-full p-[.5em] text-[20px] sm:text-[30px] md:text-[40px] lg:text-[64px]">
+					<p class="big-title mb-[.5em] font-zilla leading-tight text-white"><strong>ARC'den</strong><br />büyük ödülleri<br />yine Türkiye'ye<br />getirdik.</p>
+					<span class="absolute bottom-[30px] left-[30px] hidden h-[14px] w-[24px] text-white md:block"><Fragment set:html={arrowright} /></span>
 				</div>
-				<div class="grid grid-cols-1 sm:grid-cols-2 sm:justify-between sm:gap-8">
-					<div class="photo relative">
-						<a href="/oduller/yilin-kurumsal-iletisim-ajansi-olduk/">
-							<OdullerSquareImage src={arc2018_2} loading="lazy" alt="Yılın kurumsal iletişim ajansı olduk!" />
-							<span class="info backnone absolute left-0 top-0 p-8">
-								<h2 class="big-title text-center font-zilla text-[24px] leading-tight sm:text-[20px] md:text-[24px] lg:text-[48px]">Yılın kurumsal iletişim ajansı olduk!</h2>
-							</span>
-						</a>
-					</div>
-					<div class="photo relative">
-						<a href="/oduller/and-oscar-goes-to/">
-							<OdullerSquareImage src={arc2018_3} loading="lazy" alt="... and the Oscar again goes to Finar!" />
-							<span class="info backnone absolute left-0 top-0 p-8">
-								<h2 class="big-title text-center font-zilla text-[24px] leading-tight sm:text-[20px] md:text-[24px] lg:text-[48px]">... and the Oscar again goes to Finar!</h2>
-							</span>
-						</a>
-					</div>
-				</div>
+			</a>
+		</div>
+		<div class="grid grid-cols-1 sm:grid-cols-2 sm:justify-between sm:gap-8">
+			<div class="photo relative">
+				<a href="/oduller/yilin-kurumsal-iletisim-ajansi-olduk/">
+					<OdullerSquareImage src={arc2018_2} loading="lazy" alt="Yılın kurumsal iletişim ajansı olduk!" />
+					<span class="info backnone absolute left-0 top-0 p-8">
+						<h2 class="big-title text-center font-zilla text-[24px] leading-tight sm:text-[20px] md:text-[24px] lg:text-[48px]">Yılın kurumsal iletişim ajansı olduk!</h2>
+					</span>
+				</a>
+			</div>
+			<div class="photo relative">
+				<a href="/oduller/and-oscar-goes-to/">
+					<OdullerSquareImage src={arc2018_3} loading="lazy" alt="... and the Oscar again goes to Finar!" />
+					<span class="info backnone absolute left-0 top-0 p-8">
+						<h2 class="big-title text-center font-zilla text-[24px] leading-tight sm:text-[20px] md:text-[24px] lg:text-[48px]">... and the Oscar again goes to Finar!</h2>
+					</span>
+				</a>
 			</div>
 		</div>
-	</div>
-	<div class="colapse">
-		<div class="colapse-title collapsed mt-[40px]"><TitleWithLine title="2014" icon={chevDown} /></div>
-		<div class="colapse-content">
-			<div class="colapse-content-inside">
-				<div class="odul-photo">
-					<a href="/oduller/dunyanin-en-iyisi/">
-						<SingleItemCoverImage src={odul2017} coverImageAlt='Finar, "Dünyanın en iyi faaliyet raporu ajansı" seçildi.' loading="lazy" />
-						<div class="info text-[20px] sm:text-[30px] md:text-[40px] lg:text-[64px]">
-							<p class="big-title mb-[.5em] font-zilla leading-tight text-black"><strong>Finar</strong><br />ARC jurisi tarafından<br />dünyanın en iyi raporlama<br />ajansı seçildi.</p>
-							<Image class="h-auto w-[30px] md:w-[60px] lg:w-[100px]" src={arclogo} alt="ARC Logo" />
-							<span class="absolute bottom-[30px] left-[30px] hidden h-[14px] w-[24px] text-black md:block"><Fragment set:html={arrowright} /></span>
-						</div>
-					</a>
+	</CollapseWithLine>
+	<CollapseWithLine withLineTitle="2014" withLineTracking={true} collapseTitleClass="mt-[20px]">
+		<div class="odul-photo">
+			<a href="/oduller/dunyanin-en-iyisi/">
+				<SingleItemCoverImage src={odul2017} coverImageAlt='Finar, "Dünyanın en iyi faaliyet raporu ajansı" seçildi.' loading="lazy" />
+				<div class="info text-[20px] sm:text-[30px] md:text-[40px] lg:text-[64px]">
+					<p class="big-title mb-[.5em] font-zilla leading-tight text-black"><strong>Finar</strong><br />ARC jurisi tarafından<br />dünyanın en iyi raporlama<br />ajansı seçildi.</p>
+					<Image class="h-auto w-[30px] md:w-[60px] lg:w-[100px]" src={arclogo} alt="ARC Logo" />
+					<span class="absolute bottom-[30px] left-[30px] hidden h-[14px] w-[24px] text-black md:block"><Fragment set:html={arrowright} /></span>
 				</div>
-			</div>
+			</a>
 		</div>
-	</div>
-	<div class="mt-8 flex flex-col sm:flex-row sm:justify-between sm:gap-8">
+	</CollapseWithLine>
+	<div class="mt-6 flex flex-col sm:flex-row sm:justify-between sm:gap-8">
 		<div class="photo">
 			<TitleWithLine title="2012" />
 			<div class="relative">
@@ -241,20 +229,6 @@ const datas: data[] = [
 	</div>
 </Layout>
 <style>
-	.colapse {
-		.colapse-title {
-			cursor: pointer;
-		}
-		.colapse-content {
-			overflow: hidden;
-			max-height: 0;
-			transition: max-height 0.25s ease-out;
-			&.open {
-				max-height: var(--height);
-				transition: max-height 0.25s ease-in;
-			}
-		}
-	}
 	.odul-photo {
 		position: relative;
 		.info {
@@ -267,28 +241,3 @@ const datas: data[] = [
 		}
 	}
 </style>
-<script is:inline>
-	document.addEventListener("DOMContentLoaded", function () {
-		const collapses = document.querySelectorAll(".colapse");
-		collapses.forEach((collapse) => {
-			const colapseTitles = collapse.querySelectorAll(".colapse-title");
-			const colapseContents = collapse.querySelectorAll(".colapse-content");
-			colapseContents.forEach((colapseContent) => {
-				//console.log("🚀 ~ colapseContents.forEach ~ colapseContent:", colapseContent);
-				const colapseContentInside = colapseContent.querySelectorAll(".colapse-content-inside");
-				//console.log("🚀 colapseContentInside:", colapseContentInside);
-				colapseContentInside.forEach((inside) => {
-					const colapseContentInsideHeight = inside.clientHeight;
-					//console.log("🚀 colapseContentInsideHeight:", colapseContentInsideHeight);
-					colapseContent.setAttribute("style", `--height:${colapseContentInsideHeight}px;`);
-				});
-				colapseTitles.forEach((colapseTitle) => {
-					colapseTitle.addEventListener("click", () => {
-						colapseTitle.classList.toggle("collapsed");
-						colapseContent.classList.toggle("open");
-					});
-				});
-			});
-		});
-	});
-</script>
