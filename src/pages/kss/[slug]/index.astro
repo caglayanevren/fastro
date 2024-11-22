@@ -1,19 +1,30 @@
 ---
 import { getCollection } from "astro:content";
-import KssLayout from "~layouts/KssLayout.astro";
+import MultiItemLayout from "~layouts/MultiItemLayout.astro";
+import SingleItemLayout from "~layouts/SingleItemLayout.astro";
 
 export async function getStaticPaths() {
-	const allFR = await getCollection("kss");
-	return allFR.map((entry) => ({
+	const allKSS = await getCollection("kss");
+	return allKSS.map((entry) => ({
 		params: { slug: entry.slug },
-		props: { entry },
+		props: { entry, itemType: entry.data.type },
 	}));
 }
 
-const { entry } = Astro.props;
+const { entry, itemType } = Astro.props;
 const { Content } = await entry.render();
 ---
 
-<KssLayout title={entry.data.title} subtitle={entry.data.subtitle} slug={entry.slug} description={entry.data.spot} collection={entry.collection} spot={entry.data.spot} category={entry.data.category} awarded={entry.data.awarded} coverImage={entry.data.coverImage} otherImages={entry.data.otherImages} sliderImages={entry.data.sliderImages}>
-	<Content />
-</KssLayout>
+{
+	itemType == "singleItem" ? (
+		<SingleItemLayout title={entry.data.title} slug={entry.slug} description={entry.data.spot} collection={entry.collection} spot={entry.data.spot} category={entry.data.category} awarded={entry.data.awarded} coverImage={entry.data.coverImage} singleItemSpreadImages={entry.data.otherImages} singleItemsliderImages={entry.data.sliderImages}>
+			<Content />
+		</SingleItemLayout>
+	) : itemType == "multiItem" ? (
+		<MultiItemLayout title={entry.data.title} slug={entry.slug} description={entry.data.spot} collection={entry.collection} spot={entry.data.spot} category={entry.data.category}>
+			<Content />
+		</MultiItemLayout>
+	) : (
+		(Astro.response.status = 404) && (Astro.response.statusText = "neither 'singleItem' nor 'multiItem'")
+	)
+}

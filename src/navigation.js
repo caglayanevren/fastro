@@ -22,6 +22,10 @@ export const headerData = {
 					text: "AİLEMİZ",
 					href: getPermalink("/ailemiz/"),
 				},
+				{
+					text: "KURUMSAL SOSYAL SORUMLULUK",
+					href: getPermalink("/kss/"),
+				},
 			],
 		},
 		{
@@ -89,7 +93,7 @@ export const headerData = {
 			text: "ÖDÜLLER",
 			href: getPermalink("/oduller/"),
 		},
-		{
+		/* {
 			text: "KSS",
 			links: [
 				{
@@ -121,7 +125,7 @@ export const headerData = {
 					href: getPermalink("/kss/darussafaka/"),
 				},
 			],
-		},
+		}, */
 		{
 			text: "REFERANSLAR",
 			href: getPermalink("/referanslar/"),
