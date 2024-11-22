@@ -1,6 +1,6 @@
 ---
 import AnasayfaLayout from "~layouts/AnasayfaLayout.astro";
-import RedPop from "~components/RedPop.astro";
+//import RedPop from "~components/RedPop.astro";
 import { Image } from "astro:assets";
 
 import fr from "/src/images/anasayfa/svg/faaliyet-raporu.svg?raw";
@@ -21,7 +21,7 @@ import "swiper/css/effect-fade";
 ---
 
 <AnasayfaLayout>
-	<RedPop />
+	<!-- <RedPop /> -->
 	<section class="grid grid-cols-2 gap-5 sm:gap-[30px] md:grid-cols-3 lg:grid-cols-4">
 		<a href="/faaliyet-raporu/" class="rounded-[4px] bg-mavi2 p-4 text-center text-sm font-bold leading-4 text-white sm:text-lg sm:leading-5 md:text-base md:font-normal md:leading-5 lg:text-lg lg:leading-5">
 			<Fragment set:html={fr} />Faaliyet<br />Raporu
@@ -77,14 +77,14 @@ import "swiper/css/effect-fade";
 		<div class="order-first lg:order-last">
 			<div class="swiper duyuruswiper">
 				<div class="swiper-wrapper" data-cursor="swipe">
-					<div class="swiper-slide">
+					<!-- <div class="swiper-slide">
 						<a href="/turkiye-surdurulebilirlik-raporlama-standartlari/" class="block h-full rounded-sm">
 							<div class="yesil-grad45 flex h-full w-full items-center justify-between rounded-sm">
 								<div class="tsrs-title grow-1 mr-n4 rounded-sm pl-3 text-[12px] text-white sm:text-base md:text-xl lg:text-base xl:text-lg">Türkiye Sürdürülebilirlik<br />Raporlama Standartları <br class="inline sm:hidden" />(TSRS) <br class="hidden sm:inline" />Hakkında <br class="inline sm:hidden" />Bilmeniz Gerekenler</div>
 								<img src="/tsrs-banner.png" loading="eager" alt="TSRS" class="shrink-1 h-full w-auto grow-0 rounded-sm" />
 							</div>
 						</a>
-					</div>
+					</div> -->
 					<div class="swiper-slide">
 						<a href="http://sifiryuz.finarkurumsal.com" target="_blank" class="block h-full rounded-sm">
 							<div class="flex h-full w-full items-center justify-between rounded-sm bg-white">
@@ -110,7 +110,7 @@ import "swiper/css/effect-fade";
 							</div>
 						</a>
 					</div>
-					<div class="swiper-slide">
+					<!-- <div class="swiper-slide">
 						<a href="/musterilerimiz-konusuyor/" class="block h-full rounded-sm">
 							<div id="mfa" class="flex h-full items-center justify-between rounded-sm bg-gri3 p-8">
 								<div class="text-2xl font-medium text-white">Müşterilerimiz Finar’ı anlatıyor</div>
@@ -122,7 +122,7 @@ import "swiper/css/effect-fade";
 								</div>
 							</div>
 						</a>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
