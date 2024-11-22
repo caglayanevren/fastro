@@ -23,6 +23,14 @@ export const headerData = {
 					href: getPermalink("/ailemiz/"),
 				},
 				{
+					text: "MÜŞTERİLERİMİZ KONUŞUYOR",
+					href: getPermalink("/musterilerimiz-konusuyor/"),
+				},
+				{
+					text: "V-LOG",
+					href: getPermalink("/vlog/"),
+				},
+				{
 					text: "KURUMSAL SOSYAL SORUMLULUK",
 					href: getPermalink("/kss/"),
 				},
@@ -93,54 +101,13 @@ export const headerData = {
 			text: "ÖDÜLLER",
 			href: getPermalink("/oduller/"),
 		},
-		/* {
-			text: "KSS",
-			links: [
-				{
-					text: "TEGV",
-					href: getPermalink("/entegre-faaliyet-raporu/tegv/"),
-				},
-				{
-					text: "KORUNCUK",
-					href: getPermalink("/faaliyet-raporu/koruncuk/"),
-				},
-				{
-					text: "TOG",
-					href: getPermalink("/faaliyet-raporu/tog/"),
-				},
-				{
-					text: "ADV",
-					href: getPermalink("/kss/adv-bbog/"),
-				},
-				{
-					text: "DİLİNİZDEN UTANMAYIN",
-					href: getPermalink("/kss/dilinizden-utanmayin/"),
-				},
-				{
-					text: "ACİL İHTİYAÇ VAKFI",
-					href: getPermalink("/kss/acil-ihtiyac-vakfi/"),
-				},
-				{
-					text: "DARÜŞŞAFAKA",
-					href: getPermalink("/kss/darussafaka/"),
-				},
-			],
-		}, */
 		{
 			text: "REFERANSLAR",
 			href: getPermalink("/referanslar/"),
 		},
 		{
-			text: "V-LOG",
-			href: getPermalink("/vlog/"),
-		},
-		{
 			text: "İLETİŞİM",
 			href: getPermalink("/iletisim/"),
-		},
-		{
-			text: "ARŞİV",
-			href: getPermalink("/arsiv/"),
 		},
 	],
 };
