@@ -3,7 +3,7 @@ import Layout from "~layouts/Layout.astro";
 import ArticleTitle from "~components/articleTitle.astro";
 import { Image } from "astro:assets";
 
-import mobiluygulama from "~images/yatirimci-iliskileri/mobil-uygulama.png";
+//import mobiluygulama from "~images/yatirimci-iliskileri/mobil-uygulama.png";
 import yatirimcisunumlari from "~images/yatirimci-iliskileri/yatirimci-sunumlari.png";
 import faaliyetraporu from "~images/yatirimci-iliskileri/faaliyet-raporu.png";
 import surdurulebilirlikraporu from "~images/yatirimci-iliskileri/surdurulebilirlik-raporu.png";
@@ -19,17 +19,12 @@ interface yatirimciIliskileriItem {
 }
 
 const yatirimciIliskileriItems: yatirimciIliskileriItem[] = [
-	{
+	/* {
 		image: mobiluygulama,
 		title: "Yatırımcı İlişkileri Mobil Uygulaması",
 		subtitle: "Tamamen sizin kontrolünüzde bir mobil uygulamanız olsun ister misiniz? Yanıtınız evet ise bizimle hemen temas kurun.",
 		text: "Finar’ın yatırımcı ilişkileri alanındaki 27 yıllık deneyimi ile %100 Türk mühendisler tarafından geliştirilen yazılımımız sayesinde, iki hafta içinde Yatırımcı İlişkileri Mobil Uygulamanızı yayına hazır hale getirebiliriz. “IT free” olarak tamamen sizin kontrolünüzde kalacak mobil uygulamanız ile, tüm içerikleri online yönetebilir, hissedarlarınız, yatırımcılarınız ve analistlerle her zaman ve her yerden daima temasta kalabilirsiniz.<br><br>Koç Holding, İş Yatırım, Anadolu Efes, Arçelik, Ford Otosan ve Albaraka yatırımcı ilişkileri bölümleri için geliştirdiğimiz mobil uygulamaları incelemek için lütfen <a href='/yatirimci-iliskileri-mobil-uygulamasi/' class='text-mavi'>buraya</a> tıklayınız.",
-	},
-	{
-		image: yatirimcisunumlari,
-		title: "Yatırımcı Sunumları",
-		text: "Çeyrek ya da yıl sonu sonuçları ne kadar iyi olursa olsun, bu sonuçları ve performansınızı iyi anlatamadığınızda, hedef kitlenizde beklediğiniz etkiyi yaratamıyorsunuz. Finar olarak, şirketinizi ve hikayenizi dinliyor, sunumlarınızı inceliyor ve bir “asansör konuşması” yaklaşımı ile sunumlarınızı yeniden ele alıyoruz. Daha kısa, çekici ve etkili hale getiriyoruz.<br><br>Daha fazla bilgi almak ve yaptığımız işleri görmek için <a href='/yatirimci-sunumlari/' class='text-mavi'>Yatırımcı Sunumları</a> sayfamızı ziyaret edebilirsiniz.",
-	},
+	}, */
 	{
 		image: faaliyetraporu,
 		title: "Faaliyet Raporu",
@@ -39,6 +34,11 @@ const yatirimciIliskileriItems: yatirimciIliskileriItem[] = [
 		image: surdurulebilirlikraporu,
 		title: "Sürdürülebilirlik Raporu",
 		text: "Deneyimli kadromuzla, yatırımcılar için en önemli sorulardan biri olan, “Yarın da varlığınızı ve kârlılığınızı sürdürecek misiniz” sorusuna doğru ve güçlü yanıtlar veren sürdürülebilirlik raporları üretiyoruz. Bu hizmeti size, GRI (Küresel Raporlama Girişimi)’nin 4. nesil çerçevesine uygun olarak “temel” ya da “kapsamlı” düzeyde, sürdürülebilirlik danışmanlığı dahil olarak sunabiliriz.<br><br>Daha fazla bilgi almak ve yaptığımız işleri görmek için <a href='/surdurulebilirlik-raporu/' class='text-mavi'>sürdürülebilirlik raporu</a> sayfamızı ziyaret edebilirsiniz.",
+	},
+	{
+		image: yatirimcisunumlari,
+		title: "Yatırımcı Sunumları",
+		text: "Çeyrek ya da yıl sonu sonuçları ne kadar iyi olursa olsun, bu sonuçları ve performansınızı iyi anlatamadığınızda, hedef kitlenizde beklediğiniz etkiyi yaratamıyorsunuz. Finar olarak, şirketinizi ve hikayenizi dinliyor, sunumlarınızı inceliyor ve bir “asansör konuşması” yaklaşımı ile sunumlarınızı yeniden ele alıyoruz. Daha kısa, çekici ve etkili hale getiriyoruz.<br><br>Daha fazla bilgi almak ve yaptığımız işleri görmek için <a href='/yatirimci-sunumlari/' class='text-mavi'>Yatırımcı Sunumları</a> sayfamızı ziyaret edebilirsiniz.",
 	},
 ];
 ---

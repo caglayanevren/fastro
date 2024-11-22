@@ -68,10 +68,6 @@ export const headerData = {
 					href: getPermalink("/yatirimci-iliskileri/"),
 				},
 				{
-					text: "YATIRIMCI İLİŞKİLERİ MOBİL UYGULAMASI",
-					href: getPermalink("/yatirimci-iliskileri-mobil-uygulamasi/"),
-				},
-				{
 					text: "YATIRIMCI İLİŞKİLERİ WEB SİTESİ",
 					href: getPermalink("/yatirimci-iliskileri-web-sitesi/"),
 				},

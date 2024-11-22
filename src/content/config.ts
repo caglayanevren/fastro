@@ -18,20 +18,6 @@ const FRCollection = defineCollection({
 		}),
 });
 
-const YIMUCollection = defineCollection({
-	type: "content",
-	schema: ({ image }) =>
-		z.object({
-			title: z.string(),
-			description: z.string(),
-			category: z.string(),
-			thumbnail: image(),
-			coverImage: image(),
-			appStoreLink: z.string(),
-			gPlayLink: z.string(),
-		}),
-});
-
 const YIWSCollection = defineCollection({
 	type: "content",
 	schema: ({ image }) =>
@@ -220,7 +206,6 @@ export const collections = {
 	"entegre-faaliyet-raporu": EFRCollection,
 	"surdurulebilirlik-raporu": SRDCollection,
 	reklam: RCollection,
-	"yatirimci-iliskileri-mobil-uygulamasi": YIMUCollection,
 	"yatirimci-sunumlari": YSCollection,
 	"kurumsal-kimlik": KKCollection,
 	"yatirimci-iliskileri-web-sitesi": YIWSCollection,
