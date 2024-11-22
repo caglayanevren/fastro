@@ -5,7 +5,7 @@ spot: Tepeden tırnağa bir kimlik değişimi operasyonu
 category: Kurumsal Kimlik
 thumbnail: ./Gedik_Yatirim_0_Thumbnail.png
 coverImage: ./Gedik_Yatirim_Cover.png
-singleItemSpreadImages: ["./Gedik_Yatirim_1_Markalama.png"]
+singleItemSpreadImages: ["./Gedik_Yatirim_1_Markalama_1.png", "./Gedik_Yatirim_1_Markalama_2.png", "./Gedik_Yatirim_1_Markalama_3.png", "./Gedik_Yatirim_1_Markalama_4.png", "./Gedik_Yatirim_1_Markalama_5.png", "./Gedik_Yatirim_1_Markalama_6.png", "./Gedik_Yatirim_1_Markalama_7.png", "./Gedik_Yatirim_1_Markalama_8.png"]
 ---
 
 ### Kuruluşu 1991 yılına dayanan, Türkiye'de pek çok ilki gerçekleştirmiş köklü bir yatırım kuruluşu olan Gedik Yatırım, kurumsal kimlik yenileme projesi için Finar'ı seçti.
