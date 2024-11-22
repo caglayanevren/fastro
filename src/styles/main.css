@@ -105,9 +105,11 @@
 				font-size: 0.85rem;
 			}
 		}
+		--logo-color: #00b3e3;
 		--nav-primary-color: #333;
 		--nav-secondary-color: #fff;
 		&.home {
+			--logo-color: #fff;
 			--nav-primary-color: #fff;
 			--nav-secondary-color: #333;
 		}
@@ -115,7 +117,7 @@
 			#finar {
 				position: absolute;
 				width: auto;
-				height: 34px;
+				height: 55px;
 				top: 3px;
 			}
 			@media screen and (min-width: 1024px) {
@@ -124,10 +126,10 @@
 				}
 			}
 		}
-		nav > ul > li:last-child > a {
+		/* nav > ul > li:last-child > a {
 			color: var(--nav-secondary-color);
 			background-color: var(--nav-primary-color);
-		}
+		} */
 		.aw-link-active {
 			&::after {
 				content: "";
