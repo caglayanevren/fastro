@@ -11,7 +11,9 @@ const FRCollection = defineCollection({
 			category: z.string(),
 			thumbnail: image(),
 			awarded: z.boolean(),
-			coverImage: image(),
+			grand: z.boolean().optional(),
+			coverImage: image().optional(),
+			singleItemsliderImages: z.array(image()).optional(),
 			singleItemSpreadImages: z.array(image()).optional(),
 		}),
 });
