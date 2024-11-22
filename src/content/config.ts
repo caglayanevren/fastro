@@ -53,7 +53,7 @@ const YSCollection = defineCollection({
 			category: z.string(),
 			thumbnail: image(),
 			coverImage: image(),
-			singleItemSpreadImages: z.array(image()).optional(),
+			singleItemSpreadImages: z.array(image()),
 		}),
 });
 
