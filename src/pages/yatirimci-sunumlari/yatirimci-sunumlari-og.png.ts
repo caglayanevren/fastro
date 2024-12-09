@@ -2,29 +2,10 @@
 //import path from "path";
 import { ogpngConfig } from "~/config";
 import { ImageResponse } from "@vercel/og";
+import { OpenSansData, Zilla300Data, Zilla600Data } from "~/utils/utils";
 
 const post = "Yatırımcı Sunumları";
-async function loadGoogleFont(font: string) {
-	//, text: string
-	const url = `https://fonts.googleapis.com/css2?family=${font}`; //&text=${encodeURIComponent(text)}
-	const css = await (await fetch(url)).text();
-	const resource = css.match(/src: url\((.+)\) format\('(opentype|truetype)'\)/);
-
-	if (resource) {
-		const response = await fetch(resource[1]);
-		if (response.status == 200) {
-			return await response.arrayBuffer();
-		}
-	}
-
-	throw new Error("failed to load font data");
-}
 export async function GET() {
-	// using custom font files
-	//const OpenSans = fs.readFileSync(path.resolve("public/font/OpenSans-Regular.ttf"));
-	//const Zilla300 = fs.readFileSync(path.resolve("public/font/ZillaSlab-Light.ttf"));
-	//const Zilla600 = fs.readFileSync(path.resolve("public/font/ZillaSlab-Bold.ttf"));
-
 	// Astro doesn't support tsx endpoints so usign React-element objects
 	const html = {
 		type: "div",
@@ -103,12 +84,17 @@ export async function GET() {
 		fonts: [
 			{
 				name: "Open Sans",
-				data: await loadGoogleFont("Open Sans"),
+				data: OpenSansData,
 				style: "normal",
 			},
 			{
-				name: "Open Sans",
-				data: await loadGoogleFont("Zilla Slab"),
+				name: "Zilla Slab",
+				data: Zilla300Data,
+				style: "normal",
+			},
+			{
+				name: "Zilla Slab Bold",
+				data: Zilla600Data,
 				style: "normal",
 			},
 		],
