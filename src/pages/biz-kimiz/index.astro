@@ -1,11 +1,13 @@
 ---
 import Layout from "~layouts/Layout.astro";
-import { Content, frontmatter } from "~content/finar/biz-kimiz.mdx";
+import { Content, frontmatter } from "~/finar/biz-kimiz.mdx";
 import VimeoVideo from "~components/VimeoVideo.astro";
 import ContentLayout2Column1248 from "~layouts/ContentLayout-2Column-12-4-8.astro";
+import FirstSpace from "~components/firstSpace.astro";
 ---
 
 <Layout title={frontmatter.title} seoImage={frontmatter.seoImage}>
+	<FirstSpace height={48} />
 	<VimeoVideo id={frontmatter.videoID} title={frontmatter.VideoTitle} classes="mt-0 mb-8" />
 	<ContentLayout2Column1248 title={frontmatter.title}>
 		<Content />
