@@ -1,0 +1,61 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection, render } from "astro:content";
+import CollapseWithLine from "~components/CollapseWithLine.astro";
+import CollectionName from "~components/collectionName.astro";
+//import ArticleTitle from "~components/articleTitle.astro";
+import FirstSpace from "~components/firstSpace.astro";
+import VimeoVideo from "~components/VimeoVideo.astro";
+import VlogGallery from "~components/vlogGallery.astro";
+import Layout from "~layouts/Layout.astro";
+
+export const getStaticPaths = (async () => {
+	const vlogs = await getCollection("vlog");
+	return vlogs.map((vlog) => ({
+		params: {
+			slug: vlog.id,
+		},
+		props: vlog,
+	}));
+}) satisfies GetStaticPaths;
+
+const { slug } = Astro.params;
+const vlog = Astro.props;
+const { Content } = await render(vlog);
+
+const categorySlug = slug.split("/")[0];
+---
+
+{console.log("vlog: ", vlog)}
+{console.log("categorySlug: ", categorySlug)}
+{console.log("category: ", vlog.data.category)}
+
+<Layout title={vlog.data.title} description={vlog.data.title} seoImage={`${import.meta.env.SITE}${vlog.collection}/${slug}/${slug}-og.png`}>
+	<CollectionName category={vlog.collection} collection={vlog.collection} />
+	<FirstSpace height={48} />
+	<VimeoVideo id={vlog.data.videoId} title={vlog.data.title} classes="m-0" />
+	<FirstSpace height={48} />
+	<p class="text-mavi"><strong><Fragment set:html={vlog.data.guestName} /></strong><br /><Fragment set:html={vlog.data.guestTitle} /></p>
+
+	<h1 class="mb-6 mt-8 leading-[1.2] md:text-[2rem] lg:text-[3rem]">{vlog.data.title}</h1>
+
+	<CollapseWithLine withLineTitle="Video Transkript" collapseTitleClass="uppercase text-mavi tracking-[1px]">
+		<Content />
+	</CollapseWithLine>
+	<FirstSpace height={48} />
+	<VlogGallery currentCategory={vlog.data.category} />
+</Layout>
+
+<style is:inline>
+	.colapse-content-inside h6 {
+		text-transform: uppercase;
+		margin-block-start: 1.5rem;
+		margin-block-end: 0.5rem;
+		font-weight: 600;
+	}
+</style>
+<script is:inline>
+	// HİZMETLER'den active link indicator'ı kaldırır.
+	document.querySelector("a[aria-label='FAALİYET RAPORU']").classList.remove("aw-link-active");
+	document.querySelector("a[aria-label='YATIRIMCI İLİŞKİLERİ']").classList.remove("aw-link-active");
+</script>

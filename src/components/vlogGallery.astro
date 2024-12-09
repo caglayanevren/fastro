@@ -1,0 +1,35 @@
+---
+import { getCollection } from "astro:content";
+import TitleWithLine from "./TitleWithLine.astro";
+import VlogCard from "./vlogCard.astro";
+
+const vlog = await getCollection("vlog");
+const vlogCategories = await getCollection("vlog-categories");
+
+interface Props {
+	currentCategory?: string
+}
+const { currentCategory = "" } = Astro.props;
+---
+
+{
+	vlogCategories.sort(
+		(a,b) => {
+			if (currentCategory !== "") {
+				if (a.data.categoryTitle === currentCategory) return -1; // static her zaman önce gelir
+  				if (b.data.categoryTitle === currentCategory) return 1;  // static her zaman önce gelir
+			}
+			return a.data.sort - b.data.sort
+		}).map((vc) => (
+		<TitleWithLine upper={true} classes="text-[1.5rem] tracking-[.1px] leading-none" trackingOnePx={false} title={vc.data.categoryTitle} />
+		<div class="mx-[-1rem] mb-10 grid auto-rows-max grid-cols-1 gap-0 sm:grid-cols-2 lg:grid-cols-4">
+			{
+				vlog.filter((v) => v.data.category === vc.data.categoryTitle)
+					.sort((a, b) => a.data.sort - b.data.sort)
+					.map((v) => (
+						<VlogCard slug={v.id} title={v.data.title} guestName={v.data.guestName} guestTitle={v.data.guestTitle} cardImageUrl={v.data.cardImageUrl} />
+					))
+			}
+		</div>
+	))
+}

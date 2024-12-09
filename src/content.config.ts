@@ -1,4 +1,5 @@
 import { defineCollection, z } from "astro:content";
+import { glob } from "astro/loaders";
 
 const FRCollection = defineCollection({
 	type: "content",
@@ -135,6 +136,7 @@ const KSSCollection = defineCollection({
 	type: "content",
 	schema: ({ image }) =>
 		z.object({
+			sort: z.number(),
 			title: z.string(),
 			subtitle: z.string().optional(),
 			spot: z.string(),
@@ -200,7 +202,32 @@ const CreativityAwardsCollection = defineCollection({
 		}),
 });
 
+const vlogCollection = defineCollection({
+	loader: glob({ pattern: "**\/*.md", base: "./src/content/vlog" }),
+	schema: z.object({
+		sort: z.number(),
+		category: z.string(),
+		title: z.string(),
+		guestName: z.string(),
+		guestTitle: z.string(),
+		videoId: z.string(),
+		cardImageUrl: z.string(),
+	}),
+});
+
+const vlogCategoriesCollection = defineCollection({
+	loader: glob({ pattern: "**\/category.yaml", base: "./src/content/vlog" }),
+	schema: z.object({
+		categorySlug: z.string(),
+		categoryTitle: z.string(),
+		sort: z.number(),
+		description: z.string(),
+	}),
+});
+
 export const collections = {
+	"vlog-categories": vlogCategoriesCollection,
+	vlog: vlogCollection,
 	"faaliyet-raporu": FRCollection,
 	"online-faaliyet-raporu": OFRCollection,
 	"entegre-faaliyet-raporu": EFRCollection,

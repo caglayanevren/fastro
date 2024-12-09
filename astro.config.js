@@ -9,6 +9,9 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
+	image: {
+		domains: ["vimeocdn.com"],
+	},
 	site: "https://fastro.vercel.app/",
 	base: "/",
 	output: "static",

@@ -1,0 +1,21 @@
+---
+//import type { ImageMetadata } from "astro";
+//import { Image } from "astro:assets";
+
+interface Props {
+	slug: string;
+	title: string;
+	guestName: string;
+	guestTitle: string;
+	cardImageUrl: string;
+}
+const { slug, title, guestName, guestTitle, cardImageUrl } = Astro.props;
+---
+
+<div class="bg-none p-4 hover:bg-gri4">
+	<a href={`/vlog/${slug}/`}>
+		<img src={cardImageUrl} alt={title} class="m-0" />
+		<p class="mb-3 mt-4 text-sm text-mavi"><strong>{guestName}</strong><br /><Fragment set:html={guestTitle} /></p>
+		<p class="mb-6 text-balance text-xl leading-[1.6rem] tracking-[.4px]">{title}</p>
+	</a>
+</div>
