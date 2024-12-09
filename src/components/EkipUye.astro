@@ -10,8 +10,8 @@ interface Props {
 }
 
 const { imagePath, altText, name, unvan } = Astro.props;
-const images = import.meta.glob<{ default: ImageMetadata }>("/src/content/finar/ailemiz/*.{jpeg,jpg,png}");
-if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: "/src/content/finar/ailemiz/*.{jpeg,jpg,png}"`);
+const images = import.meta.glob<{ default: ImageMetadata }>("/src/finar/ailemiz/*.{jpeg,jpg,png}");
+if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: "/src/finar/ailemiz/*.{jpeg,jpg,png}"`);
 ---
 
 <div class="ekipuyesi mx-auto md:w-[65%] lg:w-[75%]">

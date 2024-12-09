@@ -1,5 +1,5 @@
 ---
-import { getEntry } from "astro:content";
+import { getEntry, render } from "astro:content";
 import type { CollectionKey } from "astro:content";
 
 interface Props {
@@ -12,7 +12,7 @@ const collectionEntry = await getEntry(collection, entrySlug);
 if (!collectionEntry) {
 	throw new Error(`Entry not found for ${collection}/${entrySlug}`);
 }
-const { Content } = await collectionEntry?.render();
+const { Content } = await render(collectionEntry);
 ---
 
 <Content />

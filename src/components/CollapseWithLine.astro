@@ -15,7 +15,6 @@ const { withLineTitle = "", withLineTracking = false, withLineIcon = chevDown, w
 
 <div class="colapse">
 	<div class:list={["colapse-title", { collapsed: !collapseOpen }, collapseTitleClass]}>
-		<!-- mt-[40px] -->
 		<TitleWithLine title={withLineTitle} classes={withLineClasses} trackingOnePx={withLineTracking} icon={withLineIcon} />
 	</div>
 	<div class:list={["colapse-content", { open: collapseOpen }]}>

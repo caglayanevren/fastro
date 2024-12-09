@@ -3,12 +3,12 @@ import FirstSpace from "./firstSpace.astro";
 import CollectionItemSpot from "./collectionItemSpot.astro";
 type Props = {
 	title: string;
-	spot: string;
+	spot?: string;
 };
 const { title, spot } = Astro.props;
 ---
 
 <FirstSpace height={64} />
 <h1 class="mb-[30px] text-balance font-zilla text-52 leading-none"><Fragment set:html={title} /></h1>
-<CollectionItemSpot collectionItemSpot={spot} />
-{/*<!-- <h2 class="mb-[36px] font-zilla text-4xl text-mavi"><Fragment set:html={spot} /></h2> -->*/}
+{spot && <CollectionItemSpot collectionItemSpot={spot} />}
+{!spot && <FirstSpace height={64} />}
