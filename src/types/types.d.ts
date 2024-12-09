@@ -1,6 +1,6 @@
 export type FinarsalGostergelerSVGType = {
-	icon: string;
-	number: number;
+	iconSvg: string;
+	number: string;
 	text: string;
 	bgColor: string;
 	iconColor: string;
@@ -12,4 +12,16 @@ export type EkipUyesiType = {
 	ad: string;
 	unvan: string;
 	img: string;
+};
+
+export type boxData = {
+	text: string;
+	link: string;
+	svg: string;
+	colorClass: string;
+};
+
+export type textCarouselData = {
+	text: string;
+	link: string;
 };

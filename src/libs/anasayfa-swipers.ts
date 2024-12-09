@@ -29,7 +29,7 @@ const haberswiperParams: SwiperOptions = {
 const duyuruswiperParams: SwiperOptions = {
 	modules: [Autoplay, EffectFade],
 	speed: 1000,
-	loop: true,
+	loop: false,
 	effect: "fade",
 	fadeEffect: {
 		crossFade: true,
@@ -44,5 +44,5 @@ const duyuruswiperParams: SwiperOptions = {
 	//},
 };
 
-const haberswiper: aSwiper = new Swiper(".haberswiper", haberswiperParams);
-const duyuruswiper: aSwiper = new Swiper(".duyuruswiper", duyuruswiperParams);
+export const haberswiper: aSwiper = new Swiper(".haberswiper", haberswiperParams);
+export const duyuruswiper: aSwiper = new Swiper(".duyuruswiper", duyuruswiperParams);

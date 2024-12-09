@@ -117,12 +117,13 @@
 			#finar {
 				position: absolute;
 				width: auto;
-				height: 55px;
-				top: 3px;
-			}
-			@media screen and (min-width: 1024px) {
-				#finar {
-					top: -10px;
+				height: 65px;
+				top: -7px;
+				@media screen and (min-width: 1024px) {
+					top: -14px;
+				}
+				@media screen and (max-width: 639.98px) {
+					height: 60px;
 				}
 			}
 		}

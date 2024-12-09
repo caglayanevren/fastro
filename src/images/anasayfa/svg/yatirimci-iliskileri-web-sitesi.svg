@@ -1,12 +1,12 @@
 <svg id="yatirimciiliskileriwebsitesisvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 50">
-	<polyline points="6.38 36.68 6.38 4.05 59.69 4.05" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-	<line x1="22.08" y1="45.95" x2="47.92" y2="45.95" fill="none" stroke="#fff" stroke-width="2" />
-	<line x1="35" y1="37.06" x2="35" y2="45.95" fill="none" stroke="#fff" stroke-width="2" />
-	<polyline points="63.62 4.05 63.62 36.68 10.28 36.68" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-	<path d="M44.72,17.88v3.55h3.55c0,1.96-1.59,3.55-3.55,3.55s-3.55-1.59-3.55-3.55,1.59-3.55,3.55-3.55Z" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-	<path d="M50.85,18.84h-3.55v-3.54c1.96,0,3.54,1.57,3.55,3.53,0,0,0,0,0,.01Z" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-	<rect x="15.28" y="21.95" width="6.96" height="6.96" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-	<rect x="25.74" y="21.95" width="6.96" height="6.96" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-	<rect x="15.28" y="11.51" width="17.58" height="6.96" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-	<rect x="37.3" y="11.5" width="17.42" height="17.27" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+	<polyline points="6.38 36.68 6.38 4.05 59.69 4.05" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+	<line x1="22.08" y1="45.95" x2="47.92" y2="45.95" fill="none" stroke="currentColor" stroke-width="2" />
+	<line x1="35" y1="37.06" x2="35" y2="45.95" fill="none" stroke="currentColor" stroke-width="2" />
+	<polyline points="63.62 4.05 63.62 36.68 10.28 36.68" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+	<path d="M44.72,17.88v3.55h3.55c0,1.96-1.59,3.55-3.55,3.55s-3.55-1.59-3.55-3.55,1.59-3.55,3.55-3.55Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+	<path d="M50.85,18.84h-3.55v-3.54c1.96,0,3.54,1.57,3.55,3.53,0,0,0,0,0,.01Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+	<rect x="15.28" y="21.95" width="6.96" height="6.96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+	<rect x="25.74" y="21.95" width="6.96" height="6.96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+	<rect x="15.28" y="11.51" width="17.58" height="6.96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+	<rect x="37.3" y="11.5" width="17.42" height="17.27" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
 </svg>

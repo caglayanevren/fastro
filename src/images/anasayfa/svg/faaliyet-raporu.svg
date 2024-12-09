@@ -1,6 +1,6 @@
 <svg id="faaliyetraporusvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 50">
-	<path d="M27.51,44.57c2.12-2.1,6.67-3.56,12-3.56,3.46-.09,6.89.65,10,2.16.62.38,1.44.17,1.81-.45.13-.22.2-.47.19-.73v-5.36M27.51,10.11v25.23M27.51,44.57c-2.12-2.1-6.68-3.56-12-3.56-3.46-.09-6.89.65-10,2.16-.63.37-1.45.16-1.82-.48-.12-.21-.19-.46-.18-.7V11.14c0-.72.28-1.42.8-1.92,2.35-2.27,6.47-3.78,11.18-3.78,2.03,0,4.06.3,6,.9M27.42,35.34V10.11" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-	<path d="M55.51,22.69v-7M51.51,22.69v-11M47.51,22.69v-3M63.51,17.69c0,6.63-5.37,12-12,12s-12-5.37-12-12,5.37-12,12-12,12,5.37,12,12Z" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-	<path d="M39.51,5.44c-5.3,0-9.86,1.91-12,4.67" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-	<line x1="58.88" y1="27.08" x2="66.49" y2="34.69" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+	<path d="M27.51,44.57c2.12-2.1,6.67-3.56,12-3.56,3.46-.09,6.89.65,10,2.16.62.38,1.44.17,1.81-.45.13-.22.2-.47.19-.73v-5.36M27.51,10.11v25.23M27.51,44.57c-2.12-2.1-6.68-3.56-12-3.56-3.46-.09-6.89.65-10,2.16-.63.37-1.45.16-1.82-.48-.12-.21-.19-.46-.18-.7V11.14c0-.72.28-1.42.8-1.92,2.35-2.27,6.47-3.78,11.18-3.78,2.03,0,4.06.3,6,.9M27.42,35.34V10.11" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+	<path d="M55.51,22.69v-7M51.51,22.69v-11M47.51,22.69v-3M63.51,17.69c0,6.63-5.37,12-12,12s-12-5.37-12-12,5.37-12,12-12,12,5.37,12,12Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+	<path d="M39.51,5.44c-5.3,0-9.86,1.91-12,4.67" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+	<line x1="58.88" y1="27.08" x2="66.49" y2="34.69" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
 </svg>
