@@ -126,7 +126,6 @@ const HARKCollection = defineCollection({
 			type: z.enum(["multiItem", "singleItem", "onlyThumbnail"]),
 			category: z.string(),
 			thumbnail: image(),
-			awarded: z.boolean(),
 			coverImage: image(),
 			singleItemSpreadImages: z.array(image()).optional(),
 		}),

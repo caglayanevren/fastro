@@ -52,10 +52,8 @@ import "swiper/css/effect-fade";
 		{
 			boxDatas.map((bd) => (
 				<a href={`/${bd.link}/`} class:list={["rounded-[4px] px-4 py-6 text-center text-sm font-bold leading-4 text-white sm:text-lg sm:leading-5 md:text-base md:font-normal md:leading-5 lg:text-lg lg:leading-5", `${bd.colorClass}`, {'hover:text-siyah': false}]}>
-					<>
-						<Fragment set:html={bd.svg} />
-						<Fragment set:html={bd.text} />
-					</>
+					<Fragment set:html={bd.svg} />
+					<Fragment set:html={bd.text} />
 				</a>
 			))
 		}
@@ -73,10 +71,8 @@ import "swiper/css/effect-fade";
 							textCarouselDatas.map((tcd) => (
 								<div class="swiper-slide">
 									<a class="text-pretty font-normal text-white hover:text-mavi" href={tcd.link}>
-										<>
-											<Fragment set:html={tcd.text} />
-											<Fragment set:html="&nbsp;&#8250;&#8250;" />
-										</>
+										<Fragment set:html={tcd.text} />
+										<Fragment set:html="&nbsp;&#8250;&#8250;" />
 									</a>
 								</div>
 							))
@@ -89,14 +85,6 @@ import "swiper/css/effect-fade";
 		<div class="order-first lg:order-last">
 			<div class="swiper duyuruswiper">
 				<div class="swiper-wrapper" data-cursor="swipe">
-					{/* <div class="swiper-slide">
-						<a href="/turkiye-surdurulebilirlik-raporlama-standartlari/" class="block h-full rounded-sm">
-							<div class="yesil-grad45 flex h-full w-full items-center justify-between rounded-sm">
-								<div class="tsrs-title grow-1 mr-n4 rounded-sm pl-3 text-[12px] text-white sm:text-base md:text-xl lg:text-base xl:text-lg">Türkiye Sürdürülebilirlik<br />Raporlama Standartları <br class="inline sm:hidden" />(TSRS) <br class="hidden sm:inline" />Hakkında <br class="inline sm:hidden" />Bilmeniz Gerekenler</div>
-								<img src="/tsrs-banner.png" loading="eager" alt="TSRS" class="shrink-1 h-full w-auto grow-0 rounded-sm" />
-							</div>
-						</a>
-					</div> */}
 					<div class="swiper-slide">
 						<a href="http://sifiryuz.finarkurumsal.com" target="_blank" class="block h-full rounded-sm">
 							<div class="flex h-full w-full items-center justify-between rounded-sm bg-white">
@@ -122,24 +110,12 @@ import "swiper/css/effect-fade";
 							</div>
 						</a>
 					</div>
-					{/* <div class="swiper-slide">
-						<a href="/musterilerimiz-konusuyor/" class="block h-full rounded-sm">
-							<div id="mfa" class="flex h-full items-center justify-between rounded-sm bg-gri3 p-8">
-								<div class="text-2xl font-medium text-white">Müşterilerimiz Finar’ı anlatıyor</div>
-								<div class="h-[50px] w-[50px]">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37.74 37.74" preserveAspectRatio="xMidYMin" xml:space="preserve">
-										<circle cx="18.87" cy="18.87" r="18.12" fill="none" stroke="#fff" stroke-width="1.5"></circle>
-										<path d="M21.05,14.26,26,18.87l-4.94,4.61m-9.3-4.62H26" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
-									</svg>
-								</div>
-							</div>
-						</a>
-					</div> */}
 				</div>
 			</div>
 		</div>
 	</section>
 </AnasayfaLayout>
+
 <style is:inline>
 	.swiper {
 		width: 100%;
@@ -185,4 +161,5 @@ import "swiper/css/effect-fade";
 		background: linear-gradient(45deg, rgba(41, 78, 45, 1) 0%, rgba(145, 186, 152, 1) 100%);
 	}
 </style>
+
 <script src="~libs/anasayfa-swipers.ts"></script>

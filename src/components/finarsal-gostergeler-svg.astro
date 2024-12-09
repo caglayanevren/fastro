@@ -4,24 +4,9 @@ type Props = {
 	number: string;
 	text: string;
 	bgColor: string;
-	iconColor: string;
-	lineColor: string;
-	textColor: string;
 };
-const { iconSvg, number, text, bgColor, iconColor, lineColor, textColor } = Astro.props;
+const { iconSvg, number, text, bgColor } = Astro.props;
 ---
-
-{
-	/*
-		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 840">
-			<polygon points="0 0 0 840 640 840 640 0 0 0" fill={bgColor}></polygon>
-			<path d={icon} fill="none" stroke={iconColor} stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
-			<path d="M70,362.5H570M70,571.2H570" fill="none" stroke={lineColor}></path>
-			<text transform="translate(68.84 515.31)" font-size="180" fill={textColor} font-family="ZillaSlab-SemiBold, Zilla Slab" font-weight="600">{number}</text>
-			<text transform="translate(67.54 666.31)" font-size="65" fill={textColor} font-family="ZillaSlab-Light, Zilla Slab" font-weight="300"><Fragment set:html={text} /></text>
-		</svg>
-	*/
-}
 
 <div class="finarsal-gosterge flex flex-col" style={`background-color: ${bgColor};`}>
 	<Fragment set:html={iconSvg} />

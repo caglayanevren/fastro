@@ -13,14 +13,13 @@ type Props = {
 	category: string;
 	collection: string;
 	spot: string;
-	awarded?: boolean;
 	coverImage?: ImageMetadata;
 	singleItemsliderImages?: ImageMetadata[];
 	singleItemSpreadImages?: ImageMetadata[];
 	slug: string;
 };
 
-const { title, description, category, collection, spot, awarded = false, coverImage, singleItemsliderImages, singleItemSpreadImages, slug } = Astro.props;
+const { title, description, category, collection, spot, coverImage, singleItemsliderImages, singleItemSpreadImages, slug } = Astro.props;
 ---
 
 <Layout title={title} description={description} seoImage={`${import.meta.env.SITE}${collection}/${slug}/${slug}-og.png`}>

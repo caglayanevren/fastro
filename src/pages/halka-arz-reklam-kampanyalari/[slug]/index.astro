@@ -14,6 +14,6 @@ const { entry, itemType } = Astro.props;
 const { Content } = await entry.render();
 ---
 
-<HalkaArzLayout title={entry.data.title} slug={entry.slug} description={entry.data.spot} collection={entry.collection} spot={entry.data.spot} category={entry.data.category} awarded={entry.data.awarded} coverImage={entry.data.coverImage} singleItemSpreadImages={entry.data.singleItemSpreadImages}>
+<HalkaArzLayout title={entry.data.title} slug={entry.slug} description={entry.data.spot} collection={entry.collection} spot={entry.data.spot} category={entry.data.category} coverImage={entry.data.coverImage} singleItemSpreadImages={entry.data.singleItemSpreadImages}>
 	<Content />
 </HalkaArzLayout>
