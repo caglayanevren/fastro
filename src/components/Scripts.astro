@@ -47,7 +47,7 @@
 			document.querySelector("#header > div > div:last-child")?.classList.add("hidden");
 		});
 
-		function appyHeaderStylesOnScroll() {
+		function applyHeaderStylesOnScroll() {
 			const header = document.querySelector("#header[data-aw-sticky-header]");
 			if (lastKnownScrollPosition > 35 && !header.classList.contains("scroll")) {
 				document.getElementById("header").classList.add("scroll");
@@ -56,14 +56,14 @@
 			}
 			ticking = false;
 		}
-		appyHeaderStylesOnScroll();
+		applyHeaderStylesOnScroll();
 
 		attachEvent([document], "scroll", function () {
 			lastKnownScrollPosition = window.scrollY;
 
 			if (!ticking) {
 				window.requestAnimationFrame(() => {
-					appyHeaderStylesOnScroll();
+					applyHeaderStylesOnScroll();
 				});
 				ticking = true;
 			}
