@@ -10,6 +10,12 @@ import TitleWithLine from "~components/TitleWithLine.astro";
 import GetSingleCollectionEntry from "~components/getSingleCollectionEntry.astro";
 import CollapseWithLine from "~components/CollapseWithLine.astro";
 
+import arc2024 from "../../images/oduller/2024/Finar_Odul_2024_1.png";
+import lacp2024 from "../../images/oduller/2024/Finar_Odul_2024_2.png";
+import arc2023 from "../../images/oduller/2023/Finar_Odul_2023_1.png";
+import lacp2023 from "../../images/oduller/2023/Finar_Odul_2023_2.png";
+import arc2022 from "../../images/oduller/2022/Finar_Odul_2022_1.png";
+import lacp2022 from "../../images/oduller/2022/Finar_Odul_2022_2.png";
 import arc2021 from "../../images/oduller/2021/ARC-ODUL.jpg";
 import odul2021 from "../../images/oduller/2021/Finar-Odul-Gorseli-2021.png";
 import odul2020 from "../../images/oduller/2020/FNR_ARC_odul_web.jpg";
@@ -39,6 +45,7 @@ type data = {
 	collapseTitleClass?: string;
 	items: {
 		link?: string;
+		anchor?: string;
 		image: ImageMetadata;
 		loading?: "eager" | "lazy" | null | undefined;
 		alt: string;
@@ -46,15 +53,76 @@ type data = {
 };
 const datas: data[] = [
 	{
-		year: 2021,
+		year: 2024,
 		icon: chevDown,
 		open: true,
 		collapseTitleClass: "",
 		items: [
 			{
+				anchor: "#arc2024",
+				image: arc2024,
+				alt: "ARC'den Finar'a 9'u altın 17 ödül",
+				loading: "eager",
+			},
+			{
+				anchor: "#lacp2024",
+				image: lacp2024,
+				alt: "Finar'ın LACP Vizyon ödüllerindeki başarısı devam ediyor!",
+				loading: "lazy",
+			},
+		],
+	},
+	{
+		year: 2023,
+		icon: chevDown,
+		open: false,
+		collapseTitleClass: "mt-[20px]",
+		items: [
+			{
+				link: "arc-2023",
+				image: arc2023,
+				alt: "33 ülkeden 1.600’ü aşkın çalışma arasından toplam 32 ödül!",
+				loading: "lazy",
+			},
+			{
+				link: "lacp-2023",
+				image: lacp2023,
+				alt: "LACP Ödülleri bu yıl da sahiplerini buldu.",
+				loading: "lazy",
+			},
+		],
+	},
+	{
+		year: 2022,
+		icon: chevDown,
+		open: false,
+		collapseTitleClass: "mt-[20px]",
+		items: [
+			{
+				link: "arc-2022",
+				image: arc2022,
+				alt: "ARC'den toplam 34 ödülle döndük!",
+				loading: "lazy",
+			},
+			{
+				link: "lacp-2022",
+				image: lacp2022,
+				alt: "LACP'de büyük başarılara imza attık!",
+				loading: "lazy",
+			},
+		],
+	},
+	{
+		year: 2021,
+		icon: chevDown,
+		open: false,
+		collapseTitleClass: "mt-[20px]",
+		items: [
+			{
 				link: "arc-2021",
 				image: arc2021,
 				alt: "35. ARC Ödülleri",
+				loading: "lazy",
 			},
 			{
 				link: "lacp-2021",
@@ -122,6 +190,15 @@ const datas: data[] = [
 							<div class="odul-photo">
 								{item.link ? (
 									<a href={`/oduller/${item.link}/`} aria-label={item.alt}>
+										<SingleItemCoverImage src={item.image} coverImageAlt={item.alt} loading={item.loading} />
+										<div class="info">
+											<span class="absolute bottom-[30px] left-[30px] hidden h-[14px] w-[24px] text-mavi md:block">
+												<Fragment set:html={arrowright} />
+											</span>
+										</div>
+									</a>
+								) : item.anchor ? (
+									<a href={`/oduller/${item.anchor}`} aria-label={item.alt}>
 										<SingleItemCoverImage src={item.image} coverImageAlt={item.alt} loading={item.loading} />
 										<div class="info">
 											<span class="absolute bottom-[30px] left-[30px] hidden h-[14px] w-[24px] text-mavi md:block">
@@ -206,7 +283,9 @@ const datas: data[] = [
 			</div>
 		</div>
 	</div>
+
 	<TitleWithLine />
+
 	<div id="awardInstitutions" class="grid grid-cols-1 gap-8 pt-[12px] sm:grid-cols-2 md:grid-cols-3">
 		<HoverItem slug="arc-awards" title="ARC Awards" thumbnail={arcawards} thumbWidth={548} thumbHeight={548} />
 		<HoverItem slug="galaxy-awards" title="Galaxy Awards" thumbnail={galaxyawards} thumbWidth={548} thumbHeight={548} />
@@ -214,20 +293,26 @@ const datas: data[] = [
 		<HoverItem slug="lacp-spotlights" title="LACP SpotlIght Awards" thumbnail={lacpspotlights} thumbWidth={548} thumbHeight={548} />
 		<HoverItem slug="creativity-awards" title="CreatIvIty Awards" thumbnail={creativityawards} thumbWidth={548} thumbHeight={548} />
 	</div>
-	<div class="mt-8 bg-gri4 pb-8" id="odul2021">
+
+	<div class="mt-8 bg-gri4 pb-8">
 		<div class="grid grid-cols-1">
-			<h1 class="px-4 py-4 font-zilla text-3xl sm:px-8 sm:py-8 sm:text-5xl md:px-16 md:py-16">2021 yılı ödüllerimiz</h1>
+			<h1 class="px-4 py-4 font-zilla text-3xl sm:px-8 sm:py-8 sm:text-5xl md:px-16 md:py-16">2024 yılı ödüllerimiz</h1>
 		</div>
-		<Picture loading="lazy" src={arc2021} alt="35. ARC Ödülleri" class="mb-8 w-full" widths={[640, 768, 1024, arc2021.width]} formats={["webp", "jpg"]} sizes={`(max-width: 640px) 608px, (max-width: 768px) 736px, (max-width: 1024px) 992px, (max-width: 1280px) 1248px, (min-width: 1280px) ${arc2021.width}px`} />
-		<div class="prose px-4 py-4 prose-h1:font-zilla prose-h1:text-2xl prose-h1:text-mavi prose-h2:mb-0 prose-h2:mt-0 prose-h2:text-base prose-h2:text-mavi prose-p:mb-4 prose-li:my-0 sm:px-8 sm:py-8 md:px-16 md:py-16">
-			<GetSingleCollectionEntry collection="oduller" entrySlug="arc-2021" />
+		<div id="arc2024">
+			<Picture loading="lazy" src={arc2024} alt="ARC'den Finar'a 9'u altın 17 ödül" class="mb-8 w-full" widths={[640, 768, 1024, arc2021.width]} formats={["webp", "jpg"]} sizes={`(max-width: 640px) 608px, (max-width: 768px) 736px, (max-width: 1024px) 992px, (max-width: 1280px) 1248px, (min-width: 1280px) ${arc2021.width}px`} />
+			<div class="prose px-4 py-4 prose-h1:font-zilla prose-h1:text-2xl prose-h1:text-mavi prose-h2:mb-0 prose-h2:mt-0 prose-h2:text-base prose-h2:text-mavi prose-p:mb-4 prose-li:my-0 sm:px-8 sm:py-8 md:px-16 md:py-16">
+				<GetSingleCollectionEntry collection="oduller" entrySlug="arc-2024" />
+			</div>
 		</div>
-		<Picture loading="lazy" src={odul2021} alt="FİNAR büyük ödülleri Türkiye'ye getirmeye devam ediyor" class="my-8 w-full" widths={[640, 768, 1024, odul2021.width]} formats={["webp", "jpg"]} sizes={`(max-width: 640px) 608px, (max-width: 768px) 736px, (max-width: 1024px) 992px, (max-width: 1280px) 1248px, (min-width: 1280px) ${odul2021.width}px`} />
-		<div class="prose px-4 py-4 prose-h1:font-zilla prose-h1:text-2xl prose-h1:text-mavi prose-h2:mb-0 prose-h2:mt-0 prose-h2:text-base prose-h2:text-mavi prose-p:mb-4 prose-li:my-0 sm:px-8 sm:py-8 md:px-16 md:py-16">
-			<GetSingleCollectionEntry collection="oduller" entrySlug="lacp-2021" />
+		<div id="lacp2024">
+			<Picture loading="lazy" src={lacp2024} alt="Finar'ın LACP Vizyon ödüllerindeki başarısı devam ediyor!" class="my-8 w-full" widths={[640, 768, 1024, odul2021.width]} formats={["webp", "jpg"]} sizes={`(max-width: 640px) 608px, (max-width: 768px) 736px, (max-width: 1024px) 992px, (max-width: 1280px) 1248px, (min-width: 1280px) ${odul2021.width}px`} />
+			<div class="prose px-4 py-4 prose-h1:font-zilla prose-h1:text-2xl prose-h1:text-mavi prose-h2:mb-0 prose-h2:mt-0 prose-h2:text-base prose-h2:text-mavi prose-p:mb-4 prose-li:my-0 sm:px-8 sm:py-8 md:px-16 md:py-16">
+				<GetSingleCollectionEntry collection="oduller" entrySlug="lacp-2024" />
+			</div>
 		</div>
 	</div>
 </Layout>
+
 <style>
 	.odul-photo {
 		position: relative;

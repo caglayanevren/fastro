@@ -19,28 +19,32 @@ const allLACPSpotlights = await getCollection("lacp-spotlight");
 		<ul class="flex flex-col-reverse justify-end">
 			{
 				allLACPSpotlights &&
-					allLACPSpotlights.map(function (allLACPSpotlight) {
-						return (
-							<li>
-								<a id={`${allLACPSpotlight.slug}`} href={`#${allLACPSpotlight.slug}`} class="tablink block px-8 py-4 text-gri3">{`${allLACPSpotlight.slug}`}</a>
-							</li>
-						);
-					})
+					allLACPSpotlights
+						.sort((a, b) => Number(a.data.title) - Number(b.data.title))
+						.map(function (allLACPSpotlight) {
+							return (
+								<li>
+									<a id={`${allLACPSpotlight.slug}`} href={`#${allLACPSpotlight.slug}`} class="tablink block px-8 py-4 text-gri3">{`${allLACPSpotlight.slug}`}</a>
+								</li>
+							);
+						})
 			}
 		</ul>
 		<div class="h-full overflow-hidden px-8 py-4">
 			{
 				allLACPSpotlights &&
-					allLACPSpotlights.map(async function (allLACPSpotlight) {
-						const { Content } = await allLACPSpotlight.render();
-						return (
-							<section id={`${allLACPSpotlight.slug}-content`} class="tab-content hidden">
-								<div class="prose prose-h2:mb-0 prose-h2:mt-0 prose-h2:text-base prose-h2:text-mavi prose-p:mb-4 prose-li:my-0">
-									<Content />
-								</div>
-							</section>
-						);
-					})
+					allLACPSpotlights
+						.sort((a, b) => Number(a.data.title) - Number(b.data.title))
+						.map(async function (allLACPSpotlight) {
+							const { Content } = await allLACPSpotlight.render();
+							return (
+								<section id={`${allLACPSpotlight.slug}-content`} class="tab-content hidden">
+									<div class="prose prose-h2:mb-0 prose-h2:mt-0 prose-h2:text-base prose-h2:text-mavi prose-p:mb-4 prose-li:my-0">
+										<Content />
+									</div>
+								</section>
+							);
+						})
 			}
 		</div>
 	</div>
