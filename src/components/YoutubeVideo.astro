@@ -8,5 +8,5 @@ const { id, title, classes } = Astro.props;
 ---
 
 <div style="position:relative;" class={classes}>
-	<iframe class="aspect-video w-full bg-black" src=`https://www.youtube.com/embed/${id}` title={title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	<iframe class="aspect-video w-full bg-black" src=`https://www.youtube.com/embed/${id}?rel=0&showinfo=1` title={title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
