@@ -4,7 +4,7 @@ category: Faaliyet Raporlarının Önemi
 title: Faaliyet raporlarına yaratıcılık katmak, kesinlikle ayrıştırıcı bir unsurdur.
 guestName: Neşet Dereli
 guestTitle: Halkbank<br />Tanıtım ve Halkla İlişkileri Dairesi Eski Başkanı
-videoId: "236606762"
+vimeoId: "236606762"
 cardImageUrl: https://i.vimeocdn.com/video/659149752-ddbd5e1b3d2ac93a1acd9685310028c1a9e91c276282134a8957f0ed1dd4c787-d.jpg?mw=535&mh=301
 ---
 

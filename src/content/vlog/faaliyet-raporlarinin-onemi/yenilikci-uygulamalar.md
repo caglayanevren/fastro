@@ -4,7 +4,7 @@ category: Faaliyet Raporlarının Önemi
 title: Kendi alanımızda daima yenilikçi uygulamalar yapmaya özen gösterdik.
 guestName: Funda Güngör Akpınar
 guestTitle: Koç Holding<br />Yatırımcı İlişkileri Eski Direktörü
-videoId: "236593194"
+vimeoId: "236593194"
 cardImageUrl: https://i.vimeocdn.com/video/659149329-4d56c2d731cfa59ff483d7149a5cb1dd9f61afeb1d036ac003e36f6bb904edc0-d.jpg?mw=535&mh=301
 ---
 

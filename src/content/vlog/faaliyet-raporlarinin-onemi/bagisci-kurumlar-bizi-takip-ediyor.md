@@ -4,7 +4,7 @@ category: Faaliyet Raporlarının Önemi
 title: Bağışçı kurumlar, faaliyet raporlarımızdan yaptıklarımızı takip edebiliyorlar.
 guestName: Ayşe Güveniş
 guestTitle: Koruncuk Vakfı<br />Eski Genel Müdürü
-videoId: "236579632"
+vimeoId: "236579632"
 cardImageUrl: https://i.vimeocdn.com/video/659151599-834ca6b14ddc938e71b8cf792af2c557dbfc12373eeb58af53b5d53c1c924a00-d.jpg?mw=535&mh=301
 ---
 

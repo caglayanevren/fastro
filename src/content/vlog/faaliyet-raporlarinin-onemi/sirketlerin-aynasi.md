@@ -4,7 +4,7 @@ category: Faaliyet Raporlarının Önemi
 title: Faaliyet raporları, şirketlerin aynasıdır.
 guestName: Funda Güngör Akpınar
 guestTitle: Koç Holding<br />Yatırımcı İlişkileri Eski Direktörü
-videoId: "236597670"
+vimeoId: "236597670"
 cardImageUrl: https://i.vimeocdn.com/video/659150247-4995fbc979b2620331d69e6041612f490b5e777575ee9b8d3c7c621585b6e693-d.jpg?mw=535&mh=301
 ---
 

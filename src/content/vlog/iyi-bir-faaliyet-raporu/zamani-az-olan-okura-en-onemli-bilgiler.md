@@ -4,7 +4,7 @@ category: İyi Bir Faaliyet Raporu Nasıl Olmalı?
 title: Faaliyet raporları, zamanı az olan okura en önemli bilgileri nasıl verebilirim düşüncesi ile tasarlanmalı.
 guestName: Funda Güngör Akpınar
 guestTitle: Koç Holding<br />Yatırımcı İlişkileri Eski Direktörü
-videoId: "236596515"
+vimeoId: "236596515"
 cardImageUrl: https://i.vimeocdn.com/video/659150635-84c13bb66d76095a639caaf5a442e5cbef43eb05b107e9e0359e5383b8565dfa-d.jpg?mw=535&mh=301
 ---
 

@@ -1,0 +1,24 @@
+---
+import { FaSquareFacebook, FaLinkedin, FaSquareXTwitter } from "react-icons/fa6";
+
+type Props = {
+	vlogId: string;
+	vlogTitle: string;
+};
+
+const { vlogId, vlogTitle } = Astro.props;
+---
+
+<div class="share-btn mt-5 flex gap-1 py-2 text-3xl md:mt-0" data-url=`http://finarkurumsal.com/vlog/${vlogId}/` data-title={vlogTitle} data-desc="#FinarVLOG via @finarkurumsal">
+	<a data-id="tw"><FaSquareXTwitter /></a>
+	<a class="text-[#3b5998]" data-id="fb"><FaSquareFacebook /></a>
+	<a data-id="in" class="text-[#007bb6]"><FaLinkedin /></a>
+</div>
+
+<style>
+	.share-btn > a:hover {
+		cursor: pointer;
+	}
+</style>
+
+<script is:inline src="//cdn.jsdelivr.net/npm/share-buttons/dist/share-buttons.js"></script>

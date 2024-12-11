@@ -4,7 +4,7 @@ category: Faaliyet Raporlarının Önemi
 title: Faaliyet raporları, kendimizi paydaşlarımıza anlattığımız en önemli dokümanlardan biri.
 guestName: Özlem McCann
 guestTitle: Aksa Enerji<br />Yatırımcı İlişkileri ve Kurumsal İletişim Eski Direktörü
-videoId: "227889083"
+vimeoId: "227889083"
 cardImageUrl: https://i.vimeocdn.com/video/659164949-4f4457f7ca7ea76261e3c4674f514df0c17ec8e6dd1e3d6a49b29118e7e3e0d3-d.jpg?mw=535&mh=301
 ---
 

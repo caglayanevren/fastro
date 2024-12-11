@@ -4,7 +4,7 @@ category: Yatırımcı İlişkileri
 title: Yatırımcı ilişkileri profesyonellerine önemli tavsiyeler
 guestName: Nursel İlgen
 guestTitle: TÜYİD Yönetim Kurulu Başkanı
-videoId: "257493144"
+vimeoId: "257493144"
 cardImageUrl: "https://i.vimeocdn.com/video/685674400-ba1587531ebee712d797e21d58750d27642b8b094730a96a3a846393943d06f8-d.jpg?mw=535&mh=301"
 ---
 

@@ -4,7 +4,7 @@ category: İyi Bir Faaliyet Raporu Nasıl Olmalı?
 title: Faaliyet raporu, içeriği, kalitesi ve tasarımı ile yılın gündemini yansıtmalı.
 guestName: Bengi Vargül Şen
 guestTitle: TAV Havalimanları Holding<br />Kurumsal İletişim Direktörü
-videoId: "235317726"
+vimeoId: "235317726"
 cardImageUrl: https://i.vimeocdn.com/video/659159960-5f64aa30fd663f7578d29405d0f8ed63d493e1433fc3e357cd55b5c1848d4a10-d.jpg?mw=535&mh=301
 ---
 

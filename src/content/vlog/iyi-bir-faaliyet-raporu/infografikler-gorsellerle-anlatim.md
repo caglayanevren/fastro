@@ -4,7 +4,7 @@ category: İyi Bir Faaliyet Raporu Nasıl Olmalı?
 title: İnfografikler ve kullanılan görsellerle anlatım güçlendirilmeli.
 guestName: Özlem McCann
 guestTitle: Aksa Enerji<br />Yatırımcı İlişkileri ve Kurumsal İletişim Eski Direktörü
-videoId: "227889882"
+vimeoId: "227889882"
 cardImageUrl: https://i.vimeocdn.com/video/659161355-2508f5547801ebaf0fb56f39cc029741e19749570a2c9b4900eb3238caa0a4b8-d.jpg?mw=535&mh=301
 ---
 

@@ -4,7 +4,7 @@ category: Faaliyet Raporlarının Önemi
 title: Hedef kitlemize bankamızı ve yatırım bankacılığını en iyi şekilde anlatıyoruz.
 guestName: Cenk Eynehan
 guestTitle: Pashabank<br />Genel Müdür ve Yönetim Kurulu Üyesi
-videoId: "236574879"
+vimeoId: "236574879"
 cardImageUrl: https://i.vimeocdn.com/video/659163527-6aaca33d7be37bdcb18262d0db541b800bafed495febcfb9d8d3f9372acc95b0-d.jpg?mw=535&mh=301
 ---
 

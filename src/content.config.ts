@@ -203,15 +203,19 @@ const CreativityAwardsCollection = defineCollection({
 
 const vlogCollection = defineCollection({
 	loader: glob({ pattern: "**\/*.md", base: "./src/content/vlog" }),
-	schema: z.object({
-		sort: z.number(),
-		category: z.string(),
-		title: z.string(),
-		guestName: z.string(),
-		guestTitle: z.string(),
-		videoId: z.string(),
-		cardImageUrl: z.string(),
-	}),
+	schema: ({ image }) =>
+		z.object({
+			sort: z.number(),
+			category: z.string(),
+			title: z.string(),
+			guestName: z.string().optional(),
+			guestTitle: z.string().optional(),
+			vimeoId: z.string().optional(),
+			youtubeId: z.string().optional(),
+			cardImage: image().optional(),
+			cardImageUrl: z.string().url().optional(),
+			isContent: z.boolean().optional(),
+		}),
 });
 
 const vlogCategoriesCollection = defineCollection({

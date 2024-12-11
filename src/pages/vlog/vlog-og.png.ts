@@ -4,7 +4,7 @@ import { ogpngConfig } from "~/config";
 import { ImageResponse } from "@vercel/og";
 import { OpenSansData, Zilla300Data, Zilla600Data } from "~/utils/utils";
 
-const post = "Vlog";
+const post = "VLOG";
 
 export async function GET() {
 	// Astro doesn't support tsx endpoints so usign React-element objects

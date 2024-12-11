@@ -1,20 +1,15 @@
 import { getCollection, type CollectionEntry } from "astro:content";
-//import * as fs from "fs";
-//import path from "path";
 import { ogpngConfig } from "~/config";
 import { ImageResponse } from "@vercel/og";
 import { OpenSansData, Zilla300Data, Zilla600Data } from "~/utils/utils";
 
 interface Props {
 	params: { slug: string };
-	props: { post: CollectionEntry<"vlog"> };
+	props: { vlog: CollectionEntry<"vlog"> };
 }
 
 export async function GET({ props }: Props) {
-	const { post } = props;
-
-	// post cover with Image is pretty tricky for dev and build phase
-	//const postCover = fs.readFileSync(process.env.NODE_ENV === "development" ? path.resolve(post.data.thumbnail.src.replace(/\?.*/, "").replace("/@fs", "")) : path.resolve(post.data.thumbnail.src.replace("/", "dist/")));
+	const { vlog } = props;
 
 	// Astro doesn't support tsx endpoints so usign React-element objects
 	const html = {
@@ -35,20 +30,6 @@ export async function GET({ props }: Props) {
 					type: "div",
 					props: {
 						children: [
-							/* {
-								type: "div",
-								props: {
-									tw: `w-[${ogpngConfig.thumbnailWaH}] h-[${ogpngConfig.thumbnailWaH}] flex overflow-hidden`,
-									children: [
-										{
-											type: "img",
-											props: {
-												src: postCover.buffer,
-											},
-										},
-									],
-								},
-							}, */
 							{
 								type: "div",
 								props: {
@@ -61,7 +42,7 @@ export async function GET({ props }: Props) {
 													fontSize: `${ogpngConfig.titleFontSize}`,
 													fontFamily: "Zilla Slab Bold",
 												},
-												children: post.data.title,
+												children: vlog.data.title,
 											},
 										},
 									],
@@ -94,7 +75,7 @@ export async function GET({ props }: Props) {
 											type: "div",
 											props: {
 												tw: "text-3xl",
-												children: post.data.category,
+												children: `VLOG - ${vlog.data.category}`,
 											},
 										},
 									],
@@ -140,9 +121,14 @@ export async function GET({ props }: Props) {
 
 // to generate an image for each blog posts in a collection
 export async function getStaticPaths() {
-	const blogPosts = await getCollection("kss");
-	return blogPosts.map((post) => ({
-		params: { slug: post.slug },
-		props: { post },
-	}));
+	const vlogs = await getCollection("vlog");
+	return vlogs.map((vlog) => {
+		return {
+			params: {
+				slug: vlog.id,
+				slugtwo: vlog.id.split("/")[1],
+			},
+			props: { vlog },
+		};
+	});
 }
