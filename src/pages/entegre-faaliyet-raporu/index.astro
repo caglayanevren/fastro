@@ -5,32 +5,47 @@ import MoreInfo from "~components/MoreInfo.astro";
 import Layout from "~layouts/Layout.astro";
 import { FinarExperienceYear } from "~config";
 import ArticleTitle from "~components/articleTitle.astro";
+import AltMenu from "~components/altMenu.astro";
+import { raporlamaAltMenuData } from "~navigation";
 
 const allEFR = await getCollection("entegre-faaliyet-raporu");
 
 const TITLE = "Entegre Faaliyet Raporu";
-const DESCRIPTION = `“Geleneksel kurumsal raporlamaya yatırımcı bakış açısı getiriyoruz.”`;
-const MOREINFO = `<div class="break-inside-avoid"><p class="text-mavi mt-0 mb-0">Entegre düşünce neden önemli?</p>
-<p class="mt-0 mb-6">Son dönemde dünyada yaşanan hızlı değişim ve gelişim pek çok alanda olduğu gibi kurumlar için de entegre düşünce tarzının önemini ortaya koymuştur. Küresel ölçekte karşılaşılan riskler, kurumların kapsayıcı ve bütüncül bir bakış açısına ihtiyaç duymalarına sebep olmuştur. İşletmeler için entegre düşüncenin temelinde, kurumun tüm kaynaklarının birbiriyle bağlantısı ile bu kaynakların kısa, orta ve uzun vadede nasıl değer yarattığı yer almaktadır.</p></div>
-<div class="break-inside-avoid"><p class="text-mavi mt-0 mb-0">Entegre raporlamanın işletmeniz için önemi nedir?</p>
-<p class="mt-0 mb-6">Uluslararası Entegre Raporlama Konseyi (International Integrated Reporting Council) – IIRC’nin 2011 yılında ilk kez başlattığı ve entegre düşüncenin temeline dayalı olarak ortaya çıkan entegre raporlama, geleneksel finansal raporlama ile sürdürülebilirlik ve kurumsal yönetişim konularının bir araya gelmesiyle oluşuyor.</p>
-<p class="mt-0 mb-6">Entegre faaliyet raporları, kurumların finansal performansının yanında iş modeli, stratejisi, yönetimi ve çevresel, sosyal ve ekonomik performansları arasındaki bağlantıyı tanımlayarak geleceğe dönük gelişim alanlarına yer veriyor. Entegre raporlama, şirketlerin performans ve gelecek faaliyetleriyle ilgili bilgiler vermeleri; kısa, orta ve uzun vadede değer yaratmak için kaynaklarını nasıl kullandıkları hakkında raporlama yapmalarına imkân sağlıyor.</p></div>
-<div class="break-inside-avoid"><p class="text-mavi mt-0 mb-0">Neden Finar?</p>
-<ul class="mt-0">
-    <li>${FinarExperienceYear} yıllık finansal raporlama altyapımızdan gelen bilgi birikimimiz ve know-how’ımızla entegre raporlama sistemi kapsamında içerik tasarımı, metin ve konsept geliştirme, metin editing ve grafik tasarım alanlarında hizmet veriyoruz.</li>
-    <li>Kurumsal raporlamaya daha bütüncül ve verimli bir yaklaşım getiriyoruz.</li>
-    <li>Entegre raporlama sürecinde, paydaşlarınız için önemli mesajlarınızı oluşturuyoruz.</li>
-    <li>Şirketinizin güçlü ve zayıf yanlarını, risk ve fırsatlarını sistematik bir şekilde değerlendiriyor, öne çıkarılması gereken konuları belirleyerek dikkat çekici içerikler geliştiriyoruz.</li>
-    <li>Şirketinizin iş modelinin ve değer yaratma sürecinin paydaşlarınız için en anlaşılır ve özet bir biçimde sunulmasına katkı sağlıyoruz.</li>
-</ul></div>`;
+const DESCRIPTION = `Hem finansal hem de sürdürülebilirlik faaliyetlerinizi “değer yaratma” ekseninde birlikte raporluyoruz.`;
+const MOREINFO = `
+<div class="break-inside-avoid">
+<p class="font-bold text-mavi mt-0 mb-0">Entegre düşünce neden önemli?</p>
+<p class="mt-0 mb-6">Küresel ve yerel ölçekte karşılaşılan riskler, şirketlerin kapsayıcı ve bütüncül bir bakış açısına ihtiyaç duymalarına sebep olmuştur. Bu ihtiyaç, entegre düşünce tarzının önemini ortaya koymuştur. Şirketler için entegre düşüncenin temelinde, tüm kaynakların birbiriyle bağlantısı ile bu kaynakların kısa, orta ve uzun vadede nasıl değer yarattığı yer almaktadır.</p>
+</div>
 
+<div class="break-inside-avoid">
+<p class="font-bold text-mavi mt-0 mb-0">Entegre raporlamanın şirketiniz için önemi nedir?</p>
+<p class="mt-0 mb-6">Uluslararası Entegre Raporlama Konseyi (IIRC)’nin 2011 yılında ilk kez başlattığı ve entegre düşüncenin temeline dayalı olarak ortaya çıkan entegre raporlama, geleneksel finansal raporlama ile sürdürülebilirlik konularının bir araya gelmesiyle oluşuyor.</p>
+<p class="mt-0 mb-6">Entegre faaliyet raporları, şirketlerin finansal performansının yanında iş modeli, stratejisi, yönetimi ve çevresel, sosyal ve ekonomik performansları arasındaki bağlantıyı tanımlayarak geleceğe dönük gelişim alanlarına yer veriyor. Entegre raporlama, şirketlerin kısa, orta ve uzun vadede değer yaratmak için kaynaklarını nasıl kullandıkları hakkında raporlama yapmalarına imkân sağlıyor.</p>
+</div>
+
+<div class="break-inside-avoid">
+	<p class="font-bold text-mavi mt-0 mb-0">Neden Finar’la çalışmalısınız?</p>
+	<ul>
+		<li>${FinarExperienceYear} yıllık kurumsal raporlama uzmanlığımızla raporun ana mesajlarını, içeriğini ve grafik tasarımını en doğru şekilde kurguluyoruz.</li>
+		<li>Raporunuzu altı sermaye ögesi çerçevesinde bütünsel bir bakış açısıyla tasarlıyoruz.</li>
+		<li>Değer yaratma modelinizi en etkin şekilde oluşturuyor, sektörünüzde sizlere rekabet avantajı sağlayan unsurları ortaya koyuyoruz.</li>
+		<li>Şirketinizin iş modelinin ve değer yaratma sürecinin paydaşlarınız için en anlaşılır ve özet bir biçimde sunulmasına katkı sağlıyoruz.</li>
+		<li>Raporu sonuçlar değil “değer yaratma” odaklı bir iletişim diliyle ele alıyoruz.</li>
+		<li>Şirketinizin güçlü ve zayıf yanlarını, risk ve fırsatlarını sistematik bir şekilde değerlendiriyor, öne çıkarılması gereken konuları belirleyerek dikkat çekici içerikler geliştiriyoruz.</li>
+		<li>Finansal ve sürdürülebilirlik faaliyetlerinizden elde ettiğiniz sonuçlar arasında örüntü ve bağlantılar kurarak iki performansın birlikte değerlendirilmesini sağlıyoruz.</li>
+		<li>Küresel raporlama standartları eşliğinde hazırladığımız raporun tüm akreditasyon ve geribildirim süreçlerini sizler için yönetiyoruz.</li>
+	</ul>
+</div>
+`;
 const { title = TITLE, description = DESCRIPTION, moreinfotext = MOREINFO } = Astro.props;
 ---
 
 <Layout title={title} description={description} seoImage="./entegre-faaliyet-raporu-og.png">
 	<ArticleTitle title={title} spot={description} />
-	<MoreInfo text={moreinfotext} />
+	<MoreInfo column={2} text={moreinfotext} />
 	<div class="grid auto-rows-max grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4 xl:gap-8">
-		{allEFR.map((efr) => <HoverItem slug={efr.slug} title={efr.data.title} thumbnail={efr.data.thumbnail} thumbWidth={efr.data.thumbnail.width} thumbHeight={efr.data.thumbnail.height} />)}
+		{allEFR.sort((a, b) => a.data.sort - b.data.sort).map((efr) => <HoverItem slug={efr.slug} title={efr.data.title} thumbnail={efr.data.thumbnail} thumbWidth={efr.data.thumbnail.width} thumbHeight={efr.data.thumbnail.height} />)}
 	</div>
+	<AltMenu altMenuData={raporlamaAltMenuData} />
 </Layout>

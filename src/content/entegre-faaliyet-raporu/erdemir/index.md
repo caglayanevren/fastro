@@ -1,4 +1,5 @@
 ---
+sort: 900
 title: Erdemir 2022 Entegre Faaliyet Raporu
 spot: Cevheri değere dönüştürmek
 type: singleItem

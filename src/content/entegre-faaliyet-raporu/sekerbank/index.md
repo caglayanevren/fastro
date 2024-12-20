@@ -1,4 +1,5 @@
 ---
+sort: 1000
 title: Şekerbank 2022 Entegre Faaliyet Raporu
 spot: Geleceğe entegre Şekerbank
 type: singleItem

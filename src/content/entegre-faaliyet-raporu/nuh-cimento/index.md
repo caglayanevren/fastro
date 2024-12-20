@@ -1,4 +1,5 @@
 ---
+sort: 1300
 title: Nuh Çimento 2019 Entegre Faaliyet Raporu
 spot: Geçmişten geleceğe Nuh Çimento
 type: singleItem

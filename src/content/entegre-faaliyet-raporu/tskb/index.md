@@ -1,4 +1,5 @@
 ---
+sort: 1100
 title: TSKB 2022 Entegre Faaliyet Raporu
 spot: İlk enerji verimli ve çevre dostu rapor
 type: singleItem

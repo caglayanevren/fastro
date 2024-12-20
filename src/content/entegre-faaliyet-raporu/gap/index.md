@@ -1,4 +1,5 @@
 ---
+sort: 1200
 title: Gap Pazarlama 2020 Entegre Faaliyet Raporu
 spot: Yenilikçi yaklaşımla geleceğe
 type: singleItem

@@ -1,14 +1,25 @@
 ---
+sort: 400
 title: Türkiye Eğitim Gönüllüleri Vakfı Entegre Faaliyet Raporları
 spot: ""
 type: multiItem
 category: Entegre Faaliyet Raporu
-thumbnail: ./2022_TEGV_EFR_0_Thumbnail.png
+thumbnail: ./2023_TEGV_EFRT_0_Thumbnail.jpg
 awarded: false
 coverImage: "./2022_TEGV_0.png"
 ---
 
 import MultiItemLayoutOneItem from "../../../layouts/MultiItemLayoutOneItem.astro";
+
+import TEGV2023_0 from "./2023_TEGV_EFRT.jpg";
+
+<MultiItemLayoutOneItem oneItemTitle="TEGV 2023 ENTEGRE FAALİYET RAPORU" oneItemSubTitle="Birlik ve beraberliğin en gerçek hali" sliderImages={[TEGV2023_0]} awarded={true}>
+
+Türkiye Eğitim Gönüllüleri Vakfı (TEGV), 1995 yılında eğitimin her şeyin başı olduğu inancıyla yola çıkan ve her çocuğun eğitim hakkından eşit fırsatlarla yararlanabilmesi için “Bir çocuk değişir, Türkiye gelişir” mottosuyla ilköğretim çağındaki çocukların maddi ve manevi gereksinimlerini destekleyen sivil toplum kuruluşudur.
+
+Bu yıl oldukça yıkıcı, ülkenin dört bir yanını üzüntüye boğan, büyük bir afet yaşayan Türkiye, büyük bir seferberlikle yaralarını sarmaya devam ediyor. Kurulduğu günden itibaren ilköğretim çağındaki milyonlarca çocuğa ulaşan TEGV, afetin meydana geldiği ilk günden bugüne, büyük bir dayanışma ve beraberlik örneği sergiliyor ve afet bölgesindeki destek çalışmalarına devam ediyor. 2023 Entegre Faaliyet Raporu’nda TEGV’in seferberliğini, birlik, beraberlik ve dayanışma ruhunu olduğu gibi yansıttık. “Tüm gücümüzle oradaydık. ORADAYIZ” söylemiyle destekledik, görsellere ve kotasyonlara yer verdik. Geçirilen zor zamanların ve yeniden ayağa kalkma mücadelesinin sürdüğü afet bölgesinin tüm gerçekliğiyle ortaya konduğu, umutları tekrar yeşerten, dayanışma mesajını tüm sıcaklığıyla veren hayatın içinden, duygusal ve anlamlı bir rapor ortaya koyduk.
+
+</MultiItemLayoutOneItem>
 
 import TEGV2022_0 from "./2022_TEGV_0.png";
 import TEGV2022_1 from "./2022_TEGV_1.png";
@@ -78,8 +89,15 @@ Reklamlardan aşina olduğumuz “önce-sonra” formatını raporumuza uyarlaya
 
 </MultiItemLayoutOneItem>
 
+{/*
+
 import Scriptify from "../../../components/scriptify.astro";
 
 <Scriptify>
-	<script>{`document.querySelector("a[aria-label='ENTEGRE FAALİYET RAPORU']").classList.remove("aw-link-active");document.querySelector("a[aria-label='FAALİYET RAPORU']").classList.remove("aw-link-active");`}</script>
+	<script>{`
+		document.querySelector("a[aria-label='ENTEGRE FAALİYET RAPORU']").classList.remove("aw-link-active");
+		document.querySelector("a[aria-label='FAALİYET RAPORU']").classList.remove("aw-link-active");
+	`}</script>
 </Scriptify>
+
+*/}
