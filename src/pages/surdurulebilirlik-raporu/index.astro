@@ -1,28 +1,30 @@
 ---
 import { getCollection } from "astro:content";
+import AltMenu from "~components/altMenu.astro";
 import ArticleTitle from "~components/articleTitle.astro";
 import HoverItem from "~components/HoverItem.astro";
 import MoreInfo from "~components/MoreInfo.astro";
 import Layout from "~layouts/Layout.astro";
+import { raporlamaAltMenuData } from "~navigation";
 
 const allSRD = await getCollection("surdurulebilirlik-raporu");
 
 const TITLE = "Sürdürülebilirlik Raporu";
 const DESCRIPTION = `“Geleceğiniz, bugün ne yaptığınızla şekillenir, yarın ne yapacağınızla değil.”`;
-const MOREINFO = `<p class="text-mavi mb-0">Sürdürülebilirlik neden önemli?</p>
-<p>Sürdürülebilirlik; bugünün ihtiyaçlarını, gelecek nesillerin ihtiyaçlarından ödün vermeden karşılayabilmektir. Artan dünya nüfusu, sınırlı kaynaklar ve iklim değişikliği gibi birçok global mesele geleceğimizi tehdit ediyor.</p>
-<p class="text-mavi mb-0">Sürdürülebilirlik raporları neden önemli?</p>
-<p>Sürdürülebilirlik, kurumsal hayatta da önemli bir yer almaya başladı. Sürdürülebilirlik stratejilerini oluşturan şirketler, sürdürülebilirlik raporları ile çevresel, sosyal ve yönetimsel performansını “şeffaf” bir şekilde ortaya koyabiliyor. Risk ve fırsatlarını ölçümleme şansı elde ederken, gelecekle ilgili güçlü mesajlar verebiliyor.</p>
-<div class="break-inside-avoid">
-<p class="text-mavi mb-0">Neden Finar?</p>
+
+const MOREINFO = `
+<p class="font-bold text-mavi mb-0">Sürdürülebilirlik raporları neden önemli?</p>
+<p>Sürdürülebilirlik, kurumsal hayatın ayrılmaz bir parçasına dönüştü. Sürdürülebilirlik raporları sayesinde şirketler; sürdürülebilirlik stratejilerini, çevresel, sosyal ve yönetişimsel (ESG) faaliyetlerini ve performans sonuçlarını şeffaf bir şekilde ortaya koyabiliyor. Sürdürülebilirlik risk ve fırsatlarını değer zinciri boyunca yönetme şansı elde ederken, gelecekle ilgili bu raporlar vasıtasıyla güçlü mesajlar verebiliyor.</p>
+<p class="font-bold text-mavi mb-0">Neden Finar’la çalışmalısınız?</p>
 <ul>
-<li class="mt-0">27 yıllık kurumsal raporlama uzmanlığımızla raporun vermesi gereken mesajları, içerik ve grafik tasarımını en doğru şekilde kurguluyoruz.</li>
-<li class="mt-0">Şirketinizin ÇSY performansını GRI (Global Report Initiative) rehberi ışığında en özlü ve etkili şekilde raporluyoruz.</li>
+<li class="mt-0">30 yıllık kurumsal raporlama uzmanlığımızla raporun ana mesajlarını, içeriğini ve grafik tasarımını en doğru şekilde kurguluyoruz.</li>
+<li class="mt-0">Sektörel “benchmarking” çalışmaları gerçekleştirerek en iyi uygulama örneklerine raporlarınızda yer veriyoruz.</li>
+<li class="mt-0">Çifte önemlilik kapsamında önceliklendirme matrisi çalışması gerçekleştirerek şirketinizin sürdürülebilirlik odak noktalarını vurguluyoruz.</li>
+<li class="mt-0">Şirketinizin ÇSY performansını küresel raporlama standartları ışığında en özlü ve etkili şekilde raporluyoruz.</li>
 <li class="mt-0">Sürdürülebilirlik verilerinizi geçmiş yıllarla karşılaştırarak analiz ediyor ve yorumluyor, verilerinizi sadeleştirerek anlaşılır ve değerli kılıyoruz.</li>
-<li class="mt-0">Şirketinizin sadece iyi yönlerine odaklanmak yerine, geliştirilmesi gereken alanları vurguluyor ve bu alanlarla ilgili alınacak aksiyonları tüm paydaş ve potansiyel yatırımcılara açıklıyoruz.</li>
+<li class="mt-0">Şirketinizin sadece iyi yönlerine odaklanmak yerine, geliştirilmesi gereken alanları vurguluyor ve bu alanlarla ilgili alınacak aksiyonları tüm paydaşlarınıza açıklıyoruz.</li>
 <li class="mt-0">“Green washing” ile iyi görünme çabası içinde olmak yerine, gerçekçi ve ölçülebilir hedefleri ortaya koyarak kurumsal itibarınızı güçlendiriyoruz.</li>
 </ul>
-</div>
 `;
 
 const { title = TITLE, description = DESCRIPTION, moreinfotext = MOREINFO } = Astro.props;
@@ -32,9 +34,7 @@ const { title = TITLE, description = DESCRIPTION, moreinfotext = MOREINFO } = As
 	<ArticleTitle title={title} spot={description} />
 	<MoreInfo column={2} text={moreinfotext} />
 	<div class="grid auto-rows-max grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4 xl:gap-8">
-		{allSRD.map((srd) => (srd.data.type == "onlyThumbnail" 
-									? <HoverItem slug="#" title={srd.data.title} thumbnail={srd.data.thumbnail} thumbWidth={srd.data.thumbnail.width} thumbHeight={srd.data.thumbnail.height} /> 
-									: <HoverItem slug={srd.slug} title={srd.data.title} thumbnail={srd.data.thumbnail} thumbWidth={srd.data.thumbnail.width} thumbHeight={srd.data.thumbnail.height} />
-								))}
+		{allSRD.sort((a, b) => a.data.sort - b.data.sort).map((srd) => (srd.data.type == "onlyThumbnail" ? <HoverItem slug="#" title={srd.data.title} thumbnail={srd.data.thumbnail} thumbWidth={srd.data.thumbnail.width} thumbHeight={srd.data.thumbnail.height} /> : <HoverItem slug={srd.slug} title={srd.data.title} thumbnail={srd.data.thumbnail} thumbWidth={srd.data.thumbnail.width} thumbHeight={srd.data.thumbnail.height} />))}
 	</div>
+	<AltMenu altMenuData={raporlamaAltMenuData} />
 </Layout>
