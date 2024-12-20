@@ -1,5 +1,5 @@
 ---
-sort: 600
+sort: 3500
 title: Albaraka Türk 2017 Faaliyet Raporu...
 spot: Değere değer katmak
 type: singleItem

@@ -1,5 +1,5 @@
 ---
-sort: 200
+sort: 5500
 title: Akfen Holding 2012 Faaliyet Raporu...
 spot: İçinde LCD ekran olan bir faaliyet raporu... Tüm zamanların en sıra dışı raporu...
 type: singleItem

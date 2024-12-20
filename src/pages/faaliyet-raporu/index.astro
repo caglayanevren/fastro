@@ -9,6 +9,8 @@ import { FinarExperienceYear } from "~config";
 import FirstSpace from "~components/firstSpace.astro";
 //import chevDown from "~images/chevron-down-light.svg?raw";
 import CollapseWithLine from "~components/CollapseWithLine.astro";
+import AltMenu from "~components/altMenu.astro";
+import { raporlamaAltMenuData } from "~navigation";
 
 const allFR = await getCollection("faaliyet-raporu");
 
@@ -98,6 +100,7 @@ const { title = TITLE, description = DESCRIPTION, moreinfotext = MOREINFO } = As
 			</ol>
 		</div>
 	</CollapseWithLine>
+	<AltMenu altMenuData={raporlamaAltMenuData} />
 </Layout>
 
 <style>

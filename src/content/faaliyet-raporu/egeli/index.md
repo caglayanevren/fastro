@@ -1,5 +1,5 @@
 ---
-sort: 1700
+sort: 5200
 title: Egeli & CO Yatırım Holding 2014 Faaliyet Raporu...
 spot: Sözlükten rapor üretmek....
 type: singleItem

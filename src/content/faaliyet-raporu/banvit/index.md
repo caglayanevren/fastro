@@ -1,5 +1,5 @@
 ---
-sort: 800
+sort: 5400
 title: Banvit 2013 Faaliyet Raporu...
 spot: Taze ve leziz başarılar...
 type: singleItem

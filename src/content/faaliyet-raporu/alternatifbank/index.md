@@ -1,5 +1,5 @@
 ---
-sort: 700
+sort: 3600
 title: Alternatifbank 2017 Faaliyet Raporu...
 spot: Değişimi farklı bir şekilde yansıttık.
 type: singleItem

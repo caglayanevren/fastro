@@ -1,5 +1,5 @@
 ---
-sort: 1500
+sort: 3900
 title: Denizbank 2017 Faaliyet Raporu...
 spot: Özel bir performans
 type: singleItem
