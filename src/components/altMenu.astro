@@ -12,33 +12,33 @@ const currentPath = Astro.url.pathname;
 
 <FirstSpace height={48} />
 {
-	/*
-<div class="grid grid-flow-col auto-rows-max grid-cols-1 lg:grid-cols-3">
-	<p class="row-span-3 mb-4 font-zilla text-xl">
-		<span class="font-bold"><Fragment set:html={altMenuData.sideinfo} /></span>
-	</p>
-	{
-		altMenuData.menuItems
-		.filter((item) => item.href !== currentPath)
-		.map(({ text, href }) => (
-		<div class="col-span-1 mb-4">
-			<a href={href} class="font-zilla text-2xl text-mavi">
-				<Fragment set:html={text} />
-			</a>
-		</div>
-		))
-	}
-</div>
+/*
+	<div class="grid grid-flow-col auto-rows-max grid-cols-1 lg:grid-cols-3">
+		<p class="row-span-3 mb-4 font-zilla text-xl">
+			<span class="font-bold"><Fragment set:html={altMenuData.sideinfo} /></span>
+		</p>
+		{
+			altMenuData.menuItems
+			.filter((item) => item.href !== currentPath)
+			.map(({ text, href }) => (
+			<div class="col-span-1 mb-4">
+				<a href={href} class="font-zilla text-2xl text-mavi">
+					<Fragment set:html={text} />
+				</a>
+			</div>
+			))
+		}
+	</div>
 */
 }
-<div class="flex flex-col lg:flex-row w-full" id="tops">
+<div class="flex flex-col lg:flex-row w-full [&_*]:flex-[0_1_33.33%]">
 	<p class="mb-4 grow-[3] font-zilla text-xl">
 		<span class="font-extrabold"><Fragment set:html={altMenuData.sideinfo} /></span>
 	</p>
 	<div class="flex-initial">
 		{
 			altMenuData.menuItems
-			.filter((item) => item.href !== currentPath)
+			.filter((item) => !(currentPath.includes(item.href)))
 			.map(({ text, href }, index) => {
 				const itemSize = altMenuData.menuItems.length - 1;
 				let part;
@@ -70,9 +70,3 @@ const currentPath = Astro.url.pathname;
 		}
 	</div>
 </div>
-
-<style is:inline>
-	#tops > * {
-		flex: 0 1 33.33%;
-	}
-</style>

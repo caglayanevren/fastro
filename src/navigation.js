@@ -195,7 +195,7 @@ export const raporlamaAltMenuData = {
 };
 
 export const surdurulebilirlikAltMenuData = {
-	sideinfo: "Sürdürülebilirlik danışmanlığı<br class='inline-block sm:hidden lg:block' /> hizmetlerimiz hakkında<br class='inline-block sm:hidden lg:block' /> detaylı bilgi için:",
+	sideinfo: "Diğer danışmanlık hizmetlerimiz için:",
 	menuItems: [
 		{
 			text: "Çifte Önemlilik ile<br class='inline-block sm:hidden lg:block' /> Paydaş Analizi",

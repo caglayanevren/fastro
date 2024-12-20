@@ -5,6 +5,8 @@ import MoreInfo from "~components/MoreInfo.astro";
 import AltMenu from "~components/altMenu.astro";
 import { surdurulebilirlikAltMenuData } from "~navigation";
 
+const TITLE = "Çifte Önemlilik ile Paydaş Analizi";
+const SPOT = "Sürdürülebilirlik yolculuğunuza önemlilik çalışmasıyla başlayın.";
 const MOREINFO = `
 <div class="break-inside-avoid">
 <p class="font-bold text-mavi mb-0">Çifte önemlilik bakış açısıyla paydaş analizi yapmak neden önemli?</p>
@@ -22,8 +24,8 @@ const MOREINFO = `
 `;
 ---
 
-<Layout title="Çifte Önemlilik ile Paydaş Analizi">
-	<ArticleTitle title="Çifte Önemlilik ile Paydaş Analizi" spot="Sürdürülebilirlik yolculuğunuza önemlilik çalışmasıyla başlayın." />
+<Layout title={TITLE} description={SPOT}>
+	<ArticleTitle title={TITLE} spot={SPOT} />
 	<MoreInfo column={2} text={MOREINFO} />
 	<AltMenu altMenuData={surdurulebilirlikAltMenuData} />
 </Layout>
