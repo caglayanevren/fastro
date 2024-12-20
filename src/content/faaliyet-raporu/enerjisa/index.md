@@ -1,6 +1,6 @@
 ---
 sort: 400
-title: EnerjiSA 2023 Faaliyet Raporu...
+title: EnerjiSA 2023 Faaliyet&nbsp;Raporu...
 spot: Hayat ve gelecek enerjisini yansıtan bir tasarım
 type: singleItem
 category: Faaliyet Raporu

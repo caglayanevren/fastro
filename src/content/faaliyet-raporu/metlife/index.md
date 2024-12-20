@@ -1,6 +1,6 @@
 ---
 sort: 2000
-title: Metlife 2020 Faaliyet Raporu...
+title: Metlife 2020 Faaliyet&nbsp;Raporu
 spot: ""
 type: singleItem
 category: Faaliyet Raporu

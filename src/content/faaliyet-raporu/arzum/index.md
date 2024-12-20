@@ -1,6 +1,6 @@
 ---
 sort: 300
-title: Arzum 2023 Faaliyet Raporu...
+title: Arzum 2023 Faaliyet&nbsp;Raporu...
 spot: Yenilik odaklı markanın, gelişimine odaklanan bir rapor!
 type: singleItem
 category: Faaliyet Raporu
