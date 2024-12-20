@@ -35,6 +35,7 @@ import galaxyawards from "../../images/oduller/galaxy-awards.svg";
 import lacpvision from "../../images/oduller/lacp-vision.svg";
 import lacpspotlights from "../../images/oduller/lacp-spotlights.svg";
 import creativityawards from "../../images/oduller/creativity-awards.svg";
+import VimeoVideo from "~components/VimeoVideo.astro";
 
 const seoImage = "/og/oduller-og.png";
 const title = "Ödüller";
@@ -185,6 +186,14 @@ const datas: data[] = [
 		datas.map((data) => {
 			return (
 				<CollapseWithLine withLineTitle={data.year.toString()} collapseOpen={data.open} collapseTitleClass={data.collapseTitleClass}>
+					{data.year == 2024 ? (
+						<div class="mb-6 flex flex-col gap-6 md:flex-row">
+							<VimeoVideo id="1038861299" title="Faaliyet Raporlarının Oscar'ı ARC Awards'ta Dünya'nın en iyi ajansı FİNAR" classes="md:pt-[27.65%] md:w-1/2" />
+							<VimeoVideo id="1038863045" title="Büyük Finalde Dünyanın En İyi Ajansı Ödülü: FİNAR" classes="md:pt-[27.65%] md:w-1/2" />
+						</div>
+					) : (
+						""
+					)}
 					{data.items.map((item) => {
 						return (
 							<div class="odul-photo">
