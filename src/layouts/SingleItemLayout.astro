@@ -35,7 +35,7 @@ const { title, description, category, collection, spot, awarded = false, coverIm
 			<h2 class="mb-8 mt-0 font-zilla text-5xl/tight font-light">{spot}</h2>
 			{awarded && <Awardimage grand={grand} alt={title} />}
 		</div>
-		<div class="prose prose-p:mb-4 lg:col-start-6 lg:col-end-13">
+		<div class="prose prose-p:mb-4 prose-p:text-pretty prose-p:leading-[1.6] lg:col-start-6 lg:col-end-13">
 			<slot />
 		</div>
 	</div>

@@ -6,10 +6,11 @@ import SingleItemCoverImage from "~components/SingleItemCoverImage.astro";
 import EkipUye from "~components/EkipUye.astro";
 import type { EkipUyesiType } from "~/types/types";
 import { getImage } from "astro:assets";
-import FINARTopluOfis from "../../images/FINARTopluOfis.jpg";
+//import FINARTopluOfis from "../../images/FINARTopluOfis.jpg";
+import weAreTheBest from "../../images/we-are-the-best.jpg";
 
-const optimizedFINARTopluOfis = await getImage({
-	src: FINARTopluOfis,
+const optimizedweAreTheBest = await getImage({
+	src: weAreTheBest,
 	format: "webp",
 	width: 1110,
 	height: 585,
@@ -17,11 +18,11 @@ const optimizedFINARTopluOfis = await getImage({
 ---
 
 <Fragment slot="head">
-	<link rel="preload" href={optimizedFINARTopluOfis.src} as="image" />
+	<link rel="preload" href={optimizedweAreTheBest.src} as="image" />
 </Fragment>
 
-<Layout title={AilemizFrontmatter.title} seoImage={AilemizFrontmatter.seoImage}>
-	<SingleItemCoverImage src={FINARTopluOfis} coverImageAlt="FİNAR Toplu Ofis" />
+<Layout title={AilemizFrontmatter.title} description={AilemizFrontmatter.spot} seoImage={AilemizFrontmatter.seoImage}>
+	<SingleItemCoverImage src={weAreTheBest} coverImageAlt="FİNAR Toplu Ofis" />
 
 	<ContentLayout2Column1248 title={AilemizFrontmatter.spot} subtitle={AilemizFrontmatter.subtitle}>
 		<AilemizContent />

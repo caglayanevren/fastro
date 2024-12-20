@@ -1,0 +1,27 @@
+---
+import Layout from "~layouts/Layout.astro";
+import ArticleTitle from "~components/articleTitle.astro";
+import MoreInfo from "~components/MoreInfo.astro";
+import AltMenu from "~components/altMenu.astro";
+import { surdurulebilirlikAltMenuData } from "~navigation";
+
+const MOREINFO = `
+<div class="break-inside-avoid">
+<p class="font-bold text-mavi mb-0">Sürdürülebilirlik eğitimleri neden önemli?</p>
+<p>Şirketler sürdürülebilirlik yolculuklarını tasarlarken öncelikle insan kaynağını bilinçlendirmeye odaklanmalı. Sürdürülebilirliği iş modellerine ve tüm operasyonlara entegre edebilmenin, kurumsal sürdürülebilirliği sağlayabilmenin yolu bu farkındalığı oluşturmaktan geçiyor. Bu kapsamda, bu yolculuğun ilk aşaması olarak farklı hedef kitlelere sağladığımız eğitimlerle sürdürülebilirlik hakkında derinlikli ve anlaşılır bilgi sağlıyoruz.</p>
+</div>
+<p class="font-bold text-mavi mb-0">Neden Finar’la çalışmalısınız?</p>
+<ul class="mt-0">
+	<li class="mt-0">Farklı hedef kitlelere hitap eden eğitim programlarımızla şirket genelinde sürdürülebilirlik farkındalığı oluşturuyoruz.</li>
+	<li class="mt-0">Eğitim modüllerimizi interaktif tasarlayarak profesyonellerin de katılım sağlayacağı bir ortam hazırlıyoruz.</li>
+	<li class="mt-0">“Sürdürülebilirliğin ABC’si”, “Sürdürülebilirlik İletişimi ve Raporlama”, “Sürdürülebilirliğin İş Modeline Entegrasyonu” gibi çeşitli eğitim programlarımızla her düzeyden insan kaynağını şirketlerin sürdürülebilirlik yolculuklarına ortak ediyoruz.</li>
+	<li class="mt-0">Sürdürülebilirlik çok geniş bir kavram. Bu doğrultuda, kendi eğitim modüllerimiz dışında spesifik olarak seçmek istediğiniz konular için ihtiyacınız olan eğitimi sizler için tasarlıyor, en etkin şekilde sunuyoruz.</li>
+</ul>
+`;
+---
+
+<Layout title="Sürdürülebilirlik Eğitimleri">
+	<ArticleTitle title="Sürdürülebilirlik Eğitimleri" spot="Sürdürülebilirlik “farkındalıkla” başlar." />
+	<MoreInfo column={2} text={MOREINFO} />
+	<AltMenu altMenuData={surdurulebilirlikAltMenuData} />
+</Layout>

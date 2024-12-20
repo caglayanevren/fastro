@@ -1,0 +1,29 @@
+---
+import Layout from "~layouts/Layout.astro";
+import ArticleTitle from "~components/articleTitle.astro";
+import MoreInfo from "~components/MoreInfo.astro";
+import AltMenu from "~components/altMenu.astro";
+import { surdurulebilirlikAltMenuData } from "~navigation";
+
+const MOREINFO = `
+<div class="break-inside-avoid">
+<p class="font-bold text-mavi mb-0">Çifte önemlilik bakış açısıyla paydaş analizi yapmak neden önemli?</p>
+<p>Şirketler için sürdürülebilirlik, sadece şirket içi verilen bir hedeften çok daha ötesinde, topluma, dünyaya ve gelecek nesillere verilen taahhütlerdir. Şirketler sürdürülebilirlik yolculuklarını tasarlarken “paydaş” kavramını yok sayamazlar. Bu doğrultuda, şirketler sürdürülebilirlik yol haritalarındaki odak noktalarını belirlemek için iç ve dış paydaşlarının beklenti ve görüşleri doğrultusunda önemlilik çalışmasını gerçekleştirmelidir. Bu çalışmada sadece finansal önemlilik değil, çevreye ve insana “etki” boyutuna da odaklanılmalıdır. Bu yüzden önceliklendirme çalışmasının önemlilik değil “çifte önemlilik” bakış açısıyla ele alınması çok kıymetli.</p>
+</div>
+<p class="font-bold text-mavi mb-0">Neden Finar’la çalışmalısınız?</p>
+<ul class="mt-0">
+	<li class="mt-0">Şirketinizin bulunduğu sektör ve iş modelinizi gözeterek sürdürülebilirlik konusunda örnek işlere imza atmış akran/rakiplerinizin sürdürülebilirlik çalışmalarını inceliyoruz.</li>
+	<li class="mt-0">Bu şirketler üzerinde “benchmarking” çalışması yaparak, öncelikli konulara ilişkin sektörel eğilimler doğrultusunda çifte önemlilik yaklaşımıyla değerlendirerek sizler için potansiyel öncelikli konular belirliyoruz.</li>
+	<li class="mt-0">Paydaş haritalandırmanızı gerçekleştirerek “paydaş” kavramını şirketiniz için tanımlıyoruz.</li>
+	<li class="mt-0">Öncelikli konular listemiz üzerinden anket çalışması gerçekleştirmek üzere soru listeleri oluşturuyoruz.</li>
+	<li class="mt-0">Hazırladığımız anketlere paydaşlarınızın verdiği yanıtları objektif şekilde matematiksel hesaplamalarla değerlendiriyoruz.</li>
+	<li class="mt-0">Çıkan sonuçlar üzerine sizlere detaylı bir sunum yaparak önceliklendirme matrisinizi birlikte şekillendiriyoruz.</li>
+</ul>
+`;
+---
+
+<Layout title="Çifte Önemlilik ile Paydaş Analizi">
+	<ArticleTitle title="Çifte Önemlilik ile Paydaş Analizi" spot="Sürdürülebilirlik yolculuğunuza önemlilik çalışmasıyla başlayın." />
+	<MoreInfo column={2} text={MOREINFO} />
+	<AltMenu altMenuData={surdurulebilirlikAltMenuData} />
+</Layout>

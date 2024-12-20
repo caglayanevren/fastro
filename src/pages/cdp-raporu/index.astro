@@ -1,0 +1,26 @@
+---
+import Layout from "~layouts/Layout.astro";
+import ArticleTitle from "~components/articleTitle.astro";
+import TitleWithLine from "~components/TitleWithLine.astro";
+import chevDown from "~images/chevron-down-light.svg?raw";
+import AltMenu from "~components/altMenu.astro";
+import { raporlamaAltMenuData } from "~navigation";
+---
+
+<Layout title="CDP Raporu">
+	<ArticleTitle title="CDP Raporu" spot="CDP raporlaması ile çevresel sürdürülebilirlik çalışmalarınızı bir üst seviyeye taşıyın." />
+	<TitleWithLine icon={chevDown} />
+	<div class="prose mb-6 columns-1 pb-6 tracking-[.1px] prose-p:break-inside-avoid prose-p:leading-[1.6] prose-li:leading-[1.6] md:columns-2">
+		<p class="mb-0 font-bold text-mavi">CDP raporlaması neden önemli?</p>
+		<p class="mt-0">CDP (Carbon Disclosure Project), şirketlere çevresel performanslarını ölçme, iklim değişikliği ile mücadelede somut adımlar atma ve çevresel sorumluluklarını şeffaf bir şekilde paylaşma olanağı tanıyan, dünya çapında kabul gören bir raporlama platformudur. Hazırlayacağınız güçlü CDP raporları ile alacağınız yüksek CDP notları, sürdürülebilirlik imajınızı güçlendirir ve sizlere sektörünüzde rekabet avantajı sağlar.</p>
+		<p class="mb-0 font-bold text-mavi">Neden Finar’la çalışmalısınız?</p>
+		<ul class="m-0">
+			<li class="mt-0">Finar’ın sürdürülebilirlik raporlaması alanındaki derinlikli bilgi birikimiyle, şirketinizin çevresel etkilerini ve karbon ayak izini en doğru şekilde analiz ediyoruz. Böylece raporunuz, CDP'nin gereksinimlerine tam uyumlu hale geliyor.</li>
+			<li class="mt-0">CDP raporlamasında önemli olan iklim riskleri ve fırsatları konusunda detaylı analizler yaparak şirketinize stratejik rehberlik sağlıyoruz. İklim değişikliği kaynaklı riskleri ve bu risklerin operasyonlarınıza etkisini değerlendiriyor, aynı zamanda çevresel fırsatları keşfetmenize yardımcı oluyoruz.</li>
+			<li class="mt-0">CDP raporlaması ile şirketinizin karbon emisyonları, su tüketimi ve orman kaynakları üzerindeki etkilerini detaylı ve şeffaf bir şekilde paylaşıyoruz. Bu şeffaflıkla, çevresel sorumluluk konusundaki taahhütlerinizi açıkça ortaya koyuyoruz.</li>
+			<li class="mt-0">CDP raporlamasında, paydaşlarınızın ihtiyaçlarını göz önünde bulundurarak, çevresel performansınızı anlaşılır ve etkili bir şekilde ifade ediyoruz. Böylece, şirketinizin çevresel taahhütleri tüm paydaşlar tarafından net bir şekilde anlaşılır hale geliyor.</li>
+			<li class="mt-0">Şirketinizin CDP puanını artırmak ve çevresel performansını güçlendirmek için, CDP değerlendirme kriterlerine odaklanan iyileştirme önerileri sunuyoruz. Bu süreç, şirketinizin çevresel hedeflerine ulaşması için gerekli adımları belirlemenize olanak tanıyor.</li>
+		</ul>
+	</div>
+	<AltMenu altMenuData={raporlamaAltMenuData} />
+</Layout>

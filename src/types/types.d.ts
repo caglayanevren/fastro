@@ -25,3 +25,12 @@ export type textCarouselData = {
 	text: string;
 	link: string;
 };
+
+export type AltMenuItem = {
+	text: string;
+	href: string;
+};
+export type AltMenuData = {
+	sideinfo: string;
+	menuItems: AltMenuItem[];
+};

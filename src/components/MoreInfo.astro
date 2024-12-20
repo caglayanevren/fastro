@@ -18,6 +18,6 @@ const { column = 3, subtitle, text } = Astro.props;
 		</h6>
 	)
 }
-<div class:list={["prose mb-6 columns-1 pb-6 tracking-[.1px] prose-p:mt-0 prose-p:break-inside-avoid prose-ul:mt-0 md:columns-2", { "lg:columns-3": column === 3 }]}>
+<div class:list={["prose mb-6 columns-1 pb-6 tracking-[.1px] prose-p:mt-0 prose-p:break-inside-avoid prose-p:leading-[1.6] prose-ul:mt-0 prose-li:my-0 prose-li:leading-[1.6] md:columns-2", { "lg:columns-3": column === 3 }]}>
 	<Fragment set:html={text} />
 </div>

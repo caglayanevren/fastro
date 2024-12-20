@@ -11,7 +11,7 @@ const { title, subtitle } = Astro.props;
 		<h2 class="mb-8 mt-8 font-zilla text-5xl lg:mt-0">{title}</h2>
 		{subtitle && <h3 class="mb-8 mt-8 font-zilla text-2xl lg:mt-0">{subtitle}</h3>}
 	</div>
-	<div class="prose-h3:font-base prose prose-h3:mb-0 prose-h3:text-base prose-h3:font-normal prose-h3:text-mavi prose-p:mb-4 prose-p:mt-0 prose-a:no-underline lg:col-span-8">
+	<div class="prose prose-h3:mb-0 prose-h3:text-balance prose-h3:text-base prose-h3:font-bold prose-h3:font-normal prose-h3:text-mavi prose-p:mb-4 prose-p:mt-0 prose-p:leading-[1.6] prose-a:no-underline lg:col-span-8">
 		<slot />
 	</div>
 </div>

@@ -1,0 +1,37 @@
+---
+import Layout from "~layouts/Layout.astro";
+import ArticleTitle from "~components/articleTitle.astro";
+import MoreInfo from "~components/MoreInfo.astro";
+import AltMenu from "~components/altMenu.astro";
+import { surdurulebilirlikAltMenuData } from "~navigation";
+
+const MOREINFO = `
+<div class="break-inside-avoid">
+<p class="font-bold text-mavi mb-0">Sürdürülebilirlik şirketiniz için neden önemli?</p>
+<p>Sürdürülebilirlik, kurumsal hayatın ayrılmaz bir parçası haline geldi. “Bugün” sürdürülebilirliğe yatırım yapan şirketler, geleceğin lider şirketleri olacak. Sürdürülebilirlik şirketinize; operasyonlarında daha verimli olma, topluma ve çevreye fayda sağlama ve tüm paydaş evreni için değer maksimizasyonu olanağı sağlıyor. Sürdürülebilirlik stratejisini doğru kurgulayan ve bu stratejiyi iş modeline ve tüm faaliyetlerine doğrudan entegre edebilen şirketler, gelişmiş ülke pazarlarına daha kolay erişim sağlarken, uygun maliyetli ve uzun vadeli finansman olanaklarına da kavuşabiliyor.</p>
+</div>
+<div class="break-inside-avoid">
+<p class="font-bold text-mavi mb-0">Sürdürülebilirlik stratejisi ve yol haritası oluşturmak neden önemli?</p>
+<p>Sürdürülebilirlik yolculuğunuzu doğru tasarlayabilmek için bir rehber ve navigasyona ihtiyacınız olacak. Bu noktada, rehberiniz sürdürülebilirlik stratejiniz, navigasyonunuz ise ESG yol haritanız olacak. Sürdürülebilirlik stratejisi şirketler için hem kısa vadede operasyonel başarı elde etmek hem de uzun vadede sürdürülebilir büyümeye sahip olmak için kritik öneme sahiptir. Sürdürülebilirlik stratejisini besleyecek yol haritası ile ESG eforlarınızı ve yatırımlarınızı doğru noktalara yönelterek değer yaratabilirsiniz.</p>
+</div>
+<p class="font-bold text-mavi mb-0">Sürdürülebilirlik stratejinizi ve yol haritanızı neden Finar’la çalışmalısınız?</p>
+<ul class="mt-0">
+	<li class="mt-0">30 yıllık kurumsal iletişim tecrübemiz ışığında yürüttüğümüz sürdürülebilirlik danışmanlığı hizmetimizle, geleceğinizi birlikte dönüştürüyor ve sizlere sürdürülebilir bir bakış açısı kazandırıyoruz.</li>
+	<li class="mt-0">Sizi, iş modelinizi, sektörünüzü iyi anlayarak ve sektörün sürdürülebilirlik etki noktalarını doğru tespit ederek sürdürülebilirlik stratejinizi oluşturuyoruz.</li>
+	<li class="mt-0">Uçtan uca sürdürülebilirlik rehberliği ile şirketiniz için bir yol haritası çıkarıyor, sürdürülebilirlik yolculuğunuzu tasarlıyoruz.</li>
+	<li class="mt-0">Yol haritasına dahil edeceğimiz her bir konu başlığı özelinde özenle çalışıyor, derinlikli “benchmarking” çalışmaları ile boşluk analizleri gerçekleştirerek iyi uygulama örnekleri ve projeler geliştiriyoruz. Değer önermelerinde bulunuyoruz.</li>
+	<li class="mt-0">Şirketinizin sürdürülebilirlik yönetişim yapısını sıfırdan kurguluyoruz.</li>
+	<li class="mt-0">Sürdürülebilirlik Komitenizin kurulmasına, çalışma gruplarının kurulmasına önderlik ediyoruz.</li>
+	<li class="mt-0">Paydaşlarınıza yönelik kapsayıcı iletişim stratejileri geliştirerek, şirketinizin sürdürülebilirlik sürecine herkesin dahil olmasını sağlıyoruz.</li>
+	<li class="mt-0">İhtiyacınız olan tüm kurumsal sürdürülebilirlik dokümantasyonlarını sizin için hazırlıyoruz.</li>
+	<li class="mt-0">Sürdürülebilirliğin üç sacayağına (ÇSY) da ağırlık vererek şirketinizin çevresel, sosyal ve yönetişimsel sürdürülebilirlik performansını güçlendirmesine destek oluyoruz.</li>
+	<li class="mt-0">“Kazan-kazan” modeline dayanan sürdürülebilirlik yatırımları ile şirket imajınızı güçlendirip operasyonel verimliliğinizi artırırken, tüm paydaşlarınızla uzun vadeli bir değer ilişkisi kurmanıza yardımcı oluyoruz.</li>
+</ul>
+`;
+---
+
+<Layout title="Sürdürülebilirlik Stratejisi ve ESG Yol Haritası">
+	<ArticleTitle title="Sürdürülebilirlik Stratejisi ve ESG Yol Haritası" spot="Birlikte geleceğinizi şekillendiriyoruz." />
+	<MoreInfo column={2} text={MOREINFO} />
+	<AltMenu altMenuData={surdurulebilirlikAltMenuData} />
+</Layout>

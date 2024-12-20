@@ -6,7 +6,7 @@ import ContentLayout2Column1248 from "~layouts/ContentLayout-2Column-12-4-8.astr
 import FirstSpace from "~components/firstSpace.astro";
 ---
 
-<Layout title={frontmatter.title} seoImage={frontmatter.seoImage}>
+<Layout title={frontmatter.title} description={frontmatter.spot} seoImage={frontmatter.seoImage}>
 	<FirstSpace height={48} />
 	<VimeoVideo id={frontmatter.videoID} title={frontmatter.VideoTitle} classes="mt-0 mb-8" />
 	<ContentLayout2Column1248 title={frontmatter.title}>

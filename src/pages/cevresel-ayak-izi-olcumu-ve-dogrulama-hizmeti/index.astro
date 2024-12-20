@@ -1,0 +1,30 @@
+---
+import Layout from "~layouts/Layout.astro";
+import ArticleTitle from "~components/articleTitle.astro";
+import MoreInfo from "~components/MoreInfo.astro";
+import AltMenu from "~components/altMenu.astro";
+import { surdurulebilirlikAltMenuData } from "~navigation";
+
+const MOREINFO = `
+<div class="break-inside-avoid">
+<p class="font-bold text-mavi mb-0">Çevresel ayak izi ölçümü neden önemli?</p>
+<p>Çevresel ayak izi ölçümü özellikle de karbon ayak izi ülkemizdeki birçok şirket için artık zorunlu. Bazı şirketlerimiz Sınırda Karbon Denetim Mekanizması (SKDM), bazı şirketlerimiz ise Türkiye Sürdürülebilirlik Raporlama Standartları (TSRS) gibi çeşitli regülasyonlar doğrultusunda çevresel etkilerini ölçmek zorunda. Bugün zorunda olmayanlar ise yarın ölçmek zorunda kalacak. Özellikle karbon meselesi, kendi ekonomisini yaratmaya başladı. Şirketlerin sürdürülebilirlik yolculuğunda en önemli adımlardan biri olan çevresel etkinin ölçülmesi, başta karbon ve su ayak izi olmak üzere bu yüzden çok önemli.</p>
+</div>
+<p class="font-bold text-mavi mb-0">Çevresel ayak izi ölçümü ve doğrulama hizmetini neden Finar’dan almalısınız?</p>
+<ul class="mt-0">
+	<li class="mt-0">“Ölçmeden yönetemezsin” bakış açısıyla öncelikle şirketinizin tüm operasyon ağını tanımlıyoruz.</li>
+	<li class="mt-0">Çevresel ayak izi için kullandığımız yazılımın tanıtımını gerçekleştiriyoruz.</li>
+	<li class="mt-0">Karbon ve su ayak izine sebep olan tüm girdileri belirliyoruz.</li>
+	<li class="mt-0">Karbon ve su ayak izi hesaplamalarını gerçekleştirdikten sonra küresel standartlara uygun şekilde rapor çıktısı sağlıyoruz.</li>
+	<li class="mt-0">Ölçümler sonrasında etkinin yönetilmesi için şirketlere iyileştirici aksiyon planları hazırlıyoruz.</li>
+	<li class="mt-0">Çevresel ayak izine ilişkin gerçekçi hedeflerin belirlenmesi konusunda önderlik ediyoruz.</li>
+	<li class="mt-0">Anlaşmalı olduğumuz yetkili denetçi firma ile dilerseniz tüm çevresel ayak izi ölçümünün doğrulamasının gerçekleştirilmesine aracılık ediyoruz. Böylece tek bir kanal üzerinden hem ölçme hem de doğrulama hizmeti alabilmenizi sağlıyoruz.</li>
+</ul>
+`;
+---
+
+<Layout title="Çevresel Ayak İzi Ölçümü ve Doğrulama Hizmeti">
+	<ArticleTitle title="Çevresel Ayak İzi Ölçümü ve Doğrulama Hizmeti" spot="Çevresel etkinizi ölçüyor, planlıyor ve yönetiyoruz." />
+	<MoreInfo column={2} text={MOREINFO} />
+	<AltMenu altMenuData={surdurulebilirlikAltMenuData} />
+</Layout>

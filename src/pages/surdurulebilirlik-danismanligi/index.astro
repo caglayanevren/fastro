@@ -1,28 +1,31 @@
 ---
 import Layout from "~layouts/Layout.astro";
 import ArticleTitle from "~components/articleTitle.astro";
-//import TitleWithLine from "~components/TitleWithLine.astro";
-//import {DAHA_FAZLA_BILGI} from "~config";
-//import chevDown from "~images/chevron-down-light.svg?raw";
 import MoreInfo from "~components/MoreInfo.astro";
+import AltMenu from "~components/altMenu.astro";
+import { surdurulebilirlikAltMenuData } from "~navigation";
 
 const MOREINFO = `
 <div class="break-inside-avoid">
-<p class="text-mavi mb-0">Sürdürülebilir işletme nedir?</p>
-<p>Sürdürülebilir işletmeler, tüm paydaşları için kâr maksimizasyonu sağlarken topluma ve çevreye olan olumsuz etkileri minimize eder. Sürdürülebilirlik stratejisi eşliğinde yön verdikleri iş modelleri ile uzun vadeli değer yaratır.</p>
+<p class="font-bold text-mavi mb-0">Sürdürülebilirlik danışmanlığı almak neden önemli?</p>
+<p>Sürdürülebilirlik, varılması gereken bir noktadan ziyade hedeflerinize giden yolda size ışık tutacak en önemli rehber. Şirketlerin, sürdürülebilirliği bir kültür olarak sahiplenmesi gerekiyor. Şirketler, iş modellerine ve faaliyetlerine sürdürülebilirliği entegre edebilmek için sürdürülebilirlik yolculuklarını tasarlamak zorunda.</p>
 </div>
-<div class="break-inside-avoid">
-<p class="text-mavi mb-0">Sürdürülebilirlik işletmeniz için neden önemli?</p>
-<p>Sürdürülebilirlik, kurumsal hayatın önemli bir parçası haline geldi. “Bugün” sürdürülebilirliğe yatırım yapan şirketler, geleceğin lider şirketleri olacak. Sürdürülebilirlik işletmenize; faaliyetlerinde daha verimli olma, topluma ve çevreye fayda sağlama ve tüm paydaş evreni için değer maksimizasyonu imkânı sağlıyor. Sürdürülebilirlik stratejisini doğru kurgulayan ve bunu iş ve üretim süreçlerine uygulayan şirketler, gelişmiş ülke pazarlarına daha kolay erişim sağlarken, uygun maliyetli ve uzun vadeli finansman olanaklarına da kavuşabiliyor.</p>
-</div>
-<div class="break-inside-avoid">
-<p class="text-mavi mb-0">Neden Finar?</p>
-<p>27 yıllık kurumsal iletişim tecrübemiz ışığında yürüttüğümüz sürdürülebilirlik danışmanlığı hizmetimizle, geleceğinizi birlikte dönüştürüyor ve sizlere sürdürülebilir bir bakış açısı kazandırıyoruz. Uçtan uca sürdürülebilirlik rehberliği ile işletmeniz için bir yol haritası çıkarıyor, sürdürülebilirlik yolculuğunuzu tasarlıyoruz. “Kazan-kazan” modeline dayanan sürdürülebilirlik yatırımları ile şirket imajınızı güçlendirip operasyonel verimliliğinizi artırırken, tüm paydaşlarınızla uzun vadeli bir değer ilişkisi kurmanıza yardımcı oluyoruz.</p>
-</div>
+<p class="font-bold text-mavi mb-0">Neden Finar’la çalışmalısınız?</p>
+<ul class="mt-0">
+	<li class="mt-0">Sürdürülebilirliğin kurum kültürünüze entegrasyonunu sağlıyoruz.</li>
+	<li class="mt-0">Sürdürülebilir bir şirket olabilmek için sürdürülebilir ve bu konuda yetişmiş bir insan sermayesine ihtiyacınız olacak. “Sürdürülebilirlik farkındalıkla başlar” diyerek şirketinize sürdürülebilirliğin farklı boyutlarında interaktif ve derinlikli bilgi içeren eğitimler sağlıyoruz.</li>
+	<li class="mt-0">Çifte önemlilik yaklaşımıyla şirketinizin sürdürülebilirlik önceliklerini küresel standartlar ışığında belirliyoruz.</li>
+	<li class="mt-0">Şirketinizin paydaş evrenini tanımlıyor, paydaşlarla iletişim stratejileri üretiyoruz.</li>
+	<li class="mt-0">Sürdürülebilirlik stratejinizi oluşturuyor, ESG yol haritanızı çıkararak her konu özelinde benchmarkingler ile kapsamlı bir çalışma gerçekleştiriyoruz.</li>
+	<li class="mt-0">Halka açık şirketler için sürdürülebilirlik imajınızı çok daha güçlendirmek adına BIST Sürdürülebilirlik Endeksi’nde yer almanıza yardımcı oluyoruz.</li>
+	<li class="mt-0">EcoVadis gibi dünyanın en saygın sürdürülebilirlik derecelendirme kuruluşlarından yüksek notlar almanıza destek oluyoruz.</li>
+	<li class="mt-0">Çevresel ayak izini ölçüyor, yönetiyor ve hedefler belirlemenizi sağlıyoruz.</li>
+</ul>
 `;
 ---
 
 <Layout title="Sürdürülebilirlik Danışmanlığı">
-	<ArticleTitle title="Sürdürülebilirlik Danışmanlığı" spot="Birlikte geleceğinizi dönüştürüyoruz." />
-	<MoreInfo text={MOREINFO} />
+	<ArticleTitle title="Sürdürülebilirlik Danışmanlığı" spot="“Geleceği tahmin etmenin en iyi yolu, onu inşa etmektir.”" />
+	<MoreInfo column={2} text={MOREINFO} />
+	<AltMenu altMenuData={surdurulebilirlikAltMenuData} />
 </Layout>

@@ -76,6 +76,7 @@ const EFRCollection = defineCollection({
 	type: "content",
 	schema: ({ image }) =>
 		z.object({
+			sort: z.number(),
 			title: z.string(),
 			spot: z.string(),
 			type: z.enum(["multiItem", "singleItem", "onlyThumbnail"]),
@@ -91,6 +92,7 @@ const OFRCollection = defineCollection({
 	type: "content",
 	schema: ({ image }) =>
 		z.object({
+			sort: z.number(),
 			title: z.string(),
 			spot: z.string(),
 			type: z.enum(["multiItem", "singleItem"]),
@@ -106,6 +108,7 @@ const SRDCollection = defineCollection({
 	type: "content",
 	schema: ({ image }) =>
 		z.object({
+			sort: z.number(),
 			title: z.string(),
 			spot: z.string(),
 			type: z.enum(["multiItem", "singleItem", "onlyThumbnail"]),

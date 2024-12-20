@@ -1,0 +1,33 @@
+---
+import Layout from "~layouts/Layout.astro";
+import ArticleTitle from "~components/articleTitle.astro";
+import TitleWithLine from "~components/TitleWithLine.astro";
+import chevDown from "~images/chevron-down-light.svg?raw";
+import { raporlamaAltMenuData } from "~navigation";
+import AltMenu from "~components/altMenu.astro";
+---
+
+<Layout title="GRI Raporu">
+	<ArticleTitle title="GRI Raporu" spot="GRI çerçevesi ile sürdürülebilirlik raporlamasında dünya standartlarını yakalayın." />
+	<TitleWithLine icon={chevDown} />
+	<div class="prose mb-6 columns-1 pb-6 tracking-[.1px] prose-p:break-inside-avoid prose-p:leading-[1.6] prose-li:leading-[1.6] md:columns-2">
+		<p class="mb-0 font-bold text-mavi">GRI raporlaması neden önemli?</p>
+		<p class="mt-0">
+			GRI standartları, sürdürülebilirlik raporlaması denildiğinde ilk akla gelen ve dünyada en çok kabul görmüş küresel raporlama standartlarının başında geliyor. GRI’dan akredite olmuş bir sürdürülebilirlik raporu dünyanın her yerinde geçerli sayılıyor. GRI standartları eşliğinde hazırlanan sürdürülebilirlik raporları; şirketlerin çevreye, topluma ve yönetişime (ÇSY) olan katkılarını detaylı bir şekilde ele alarak, kurumsal sürdürülebilirlik anlayışının tüm paydaşlar tarafından
+			anlaşılmasını sağlıyor. Bu raporlar şirketlerin uzun vadeli değer yaratma süreçlerine katkıda bulunarak paydaşlarla güven ilişkisini pekiştiriyor.
+		</p>
+		<p class="mb-0 font-bold text-mavi">Neden Finar’la çalışmalısınız?</p>
+		<ul class="m-0">
+			<li class="mt-0">GRI’a uyumlu bir rapor çıkarabilmek için çifte önemlilik yaklaşımı doğrultusunda paydaş haritalandırmanızı ve önceliklendirme çalışmanızı gerçekleştiriyoruz.</li>
+			<li class="mt-0">Öncelikli konularınızla GRI standartları arasında bağlantıları kuruyor ve gereklilikleri belirliyoruz.</li>
+			<li class="mt-0">GRI standartlarına uygun olarak rapor konu başlıklarınızı ve ölçmeniz gereken KPI’ları belirliyoruz.</li>
+			<li class="mt-0">Şirketinizin operasyonlarının çevreye ve topluma olan etkilerini derinlemesine analiz ederek bu etkileri en doğru şekilde değerlendiriyor ve rapora yansıtıyoruz.</li>
+			<li class="mt-0">GRI standartlarına uyumlu olarak, sürdürülebilirlik hedeflerinizi ve performansınızı açık bir şekilde sunarak şirketinizin hesap verebilirliğini güçlendiriyoruz.</li>
+			<li class="mt-0">Daha önceden raporlama yapıldıysa, geçmiş dönemlerle karşılaştırmalar yaparak sürdürülebilirlik performansınızı ölçüyor, yıllık bazda ilerlemeye ve iyileşme alanlarına vurgu yapıyoruz.</li>
+			<li class="mt-0">Şirketinizin operasyonlarını daha sürdürülebilir hale getirecek yenilikçi çözümleri ön plana çıkarıyor, firmanızın geleceğe yönelik vizyonunu destekliyoruz.</li>
+			<li class="mt-0">GRI standartlarına uyumlu şekilde tüm rapor içeriklerinizi oluşturuyor, grafik ve tasarım uygulamasını gerçekleştiriyoruz.</li>
+			<li class="mt-0">Raporun GRI’a gönderilmesi, sertifikasyon ve geribildirim süreçleri ile ilgili sizlere tam destek sağlıyoruz.</li>
+		</ul>
+	</div>
+	<AltMenu altMenuData={raporlamaAltMenuData} />
+</Layout>

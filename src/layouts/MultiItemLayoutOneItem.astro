@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import Awardimage from "~components/Awardimage.astro";
+import FirstSpace from "~components/firstSpace.astro";
 import Swiper from "~components/swiper/swiper.astro";
 import TitleWithLine from "~components/TitleWithLine.astro";
 
@@ -36,15 +37,17 @@ const { oneItemTitle, oneItemSubTitle, sliderImages, awarded, grand, singleImage
 }
 
 {
-	oneItemSubTitle && (
-		<div class="my-4 grid grid-cols-1 gap-4 lg:my-8 lg:grid-cols-12 lg:gap-8">
+	oneItemSubTitle ? (
+		<div class="my-4 grid grid-cols-1 gap-4 md:my-8 lg:my-12 lg:grid-cols-12 lg:gap-8">
 			<div class="lg:col-start-1 lg:col-end-6">
-				<h2 class="mb-8 mt-0 font-zilla text-5xl/tight font-light">{oneItemSubTitle}</h2>
+				<h2 class="mb-3 mt-0 text-pretty font-zilla text-4xl/tight font-light md:mb-8 md:text-5xl/tight">{oneItemSubTitle}</h2>
 				{awarded && <Awardimage alt={oneItemSubTitle} grand={grand} />}
 			</div>
-			<div class="prose prose-p:mb-4 lg:col-start-6 lg:col-end-13">
+			<div class="prose prose-p:mb-4 prose-p:text-pretty prose-p:leading-[1.6] lg:col-start-6 lg:col-end-13">
 				<slot />
 			</div>
 		</div>
+	) : (
+		<FirstSpace height={64} />
 	)
 }

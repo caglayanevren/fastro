@@ -2,14 +2,15 @@
 import Layout from "~layouts/Layout.astro";
 import ArticleTitle from "~components/articleTitle.astro";
 import { Image } from "astro:assets";
+import { FinarExperienceYear } from "~config";
 
 //import mobiluygulama from "~images/yatirimci-iliskileri/mobil-uygulama.png";
 import yatirimcisunumlari from "~images/yatirimci-iliskileri/yatirimci-sunumlari.png";
 import faaliyetraporu from "~images/yatirimci-iliskileri/faaliyet-raporu.png";
 import surdurulebilirlikraporu from "~images/yatirimci-iliskileri/surdurulebilirlik-raporu.png";
 
-const pagetitle = "Yatırımcı İlişkileri";
-const pagespot = "Finar olarak, 27 yıldır yatırımcı ilişkileri için içerikler üretiyor, tasarlıyor ve hayata geçiriyoruz. Faaliyet raporu, sürdürülebilirlik raporu, entegre rapor gibi kurumsal raporlama alanındaki anahtar teslim hizmetlerimizin yanı sıra, kolayca yapılıp yönetilebilen yatırımcı ilişkileri mobil uygulamaları, web siteleri ve yatırımcı sunumları da müşterilerimize sunduğumuz hizmetler arasında.";
+const pagetitle = "Değer Odaklı Yatırımcı İletişimi";
+const pagespot = `Finar olarak, ${FinarExperienceYear} yıldır yatırımcı ilişkileri için içerikler üretiyor, tasarlıyor ve hayata geçiriyoruz. Faaliyet raporu, sürdürülebilirlik raporu, entegre rapor gibi kurumsal raporlama alanındaki anahtar teslim hizmetlerimizin yanı sıra, kolayca yapılıp yönetilebilen yatırımcı ilişkileri mobil uygulamaları, web siteleri ve yatırımcı sunumları da müşterilerimize sunduğumuz hizmetler arasında.`;
 
 interface yatirimciIliskileriItem {
 	image: ImageMetadata;
@@ -68,3 +69,11 @@ const yatirimciIliskileriItems: yatirimciIliskileriItem[] = [
 		}
 	</div>
 </Layout>
+
+<style is:inline>
+	@media screen and (min-width: 1024px) {
+		#header nav ul li:last-child a.aw-link-active::after {
+			content: none;
+		}
+	}
+</style>

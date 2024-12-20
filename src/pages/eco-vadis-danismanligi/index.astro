@@ -1,0 +1,33 @@
+---
+import Layout from "~layouts/Layout.astro";
+import ArticleTitle from "~components/articleTitle.astro";
+import MoreInfo from "~components/MoreInfo.astro";
+import AltMenu from "~components/altMenu.astro";
+import { surdurulebilirlikAltMenuData } from "~navigation";
+
+const MOREINFO = `
+<div class="break-inside-avoid">
+<p class="font-bold text-mavi mb-0">EcoVadis neden bu kadar tercih ediliyor?</p>
+<p>EcoVadis, şirketlerin çevresel, sosyal ve yönetişim (ÇSY) performanslarını değerlendiren ve sürdürülebilirlik derecelendirmeleri sağlayan küresel bir platformdur. EcoVadis değerlendirmesi; çevresel etki, işgücü ve insan hakları, etik uygulamalar ve sürdürülebilir tedarik zinciri yönetimi gibi kriterlere dayanarak şirketlerin performansını objektif bir şekilde ölçer. Dünya çapında kabul görmüş bir sürdürülebilirlik derecelendirme kuruluşu olması nedeniyle, özellikle uluslararası iş yapan şirketler için çok önemli konumda. EcoVadis notu almak, şirketlerin sürdürülebilirlik performanslarını uluslararası bir ölçekte tanınmış bir standartla bir çırpıda göstermelerini sağlar.</p>
+</div>
+<p class="font-bold text-mavi mb-0">EcoVadis danışmanlığını neden Finar’dan almalısınız?</p>
+<ul class="mt-0">
+	<li class="mt-0">EcoVadis danışmanlığı boyunca EcoVadis ile yapılacak tüm görüşmelere aracılık ediyoruz.</li>
+	<li class="mt-0">EcoVadis arayüzü üzerinden şirketinize ait bilgileri tanımladıktan sonra size tanımlanan sorulara ilişkin tüm gereklilikleri analiz ediyoruz.</li>
+	<li class="mt-0">Daha önceden alınmış bir EcoVadis notu varsa, boşluk analizi gerçekleştirerek önceki notu yükseltmek için iyileştirme önerileri hazırlıyor ve yapılacakları belirliyoruz.</li>
+	<li class="mt-0">Değerlendirme sürecinde cevaplayacağımız tüm sorulara ilişkin bir liste hazırlıyoruz.</li>
+	<li class="mt-0">Sürdürülebilirlik raporlamasını birlikte yaptığımız şirketlerin EcoVadis gerekliliklerine ilişkin boşluk analizi çalışması gerçekleştiriyor, rapora eklememiz gereken tüm içerikleri oluşturuyoruz.</li>
+	<li class="mt-0">Sürdürülebilirlik raporlamasını birlikte yapmadığımız şirketlere ihtiyacımız olan datayı bir soru seti halinde iletiyor, alacağımız cevaplar doğrultusunda açıklama metinlerini oluşturuyoruz.</li>
+	<li class="mt-0">Tüm içerikleri hazırladıktan sonra sisteme girişlerini sağlıyor, referans dokümanlarını hazırlıyoruz.</li>
+	<li class="mt-0">Değerlendirme sonrasındaki tüm geribildirim ve diğer süreçleri birlikte yönetiyoruz.</li>
+</ul>
+`;
+
+const curentPathname = Astro.url.pathname;
+---
+
+<Layout title="EcoVadis Danışmanlığı">
+	<ArticleTitle title="EcoVadis Danışmanlığı" spot="Güçlü bir sürdürülebilirlik imajı için" />
+	<MoreInfo column={2} text={MOREINFO} />
+	<AltMenu altMenuData={surdurulebilirlikAltMenuData} />
+</Layout>

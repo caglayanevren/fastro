@@ -1,0 +1,31 @@
+---
+import Layout from "~layouts/Layout.astro";
+import ArticleTitle from "~components/articleTitle.astro";
+import MoreInfo from "~components/MoreInfo.astro";
+import AltMenu from "~components/altMenu.astro";
+import { surdurulebilirlikAltMenuData } from "~navigation";
+
+const MOREINFO = `
+<div class="break-inside-avoid">
+<p class="font-bold text-mavi mb-0">BIST Sürdürülebilirlik Endeksi’nde yer almak şirketler için neden önemli?</p>
+<p>Sürdürülebilirlik endekslerinin performansları sadece ülkemizde değil dünyanın birçok borsasında ön plana çıkıyor. Sürdürülebilirlik endekslerinin orta ve uzun vadede diğer endekslerden daha iyi bir performans göstermesi, sürdürülebilirliğe yatırım yapan şirketlerin uzun vadede finansal değer yarattığının somut bir kanıtı olarak görülüyor. Bu bakış açısıyla baktığımızda, sürdürülebilirlik endekslerinde yer almak halka açık şirketler için çok önemli. BIST Sürdürülebilirlik Endeksi’nde yer almak için sürdürülebilirlik performansınızla LSEG değerlendirmesinden geçerli notu almanız gerekiyor.</p>
+</div>
+<p class="font-bold text-mavi mb-0">BIST Sürdürülebilirlik Endeksi’nde yer almak için neden Finar’la çalışmalısınız?</p>
+<ul class="mt-0">
+	<li class="mt-0">LSEG danışmanlığı boyunca LSEG ve Borsa İstanbul ile yapılacak tüm görüşmelere aracılık ediyoruz.</li>
+	<li class="mt-0">LSEG arayüzü üzerinden sektörünüze ait tüm gereklilikleri analiz ediyoruz.</li>
+	<li class="mt-0">Daha önceden alınmış bir LSEG notu varsa, boşluk analizi gerçekleştirerek önceki notu yükseltmek için iyileştirme önerileri hazırlıyor ve yapılacakları belirliyoruz.</li>
+	<li class="mt-0">İklim, Sosyal, Çevre ve Yönetişim bölümleri altında cevaplayacağımız tüm sorulara ilişkin bir liste hazırlıyoruz.</li>
+	<li class="mt-0">Sürdürülebilirlik raporlamasını birlikte yaptığımız şirketlerin LSEG gerekliliklerine ilişkin boşluk analizi çalışması gerçekleştiriyor, rapora eklememiz gereken tüm içerikleri oluşturuyoruz.</li>
+	<li class="mt-0">Sürdürülebilirlik raporlamasını birlikte yapmadığımız şirketlere ihtiyacımız olan datayı bir soru seti halinde iletiyor, alacağımız cevaplar doğrultusunda açıklama metinlerini oluşturuyoruz.</li>
+	<li class="mt-0">Tüm içerikleri hazırladıktan sonra sisteme girişlerini sağlıyor, referans dokümanlarını hazırlıyoruz.</li>
+	<li class="mt-0">Değerlendirme sonrasındaki tüm geribildirim ve diğer süreçleri birlikte yönetiyoruz.</li>
+</ul>
+`;
+---
+
+<Layout title="BIST Sürdürülebilirlik Endeksi LSEG Danışmanlığı">
+	<ArticleTitle title="BIST Sürdürülebilirlik Endeksi LSEG Danışmanlığı" spot="Sürdürülebilirlik endeksinde yer almak kurumsal itibarınızı güçlendirir." />
+	<MoreInfo column={2} text={MOREINFO} />
+	<AltMenu altMenuData={surdurulebilirlikAltMenuData} />
+</Layout>

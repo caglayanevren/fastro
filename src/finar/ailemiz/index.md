@@ -27,7 +27,6 @@ ekip:
         { ad: Neşe Akın Özkan, unvan: Çeviri Editörü, img: "/src/finar/ailemiz/nese_ozkan.jpg" },
         { ad: Nihan Yaşa Sönmez, unvan: Proje Direktörü, img: "/src/finar/ailemiz/nihan.jpg" },
         { ad: Özgül Sarar Kara, unvan: Yönetici Ortak, img: "/src/finar/ailemiz/ozgul_MG_5112.jpg" },
-        { ad: Selin İşçi, unvan: Junior Çeviri Editörü, img: "/src/finar/ailemiz/selin_isci.jpg" },
         { ad: Semiha Özsoy Erdoğan, unvan: Editor, img: "/src/finar/ailemiz/semiha_ozsoy.jpg" },
         { ad: Sultan Güllü Turan, unvan: Ofis Asistanı, img: "/src/finar/ailemiz/sultans_MG_5585_.jpg" },
         { ad: Tayfun Dursun, unvan: Kreatif Direktör, img: "/src/finar/ailemiz/tayfun.jpg" },

@@ -58,6 +58,9 @@ const { swiperimages, swiperImageAlt } = Astro.props;
 	.swiper-pagination {
 		display: flex;
 		padding: 12px 0px 12px 10px;
+		@media screen and (max-width: 639.98px) {
+			padding: 6px 0px 6px 5px;
+		}
 		background-color: #444;
 	}
 	.swiper-pagination-bullet {
