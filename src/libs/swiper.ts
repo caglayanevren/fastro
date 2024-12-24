@@ -13,8 +13,8 @@ const swiperParams: SwiperOptions = {
 		768: {
 			navigation: {
 				enabled: true,
-				nextEl: ".swiper-button-next",
-				prevEl: ".swiper-button-prev",
+				nextEl: ".swiper-button-next-unique",
+				prevEl: ".swiper-button-prev-unique",
 			},
 		},
 	},
