@@ -7,7 +7,7 @@ category: Faaliyet Raporu
 thumbnail: ./2020_CARGILL_0_Thumbnail.jpg
 awarded: false
 grand: false
-singleItemsliderImages: ["./2020_CARGILL_0.jpg", "./2020_CARGILL_1.jpg", "./2020_CARGILL_2.jpg", "./2020_CARGILL_3.jpg", "./2020_CARGILL_4.jpg"]
+singleItemSliderImages: ["./2020_CARGILL_0.jpg", "./2020_CARGILL_1.jpg", "./2020_CARGILL_2.jpg", "./2020_CARGILL_3.jpg", "./2020_CARGILL_4.jpg"]
 ---
 
 Cargill, dünyanın besin ihtiyacını güvenli, sorumlu ve sürdürülebilir bir şekilde sağlama amacıyla çiftçiler, üreticiler, sanayiciler, perakendeciler, yerel yönetimler ve ilgili tüm kuruluşlarla ortak çalışmalara imza atıyor.

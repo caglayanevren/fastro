@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import SingleItemLayout from "~layouts/SingleItemLayout.astro";
 import MultiItemLayout from "~layouts/MultiItemLayout.astro";
+import CollectionRelatedItems from "~components/collectionRelatedItems.astro";
 
 export async function getStaticPaths() {
 	const allFR = await getCollection("faaliyet-raporu");
@@ -17,12 +18,18 @@ const { Content } = await entry.render();
 
 {
 	itemType == "singleItem" ? (
-		<SingleItemLayout title={entry.data.title} slug={entry.slug} description={entry.data.spot} collection={entry.collection} spot={entry.data.spot} category={entry.data.category} awarded={entry.data.awarded} grand={entry.data.grand} coverImage={entry.data.coverImage} singleItemsliderImages={entry.data.singleItemsliderImages} singleItemSpreadImages={entry.data.singleItemSpreadImages}>
+		<SingleItemLayout title={entry.data.title} slug={entry.slug} description={entry.data.spot} collection={entry.collection} spot={entry.data.spot} category={entry.data.category} awarded={entry.data.awarded} grand={entry.data.grand} coverImage={entry.data.coverImage} singleItemSliderImages={entry.data.singleItemSliderImages} singleItemSpreadImages={entry.data.singleItemSpreadImages} VimeoId={entry.data.VimeoId} YoutubeId={entry.data.YoutubeId}>
 			<Content />
+			<div slot="relatedCollectionItems">
+				<CollectionRelatedItems collection={entry.collection} />
+			</div>
 		</SingleItemLayout>
 	) : itemType == "multiItem" ? (
 		<MultiItemLayout title={entry.data.title} slug={entry.slug} description={entry.data.spot} collection={entry.collection} spot={entry.data.spot} category={entry.data.category}>
 			<Content />
+			<div slot="relatedCollectionItems">
+				<CollectionRelatedItems collection={entry.collection} />
+			</div>
 		</MultiItemLayout>
 	) : (
 		(Astro.response.status = 404) && (Astro.response.statusText = "neither 'singleItem' nor 'multiItem'")
