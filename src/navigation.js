@@ -134,7 +134,7 @@ export const headerData = {
 							href: getPermalink("/kurumsal-kimlik/"),
 						},
 						{
-							text: "Kurumsal Web siteleri",
+							text: "Kurumsal Web Siteleri",
 							href: getPermalink("/kurumsal-web-siteleri/"),
 						},
 						{

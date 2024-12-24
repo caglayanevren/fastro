@@ -6,6 +6,8 @@ import SingleItemCoverImage from "~components/SingleItemCoverImage.astro";
 import CollectionName from "~components/collectionName.astro";
 import CollectionItemTitle from "~components/collectionItemTitle.astro";
 import Swiper from "~components/swiper/swiper.astro";
+import VimeoVideo from "~components/VimeoVideo.astro";
+import YoutubeVideo from "~components/YoutubeVideo.astro";
 
 type Props = {
 	title: string;
@@ -15,20 +17,22 @@ type Props = {
 	spot: string;
 	awarded?: boolean;
 	coverImage?: ImageMetadata;
-	singleItemsliderImages?: ImageMetadata[];
+	singleItemSliderImages?: ImageMetadata[];
 	singleItemSpreadImages?: ImageMetadata[];
+	VimeoId?: string;
+	YoutubeId?: string;
 	slug: string;
 	grand?: boolean;
 };
 
-const { title, description, category, collection, spot, awarded = false, coverImage, singleItemsliderImages, singleItemSpreadImages, slug, grand } = Astro.props;
+const { title, description, category, collection, spot, awarded = false, coverImage, singleItemSliderImages, singleItemSpreadImages, VimeoId, YoutubeId, slug, grand } = Astro.props;
 ---
 
 <Layout title={title} description={description} seoImage={`${import.meta.env.SITE}${collection}/${slug}/${slug}-og.png`}>
 	{category && <CollectionName category={category} collection={collection} />}
 	<CollectionItemTitle collectionItemTitle={title} />
 
-	{coverImage ? <SingleItemCoverImage src={coverImage} coverImageAlt={title} /> : singleItemsliderImages ? <Swiper swiperimages={singleItemsliderImages} swiperImageAlt={title} /> : null}
+	{coverImage ? <SingleItemCoverImage src={coverImage} coverImageAlt={title} /> : singleItemSliderImages ? <Swiper swiperimages={singleItemSliderImages} swiperImageAlt={title} /> : null}
 
 	<div class="mb-8 mt-4 grid grid-cols-1 gap-4 lg:mb-16 lg:mt-8 lg:grid-cols-12 lg:gap-8">
 		<div class="lg:col-start-1 lg:col-end-6">
@@ -39,6 +43,8 @@ const { title, description, category, collection, spot, awarded = false, coverIm
 			<slot />
 		</div>
 	</div>
-
+	{VimeoId && <VimeoVideo id={VimeoId} title={title} classes="my-4 w-full" />}
+	{YoutubeId && <YoutubeVideo id={YoutubeId} title={title} classes="my-4 w-full" />}
 	{singleItemSpreadImages && singleItemSpreadImages.map((image) => <Image src={image} alt={title} class="my-4 w-full" widths={[544, 736, 992, 1248]} sizes={`(max-width: 575.98px) 100vw, (max-width: 767.98px) 544w, (max-width: 1023.98px) 736w, (max-width: 1279.98px) 992w, (min-width: 1280px) 1248w`} />)}
+	<slot name="relatedCollectionItems" />
 </Layout>

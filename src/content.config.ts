@@ -14,8 +14,10 @@ const FRCollection = defineCollection({
 			awarded: z.boolean(),
 			grand: z.boolean().optional(),
 			coverImage: image().optional(),
-			singleItemsliderImages: z.array(image()).optional(),
+			singleItemSliderImages: z.array(image()).optional(),
 			singleItemSpreadImages: z.array(image()).optional(),
+			VimeoId: z.string().optional(),
+			YoutubeId: z.string().optional(),
 		}),
 });
 
@@ -55,6 +57,19 @@ const KKCollection = defineCollection({
 			thumbnail: image(),
 			coverImage: image(),
 			singleItemSpreadImages: z.array(image()),
+		}),
+});
+
+const KWCollection = defineCollection({
+	type: "content",
+	schema: ({ image }) =>
+		z.object({
+			sort: z.number(),
+			title: z.string(),
+			spot: z.string(),
+			category: z.string(),
+			thumbnail: image(),
+			coverImage: image(),
 		}),
 });
 
@@ -238,9 +253,10 @@ export const collections = {
 	"online-faaliyet-raporu": OFRCollection,
 	"entegre-faaliyet-raporu": EFRCollection,
 	"surdurulebilirlik-raporu": SRDCollection,
-	reklam: RCollection,
+	"b2b-reklam": RCollection,
 	"yatirimci-sunumlari": YSCollection,
 	"kurumsal-kimlik": KKCollection,
+	"kurumsal-web-siteleri": KWCollection,
 	"yatirimci-iliskileri-web-sitesi": YIWSCollection,
 	"halka-arz-reklam-kampanyalari": HARKCollection,
 	kss: KSSCollection,

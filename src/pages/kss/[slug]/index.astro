@@ -17,7 +17,7 @@ const { Content } = await entry.render();
 
 {
 	itemType == "singleItem" ? (
-		<SingleItemLayout title={entry.data.title} slug={entry.slug} description={entry.data.spot} collection={entry.collection} spot={entry.data.spot} category={entry.data.category} awarded={entry.data.awarded} coverImage={entry.data.coverImage} singleItemSpreadImages={entry.data.otherImages} singleItemsliderImages={entry.data.sliderImages}>
+		<SingleItemLayout title={entry.data.title} slug={entry.slug} description={entry.data.spot} collection={entry.collection} spot={entry.data.spot} category={entry.data.category} awarded={entry.data.awarded} coverImage={entry.data.coverImage} singleItemSpreadImages={entry.data.otherImages} singleItemSliderImages={entry.data.sliderImages}>
 			<Content />
 		</SingleItemLayout>
 	) : itemType == "multiItem" ? (
