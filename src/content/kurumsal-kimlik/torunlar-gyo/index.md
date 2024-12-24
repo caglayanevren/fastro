@@ -3,7 +3,7 @@ sort: 5
 title: Torunlar GYO
 spot: Yüksek standartlarda bir kurumsal kimlik çalışması
 category: Kurumsal Kimlik
-thumbnail: ./Torunlar_GYO_0_Thumbnail.png
+thumbnail: ./Torunlar_GYO_0_Thumbnail.jpg
 coverImage: ./Torunlar_GYO_Cover.png
 singleItemSpreadImages: ["./Torunlar_GYO_1.png"]
 ---
