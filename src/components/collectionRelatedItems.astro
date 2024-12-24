@@ -1,0 +1,55 @@
+---
+import { getCollection } from "astro:content";
+import HoverItem from "./HoverItem.astro";
+import "swiper/css";
+import "swiper/css/navigation";
+import FirstSpace from "./firstSpace.astro";
+import TitleWithLine from "./TitleWithLine.astro";
+import type { DataEntryMap } from "astro:content";
+
+type Props = {
+	collection: keyof DataEntryMap;
+};
+
+const { collection } = Astro.props as Props;
+
+const allcollectionItems = await getCollection(collection);
+
+const validcollectionItems = allcollectionItems.filter((items) => {
+	return (
+		items.collection === "faaliyet-raporu" ||
+		items.collection === "entegre-faaliyet-raporu" ||
+		items.collection === "online-faaliyet-raporu" ||
+		items.collection === "surdurulebilirlik-raporu" ||
+		items.collection === "halka-arz-reklam-kampanyalari" ||
+		items.collection === "yatirimci-iliskileri-web-sitesi" ||
+		items.collection === "yatirimci-sunumlari" ||
+		items.collection === "kurumsal-kimlik" ||
+		items.collection === "b2b-reklam"
+	)
+});
+---
+
+<FirstSpace height={60} />
+<TitleWithLine />
+<FirstSpace height={60} />
+<div class="swiper relatedItemsSwiper">
+	<div class="swiper-wrapper" data-cursor="swipe">
+		{
+			validcollectionItems
+				.sort(() => 0.5 - Math.random())
+				.slice(0, 6)
+				.map((item) => {
+					return (
+						<div class="swiper-slide">
+							<HoverItem slug={`/${collection}/${item.slug}`} title={item.data.title} thumbnail={item.data.thumbnail} thumbWidth={item.data.thumbnail.width} thumbHeight={item.data.thumbnail.height} />
+						</div>
+					);
+				})
+		}
+	</div>
+	<div class="swiper-button-prev"></div>
+	<div class="swiper-button-next"></div>
+</div>
+
+<script src="~libs/relatedItems-swiper.ts"></script>

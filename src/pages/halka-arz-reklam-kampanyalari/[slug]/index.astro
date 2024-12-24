@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import CollectionRelatedItems from "~components/collectionRelatedItems.astro";
 import HalkaArzLayout from "~layouts/HalkaArzLayout.astro";
 
 export async function getStaticPaths() {
@@ -16,4 +17,7 @@ const { Content } = await entry.render();
 
 <HalkaArzLayout title={entry.data.title} slug={entry.slug} description={entry.data.spot} collection={entry.collection} spot={entry.data.spot} category={entry.data.category} coverImage={entry.data.coverImage} singleItemSpreadImages={entry.data.singleItemSpreadImages}>
 	<Content />
+	<div slot="relatedCollectionItems">
+		<CollectionRelatedItems collection={entry.collection} />
+	</div>
 </HalkaArzLayout>

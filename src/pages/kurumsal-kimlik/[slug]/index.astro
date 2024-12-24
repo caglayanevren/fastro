@@ -6,6 +6,7 @@ import CollectionItemTitle from "~components/collectionItemTitle.astro";
 import CollectionName from "~components/collectionName.astro";
 import SingleItemCoverImage from "~components/SingleItemCoverImage.astro";
 import TitleWithLine from "~components/TitleWithLine.astro";
+import CollectionRelatedItems from "~components/collectionRelatedItems.astro";
 
 export async function getStaticPaths() {
 	const allFR = await getCollection("kurumsal-kimlik");
@@ -40,4 +41,8 @@ const slug = entry.slug;
 	</div>
 
 	{singleItemSpreadImages && singleItemSpreadImages.map((image) => <Image src={image} alt={title} class="my-4 w-full" widths={[544, 736, 992, 1248]} sizes={`(max-width: 575.98px) 100vw, (max-width: 767.98px) 544w, (max-width: 1023.98px) 736w, (max-width: 1279.98px) 992w, (min-width: 1280px) 1248w`} />)}
+
+	<div slot="relatedCollectionItems">
+		<CollectionRelatedItems collection={entry.collection} />
+	</div>
 </Layout>

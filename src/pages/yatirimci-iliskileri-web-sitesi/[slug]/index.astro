@@ -7,6 +7,7 @@ import Layout from "~layouts/Layout.astro";
 
 import gPlaySvg from "~images/gPlay.svg?raw";
 import appStoreSvg from "~images/appStore.svg?raw";
+import CollectionRelatedItems from "~components/collectionRelatedItems.astro";
 
 export async function getStaticPaths() {
 	const allFR = await getCollection("yatirimci-iliskileri-web-sitesi");
@@ -41,6 +42,13 @@ const coverImage = entry.data.coverImage;
 
 		<div class="prose prose-h3:mb-4 prose-h3:font-zilla prose-h3:text-2xl prose-h3:font-normal prose-p:mb-4 prose-p:mt-0 prose-a:no-underline">
 			<Content />
+			{
+				/*
+				<div slot="relatedCollectionItems">
+					<CollectionRelatedItems collection={entry.collection} />
+				</div>
+			*/
+			}
 		</div>
 	</div>
 </Layout>
