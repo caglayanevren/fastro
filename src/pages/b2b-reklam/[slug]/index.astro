@@ -8,9 +8,10 @@ import CollectionName from "~components/collectionName.astro";
 import CollectionItemTitle from "~components/collectionItemTitle.astro";
 //import Swiper from "~components/swiper/swiper.astro";
 import type { ImageMetadata } from "astro";
+import CollectionRelatedItems from "~components/collectionRelatedItems.astro";
 
 export async function getStaticPaths() {
-	const allR = await getCollection("reklam");
+	const allR = await getCollection("b2b-reklam");
 	return allR.map((entry) => ({
 		params: { slug: entry.slug },
 		props: { entry },
@@ -50,4 +51,9 @@ const { Content } = await entry.render();
 	</div>
 
 	{singleItemSpreadImages && singleItemSpreadImages.map((image) => <Image src={image} alt={title} class="my-4 w-full" widths={[544, 736, 992, 1248]} sizes={`(max-width: 575.98px) 100vw, (max-width: 767.98px) 544w, (max-width: 1023.98px) 736w, (max-width: 1279.98px) 992w, (min-width: 1280px) 1248w`} />)}
+
+	<div slot="relatedCollectionItems">
+		<CollectionRelatedItems collection={entry.collection} />
+	</div>
+
 </Layout>
