@@ -150,23 +150,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 										},
 									]}
 									href={href}
-									aria-label={homeicon ? "home" : slugify(text)}>
-									{/* {console.log(
-										currentPath === "/"
-											? currentPath.includes(href ?? "")
-											: currentPath
-													.split("/")
-													.join("")
-													.includes(href === "/" ? href : (href?.split("/").join("") ?? "")),
-										"-",
-										currentPath,
-										"-",
-										currentPath.split("/").join(""),
-										"-",
-										href,
-										"-",
-										href?.split("/").join("")
-									)} */}
+									aria-label={homeicon ? "home" : text}>
 									{homeicon ? <Fragment set:html={homeSvg} /> : text}
 								</a>
 							)}
