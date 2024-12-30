@@ -34,6 +34,10 @@ export const headerData = {
 					text: "KURUMSAL SOSYAL SORUMLULUK",
 					href: getPermalink("/kss/"),
 				},
+				{
+					text: "BİR BAKIŞTA FİNAR",
+					href: getPermalink("/bir-bakista-finar/"),
+				},
 			],
 		},
 		{
