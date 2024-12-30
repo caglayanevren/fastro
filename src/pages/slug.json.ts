@@ -11,42 +11,73 @@ export const GET: APIRoute = async () => {
 		getCollection("halka-arz-reklam-kampanyalari"),
 		getCollection("kss"),
 		getCollection("oduller"),
+		getCollection("vlog"),
 		//getCollection("arc-awards"),
 		//getCollection("galaxy-awards"),
 		//getCollection("lacp-vision"),
 		//getCollection("lacp-spotlight"),
 		//getCollection("creativity-awards"),
+		getCollection("b2b-reklam"),
+		getCollection("yatirimci-sunumlari"),
+		getCollection("yatirimci-iliskileri-web-sitesi"),
+		getCollection("kurumsal-web-siteleri"),
+		getCollection("kurumsal-kimlik"),
 	]);
 
 	// prettier-ignore
 	const paths = [
-		"",
-		"ailemiz",
-		"bir-bakista-finar",
-		"biz-kimiz",
-		"entegre-faaliyet-raporu",
-		"faaliyet-raporu",
-		"finarsal-gostergeler",
-		"halka-arz-reklam-kampanyalari",
-		"hr-form",
-		"iletisim",
-		"musterilerimiz-konusuyor",
-		"oduller",
-		"online-faaliyet-raporu",
-		"referanslar",
-		"surdurulebilirlik-danismanligi",
-		"surdurulebilirlik-raporu",
-		"turkiye-surdurulebilirlik-raporlama-standartlari",
-		"yatirimci-iliskileri",
-		"oduller/arc-awards",
-		"oduller/galaxy-awards",
-		"oduller/lacp-vision",
-		"oduller/lacp-spotlight",
-		"oduller/creativity-awards",
+		"/faaliyet-raporu/",
+		"/online-faaliyet-raporu/",
+		"/entegre-faaliyet-raporu/",
+		"/surdurulebilirlik-raporu/",
+		"/halka-arz-reklam-kampanyalari/",
+		"/kss/",
+		"/oduller/",
+		"/vlog/",
+		"/b2b-reklam/",
+		"/yatirimci-sunumlari/",
+		"/yatirimci-iliskileri-web-sitesi/",
+		"/kurumsal-web-siteleri/",
+		"/kurumsal-kimlik/",
+		"/",
+		"/biz-kimiz/",
+		"/finarsal-gostergeler/",
+		"/ailemiz/",
+		"/musterilerimiz-konusuyor/",
+		"/bir-bakista-finar/",
+		"/turkiye-surdurulebilirlik-raporlama-standartlari/",
+		"/gri-raporu/",
+		"/cdp-raporu/",
+		"/surdurulebilirlik-danismanligi/",
+		"/cifte-onemlilik-ile-paydas-analizi/",
+		"/surdurulebilirlik-egitimleri/",
+		"/surdurulebilirlik-stratejisi-ve-esg-yol-haritasi/",
+		"/bist-surdurulebilirlik-endeksi-lseg-danismanligi/",
+		"/eco-vadis-danismanligi/",
+		"/cevresel-ayak-izi-olcumu-ve-dogrulama-hizmeti/",
+		"/deger-odakli-yatirimci-iletisimi/",
+		"/oduller/arc-awards/",
+		"/oduller/galaxy-awards/",
+		"/oduller/lacp-vision/",
+		"/oduller/lacp-spotlight/",
+		"/oduller/creativity-awards/",
+		"/referanslar/",
+		"/iletisim/",
+		"/hr-form/"
 	];
 
 	// Tüm slug'ları birleştir
-	const allCollectionSlugs = allCollections.flatMap((collection) => collection.map((entry) => `${entry.collection}/${entry.slug}`));
+	const allCollectionSlugs = allCollections.flatMap((collection) =>
+		collection.map((entry) => {
+			const path = entry.id
+				.split("/")
+				.filter((p) => p !== "index.mdx")
+				.filter((p) => p !== "index.md")
+				.join("/");
+
+			return `/${entry.collection}/${path}/`;
+		})
+	);
 
 	const allslugs = [...paths, ...allCollectionSlugs].sort();
 

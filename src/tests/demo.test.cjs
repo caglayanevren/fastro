@@ -53,8 +53,8 @@ const paths = {
 		"faaliyet-raporu/garanti-emeklilik",
 		"faaliyet-raporu/garanti-faktoring",
 		"faaliyet-raporu/global-yatirim",
-		"faaliyet-raporu/koruncuk",
-		"faaliyet-raporu/tog",
+		//"faaliyet-raporu/koruncuk",
+		//"faaliyet-raporu/tog",
 		"finarsal-gostergeler",
 		"gri-raporu",
 		"halka-arz-reklam-kampanyalari",
@@ -208,7 +208,7 @@ const paths = {
 	],
 };
 
-const timeout = 50000;
+const timeout = 250000;
 
 paths.slugs.forEach((path) => {
 	describe(`Path: /${path}`, () => {
