@@ -1,5 +1,5 @@
 ---
-//import { GoogleAnalytics } from "astro-analytics";
+import { GoogleAnalytics } from "astro-analytics";
 import CustomStyles from "~components/CustomStyles.astro";
 
 export interface Props {
@@ -41,7 +41,7 @@ const socialImageURL = new URL(seoImage, Astro.url);
 <link rel="canonical" href={canonicalURL} />
 
 {/* Google Analytics */}
-{/* url.hostname === "finarkurumsal.com" && <GoogleAnalytics id="G-WV49SXX0P7" /> */}
+{Astro.url.hostname === "finarkurumsal.com" && <GoogleAnalytics id="G-WV49SXX0P7" />}
 
 {/* Open Graph / Facebook */}
 <meta property="og:type" content="website" />
