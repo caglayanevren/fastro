@@ -26,4 +26,4 @@ const swiperParams: SwiperOptions = {
 	},
 };
 
-const relatedItemsSwiper: aSwiper = new Swiper(".relatedItemsSwiper", swiperParams);
+export const relatedItemsSwiper: aSwiper = new Swiper(".relatedItemsSwiper", swiperParams);

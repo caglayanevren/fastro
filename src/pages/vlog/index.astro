@@ -4,15 +4,13 @@ import Layout from "~layouts/Layout.astro";
 import ArticleTitle from "~components/articleTitle.astro";
 import VlogGallery from "~components/vlogGallery.astro";
 
-const vlog = await getCollection("vlog");
+//const vlog = await getCollection("vlogCollection");
 
 const TITLE = "V-LOG";
 const DESCRIPTION = "Finar'da faaliyet raporu çalışmalarının perde arkası, rapor sahipleri tarafından çalışmalara genel bakış, raporlama hakkında özel deneyimler, reklam filmleri ve prodüksiyonların ayrıntıları...";
-
-const { title = TITLE, description = DESCRIPTION } = Astro.props;
 ---
 
-<Layout title={title} description={description} seoImage="./vlog-og.png">
-	<ArticleTitle title={title} />
+<Layout title={TITLE} description={DESCRIPTION} seoImage="./vlog-og.png">
+	<ArticleTitle title={TITLE} />
 	<VlogGallery />
 </Layout>

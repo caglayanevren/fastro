@@ -1,6 +1,6 @@
 ---
 title: Denge Reklam Çalışmaları
-spot: ""
+spot: "Denge Reklam Çalışmaları"
 year: "2021"
 category: B2B Reklam
 thumbnail: ./Denge_0_Thumbnail.png

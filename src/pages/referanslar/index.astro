@@ -8,19 +8,19 @@ const title = "Referanslar";
 const spot = "1994’ten bu yana alanlarında çok özel konumda bulunan pek çok markanın gücüne güç katmaktan, farklı iletişim çalışmalarıyla yenilikçi iletişim kanalları oluşturmaktan dolayı mutluyuz.";
 
 function refImagePathsFn(): string[] {
-	const rip = [];
+	const refImagePaths = [];
 	for (let i = 0; i < 265; i++) {
 		const refImageNumber: string = i.toString().padStart(4, "0");
-		// remove logo:
+		// remove 4, 125, 176, 263, 264 logos:
 		if (refImageNumber === "0004" || refImageNumber === "0125" || refImageNumber === "0176" || refImageNumber === "0263" || refImageNumber === "0264") {
 			continue;
 		}
-		rip.push(`/src/images/referanslar/Finar_WEB_Referanslar_${refImageNumber}.png`);
+		refImagePaths.push(`/src/images/referanslar/Finar_WEB_Referanslar_${refImageNumber}.png`);
 	}
 	// add logo:
-	//rip.push(`/src/images/referanslar/Finar_WEB_Referanslar_0200a.png`);
-	rip.sort();
-	return rip;
+	//refImagePaths.push(`/src/images/referanslar/Finar_WEB_Referanslar_0200a.png`);
+	refImagePaths.sort();
+	return refImagePaths;
 }
 const refImagePaths = refImagePathsFn();
 ---

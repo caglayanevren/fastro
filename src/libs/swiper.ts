@@ -9,6 +9,9 @@ const swiperParams: SwiperOptions = {
 	navigation: {
 		enabled: false,
 	},
+	keyboard: {
+		enabled: true,
+	},
 	breakpoints: {
 		768: {
 			navigation: {
@@ -24,4 +27,4 @@ const swiperParams: SwiperOptions = {
 	},
 };
 
-const mainswiper: aSwiper = new Swiper(".mainswiper", swiperParams);
+export const mainswiper: aSwiper = new Swiper(".mainswiper", swiperParams);

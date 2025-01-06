@@ -1,6 +1,6 @@
 ---
 title: Aksa Enerji Reklam Çalışmaları
-spot: ""
+spot: "Aksa Enerji Reklam Çalışmaları"
 year: "2021"
 category: B2B Reklam
 thumbnail: ./AKS_0_Thumbnail.png
