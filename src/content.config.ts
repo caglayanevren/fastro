@@ -2,7 +2,7 @@ import { defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
 
 const FRCollection = defineCollection({
-	type: "content",
+	loader: glob({ pattern: "**\/*.{md,mdx}", base: "./src/content/faaliyet-raporu" }),
 	schema: ({ image }) =>
 		z.object({
 			sort: z.number(),
@@ -22,7 +22,7 @@ const FRCollection = defineCollection({
 });
 
 const YIWSCollection = defineCollection({
-	type: "content",
+	loader: glob({ pattern: "**\/*.{md,mdx}", base: "./src/content/yatirimci-iliskileri-web-sitesi" }),
 	schema: ({ image }) =>
 		z.object({
 			title: z.string(),
@@ -34,7 +34,7 @@ const YIWSCollection = defineCollection({
 });
 
 const YSCollection = defineCollection({
-	type: "content",
+	loader: glob({ pattern: "**\/*.{md,mdx}", base: "./src/content/yatirimci-sunumlari" }),
 	schema: ({ image }) =>
 		z.object({
 			title: z.string(),
@@ -47,7 +47,7 @@ const YSCollection = defineCollection({
 });
 
 const KKCollection = defineCollection({
-	type: "content",
+	loader: glob({ pattern: "**\/*.{md,mdx}", base: "./src/content/kurumsal-kimlik" }),
 	schema: ({ image }) =>
 		z.object({
 			sort: z.number(),
@@ -61,7 +61,7 @@ const KKCollection = defineCollection({
 });
 
 const KWCollection = defineCollection({
-	type: "content",
+	loader: glob({ pattern: "**\/*.{md,mdx}", base: "./src/content/kurumsal-web-siteleri" }),
 	schema: ({ image }) =>
 		z.object({
 			sort: z.number(),
@@ -73,8 +73,8 @@ const KWCollection = defineCollection({
 		}),
 });
 
-const RCollection = defineCollection({
-	type: "content",
+const B2BRCollection = defineCollection({
+	loader: glob({ pattern: "**\/*.{md,mdx}", base: "./src/content/b2b-reklam" }),
 	schema: ({ image }) =>
 		z.object({
 			title: z.string(),
@@ -88,7 +88,7 @@ const RCollection = defineCollection({
 });
 
 const EFRCollection = defineCollection({
-	type: "content",
+	loader: glob({ pattern: "**\/*.{md,mdx}", base: "./src/content/entegre-faaliyet-raporu" }),
 	schema: ({ image }) =>
 		z.object({
 			sort: z.number(),
@@ -104,7 +104,7 @@ const EFRCollection = defineCollection({
 });
 
 const OFRCollection = defineCollection({
-	type: "content",
+	loader: glob({ pattern: "**\/*.{md,mdx}", base: "./src/content/online-faaliyet-raporu" }),
 	schema: ({ image }) =>
 		z.object({
 			sort: z.number(),
@@ -120,7 +120,7 @@ const OFRCollection = defineCollection({
 });
 
 const SRDCollection = defineCollection({
-	type: "content",
+	loader: glob({ pattern: "**\/*.{md,mdx}", base: "./src/content/surdurulebilirlik-raporu" }),
 	schema: ({ image }) =>
 		z.object({
 			sort: z.number(),
@@ -136,7 +136,7 @@ const SRDCollection = defineCollection({
 });
 
 const HARKCollection = defineCollection({
-	type: "content",
+	loader: glob({ pattern: "**\/*.{md,mdx}", base: "./src/content/halka-arz-reklam-kampanyalari" }),
 	schema: ({ image }) =>
 		z.object({
 			title: z.string(),
@@ -150,7 +150,7 @@ const HARKCollection = defineCollection({
 });
 
 const KSSCollection = defineCollection({
-	type: "content",
+	loader: glob({ pattern: "**\/*.{md,mdx}", base: "./src/content/kss" }),
 	schema: ({ image }) =>
 		z.object({
 			sort: z.number(),
@@ -168,7 +168,7 @@ const KSSCollection = defineCollection({
 });
 
 const OdulCollection = defineCollection({
-	type: "content",
+	loader: glob({ pattern: "**\/*.{md,mdx}", base: "./src/content/oduller" }),
 	schema: ({ image }) =>
 		z.object({
 			title: z.string(),
@@ -180,7 +180,7 @@ const OdulCollection = defineCollection({
 });
 
 const ARCAwardsCollection = defineCollection({
-	type: "content",
+	loader: glob({ pattern: "**\/*.{md,mdx}", base: "./src/content/arc-awards" }),
 	schema: () =>
 		z.object({
 			title: z.string(),
@@ -188,7 +188,7 @@ const ARCAwardsCollection = defineCollection({
 });
 
 const GalaxyAwardsCollection = defineCollection({
-	type: "content",
+	loader: glob({ pattern: "**\/*.{md,mdx}", base: "./src/content/galaxy-awards" }),
 	schema: () =>
 		z.object({
 			title: z.string(),
@@ -196,7 +196,7 @@ const GalaxyAwardsCollection = defineCollection({
 });
 
 const LACPVisionCollection = defineCollection({
-	type: "content",
+	loader: glob({ pattern: "**\/*.{md,mdx}", base: "./src/content/lacp-vision" }),
 	schema: () =>
 		z.object({
 			title: z.string(),
@@ -204,7 +204,7 @@ const LACPVisionCollection = defineCollection({
 });
 
 const LACPSpotlightCollection = defineCollection({
-	type: "content",
+	loader: glob({ pattern: "**\/*.{md,mdx}", base: "./src/content/lacp-spotlight" }),
 	schema: () =>
 		z.object({
 			title: z.string(),
@@ -212,7 +212,7 @@ const LACPSpotlightCollection = defineCollection({
 });
 
 const CreativityAwardsCollection = defineCollection({
-	type: "content",
+	loader: glob({ pattern: "**\/*.{md,mdx}", base: "./src/content/creativity-awards" }),
 	schema: () =>
 		z.object({
 			title: z.string(),
@@ -247,23 +247,23 @@ const vlogCategoriesCollection = defineCollection({
 });
 
 export const collections = {
-	"vlog-categories": vlogCategoriesCollection,
-	vlog: vlogCollection,
-	"faaliyet-raporu": FRCollection,
-	"online-faaliyet-raporu": OFRCollection,
-	"entegre-faaliyet-raporu": EFRCollection,
-	"surdurulebilirlik-raporu": SRDCollection,
-	"b2b-reklam": RCollection,
-	"yatirimci-sunumlari": YSCollection,
-	"kurumsal-kimlik": KKCollection,
-	"kurumsal-web-siteleri": KWCollection,
-	"yatirimci-iliskileri-web-sitesi": YIWSCollection,
-	"halka-arz-reklam-kampanyalari": HARKCollection,
-	kss: KSSCollection,
-	oduller: OdulCollection,
-	"arc-awards": ARCAwardsCollection,
-	"galaxy-awards": GalaxyAwardsCollection,
-	"lacp-vision": LACPVisionCollection,
-	"lacp-spotlight": LACPSpotlightCollection,
-	"creativity-awards": CreativityAwardsCollection,
+	vlogCategoriesCollection,
+	vlogCollection,
+	FRCollection,
+	OFRCollection,
+	EFRCollection,
+	SRDCollection,
+	B2BRCollection,
+	YSCollection,
+	KKCollection,
+	KWCollection,
+	YIWSCollection,
+	HARKCollection,
+	KSSCollection,
+	OdulCollection,
+	ARCAwardsCollection,
+	GalaxyAwardsCollection,
+	LACPVisionCollection,
+	LACPSpotlightCollection,
+	CreativityAwardsCollection,
 };

@@ -7,7 +7,7 @@ import MoreInfo from "~components/MoreInfo.astro";
 import Layout from "~layouts/Layout.astro";
 import { raporlamaAltMenuData } from "~navigation";
 
-const allSRD = await getCollection("surdurulebilirlik-raporu");
+const allSRD = await getCollection("SRDCollection");
 
 const TITLE = "Sürdürülebilirlik Raporu";
 const DESCRIPTION = `“Geleceğiniz, bugün ne yaptığınızla şekillenir, yarın ne yapacağınızla değil.”`;
@@ -26,15 +26,13 @@ const MOREINFO = `
 <li class="mt-0">“Green washing” ile iyi görünme çabası içinde olmak yerine, gerçekçi ve ölçülebilir hedefleri ortaya koyarak kurumsal itibarınızı güçlendiriyoruz.</li>
 </ul>
 `;
-
-const { title = TITLE, description = DESCRIPTION, moreinfotext = MOREINFO } = Astro.props;
 ---
 
-<Layout title={title} description={description} seoImage="./surdurulebilirlik-raporu-og.png">
-	<ArticleTitle title={title} spot={description} />
-	<MoreInfo column={2} text={moreinfotext} />
+<Layout title={TITLE} description={DESCRIPTION} seoImage="./surdurulebilirlik-raporu-og.png">
+	<ArticleTitle title={TITLE} spot={DESCRIPTION} />
+	<MoreInfo column={2} text={MOREINFO} />
 	<div class="grid auto-rows-max grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4 xl:gap-8">
-		{allSRD.sort((a, b) => a.data.sort - b.data.sort).map((srd) => (srd.data.type == "onlyThumbnail" ? <HoverItem slug="#" title={srd.data.title} thumbnail={srd.data.thumbnail} thumbWidth={srd.data.thumbnail.width} thumbHeight={srd.data.thumbnail.height} /> : <HoverItem slug={srd.slug} title={srd.data.title} thumbnail={srd.data.thumbnail} thumbWidth={srd.data.thumbnail.width} thumbHeight={srd.data.thumbnail.height} />))}
+		{allSRD.sort((a, b) => a.data.sort - b.data.sort).map((srd) => (srd.data.type == "onlyThumbnail" ? <HoverItem slug="#" title={srd.data.title} thumbnail={srd.data.thumbnail} thumbWidth={srd.data.thumbnail.width} thumbHeight={srd.data.thumbnail.height} /> : <HoverItem slug={srd.id} title={srd.data.title} thumbnail={srd.data.thumbnail} thumbWidth={srd.data.thumbnail.width} thumbHeight={srd.data.thumbnail.height} />))}
 	</div>
 	<AltMenu altMenuData={raporlamaAltMenuData} />
 </Layout>

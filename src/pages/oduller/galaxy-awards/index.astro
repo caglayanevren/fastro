@@ -1,6 +1,6 @@
 ---
 import Layout from "~layouts/Layout.astro";
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import CollectionName from "~components/collectionName.astro";
 import TitleWithLine from "~components/TitleWithLine.astro";
 import ArticleTitle from "~components/articleTitle.astro";
@@ -8,7 +8,7 @@ import ArticleTitle from "~components/articleTitle.astro";
 const seoImage = "/og/galaxy-awards-og.png";
 const title = "Galaxy Awards";
 
-const allGalaxyAwards = await getCollection("galaxy-awards");
+const allGalaxyAwards = await getCollection("GalaxyAwardsCollection");
 ---
 
 <Layout title={title} seoImage={seoImage}>
@@ -24,7 +24,7 @@ const allGalaxyAwards = await getCollection("galaxy-awards");
 						.map(function (allGalaxyAward) {
 							return (
 								<li>
-									<a id={`${allGalaxyAward.slug}`} href={`#${allGalaxyAward.slug}`} class="tablink block px-8 py-4 text-gri3">{`${allGalaxyAward.slug}`}</a>
+									<a id={`${allGalaxyAward.id}`} href={`#${allGalaxyAward.id}`} class="tablink block px-8 py-4 text-gri3">{`${allGalaxyAward.id}`}</a>
 								</li>
 							);
 						})
@@ -36,9 +36,9 @@ const allGalaxyAwards = await getCollection("galaxy-awards");
 					allGalaxyAwards
 						.sort((a, b) => Number(a.data.title) - Number(b.data.title))
 						.map(async function (allGalaxyAward) {
-							const { Content } = await allGalaxyAward.render();
+							const { Content } = await render(allGalaxyAward);
 							return (
-								<section id={`${allGalaxyAward.slug}-content`} class="tab-content hidden">
+								<section id={`${allGalaxyAward.id}-content`} class="tab-content hidden">
 									<div class="prose prose-h2:mb-0 prose-h2:mt-0 prose-h2:text-base prose-h2:text-mavi prose-p:mb-4 prose-li:my-0">
 										<Content />
 									</div>

@@ -6,19 +6,17 @@ import HoverItem from "~components/HoverItem.astro";
 import Layout from "~layouts/Layout.astro";
 //import { FinarExperienceYear } from "~config";
 
-const allKSS = await getCollection("kss");
+const allKSS = await getCollection("KSSCollection");
 
 const TITLE = "Kurumsal Sosyal Sorumluluk";
 const DESCRIPTION = `Toplumsal Fayda İçin Birlikte Çalışıyoruz: Sivil toplum kuruluşları ile gerçekleştirdiğimiz iş birlikleri ile değişime öncülük etmeye ve sürdürülebilir bir gelecek için iletişim köprüleri kurmaya devam ediyoruz.`;
 //const MOREINFO = ``;
-
-const { title = TITLE, description = DESCRIPTION /* , moreinfotext = MOREINFO */ } = Astro.props;
 ---
 
-<Layout title={title} description={description} seoImage="./kss-og.png">
-	<ArticleTitle title={title} spot={description} />
-	<!-- <MoreInfo text={moreinfotext} /> -->
+<Layout title={TITLE} description={DESCRIPTION} seoImage="./kss-og.png">
+	<ArticleTitle title={TITLE} spot={DESCRIPTION} />
+	<!-- <MoreInfo text={MOREINFO} /> -->
 	<div class="grid auto-rows-max grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4 xl:gap-8">
-		{allKSS.sort((a, b) => a.data.sort - b.data.sort).map((kss) => <HoverItem slug={kss.slug} title={kss.data.title} thumbnail={kss.data.thumbnail} thumbWidth={kss.data.thumbnail.width} thumbHeight={kss.data.thumbnail.height} />)}
+		{allKSS.sort((a, b) => a.data.sort - b.data.sort).map((kss) => <HoverItem slug={kss.id} title={kss.data.title} thumbnail={kss.data.thumbnail} thumbWidth={kss.data.thumbnail.width} thumbHeight={kss.data.thumbnail.height} />)}
 	</div>
 </Layout>

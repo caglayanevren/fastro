@@ -12,7 +12,7 @@ import CollapseWithLine from "~components/CollapseWithLine.astro";
 import AltMenu from "~components/altMenu.astro";
 import { raporlamaAltMenuData } from "~navigation";
 
-const allFR = await getCollection("faaliyet-raporu");
+const allFR = await getCollection("FRCollection");
 
 const TITLE = "Faaliyet Raporu";
 const DESCRIPTION = `Kurumsal raporlama alanında ${FinarExperienceYear} yıllık bir deneyime sahibiz. Uzun süredir birlikte çalışan işinin ehli geniş kadromuzla 2021&nbsp;yılında BIST&nbsp;30’da 10, BIST&nbsp;50’de ise 13&nbsp;şirkete faaliyet raporu alanında hizmet&nbsp;verdik.`;
@@ -30,7 +30,7 @@ const { title = TITLE, description = DESCRIPTION, moreinfotext = MOREINFO } = As
 	<ArticleTitle title={title} spot={description} />
 	<MoreInfo text={moreinfotext} />
 	<div class="grid auto-rows-max grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4 xl:gap-8">
-		{allFR.sort((a, b) => a.data.sort - b.data.sort).map((fr) => <HoverItem slug={fr.slug} title={fr.data.title} thumbnail={fr.data.thumbnail} thumbWidth={fr.data.thumbnail.width} thumbHeight={fr.data.thumbnail.height} />)}
+		{allFR.sort((a, b) => a.data.sort - b.data.sort).map((fr) => <HoverItem slug={fr.id} title={fr.data.title} thumbnail={fr.data.thumbnail} thumbWidth={fr.data.thumbnail.width} thumbHeight={fr.data.thumbnail.height} />)}
 	</div>
 
 	<FirstSpace height={48} />

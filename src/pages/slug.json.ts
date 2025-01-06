@@ -4,24 +4,19 @@ import { getCollection } from "astro:content";
 export const GET: APIRoute = async () => {
 	// prettier-ignore
 	const allCollections = await Promise.all([
-		getCollection("faaliyet-raporu"),
-		getCollection("online-faaliyet-raporu"),
-		getCollection("entegre-faaliyet-raporu"),
-		getCollection("surdurulebilirlik-raporu"),
-		getCollection("halka-arz-reklam-kampanyalari"),
-		getCollection("kss"),
-		getCollection("oduller"),
-		getCollection("vlog"),
-		//getCollection("arc-awards"),
-		//getCollection("galaxy-awards"),
-		//getCollection("lacp-vision"),
-		//getCollection("lacp-spotlight"),
-		//getCollection("creativity-awards"),
-		getCollection("b2b-reklam"),
-		getCollection("yatirimci-sunumlari"),
-		getCollection("yatirimci-iliskileri-web-sitesi"),
-		getCollection("kurumsal-web-siteleri"),
-		getCollection("kurumsal-kimlik"),
+		getCollection("FRCollection"),
+		getCollection("OFRCollection"),
+		getCollection("EFRCollection"),
+		getCollection("SRDCollection"),
+		getCollection("HARKCollection"),
+		getCollection("KSSCollection"),
+		getCollection("OdulCollection"),
+		getCollection("vlogCollection"),
+		getCollection("B2BRCollection"),
+		getCollection("YSCollection"),
+		getCollection("YIWSCollection"),
+		getCollection("KWCollection"),
+		getCollection("KKCollection"),
 	]);
 
 	// prettier-ignore

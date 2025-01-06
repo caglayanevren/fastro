@@ -1,6 +1,6 @@
 ---
 import Layout from "~layouts/Layout.astro";
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import CollectionName from "~components/collectionName.astro";
 import TitleWithLine from "~components/TitleWithLine.astro";
 import ArticleTitle from "~components/articleTitle.astro";
@@ -8,7 +8,7 @@ import ArticleTitle from "~components/articleTitle.astro";
 const seoImage = "/og/creativity-awards-og.png";
 const title = "Creativity Awards";
 
-const allCreativityAwards = await getCollection("creativity-awards");
+const allCreativityAwards = await getCollection("CreativityAwardsCollection");
 ---
 
 <Layout title={title} seoImage={seoImage}>
@@ -24,7 +24,7 @@ const allCreativityAwards = await getCollection("creativity-awards");
 						.map(function (allCreativityAward) {
 							return (
 								<li>
-									<a id={`${allCreativityAward.slug}`} href={`#${allCreativityAward.slug}`} class="tablink block px-8 py-4 text-gri3">{`${allCreativityAward.slug}`}</a>
+									<a id={`${allCreativityAward.id}`} href={`#${allCreativityAward.id}`} class="tablink block px-8 py-4 text-gri3">{`${allCreativityAward.id}`}</a>
 								</li>
 							);
 						})
@@ -36,9 +36,9 @@ const allCreativityAwards = await getCollection("creativity-awards");
 					allCreativityAwards
 						.sort((a, b) => Number(a.data.title) - Number(b.data.title))
 						.map(async function (allCreativityAward) {
-							const { Content } = await allCreativityAward.render();
+							const { Content } = await render(allCreativityAward);
 							return (
-								<section id={`${allCreativityAward.slug}-content`} class="tab-content hidden">
+								<section id={`${allCreativityAward.id}-content`} class="tab-content hidden">
 									<div class="prose prose-h2:mb-0 prose-h2:mt-0 prose-h2:text-base prose-h2:text-mavi prose-p:mb-4 prose-li:my-0">
 										<Content />
 									</div>

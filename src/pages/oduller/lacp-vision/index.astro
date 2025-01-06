@@ -1,6 +1,6 @@
 ---
 import Layout from "~layouts/Layout.astro";
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import CollectionName from "~components/collectionName.astro";
 import TitleWithLine from "~components/TitleWithLine.astro";
 import ArticleTitle from "~components/articleTitle.astro";
@@ -8,7 +8,7 @@ import ArticleTitle from "~components/articleTitle.astro";
 const seoImage = "/og/lacp-vision-og.png";
 const title = "LACP Vision Awards";
 
-const allLACPVisions = await getCollection("lacp-vision");
+const allLACPVisions = await getCollection("LACPVisionCollection");
 ---
 
 <Layout title={title} seoImage={seoImage}>
@@ -24,7 +24,7 @@ const allLACPVisions = await getCollection("lacp-vision");
 						.map(function (allLACPVision) {
 							return (
 								<li>
-									<a id={`${allLACPVision.slug}`} href={`#${allLACPVision.slug}`} class="tablink block px-8 py-4 text-gri3">{`${allLACPVision.slug}`}</a>
+									<a id={`${allLACPVision.id}`} href={`#${allLACPVision.id}`} class="tablink block px-8 py-4 text-gri3">{`${allLACPVision.id}`}</a>
 								</li>
 							);
 						})
@@ -36,9 +36,9 @@ const allLACPVisions = await getCollection("lacp-vision");
 					allLACPVisions
 						.sort((a, b) => Number(a.data.title) - Number(b.data.title))
 						.map(async function (allLACPVision) {
-							const { Content } = await allLACPVision.render();
+							const { Content } = await render(allLACPVision);
 							return (
-								<section id={`${allLACPVision.slug}-content`} class="tab-content hidden">
+								<section id={`${allLACPVision.id}-content`} class="tab-content hidden">
 									<div class="prose prose-h2:mb-0 prose-h2:mt-0 prose-h2:text-base prose-h2:text-mavi prose-p:mb-4 prose-li:my-0">
 										<Content />
 									</div>

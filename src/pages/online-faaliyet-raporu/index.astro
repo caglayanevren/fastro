@@ -7,7 +7,7 @@ import MoreInfo from "~components/MoreInfo.astro";
 import Layout from "~layouts/Layout.astro";
 import { raporlamaAltMenuData } from "~navigation";
 
-const allOFR = await getCollection("online-faaliyet-raporu");
+const allOFR = await getCollection("OFRCollection");
 
 const TITLE = "Online Faaliyet Raporu";
 const SUBTITLE = "Neden faaliyet raporunuzun çevrimiçi bir mikro sitesi olmalı?";
@@ -39,15 +39,13 @@ const MOREINFO = `
 	hakkında rapor alabilirsiniz.</p>
 </div>
 `;
-
-const { title = TITLE, description = DESCRIPTION, moreinfotext = MOREINFO } = Astro.props;
 ---
 
-<Layout title={title} description={description} seoImage="./online-faaliyet-raporu-og.png">
-	<ArticleTitle title={title} spot={description} />
-	<MoreInfo column={2} subtitle={SUBTITLE} text={moreinfotext} />
+<Layout title={TITLE} description={DESCRIPTION} seoImage="./online-faaliyet-raporu-og.png">
+	<ArticleTitle title={TITLE} spot={DESCRIPTION} />
+	<MoreInfo column={2} subtitle={SUBTITLE} text={MOREINFO} />
 	<div class="grid auto-rows-max grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4 xl:gap-8">
-		{allOFR.sort((a, b) => a.data.sort - b.data.sort).map((ofr) => <HoverItem slug={ofr.slug} title={ofr.data.title} thumbnail={ofr.data.thumbnail} thumbWidth={ofr.data.thumbnail.width} thumbHeight={ofr.data.thumbnail.height} />)}
+		{allOFR.sort((a, b) => a.data.sort - b.data.sort).map((ofr) => <HoverItem slug={ofr.id} title={ofr.data.title} thumbnail={ofr.data.thumbnail} thumbWidth={ofr.data.thumbnail.width} thumbHeight={ofr.data.thumbnail.height} />)}
 	</div>
 	<AltMenu altMenuData={raporlamaAltMenuData} />
 </Layout>

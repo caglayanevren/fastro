@@ -8,7 +8,7 @@ import ArticleTitle from "~components/articleTitle.astro";
 import AltMenu from "~components/altMenu.astro";
 import { raporlamaAltMenuData } from "~navigation";
 
-const allEFR = await getCollection("entegre-faaliyet-raporu");
+const allEFR = await getCollection("EFRCollection");
 
 const TITLE = "Entegre Faaliyet Raporu";
 const DESCRIPTION = `Hem finansal hem de sürdürülebilirlik faaliyetlerinizi “değer yaratma” ekseninde birlikte raporluyoruz.`;
@@ -38,14 +38,13 @@ const MOREINFO = `
 	</ul>
 </div>
 `;
-const { title = TITLE, description = DESCRIPTION, moreinfotext = MOREINFO } = Astro.props;
 ---
 
-<Layout title={title} description={description} seoImage="./entegre-faaliyet-raporu-og.png">
-	<ArticleTitle title={title} spot={description} />
-	<MoreInfo column={2} text={moreinfotext} />
+<Layout title={TITLE} description={DESCRIPTION} seoImage="./entegre-faaliyet-raporu-og.png">
+	<ArticleTitle title={TITLE} spot={DESCRIPTION} />
+	<MoreInfo column={2} text={MOREINFO} />
 	<div class="grid auto-rows-max grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4 xl:gap-8">
-		{allEFR.sort((a, b) => a.data.sort - b.data.sort).map((efr) => <HoverItem slug={efr.slug} title={efr.data.title} thumbnail={efr.data.thumbnail} thumbWidth={efr.data.thumbnail.width} thumbHeight={efr.data.thumbnail.height} />)}
+		{allEFR.sort((a, b) => a.data.sort - b.data.sort).map((efr) => <HoverItem slug={efr.id} title={efr.data.title} thumbnail={efr.data.thumbnail} thumbWidth={efr.data.thumbnail.width} thumbHeight={efr.data.thumbnail.height} />)}
 	</div>
 	<AltMenu altMenuData={raporlamaAltMenuData} />
 </Layout>

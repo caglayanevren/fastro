@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import Layout from "~layouts/Layout.astro";
 import { Image } from "astro:assets";
 import SingleItemCoverImage from "~components/SingleItemCoverImage.astro";
@@ -11,15 +11,15 @@ import type { ImageMetadata } from "astro";
 import CollectionRelatedItems from "~components/collectionRelatedItems.astro";
 
 export async function getStaticPaths() {
-	const allR = await getCollection("b2b-reklam");
+	const allR = await getCollection("B2BRCollection");
 	return allR.map((entry) => ({
-		params: { slug: entry.slug },
+		params: { slug: entry.id },
 		props: { entry },
 	}));
 }
 
 const { entry } = Astro.props;
-const slug = entry.slug;
+const slug = entry.id;
 const title = entry.data.title;
 const category = entry.data.category;
 const collection = entry.collection;
@@ -27,7 +27,7 @@ const spot = entry.data.spot;
 const year = entry.data.year;
 const coverImage: ImageMetadata | undefined = entry.data.coverImage;
 const singleItemSpreadImages: ImageMetadata[] | undefined = entry.data.singleItemSpreadImages;
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 ---
 
 <Layout title={title} description={spot} seoImage={`${import.meta.env.SITE}${collection}/${slug}/${slug}-og.png`}>

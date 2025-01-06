@@ -1,6 +1,6 @@
 ---
 import Layout from "~layouts/Layout.astro";
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import CollectionName from "~components/collectionName.astro";
 import TitleWithLine from "~components/TitleWithLine.astro";
 import ArticleTitle from "~components/articleTitle.astro";
@@ -8,7 +8,7 @@ import ArticleTitle from "~components/articleTitle.astro";
 const seoImage = "/og/arc-awards-og.png";
 const title = "ARC Awards International";
 
-const allARCAwards = await getCollection("arc-awards");
+const allARCAwards = await getCollection("ARCAwardsCollection");
 ---
 
 <Layout title={title} seoImage={seoImage}>
@@ -24,7 +24,7 @@ const allARCAwards = await getCollection("arc-awards");
 						.map(function (allARCAward) {
 							return (
 								<li>
-									<a id={`${allARCAward.slug}`} href={`#${allARCAward.slug}`} class="tablink block px-8 py-4 text-gri3">{`${allARCAward.slug}`}</a>
+									<a id={`${allARCAward.id}`} href={`#${allARCAward.id}`} class="tablink block px-8 py-4 text-gri3">{`${allARCAward.id}`}</a>
 								</li>
 							);
 						})
@@ -36,9 +36,9 @@ const allARCAwards = await getCollection("arc-awards");
 					allARCAwards
 						.sort((a, b) => Number(a.data.title) - Number(b.data.title))
 						.map(async function (allARCAward) {
-							const { Content } = await allARCAward.render();
+							const { Content } = await render(allARCAward);
 							return (
-								<section id={`${allARCAward.slug}-content`} class="tab-content hidden">
+								<section id={`${allARCAward.id}-content`} class="tab-content hidden">
 									<div class="prose prose-h2:mb-0 prose-h2:mt-0 prose-h2:text-base prose-h2:text-mavi prose-p:mb-4 prose-li:my-0">
 										<Content />
 									</div>

@@ -1,21 +1,21 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import CollectionRelatedItems from "~components/collectionRelatedItems.astro";
 import HalkaArzLayout from "~layouts/HalkaArzLayout.astro";
 
 export async function getStaticPaths() {
-	const allFR = await getCollection("halka-arz-reklam-kampanyalari");
+	const allFR = await getCollection("HARKCollection");
 	return allFR.map((entry) => ({
-		params: { slug: entry.slug },
-		props: { entry, itemType: entry.data.type },
+		params: { slug: entry.id },
+		props: { entry },
 	}));
 }
 
-const { entry, itemType } = Astro.props;
-const { Content } = await entry.render();
+const { entry } = Astro.props;
+const { Content } = await render(entry);
 ---
 
-<HalkaArzLayout title={entry.data.title} slug={entry.slug} description={entry.data.spot} collection={entry.collection} spot={entry.data.spot} category={entry.data.category} coverImage={entry.data.coverImage} singleItemSpreadImages={entry.data.singleItemSpreadImages}>
+<HalkaArzLayout title={entry.data.title} slug={entry.id} description={entry.data.spot} collection={entry.collection} spot={entry.data.spot} category={entry.data.category} coverImage={entry.data.coverImage} singleItemSpreadImages={entry.data.singleItemSpreadImages}>
 	<Content />
 	<div slot="relatedCollectionItems">
 		<CollectionRelatedItems collection={entry.collection} />

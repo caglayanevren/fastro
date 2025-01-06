@@ -1,29 +1,29 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import CollectionItemTitle from "~components/collectionItemTitle.astro";
 import CollectionName from "~components/collectionName.astro";
 import SingleItemCoverImage from "~components/SingleItemCoverImage.astro";
 import Layout from "~layouts/Layout.astro";
 
-import gPlaySvg from "~images/gPlay.svg?raw";
-import appStoreSvg from "~images/appStore.svg?raw";
-import CollectionRelatedItems from "~components/collectionRelatedItems.astro";
+//import gPlaySvg from "~images/gPlay.svg?raw";
+//import appStoreSvg from "~images/appStore.svg?raw";
+//import CollectionRelatedItems from "~components/collectionRelatedItems.astro";
 
 export async function getStaticPaths() {
-	const allFR = await getCollection("yatirimci-iliskileri-web-sitesi");
+	const allFR = await getCollection("YIWSCollection");
 	return allFR.map((entry) => ({
-		params: { slug: entry.slug },
+		params: { slug: entry.id },
 		props: { entry },
 	}));
 }
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 
 const title = entry.data.title;
 const description = entry.data.description;
 const collection = entry.collection;
-const slug = entry.slug;
+const slug = entry.id;
 const category = entry.data.category;
 const coverImage = entry.data.coverImage;
 ---

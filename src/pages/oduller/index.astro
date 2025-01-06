@@ -310,19 +310,19 @@ const datas: data[] = [
 		<div id="arc2024">
 			<Picture loading="lazy" src={arc2024} alt="ARC'den Finar'a 9'u altın 17 ödül" class="mb-8 w-full" widths={[640, 768, 1024, arc2021.width]} formats={["webp", "jpg"]} sizes={`(max-width: 640px) 608px, (max-width: 768px) 736px, (max-width: 1024px) 992px, (max-width: 1280px) 1248px, (min-width: 1280px) ${arc2021.width}px`} />
 			<div class="prose px-4 py-4 prose-h1:font-zilla prose-h1:text-2xl prose-h1:text-mavi prose-h2:mb-0 prose-h2:mt-0 prose-h2:text-base prose-h2:text-mavi prose-p:mb-4 prose-li:my-0 sm:px-8 sm:py-8 md:px-16 md:py-16">
-				<GetSingleCollectionEntry collection="oduller" entrySlug="arc-2024" />
+				<GetSingleCollectionEntry collection="OdulCollection" entrySlug="arc-2024" />
 			</div>
 		</div>
 		<div id="lacp2024">
 			<Picture loading="lazy" src={lacp2024} alt="Finar'ın LACP Vizyon ödüllerindeki başarısı devam ediyor!" class="my-8 w-full" widths={[640, 768, 1024, odul2021.width]} formats={["webp", "jpg"]} sizes={`(max-width: 640px) 608px, (max-width: 768px) 736px, (max-width: 1024px) 992px, (max-width: 1280px) 1248px, (min-width: 1280px) ${odul2021.width}px`} />
 			<div class="prose px-4 py-4 prose-h1:font-zilla prose-h1:text-2xl prose-h1:text-mavi prose-h2:mb-0 prose-h2:mt-0 prose-h2:text-base prose-h2:text-mavi prose-p:mb-4 prose-li:my-0 sm:px-8 sm:py-8 md:px-16 md:py-16">
-				<GetSingleCollectionEntry collection="oduller" entrySlug="lacp-2024" />
+				<GetSingleCollectionEntry collection="OdulCollection" entrySlug="lacp-2024" />
 			</div>
 		</div>
 	</div>
 </Layout>
 
-<style>
+<style is:inline>
 	.odul-photo {
 		position: relative;
 		.info {

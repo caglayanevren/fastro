@@ -1,31 +1,31 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import CollectionRelatedItems from "~components/collectionRelatedItems.astro";
 import MultiItemLayout from "~layouts/MultiItemLayout.astro";
 import SingleItemLayout from "~layouts/SingleItemLayout.astro";
 
 export async function getStaticPaths() {
-	const allKSS = await getCollection("kss");
+	const allKSS = await getCollection("KSSCollection");
 	return allKSS.map((entry) => ({
-		params: { slug: entry.slug },
+		params: { slug: entry.id },
 		props: { entry, itemType: entry.data.type },
 	}));
 }
 
 const { entry, itemType } = Astro.props;
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 ---
 
 {
 	itemType == "singleItem" ? (
-		<SingleItemLayout title={entry.data.title} slug={entry.slug} description={entry.data.spot} collection={entry.collection} spot={entry.data.spot} category={entry.data.category} awarded={entry.data.awarded} coverImage={entry.data.coverImage} singleItemSpreadImages={entry.data.otherImages} singleItemSliderImages={entry.data.sliderImages}>
+		<SingleItemLayout title={entry.data.title} slug={entry.id} description={entry.data.spot} collection={entry.collection} spot={entry.data.spot} category={entry.data.category} awarded={entry.data.awarded} coverImage={entry.data.coverImage} singleItemSpreadImages={entry.data.otherImages} singleItemSliderImages={entry.data.sliderImages}>
 			<Content />
 			<div slot="relatedCollectionItems">
 				<CollectionRelatedItems collection={entry.collection} />
 			</div>
 		</SingleItemLayout>
 	) : itemType == "multiItem" ? (
-		<MultiItemLayout title={entry.data.title} slug={entry.slug} description={entry.data.spot} collection={entry.collection} spot={entry.data.spot} category={entry.data.category}>
+		<MultiItemLayout title={entry.data.title} slug={entry.id} description={entry.data.spot} collection={entry.collection} spot={entry.data.spot} category={entry.data.category}>
 			<Content />
 			<div slot="relatedCollectionItems">
 				<CollectionRelatedItems collection={entry.collection} />

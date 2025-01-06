@@ -5,7 +5,7 @@ import HoverItem from "~components/HoverItem.astro";
 import MoreInfo from "~components/MoreInfo.astro";
 import Layout from "~layouts/Layout.astro";
 
-const allFR = await getCollection("yatirimci-iliskileri-web-sitesi");
+const allFR = await getCollection("YIWSCollection");
 
 const TITLE = "Yatırımcı İlişkileri Web Sitesi";
 const DESCRIPTION = `Yatırımcı ilişkileri için duyarlı tasarım yaklaşımı ile yeni nesil mikro siteler inşa ediyoruz. Projelendirme, konsept tasarım, yazılım, içerik geliştirme ve çok dilde uygulama hizmetleri ile anahtar teslim hizmet veriyoruz.`;
@@ -53,6 +53,6 @@ const { title = TITLE, description = DESCRIPTION, moreinfotext = MOREINFO } = As
 	<ArticleTitle title={title} spot={description} />
 	<MoreInfo text={moreinfotext} />
 	<div class="grid auto-rows-max grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4 xl:gap-8">
-		{allFR.map((fr) => <HoverItem slug={fr.slug} title={fr.data.title} thumbnail={fr.data.thumbnail} thumbWidth={fr.data.thumbnail.width} thumbHeight={fr.data.thumbnail.height} />)}
+		{allFR.map((fr) => <HoverItem slug={fr.id} title={fr.data.title} thumbnail={fr.data.thumbnail} thumbWidth={fr.data.thumbnail.width} thumbHeight={fr.data.thumbnail.height} />)}
 	</div>
 </Layout>

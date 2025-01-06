@@ -1,7 +1,7 @@
 ---
 import Layout from "~layouts/Layout.astro";
 import { Image } from "astro:assets";
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import CollectionItemTitle from "~components/collectionItemTitle.astro";
 import CollectionName from "~components/collectionName.astro";
 import SingleItemCoverImage from "~components/SingleItemCoverImage.astro";
@@ -9,15 +9,15 @@ import TitleWithLine from "~components/TitleWithLine.astro";
 import CollectionRelatedItems from "~components/collectionRelatedItems.astro";
 
 export async function getStaticPaths() {
-	const allFR = await getCollection("kurumsal-kimlik");
+	const allFR = await getCollection("KKCollection");
 	return allFR.map((entry) => ({
-		params: { slug: entry.slug },
+		params: { slug: entry.id },
 		props: { entry },
 	}));
 }
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 
 const title = entry.data.title;
 const spot = entry.data.spot;
@@ -25,7 +25,7 @@ const category = entry.data.category;
 const coverImage = entry.data.coverImage;
 const singleItemSpreadImages: ImageMetadata[] = entry.data.singleItemSpreadImages;
 const collection = entry.collection;
-const slug = entry.slug;
+const slug = entry.id;
 ---
 
 <Layout title={title} description={spot} seoImage={`${import.meta.env.SITE}${collection}/${slug}/${slug}-og.png`}>

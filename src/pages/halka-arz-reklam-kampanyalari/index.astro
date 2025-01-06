@@ -6,7 +6,7 @@ import MoreInfo from "~components/MoreInfo.astro";
 import VimeoVideo from "~components/VimeoVideo.astro";
 import Layout from "~layouts/Layout.astro";
 
-const allSRD = await getCollection("halka-arz-reklam-kampanyalari");
+const allSRD = await getCollection("HARKCollection");
 
 const TITLE = "Halka Arz Reklam Kampanyaları";
 const DESCRIPTION = "Marka iletişimini aşk evliliğine benzetirsek yatırımcı iletişiminin daha çok “mantık evliliği” olduğunu söyleyebiliriz. Kendimizi, müstakbel damadın iyi yönlerini gelinin ailesine anlatan çöpçatanlar olarak görürüz.";
@@ -15,18 +15,13 @@ const MOREINFO = `
 <p>Bir halka arz kampanyasının başarısını etkileyen en önemli unsur, şirketi ve beklentilerini iyi anlamaktır. Ortada halka arza kadar, birçok zorluklar aşılarak yazılmış bir başarı hikayesi vardır ve bu büyüme hikayesi kendine yeni ortaklar aramaktadır.</p>
 <p>Doğru bir ton, şirketi ve geleceğini iyi yansıtan doğru mesajlar ve analitik düşünceyi yaratıcılıkla buluşturan güçlü bir kreatif yaklaşımla hedef kitleye ulaşmak gerekir.</p>
 `;
-
-const { title = TITLE, description = DESCRIPTION, moreinfotext = MOREINFO } = Astro.props;
 ---
 
-<Layout title={title} description={description} seoImage="./halka-arz-reklam-kampanyalari-og.png">
-	<ArticleTitle title={title} spot={description} />
-	<MoreInfo column={2} text={moreinfotext} />
-	<VimeoVideo id="860060379" title={title} classes="mb-12 mt-0" />
+<Layout title={TITLE} description={DESCRIPTION} seoImage="./halka-arz-reklam-kampanyalari-og.png">
+	<ArticleTitle title={TITLE} spot={DESCRIPTION} />
+	<MoreInfo column={2} text={MOREINFO} />
+	<VimeoVideo id="860060379" title={TITLE} classes="mb-12 mt-0" />
 	<div class="grid auto-rows-max grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4 xl:gap-8">
-		{allSRD.map((srd) => (srd.data.type == "onlyThumbnail" 
-										? <HoverItem slug="#" title={srd.data.title} thumbnail={srd.data.thumbnail} thumbWidth={srd.data.thumbnail.width} thumbHeight={srd.data.thumbnail.height} /> 
-										: <HoverItem slug={srd.slug} title={srd.data.title} thumbnail={srd.data.thumbnail} thumbWidth={srd.data.thumbnail.width} thumbHeight={srd.data.thumbnail.height} />
-								))}
+		{allSRD.map((srd) => (srd.data.type == "onlyThumbnail" ? <HoverItem slug="#" title={srd.data.title} thumbnail={srd.data.thumbnail} thumbWidth={srd.data.thumbnail.width} thumbHeight={srd.data.thumbnail.height} /> : <HoverItem slug={srd.id} title={srd.data.title} thumbnail={srd.data.thumbnail} thumbWidth={srd.data.thumbnail.width} thumbHeight={srd.data.thumbnail.height} />))}
 	</div>
 </Layout>

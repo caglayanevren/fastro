@@ -6,7 +6,7 @@ import HoverItem from "~components/HoverItem.astro";
 import TitleWithLine from "~components/TitleWithLine.astro";
 import Layout from "~layouts/Layout.astro";
 
-const allYS = await getCollection("yatirimci-sunumlari");
+const allYS = await getCollection("YSCollection");
 
 const TITLE = "Yatırımcı Sunumları";
 const DESCRIPTION = `Şirketin yıllık performansı kadar bu performansın hissedarlara, yatırımcılara ve analistlere nasıl anlatıldığı da son derece önemlidir. Sunumlarınızı daha çekici grafikler ve görsel öğelerle yeniden tasarlıyor, çeyrekler bazında güncelleme hizmeti veriyoruz.`;
@@ -20,6 +20,6 @@ const { title = TITLE, description = DESCRIPTION /* , moreinfotext = MOREINFO */
 	<!-- <MoreInfo text={moreinfotext} /> -->
 	<TitleWithLine />
 	<div class="grid auto-rows-max grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4 xl:gap-8">
-		{allYS.map((fr) => <HoverItem slug={fr.slug} title={fr.data.title} thumbnail={fr.data.thumbnail} thumbWidth={fr.data.thumbnail.width} thumbHeight={fr.data.thumbnail.height} />)}
+		{allYS.map((fr) => <HoverItem slug={fr.id} title={fr.data.title} thumbnail={fr.data.thumbnail} thumbWidth={fr.data.thumbnail.width} thumbHeight={fr.data.thumbnail.height} />)}
 	</div>
 </Layout>

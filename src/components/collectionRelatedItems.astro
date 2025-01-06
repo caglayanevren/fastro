@@ -15,18 +15,19 @@ const { collection } = Astro.props as Props;
 
 const allcollectionItems = await getCollection(collection);
 
+// prettier-ignore
 const validcollectionItems = allcollectionItems.filter((items) => {
 	return (
-		items.collection === "faaliyet-raporu" ||
-		items.collection === "entegre-faaliyet-raporu" ||
-		items.collection === "online-faaliyet-raporu" ||
-		items.collection === "surdurulebilirlik-raporu" ||
-		items.collection === "halka-arz-reklam-kampanyalari" ||
-		items.collection === "yatirimci-iliskileri-web-sitesi" ||
-		items.collection === "yatirimci-sunumlari" ||
-		items.collection === "kurumsal-kimlik" ||
-		items.collection === "b2b-reklam" ||
-		items.collection === "kss"
+		items.collection === "FRCollection" ||
+		items.collection === "EFRCollection" ||
+		items.collection === "OFRCollection" ||
+		items.collection === "SRDCollection" ||
+		items.collection === "HARKCollection" ||
+		items.collection === "YIWSCollection" ||
+		items.collection === "YSCollection" ||
+		items.collection === "KKCollection" ||
+		items.collection === "B2BRCollection" ||
+		items.collection === "KSSCollection"
 	)
 });
 ---
@@ -43,7 +44,7 @@ const validcollectionItems = allcollectionItems.filter((items) => {
 				.map((item) => {
 					return (
 						<div class="swiper-slide">
-							<HoverItem slug={`/${collection}/${item.slug}`} title={item.data.title} thumbnail={item.data.thumbnail} thumbWidth={item.data.thumbnail.width} thumbHeight={item.data.thumbnail.height} />
+							<HoverItem slug={`/${collection}/${item.id}`} title={item.data.title} thumbnail={item.data.thumbnail} thumbWidth={item.data.thumbnail.width} thumbHeight={item.data.thumbnail.height} />
 						</div>
 					);
 				})

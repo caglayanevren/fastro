@@ -12,7 +12,7 @@ import VlogGallery from "~components/vlogGallery.astro";
 import VlogSocial from "~components/vlogSocial.astro";
 
 export const getStaticPaths = (async () => {
-	const vlogs = await getCollection("vlog");
+	const vlogs = await getCollection("vlogCollection");
 	return vlogs.map((vlog) => ({
 		params: {
 			slug: vlog.id,

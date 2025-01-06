@@ -1,27 +1,27 @@
 ---
 import OdulLayout from "~layouts/odulLayout.astro";
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
-	const allFR = await getCollection("oduller");
+	const allFR = await getCollection("OdulCollection");
 	return allFR.map((entry) => ({
-		params: { slug: entry.slug },
+		params: { slug: entry.id },
 		props: { entry },
 	}));
 }
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 ---
 
-<OdulLayout title={entry.data.title} spot={entry.data.spot} category={entry.data.category} collection={entry.collection} slug={entry.slug} coverImage={entry.data.coverImage} year={entry.data.year}>
+<OdulLayout title={entry.data.title} spot={entry.data.spot} category={entry.data.category} collection={entry.collection} slug={entry.id} coverImage={entry.data.coverImage} year={entry.data.year}>
 	<Content />
 </OdulLayout>
 {
 	/*
-<script is:inline>
-	// HİZMETLER'den active link indicator'ı kaldırır.
-	document.querySelector("a[aria-label='FAALİYET RAPORU']").classList.remove("aw-link-active");
-</script>
+	<script is:inline>
+		// HİZMETLER'den active link indicator'ı kaldırır.
+		document.querySelector("a[aria-label='FAALİYET RAPORU']").classList.remove("aw-link-active");
+	</script>
 */
 }

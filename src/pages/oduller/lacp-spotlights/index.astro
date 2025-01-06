@@ -1,6 +1,6 @@
 ---
 import Layout from "~layouts/Layout.astro";
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import CollectionName from "~components/collectionName.astro";
 import TitleWithLine from "~components/TitleWithLine.astro";
 import ArticleTitle from "~components/articleTitle.astro";
@@ -8,7 +8,7 @@ import ArticleTitle from "~components/articleTitle.astro";
 const seoImage = "/og/lacp-spotlight-og.png";
 const title = "LACP Spotlight Awards";
 
-const allLACPSpotlights = await getCollection("lacp-spotlight");
+const allLACPSpotlights = await getCollection("LACPSpotlightCollection");
 ---
 
 <Layout title={title} seoImage={seoImage}>
@@ -24,7 +24,7 @@ const allLACPSpotlights = await getCollection("lacp-spotlight");
 						.map(function (allLACPSpotlight) {
 							return (
 								<li>
-									<a id={`${allLACPSpotlight.slug}`} href={`#${allLACPSpotlight.slug}`} class="tablink block px-8 py-4 text-gri3">{`${allLACPSpotlight.slug}`}</a>
+									<a id={`${allLACPSpotlight.id}`} href={`#${allLACPSpotlight.id}`} class="tablink block px-8 py-4 text-gri3">{`${allLACPSpotlight.id}`}</a>
 								</li>
 							);
 						})
@@ -36,9 +36,9 @@ const allLACPSpotlights = await getCollection("lacp-spotlight");
 					allLACPSpotlights
 						.sort((a, b) => Number(a.data.title) - Number(b.data.title))
 						.map(async function (allLACPSpotlight) {
-							const { Content } = await allLACPSpotlight.render();
+							const { Content } = await render(allLACPSpotlight);
 							return (
-								<section id={`${allLACPSpotlight.slug}-content`} class="tab-content hidden">
+								<section id={`${allLACPSpotlight.id}-content`} class="tab-content hidden">
 									<div class="prose prose-h2:mb-0 prose-h2:mt-0 prose-h2:text-base prose-h2:text-mavi prose-p:mb-4 prose-li:my-0">
 										<Content />
 									</div>

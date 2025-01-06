@@ -4,9 +4,8 @@ import ArticleTitle from "~components/articleTitle.astro";
 import HoverItem from "~components/HoverItem.astro";
 import MoreInfo from "~components/MoreInfo.astro";
 import Layout from "~layouts/Layout.astro";
-import { FinarExperienceYear } from "~config";
 
-const allFR = await getCollection("b2b-reklam");
+const allFR = await getCollection("B2BRCollection");
 
 const TITLE = "Reklam";
 const DESCRIPTION = `Az, çoktur yaklaşımıyla, güçlü ve benzersiz markalar inşa ediyoruz. “Terzi işi çözüm” yaklaşımıyla, markanızın kimliği ve karakteri üzerine tam oturacak, şık ve iddialı tanıtım çözümleri geliştiriyoruz.`;
@@ -31,14 +30,12 @@ const MOREINFO = `
 	</ul>
 </div>
 `;
-
-const { title = TITLE, description = DESCRIPTION, moreinfotext = MOREINFO } = Astro.props;
 ---
 
-<Layout title={title} description={description} seoImage="./b2b-reklam-og.png">
-	<ArticleTitle title={title} spot={description} />
-	<MoreInfo text={moreinfotext} />
+<Layout title={TITLE} description={DESCRIPTION} seoImage="./b2b-reklam-og.png">
+	<ArticleTitle title={TITLE} spot={DESCRIPTION} />
+	<MoreInfo text={MOREINFO} />
 	<div class="grid auto-rows-max grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4 xl:gap-8">
-		{allFR.map((fr) => <HoverItem slug={fr.slug} title={fr.data.title} thumbnail={fr.data.thumbnail} thumbWidth={fr.data.thumbnail.width} thumbHeight={fr.data.thumbnail.height} />)}
+		{allFR.map((fr) => <HoverItem slug={fr.id} title={fr.data.title} thumbnail={fr.data.thumbnail} thumbWidth={fr.data.thumbnail.width} thumbHeight={fr.data.thumbnail.height} />)}
 	</div>
 </Layout>

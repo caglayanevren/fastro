@@ -8,7 +8,7 @@ import MoreInfo from "~components/MoreInfo.astro";
 //import TitleWithLine from "~components/TitleWithLine.astro";
 import Layout from "~layouts/Layout.astro";
 
-const allKK = await getCollection("kurumsal-kimlik");
+const allKK = await getCollection("KKCollection");
 
 const TITLE = "Kurumsal Kimlik";
 const DESCRIPTION = `Kurumsal marka kimliğini, sadece logodan ibaret kozmetik bir sorun olarak görmüyoruz. Bize göre kurumsal kimlik, bir kurumun kendisiyle iletişime geçen tüm paydaşlarına verdiği ve her koşulda tutması gereken bir sözdür. Bu söz, hem içe hem de dışa dönüktür: Biz kimiz, neyi temsil ediyoruz ve ne vaat ediyoruz?`;
@@ -39,7 +39,7 @@ const { title = TITLE, description = DESCRIPTION, moreinfotext = MOREINFO } = As
 	<MoreInfo text={moreinfotext} />
 	<!-- <TitleWithLine /> -->
 	<div class="grid auto-rows-max grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4 xl:gap-8">
-		{allKK.sort((a, b) => a.data.sort - b.data.sort).map((kk) => <HoverItem slug={kk.slug} title={kk.data.title} thumbnail={kk.data.thumbnail} thumbWidth={kk.data.thumbnail.width} thumbHeight={kk.data.thumbnail.height} />)}
+		{allKK.sort((a, b) => a.data.sort - b.data.sort).map((kk) => <HoverItem slug={kk.id} title={kk.data.title} thumbnail={kk.data.thumbnail} thumbWidth={kk.data.thumbnail.width} thumbHeight={kk.data.thumbnail.height} />)}
 	</div>
 
 	<FirstSpace height={48} />
