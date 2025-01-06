@@ -11,7 +11,7 @@
 		"check": "astro check > astro-debug.log 2>&1",
 		"lint": "prettier --write  \"**/*.{js,cjs,json,mjs,jsx,ts,tsx,md,mdx,astro}\" && eslint --fix \"src/**/*.{js,cjs,mjs,ts,jsx,tsx,astro}\"",
 		"preview": "astro preview",
-		"test": "jest -c jest.config.cjs"
+		"test": "jest -c jest.config.cjs > demo-test.log 2>&1"
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.9.4",

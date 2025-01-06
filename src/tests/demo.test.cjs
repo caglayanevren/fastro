@@ -235,6 +235,13 @@ paths.slugs.forEach((path) => {
 			expect(pageTitle).toBeTruthy();
 		});
 
-		// ... diğer testler ...
+		it("Should have meta description", async () => {
+			const description = await page.$eval('meta[name="description"]', (element) => element.getAttribute("content"));
+
+			expect(description).toBeTruthy();
+			expect(description.length).toBeGreaterThan(0);
+			//expect(description.length).toBeGreaterThanOrEqual(50);
+			//expect(description.length).toBeLessThanOrEqual(160);
+		});
 	});
 });
