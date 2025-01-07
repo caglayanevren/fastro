@@ -3,7 +3,7 @@ import OdulLayout from "~layouts/odulLayout.astro";
 import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
-	const allFR = await getCollection("OdulCollection");
+	const allFR = await getCollection("oduller");
 	return allFR.map((entry) => ({
 		params: { slug: entry.id },
 		props: { entry },

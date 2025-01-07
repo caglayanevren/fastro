@@ -4,7 +4,7 @@ import CollectionRelatedItems from "~components/collectionRelatedItems.astro";
 import HalkaArzLayout from "~layouts/HalkaArzLayout.astro";
 
 export async function getStaticPaths() {
-	const allFR = await getCollection("HARKCollection");
+	const allFR = await getCollection("halka-arz-reklam-kampanyalari");
 	return allFR.map((entry) => ({
 		params: { slug: entry.id },
 		props: { entry },

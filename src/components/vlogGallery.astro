@@ -3,8 +3,8 @@ import { getCollection } from "astro:content";
 import TitleWithLine from "./TitleWithLine.astro";
 import VlogCard from "./vlogCard.astro";
 
-const vlog = await getCollection("vlogCollection");
-const vlogCategories = await getCollection("vlogCategoriesCollection");
+const vlog = await getCollection("vlog");
+const vlogCategories = await getCollection("vlog-categories");
 
 interface Props {
 	currentCategory?: string

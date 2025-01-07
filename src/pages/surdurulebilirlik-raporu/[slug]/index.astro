@@ -5,7 +5,7 @@ import MultiItemLayout from "~layouts/MultiItemLayout.astro";
 import CollectionRelatedItems from "~components/collectionRelatedItems.astro";
 
 export async function getStaticPaths() {
-	const allFR = await getCollection("SRDCollection");
+	const allFR = await getCollection("surdurulebilirlik-raporu");
 	return allFR.map((entry) => ({
 		params: { slug: entry.id },
 		props: { entry, itemType: entry.data.type },

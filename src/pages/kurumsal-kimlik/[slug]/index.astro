@@ -9,7 +9,7 @@ import TitleWithLine from "~components/TitleWithLine.astro";
 import CollectionRelatedItems from "~components/collectionRelatedItems.astro";
 
 export async function getStaticPaths() {
-	const allFR = await getCollection("KKCollection");
+	const allFR = await getCollection("kurumsal-kimlik");
 	return allFR.map((entry) => ({
 		params: { slug: entry.id },
 		props: { entry },

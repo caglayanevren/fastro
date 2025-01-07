@@ -11,7 +11,7 @@ import type { ImageMetadata } from "astro";
 import CollectionRelatedItems from "~components/collectionRelatedItems.astro";
 
 export async function getStaticPaths() {
-	const allR = await getCollection("B2BRCollection");
+	const allR = await getCollection("b2b-reklam");
 	return allR.map((entry) => ({
 		params: { slug: entry.id },
 		props: { entry },

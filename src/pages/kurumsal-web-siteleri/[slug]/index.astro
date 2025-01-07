@@ -9,7 +9,7 @@ import SingleItemCoverImage from "~components/SingleItemCoverImage.astro";
 import CollectionRelatedItems from "~components/collectionRelatedItems.astro";
 
 export async function getStaticPaths() {
-	const allKW = await getCollection("KWCollection");
+	const allKW = await getCollection("kurumsal-web-siteleri");
 	return allKW.map((entry) => ({
 		params: { slug: entry.id },
 		props: { entry },

@@ -8,7 +8,7 @@ import ArticleTitle from "~components/articleTitle.astro";
 const seoImage = "/og/lacp-spotlight-og.png";
 const title = "LACP Spotlight Awards";
 
-const allLACPSpotlights = await getCollection("LACPSpotlightCollection");
+const allLACPSpotlights = await getCollection("lacp-spotlights");
 ---
 
 <Layout title={title} seoImage={seoImage}>

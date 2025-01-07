@@ -1,22 +1,23 @@
 import type { APIRoute } from "astro";
 import { getCollection } from "astro:content";
+import OdullerSquareImage from "~components/OdullerSquareImage.astro";
 
 export const GET: APIRoute = async () => {
 	// prettier-ignore
 	const allCollections = await Promise.all([
-		getCollection("FRCollection"),
-		getCollection("OFRCollection"),
-		getCollection("EFRCollection"),
-		getCollection("SRDCollection"),
-		getCollection("HARKCollection"),
-		getCollection("KSSCollection"),
-		getCollection("OdulCollection"),
-		getCollection("vlogCollection"),
-		getCollection("B2BRCollection"),
-		getCollection("YSCollection"),
-		getCollection("YIWSCollection"),
-		getCollection("KWCollection"),
-		getCollection("KKCollection"),
+		getCollection("faaliyet-raporu"),
+		getCollection("entegre-faaliyet-raporu"),
+		getCollection("online-faaliyet-raporu"),
+		getCollection("surdurulebilirlik-raporu"),
+		getCollection("halka-arz-reklam-kampanyalari"),
+		getCollection("kss"),
+		getCollection("oduller"),
+		getCollection("vlog"),
+		getCollection("b2b-reklam"),
+		getCollection("yatirimci-sunumlari"),
+		getCollection("yatirimci-iliskileri-web-sitesi"),
+		getCollection("kurumsal-web-siteleri"),
+		getCollection("kurumsal-kimlik"),
 	]);
 
 	// prettier-ignore

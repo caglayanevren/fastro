@@ -7,7 +7,7 @@ import { OpenSansData, Zilla300Data, Zilla600Data } from "~/utils/utils";
 
 interface Props {
 	params: { slug: string };
-	props: { post: CollectionEntry<"KSSCollection"> };
+	props: { post: CollectionEntry<"kss"> };
 }
 
 export async function GET({ props }: Props) {
@@ -140,7 +140,7 @@ export async function GET({ props }: Props) {
 
 // to generate an image for each blog posts in a collection
 export async function getStaticPaths() {
-	const blogPosts = await getCollection("KSSCollection");
+	const blogPosts = await getCollection("kss");
 	return blogPosts.map((post) => ({
 		params: { slug: post.id },
 		props: { post },

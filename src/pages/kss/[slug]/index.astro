@@ -5,7 +5,7 @@ import MultiItemLayout from "~layouts/MultiItemLayout.astro";
 import SingleItemLayout from "~layouts/SingleItemLayout.astro";
 
 export async function getStaticPaths() {
-	const allKSS = await getCollection("KSSCollection");
+	const allKSS = await getCollection("kss");
 	return allKSS.map((entry) => ({
 		params: { slug: entry.id },
 		props: { entry, itemType: entry.data.type },

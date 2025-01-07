@@ -18,16 +18,16 @@ const allcollectionItems = await getCollection(collection);
 // prettier-ignore
 const validcollectionItems = allcollectionItems.filter((items) => {
 	return (
-		items.collection === "FRCollection" ||
-		items.collection === "EFRCollection" ||
-		items.collection === "OFRCollection" ||
-		items.collection === "SRDCollection" ||
-		items.collection === "HARKCollection" ||
-		items.collection === "YIWSCollection" ||
-		items.collection === "YSCollection" ||
-		items.collection === "KKCollection" ||
-		items.collection === "B2BRCollection" ||
-		items.collection === "KSSCollection"
+		items.collection === "faaliyet-raporu" ||
+		items.collection === "entegre-faaliyet-raporu" ||
+		items.collection === "online-faaliyet-raporu" ||
+		items.collection === "surdurulebilirlik-raporu" ||
+		items.collection === "halka-arz-reklam-kampanyalari" ||
+		items.collection === "yatirimci-iliskileri-web-sitesi" ||
+		items.collection === "yatirimci-sunumlari" ||
+		items.collection === "kurumsal-kimlik" ||
+		items.collection === "b2b-reklam" ||
+		items.collection === "kss"
 	)
 });
 ---

@@ -8,7 +8,7 @@ import ArticleTitle from "~components/articleTitle.astro";
 const seoImage = "/og/galaxy-awards-og.png";
 const title = "Galaxy Awards";
 
-const allGalaxyAwards = await getCollection("GalaxyAwardsCollection");
+const allGalaxyAwards = await getCollection("galaxy-awards");
 ---
 
 <Layout title={title} seoImage={seoImage}>

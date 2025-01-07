@@ -8,7 +8,7 @@ import SingleItemCoverImage from "~components/SingleItemCoverImage.astro";
 import CollectionRelatedItems from "~components/collectionRelatedItems.astro";
 
 export async function getStaticPaths() {
-	const allFR = await getCollection("YSCollection");
+	const allFR = await getCollection("yatirimci-sunumlari");
 	return allFR.map((entry) => ({
 		params: { slug: entry.id },
 		props: { entry },

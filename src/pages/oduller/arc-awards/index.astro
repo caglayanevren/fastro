@@ -8,7 +8,7 @@ import ArticleTitle from "~components/articleTitle.astro";
 const seoImage = "/og/arc-awards-og.png";
 const title = "ARC Awards International";
 
-const allARCAwards = await getCollection("ARCAwardsCollection");
+const allARCAwards = await getCollection("arc-awards");
 ---
 
 <Layout title={title} seoImage={seoImage}>

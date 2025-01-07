@@ -10,7 +10,7 @@ import Layout from "~layouts/Layout.astro";
 //import CollectionRelatedItems from "~components/collectionRelatedItems.astro";
 
 export async function getStaticPaths() {
-	const allFR = await getCollection("YIWSCollection");
+	const allFR = await getCollection("yatirimci-iliskileri-web-sitesi");
 	return allFR.map((entry) => ({
 		params: { slug: entry.id },
 		props: { entry },
